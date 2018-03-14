@@ -64,11 +64,15 @@ component Home {
               label="Install"/>
           </Ui.Link>
 
-          <Ui.Link href="/install">
+          <Ui.Link
+            href="https://gdotdesign.gitbooks.io/mint/content/"
+            target="_blank">
+
             <Ui.Button
               size={22}
               type="secondary"
               label="Learn"/>
+
           </Ui.Link>
         </div>
       </div>
