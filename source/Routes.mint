@@ -1,0 +1,66 @@
+routes {
+  /users/new {
+    do {
+      Application.setPage("new")
+      Users.List.resetUser()
+    }
+  }
+
+  /users/:id (id : Number) {
+    do {
+      Application.setPage("user")
+      Users.List.resetUser()
+      Users.List.getUser(id)
+    }
+  }
+
+  /users?page=:page (page : String) {
+    do {
+      Application.setPage("index")
+      Users.List.refresh()
+
+      actualPage =
+        Number.fromString(page)
+        |> Result.withDefault(0)
+
+      Users.List.setPage(actualPage)
+    }
+  }
+
+  /users {
+    do {
+      Application.setPage("index")
+      Users.List.refresh()
+      Users.List.setPage(0)
+    }
+  }
+
+  /counter {
+    Application.setPage("counter")
+  }
+
+  /drag {
+    Application.setPage("drag")
+  }
+
+  /examples {
+    Application.setPage("examples")
+  }
+
+  /install {
+    do {
+      Application.setPage("install")
+    }
+  }
+
+  / {
+    do {
+      Application.setPage("home")
+      Showcase.Store.setActive("store")
+    }
+  }
+
+  * {
+    Application.setPage("not_found")
+  }
+}
