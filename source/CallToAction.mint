@@ -1,5 +1,4 @@
-component Home.CallToAction {
-  property theme : Ui.Theme = Ui.defaultTheme()
+component CallToAction {
   property children : Array(Html) = []
   property text : String = ""
 

@@ -75,13 +75,13 @@ component Home {
 
       <Showcase/>
 
-      <Home.CallToAction text="Got your attention?">
+      <CallToAction text="Got your attention?">
         <Ui.Button
           onClick={\event : Html.Event => Navigation.navigate("/install")}
           label="Install Mint"
           size={20}
           type="secondary"/>
-      </Home.CallToAction>
+      </CallToAction>
     </div>
   }
 }

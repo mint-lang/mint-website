@@ -3,7 +3,7 @@ component Layout {
   property children : Array(Html) = []
 
   style base {
-    font-family: {theme.fontFamily};
+    font-family: Open Sans;
     flex-direction: column;
     min-height: 100vh;
     margin: 0 auto;

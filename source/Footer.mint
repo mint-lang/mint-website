@@ -48,16 +48,18 @@ component Footer {
 
           <Ui.Link
             href="https://github.com/mint-lang/mint"
-            target="_blank"
-            label="Github Repository"/>
+            label="Github Repository"
+            target="_blank"/>
 
           <Ui.Link
             href="https://github.com/mint-lang/mint/releases"
-            label="Releases / Changelog"/>
+            label="Releases / Changelog"
+            target="_blank"/>
 
           <Ui.Link
             href="https://github.com/mint-lang/mint-examples"
-            label="Examples"/>
+            label="Examples"
+            target="_blank"/>
         </div>
 
         <div::column>
