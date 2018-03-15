@@ -23,6 +23,10 @@ component Examples {
       <Ui.Link
         href="/counter"
         label="Counter"/>
+
+      <Ui.Link
+        href="/examples/file-handling"
+        label="File Handling"/>
     </Page>
   }
 }

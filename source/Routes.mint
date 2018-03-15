@@ -47,6 +47,10 @@ routes {
     Application.setPage("examples")
   }
 
+  /examples/file-handling {
+    Application.setPage("file-handling")
+  }
+
   /install {
     do {
       Application.setPage("install")

@@ -8,6 +8,10 @@ component Main {
         contents = <Examples/>
       },
       {
+        name = "file-handling",
+        contents = <Examples.FileHandling/>
+      },
+      {
         name = "home",
         contents = <Home/>
       },

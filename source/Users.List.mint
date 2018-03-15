@@ -134,7 +134,7 @@ store Users.List {
       endpoint() + "users/" + Number.toString(user.id) + ".json"
       |> Http.put()
       |> Http.header("Content-Type", "application/json")
-      |> Http.body(stringifyUser())
+      |> Http.stringBody(stringifyUser())
       |> Http.send()
 
       next { state | stale = true }
@@ -168,7 +168,7 @@ store Users.List {
       endpoint() + "users"
       |> Http.post()
       |> Http.header("Content-Type", "application/json")
-      |> Http.body(stringifyUser())
+      |> Http.stringBody(stringifyUser())
       |> Http.send()
 
       next { state | stale = true }
