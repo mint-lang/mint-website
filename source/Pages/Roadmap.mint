@@ -217,6 +217,13 @@ component Roadmap {
           icon="🞛">
 
           <Roadmap.Feature
+            name="Components"
+            description={
+              "Define components with type checked properties and state" \
+              "."
+            }/>
+
+          <Roadmap.Feature
             name="Styling"
             description="Styling HTML tags in a dynamic way without conflicts."/>
 
