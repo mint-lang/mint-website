@@ -25,11 +25,11 @@
   "dependencies": {
     "mint-ui": {
       "repository": "https://github.com/mint-lang/ui",
-      "constraint": "master:0.0.1"
+      "constraint": "origin/master:0.0.1"
     },
     "mint-core": {
       "repository": "https://github.com/mint-lang/core",
-      "constraint": "master:0.0.1"
+      "constraint": "origin/master:0.0.1"
     }
   }
 }
