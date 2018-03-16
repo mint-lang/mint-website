@@ -63,8 +63,7 @@ store Users.List {
   }
 
   fun decodeUsers (input : JSObject) : Result(Json.Error, Array(User)) {
-    input
-    |> Json.Decoder.decodeWith(Json.Decoder.array(decodeUser))
+    Json.Decoder.array(decodeUser, input)
   }
 
   fun endpoint : String {

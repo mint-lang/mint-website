@@ -54,6 +54,7 @@ routes {
   /install {
     do {
       Application.setPage("install")
+      Versions.refresh()
     }
   }
 
