@@ -1,5 +1,12 @@
 component Main {
   connect Application exposing { page, setPage }
+  connect Ui exposing { theme }
+
+  fun componentDidMount : Void {
+    do {
+      Ui.setFontFamily("Open Sans")
+    }
+  }
 
   get pages : Array(Ui.Pager.Item) {
     [
@@ -47,6 +54,10 @@ component Main {
       {
         name = "install",
         contents = <Install/>
+      },
+      {
+        name = "roadmap",
+        contents = <Roadmap/>
       },
       {
         name = "not_found",

@@ -1,5 +1,6 @@
 component Layout {
-  property theme : Ui.Theme = Ui.defaultTheme()
+  connect Ui exposing { theme }
+
   property children : Array(Html) = []
 
   style base {
@@ -67,6 +68,13 @@ component Layout {
           <Ui.Toolbar.Separator/>
 
           <Ui.Link
+            href="https://gdotdesign.gitbooks.io/mint/content/"
+            target="_blank"
+            label="Guide"/>
+
+          <Ui.Toolbar.Separator/>
+
+          <Ui.Link
             href="/examples"
             label="Examples"/>
 
@@ -75,13 +83,6 @@ component Layout {
           <Ui.Link
             href="/roadmap"
             label="Roadmap"/>
-
-          <Ui.Toolbar.Separator/>
-
-          <Ui.Link
-            href="https://gdotdesign.gitbooks.io/mint/content/"
-            target="_blank"
-            label="Guide"/>
 
           <Ui.Toolbar.Separator/>
 

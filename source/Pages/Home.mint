@@ -1,5 +1,5 @@
 component Home {
-  property theme : Ui.Theme = Ui.defaultTheme()
+  connect Ui exposing { theme }
 
   style hero {
     justify-content: center;
@@ -83,8 +83,8 @@ component Home {
         <Ui.Button
           onClick={\event : Html.Event => Navigation.navigate("/install")}
           label="Install Mint"
-          size={20}
-          type="secondary"/>
+          type="secondary"
+          size={20}/>
       </CallToAction>
     </div>
   }

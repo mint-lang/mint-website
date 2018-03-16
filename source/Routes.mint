@@ -58,6 +58,13 @@ routes {
     }
   }
 
+  /roadmap {
+    do {
+      Application.setPage("roadmap")
+      Versions.refresh()
+    }
+  }
+
   / {
     do {
       Application.setPage("home")

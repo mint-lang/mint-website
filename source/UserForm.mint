@@ -3,8 +3,9 @@ record UserForm.State {
 }
 
 component UserForm {
+  connect Ui exposing { theme }
+
   property isNew : Bool = false
-  property theme : Ui.Theme = Ui.defaultTheme()
 
   connect Users.List exposing {
     page,

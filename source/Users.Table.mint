@@ -1,7 +1,6 @@
 component Users.Table {
   connect Users.List exposing { loading, users, page, perPage, error }
-
-  property theme : Ui.Theme = Ui.defaultTheme()
+  connect Ui exposing { theme }
 
   style table {
     border: 1px solid {theme.border.color};
