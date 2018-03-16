@@ -3,7 +3,6 @@ component SubTitle {
 
   style base {
     margin: 10px 0;
-    color: #666;
   }
 
   fun render : Html {

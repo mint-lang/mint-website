@@ -2,9 +2,29 @@ component Install {
   connect Versions exposing { loading, latest }
 
   style hr {
-    margin: 30px 0;
+    margin: 40px 0;
+
     border: 0;
     border-top: 1px solid #EEE;
+  }
+
+  style code {
+    border: 1px solid #DDD;
+    background: #f7f7f7;
+    font-size: inherit;
+    padding: 5px;
+  }
+
+  style list {
+    & li {
+      margin-top: 15px;
+    }
+  }
+
+  style files {
+    & li {
+      margin-top: 10px;
+    }
   }
 
   get version : Version {
@@ -13,11 +33,13 @@ component Install {
 
   get content : Html {
     if (loading) {
-      <div>
-        <{ "Loading versions..." }>
-      </div>
+      <ul::files>
+        <li>
+          <{ "Loading versions..." }>
+        </li>
+      </ul>
     } else {
-      <ul>
+      <ul::files>
         <{ files }>
       </ul>
     }
@@ -43,30 +65,24 @@ component Install {
   fun render : Html {
     <Page>
       <Title>
-        <{ "Download" }>
-      </Title>
-
-      <SubTitle>
-        <{ "You can download the latest binaries here." }>
-      </SubTitle>
-
-      <{ content }>
-
-      <hr::hr/>
-
-      <Title>
         <{ "Install" }>
       </Title>
 
       <SubTitle>
-        <{ "Follow the directions below to install Mint." }>
+        <{ "Follow the directions below to install Mint:" }>
       </SubTitle>
 
-      <ul>
+      <ol::list>
         <li>
-          <{ "Download the binary and copy it into: " }>
+          <{ "Download the binary for your operating system: " }>
 
-          <code>
+          <{ content }>
+        </li>
+
+        <li>
+          <{ "Move the binary to the: " }>
+
+          <code::code>
             <{ "/usr/local/bin" }>
           </code>
 
@@ -76,11 +92,11 @@ component Install {
         <li>
           <{ "You invoke the CLI in your terminal by just typing " }>
 
-          <code>
+          <code::code>
             <{ "mint" }>
           </code>
         </li>
-      </ul>
+      </ol>
 
       <hr::hr/>
 
@@ -89,29 +105,44 @@ component Install {
       </Title>
 
       <SubTitle>
-        <{ "Follow the directions below to install Mint from source." }>
+        <{ "Follow the directions below to install Mint from source:" }>
       </SubTitle>
 
-      <ul>
+      <ol::list>
         <li>
-          <{ "Install the crystal programming language" }>
+          <{ "Install the " }>
+
+          <Ui.Link
+            href="https://crystal-lang.org/docs/installation/"
+            label="Crystal programming language"
+            target="_blank"/>
         </li>
 
         <li>
           <{ "Download and extract the source files from Github:" }>
+          <br/>
+
+          <Ui.Link
+            label="https://github.com/mint-lang/mint"
+            href="https://github.com/mint-lang/mint"
+            target="_blank"/>
         </li>
 
         <li>
           <{
             "In your terminal enter the folder you extracted the sour" \
-            "ce code."
+            "ce code:"
           }>
+
+          <pre::code>
+            <{ "cd /path/to/source" }>
+          </pre>
         </li>
 
         <li>
           <{ "Install dependencies:" }>
 
-          <pre>
+          <pre::code>
             <{ "crystal deps" }>
           </pre>
         </li>
@@ -119,7 +150,7 @@ component Install {
         <li>
           <{ "Build the binary (might need to use sudo):" }>
 
-          <pre>
+          <pre::code>
             <{
               "crystal build src/mint.cr -o /usr/local/bin/mint -p --re" \
               "lease"
@@ -130,11 +161,11 @@ component Install {
         <li>
           <{ "You invoke the CLI in your terminal by just typing " }>
 
-          <code>
+          <code::code>
             <{ "mint" }>
           </code>
         </li>
-      </ul>
+      </ol>
     </Page>
   }
 }
