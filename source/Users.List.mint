@@ -68,7 +68,7 @@ store Users.List {
   }
 
   fun endpoint : String {
-    "https://js-assessment-backend.herokuapp.com/"
+    "https://mint-website.herokuapp.com/"
   }
 
   fun refresh : Void {
@@ -84,7 +84,7 @@ store Users.List {
       next { state | loading = true }
 
       response =
-        endpoint() + "users.json"
+        endpoint() + "users"
         |> Http.get()
         |> Http.send()
 
@@ -131,7 +131,7 @@ store Users.List {
     do {
       next { state | loading = true }
 
-      endpoint() + "users/" + Number.toString(user.id) + ".json"
+      endpoint() + "users/" + Number.toString(user.id)
       |> Http.put()
       |> Http.header("Content-Type", "application/json")
       |> Http.stringBody(stringifyUser())
@@ -205,7 +205,7 @@ store Users.List {
       next { state | loading = true }
 
       response =
-        endpoint() + "users/" + Number.toString(id) + ".json"
+        endpoint() + "users/" + Number.toString(id)
         |> Http.get()
         |> Http.send()
 
