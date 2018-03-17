@@ -156,7 +156,7 @@ component Roadmap {
           }/>
 
         <Roadmap.Feature
-          name="Optimize Compilation"
+          name="Compiler Optimalization"
           icon="🞛"
           description="Only compile the entities that are being used."/>
 
@@ -185,6 +185,14 @@ component Roadmap {
           name="Image Optimization"
           icon="🞛"
           description="During the build process optimize images automatically."/>
+
+        <Roadmap.Feature
+          name="Application Structure Diagram"
+          icon="🞛"
+          description={
+            "Construct an interactive diagram of application structur" \
+            "e containing routes, stores, providers and components. "
+          }/>
       </Roadmap.Version>
 
       <Roadmap.Version version="0.1">
@@ -248,6 +256,10 @@ component Roadmap {
               "Subscribe to global events (mouse, window) using provide" \
               "rs."
             }/>
+
+          <Roadmap.Feature
+            name="JavaScript Interopability"
+            description="Simply call out the JavaScript when you need to."/>
 
         </Roadmap.Feature>
 

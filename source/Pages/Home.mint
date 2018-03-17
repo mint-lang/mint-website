@@ -65,7 +65,7 @@ component Home {
           </Ui.Link>
 
           <Ui.Link
-            href="https://gdotdesign.gitbooks.io/mint/content/"
+            href="https://guide.mint-lang.com"
             target="_blank">
 
             <Ui.Button

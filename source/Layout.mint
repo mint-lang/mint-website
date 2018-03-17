@@ -68,7 +68,7 @@ component Layout {
           <Ui.Toolbar.Separator/>
 
           <Ui.Link
-            href="https://gdotdesign.gitbooks.io/mint/content/"
+            href="https://guide.mint-lang.com"
             target="_blank"
             label="Guide"/>
 

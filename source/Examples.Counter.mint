@@ -2,11 +2,11 @@ store Counter.Store {
   property counter : Number = 0
 
   fun increment : Void {
-    next { state | counter = state.counter + 1 }
+    next { state | counter = counter + 1 }
   }
 
   fun decrement : Void {
-    next { state | counter = state.counter - 1 }
+    next { state | counter = counter - 1 }
   }
 }
 

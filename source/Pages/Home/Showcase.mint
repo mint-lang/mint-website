@@ -732,7 +732,7 @@ component Showcase {
               name="function">
 
               <Showcase.Highlight
-                text="next { state | counter = state.counter + 1 }"
+                text="next { state | counter = counter + 1 }"
                 name="next"/>
 
             </Showcase.HighlightBlock>
@@ -740,7 +740,7 @@ component Showcase {
             <div::spacer/>
 
             <Showcase.Block line="fun decrement : Void">
-              <{ "next { state | counter = state.counter - 1 }" }>
+              <{ "next { state | counter = counter - 1 }" }>
             </Showcase.Block>
 
           </Showcase.HighlightBlock>

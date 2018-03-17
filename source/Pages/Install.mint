@@ -80,13 +80,11 @@ component Install {
         </li>
 
         <li>
-          <{ "Move the binary to the: " }>
+          <{ "Move the binary to (as): " }>
 
           <code::code>
-            <{ "/usr/local/bin" }>
+            <{ "/usr/local/bin/mint" }>
           </code>
-
-          <{ " directory" }>
         </li>
 
         <li>
@@ -153,7 +151,7 @@ component Install {
           <pre::code>
             <{
               "crystal build src/mint.cr -o /usr/local/bin/mint -p --re" \
-              "lease"
+              "lease --no-debug"
             }>
           </pre>
         </li>
@@ -166,6 +164,45 @@ component Install {
           </code>
         </li>
       </ol>
+
+      <hr::hr/>
+
+      <Title>
+        <{ "Daily Binaries" }>
+      </Title>
+
+      <SubTitle>
+        <p>
+          <{
+            "A fresh binary is created and uploaded to S3 when someth" \
+            "ing changes in the master branch."
+          }>
+        </p>
+
+        <p>
+          <{ "You can download those binaries here:" }>
+        </p>
+
+        <ul::files>
+          <li>
+            <Ui.Link
+              href={
+                "https://s3-eu-west-1.amazonaws.com/mint-lang/mint-latest" \
+                "-linux"
+              }
+              label="mint-latest-linux"/>
+          </li>
+
+          <li>
+            <Ui.Link
+              href={
+                "https://s3-eu-west-1.amazonaws.com/mint-lang/mint-latest" \
+                "-osx"
+              }
+              label="mint-latest-osx"/>
+          </li>
+        </ul>
+      </SubTitle>
     </Page>
   }
 }
