@@ -55,11 +55,6 @@ component Footer {
             href="https://github.com/mint-lang/mint/releases"
             label="Releases / Changelog"
             target="_blank"/>
-
-          <Ui.Link
-            href="https://github.com/mint-lang/mint-examples"
-            label="Examples"
-            target="_blank"/>
         </div>
 
         <div::column>
