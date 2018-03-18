@@ -81,11 +81,15 @@ component Install {
         </li>
 
         <li>
-          <{ "Move the binary to (as): " }>
+          <{ "Move the binary to " }>
 
           <code::code>
             <{ "/usr/local/bin/mint" }>
           </code>
+          <{":"}>
+          <pre::code>
+            <{ "sudo mv /path/to/binary /usr/local/bin/mint" }>
+          </pre>
         </li>
 
         <li>
