@@ -2,9 +2,9 @@ component Users.Layout {
   property children : Array(Html) = []
 
   style wrapper {
+    max-width: 1040px;
     padding: 0 20px;
     margin: 0 auto;
-    width: 1040px;
   }
 
   style content {

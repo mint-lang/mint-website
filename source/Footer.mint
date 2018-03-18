@@ -8,9 +8,9 @@ component Footer {
 
   style wrapper {
     padding: 30px 20px;
+    max-width: 1040px;
     margin: 0 auto;
     display: flex;
-    width: 1040px;
   }
 
   style column {

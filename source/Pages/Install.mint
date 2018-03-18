@@ -10,8 +10,9 @@ component Install {
 
   style code {
     border: 1px solid #DDD;
-    background: #f7f7f7;
+    white-space: pre-wrap;
     font-size: inherit;
+    background: #FFF;
     padding: 5px;
   }
 
