@@ -1,20 +1,22 @@
 component Footer {
   style base {
+    min-height: 200px;
     background: #222;
     margin-top: auto;
-    height: 200px;
     color: #BBB;
   }
 
   style wrapper {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-gap: 20px 50px;
+    display: grid;
+
     padding: 30px 20px;
     max-width: 1040px;
     margin: 0 auto;
-    display: flex;
   }
 
   style column {
-    margin-right: 50px;
     width: 200px;
 
     & > a {

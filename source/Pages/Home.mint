@@ -7,6 +7,10 @@ component Home {
     align-items: center;
     display: flex;
     height: 500px;
+
+    @media (max-width: 600px) {
+      height: 300px;
+    }
   }
 
   style slogan {
@@ -14,6 +18,11 @@ component Home {
     margin-top: 20px;
     font-size: 18px;
     color: #666;
+
+    @media (max-width: 600px) {
+      margin-top: 10px;
+      font-size: 13px;
+    }
   }
 
   style buttons {
@@ -50,6 +59,8 @@ component Home {
       <div::hero>
         <Logo
           fill={theme.colors.primary.background}
+          mobileHeight={60}
+          mobileWidth={250}
           textFill="#222"/>
 
         <h2::slogan>

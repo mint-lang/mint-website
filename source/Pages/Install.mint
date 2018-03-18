@@ -20,6 +20,11 @@ component Install {
     & li {
       margin-top: 15px;
     }
+
+    @media (max-width: 600px) {
+      padding-left: 15px;
+      font-size: 14px;
+    }
   }
 
   style files {
@@ -86,8 +91,6 @@ component Install {
           <code::code>
             <{ "/usr/local/bin/mint" }>
           </code>
-
-          <{ " :" }>
 
           <pre::code>
             <{ "sudo mv /path/to/binary /usr/local/bin/mint" }>

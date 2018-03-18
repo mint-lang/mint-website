@@ -4,9 +4,17 @@ component Logo {
   property height : Number = 90
   property width : Number = 370
 
+  property mobileHeight : Number = 90
+  property mobileWidth : Number = 370
+
   style base {
     height: {height}px;
     width: {width}px;
+
+    @media (max-width: 500px) {
+      height: {mobileHeight}px;
+      width: {mobileWidth}px;
+    }
   }
 
   fun render : Html {

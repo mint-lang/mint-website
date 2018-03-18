@@ -15,11 +15,19 @@ component Showcase {
     padding: 50px 20px;
     max-width: 1040px;
     margin: 0 auto;
+
+    @media (max-width: 600px) {
+      padding-bottom: 20px;
+    }
   }
 
   style code {
     line-height: 2;
     margin: 0;
+
+    @media (max-width: 600px) {
+      margin-bottom: 20px;
+    }
   }
 
   style description {
@@ -40,8 +48,8 @@ component Showcase {
       border: 1px solid #E6E6E6;
       background: #F6F6F6;
       border-radius: 3px;
+      font-size: 0.88em;
       padding: 1px 5px;
-      font-size: 16px;
     }
 
     & p,
@@ -57,6 +65,14 @@ component Showcase {
     & li {
       margin-bottom: 10px;
     }
+
+    @media (max-width: 600px) {
+      background: rgba(255,255,255,0.92);
+      font-size: 13px;
+      padding: 10px 0;
+      margin-left: 0;
+      bottom: 0;
+    }
   }
 
   style spacer {
@@ -65,6 +81,11 @@ component Showcase {
 
   style wrapper {
     display: flex;
+
+    @media (max-width: 600px) {
+      font-size: 12px;
+      display: block;
+    }
   }
 
   style title {
@@ -87,6 +108,10 @@ component Showcase {
     margin-bottom: 10px;
     font-weight: bold;
     font-size: 22px;
+
+    @media (max-width: 600px) {
+      font-size: 18px;
+    }
   }
 
   get data : Array(Showcase.Item) {

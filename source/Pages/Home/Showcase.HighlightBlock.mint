@@ -9,12 +9,17 @@ component Showcase.HighlightBlock {
   property name : String = ""
 
   style base {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
     background: {background};
     padding: {padding};
     border-radius: 2px;
     border: {border};
     cursor: pointer;
     color: {color};
+
+    @media (max-width: 600px) {
+      white-space: pre-wrap;
+    }
   }
 
   style content {

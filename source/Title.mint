@@ -7,6 +7,10 @@ component Title {
     font-size: 32px;
     line-height: 1;
     color: #222;
+
+    @media (max-width: 600px) {
+      font-size: 24px;
+    }
   }
 
   fun render : Html {

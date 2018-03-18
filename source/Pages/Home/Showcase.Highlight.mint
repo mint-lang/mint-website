@@ -5,6 +5,9 @@ component Showcase.Highlight {
   property name : String = ""
 
   style base {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
     background: {background};
     border-radius: 2px;
     border: {border};
