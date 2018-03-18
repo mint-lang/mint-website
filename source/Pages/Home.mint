@@ -53,7 +53,7 @@ component Home {
           textFill="#222"/>
 
         <h2::slogan>
-          <{ "A refreshing language for the font-end web." }>
+          <{ "A refreshing language for the front-end web." }>
         </h2>
 
         <div::buttons>
