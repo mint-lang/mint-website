@@ -7,6 +7,10 @@ record Showcase.Item {
 component Showcase {
   connect Showcase.Store exposing { active }
 
+  style row {
+    background: #FFF;
+  }
+
   style base {
     padding: 50px 20px;
     max-width: 1040px;
@@ -705,206 +709,208 @@ component Showcase {
   }
 
   fun render : Html {
-    <div::base>
-      <div::title>
-        <{ "Explore an example" }>
-      </div>
+    <div::row>
+      <div::base>
+        <div::title>
+          <{ "Explore an example" }>
+        </div>
 
-      <div::hint>
-        <{ "Click on the parts to learn more." }>
-      </div>
+        <div::hint>
+          <{ "Click on the parts to learn more." }>
+        </div>
 
-      <div::wrapper>
-        <pre::code>
-          <Showcase.HighlightBlock
-            line="store Counter.Store"
-            padding="5px 10px"
-            name="store">
-
-            <Showcase.Highlight
-              text="property counter : Number = 0"
-              name="store-property"/>
-
-            <div::spacer/>
-
+        <div::wrapper>
+          <pre::code>
             <Showcase.HighlightBlock
-              line="fun increment : Void"
-              name="function">
+              line="store Counter.Store"
+              padding="5px 10px"
+              name="store">
 
               <Showcase.Highlight
-                text="next { state | counter = counter + 1 }"
-                name="next"/>
+                text="property counter : Number = 0"
+                name="store-property"/>
 
-            </Showcase.HighlightBlock>
+              <div::spacer/>
 
-            <div::spacer/>
+              <Showcase.HighlightBlock
+                line="fun increment : Void"
+                name="function">
 
-            <Showcase.Block line="fun decrement : Void">
-              <{ "next { state | counter = counter - 1 }" }>
-            </Showcase.Block>
+                <Showcase.Highlight
+                  text="next { state | counter = counter + 1 }"
+                  name="next"/>
 
-          </Showcase.HighlightBlock>
+              </Showcase.HighlightBlock>
 
-          <div::spacer/>
+              <div::spacer/>
 
-          <Showcase.HighlightBlock
-            line="component Counter"
-            name="component"
-            padding="5px 10px">
-
-            <Showcase.Highlight
-              text={
-                "connect Counter.Store exposing { increment, decrement, c" \
-                "ounter }"
-              }
-              name="connect"/>
-
-            <div::spacer/>
-
-            <Showcase.Highlight
-              text="property disabled : Bool = false"
-              name="component-property"/>
-
-            <div::spacer/>
-
-            <Showcase.HighlightBlock
-              line="style base"
-              name="style">
-
-              <{ "background: " }>
-
-              <Showcase.Highlight
-                text="{background}"
-                name="css-interpolation"/>
-
-              <{ ";\n" }>
-
-              <Showcase.Highlight
-                text="border-radius: 5px;"
-                name="css-declaration"/>
-
-              <{ "\ntransition: 320ms;" }>
-              <{ "\ndisplay: flex;" }>
-              <{ "\npadding: 20px;" }>
-              <{ "\nmargin: 20px; " }>
-
-            </Showcase.HighlightBlock>
-
-            <div::spacer/>
-
-            <Showcase.Block line="style counter">
-              <{ "font-family: sans;" }>
-              <{ "\nfont-size: 20px;" }>
-              <{ "\npadding: 0 20px;" }>
-            </Showcase.Block>
-
-            <div::spacer/>
-
-            <Showcase.HighlightBlock
-              line="get background : String"
-              name="get">
-
-              <{ "if (counter >= 10) {\n" }>
-              <{ "  \"lightgreen\"\n" }>
-              <{ "} else {\n" }>
-              <{ "  if (counter < 0) {\n" }>
-              <{ "    \"orangered\"\n" }>
-              <{ "  } else {\n" }>
-              <{ "    \"#F2F2F2\"\n" }>
-              <{ "  }\n" }>
-              <{ "}" }>
-
-            </Showcase.HighlightBlock>
-
-            <div::spacer/>
-
-            <Showcase.HighlightBlock
-              line="fun render : Html"
-              name="render">
-
-              <Showcase.Block
-                closingChar="</div>"
-                openingChar=""
-                line="<div::base>">
-
-                <Showcase.HighlightBlock
-                  closingChar="</button>"
-                  openingChar=""
-                  line="<button"
-                  name="html-element">
-
-                  <Showcase.Highlight
-                    text="onClick={\\event : Html.Event => decrement()}"
-                    name="event"/>
-
-                  <{ "\ndisabled={disabled}>" }>
-                  <div::spacer/>
-                  <{ "<{ \"Decrement\" }>" }>
-                  <div::spacer/>
-
-                </Showcase.HighlightBlock>
-
-                <div::spacer/>
-
-                <Showcase.Block
-                  closingChar="</span>"
-                  openingChar=""
-                  line="<span::counter>">
-
-                  <{ "<{ Number.toString(counter) }>" }>
-
-                </Showcase.Block>
-
-                <div::spacer/>
-
-                <Showcase.Block
-                  closingChar="</button>"
-                  openingChar=""
-                  line="<button">
-
-                  <{ "onClick={\\event : Html.Event => increment()}\n" }>
-                  <{ "disabled=" }>
-
-                  <Showcase.Highlight
-                    text="{disabled}"
-                    name="attribute"/>
-
-                  <{ ">\n" }>
-
-                  <Showcase.Highlight
-                    text="<{ \"Increment\" }>"
-                    name="html-expression"/>
-
-                </Showcase.Block>
-
+              <Showcase.Block line="fun decrement : Void">
+                <{ "next { state | counter = counter - 1 }" }>
               </Showcase.Block>
 
             </Showcase.HighlightBlock>
 
-          </Showcase.HighlightBlock>
+            <div::spacer/>
 
-          <div::spacer/>
+            <Showcase.HighlightBlock
+              line="component Counter"
+              name="component"
+              padding="5px 10px">
 
-          <Showcase.HighlightBlock
-            line="component Main"
-            name="main"
-            padding="5px 10px">
-
-            <Showcase.Block line="fun render : Html">
               <Showcase.Highlight
-                text="<Counter disabled={false}/>"
-                name="html-component"/>
-            </Showcase.Block>
+                text={
+                  "connect Counter.Store exposing { increment, decrement, c" \
+                  "ounter }"
+                }
+                name="connect"/>
 
-          </Showcase.HighlightBlock>
-        </pre>
+              <div::spacer/>
 
-        <div::description>
-          <div::section-title>
-            <{ selected.title }>
+              <Showcase.Highlight
+                text="property disabled : Bool = false"
+                name="component-property"/>
+
+              <div::spacer/>
+
+              <Showcase.HighlightBlock
+                line="style base"
+                name="style">
+
+                <{ "background: " }>
+
+                <Showcase.Highlight
+                  text="{background}"
+                  name="css-interpolation"/>
+
+                <{ ";\n" }>
+
+                <Showcase.Highlight
+                  text="border-radius: 5px;"
+                  name="css-declaration"/>
+
+                <{ "\ntransition: 320ms;" }>
+                <{ "\ndisplay: flex;" }>
+                <{ "\npadding: 20px;" }>
+                <{ "\nmargin: 20px; " }>
+
+              </Showcase.HighlightBlock>
+
+              <div::spacer/>
+
+              <Showcase.Block line="style counter">
+                <{ "font-family: sans;" }>
+                <{ "\nfont-size: 20px;" }>
+                <{ "\npadding: 0 20px;" }>
+              </Showcase.Block>
+
+              <div::spacer/>
+
+              <Showcase.HighlightBlock
+                line="get background : String"
+                name="get">
+
+                <{ "if (counter >= 10) {\n" }>
+                <{ "  \"lightgreen\"\n" }>
+                <{ "} else {\n" }>
+                <{ "  if (counter < 0) {\n" }>
+                <{ "    \"orangered\"\n" }>
+                <{ "  } else {\n" }>
+                <{ "    \"#F2F2F2\"\n" }>
+                <{ "  }\n" }>
+                <{ "}" }>
+
+              </Showcase.HighlightBlock>
+
+              <div::spacer/>
+
+              <Showcase.HighlightBlock
+                line="fun render : Html"
+                name="render">
+
+                <Showcase.Block
+                  closingChar="</div>"
+                  openingChar=""
+                  line="<div::base>">
+
+                  <Showcase.HighlightBlock
+                    closingChar="</button>"
+                    openingChar=""
+                    line="<button"
+                    name="html-element">
+
+                    <Showcase.Highlight
+                      text="onClick={\\event : Html.Event => decrement()}"
+                      name="event"/>
+
+                    <{ "\ndisabled={disabled}>" }>
+                    <div::spacer/>
+                    <{ "<{ \"Decrement\" }>" }>
+                    <div::spacer/>
+
+                  </Showcase.HighlightBlock>
+
+                  <div::spacer/>
+
+                  <Showcase.Block
+                    closingChar="</span>"
+                    openingChar=""
+                    line="<span::counter>">
+
+                    <{ "<{ Number.toString(counter) }>" }>
+
+                  </Showcase.Block>
+
+                  <div::spacer/>
+
+                  <Showcase.Block
+                    closingChar="</button>"
+                    openingChar=""
+                    line="<button">
+
+                    <{ "onClick={\\event : Html.Event => increment()}\n" }>
+                    <{ "disabled=" }>
+
+                    <Showcase.Highlight
+                      text="{disabled}"
+                      name="attribute"/>
+
+                    <{ ">\n" }>
+
+                    <Showcase.Highlight
+                      text="<{ \"Increment\" }>"
+                      name="html-expression"/>
+
+                  </Showcase.Block>
+
+                </Showcase.Block>
+
+              </Showcase.HighlightBlock>
+
+            </Showcase.HighlightBlock>
+
+            <div::spacer/>
+
+            <Showcase.HighlightBlock
+              line="component Main"
+              name="main"
+              padding="5px 10px">
+
+              <Showcase.Block line="fun render : Html">
+                <Showcase.Highlight
+                  text="<Counter disabled={false}/>"
+                  name="html-component"/>
+              </Showcase.Block>
+
+            </Showcase.HighlightBlock>
+          </pre>
+
+          <div::description>
+            <div::section-title>
+              <{ selected.title }>
+            </div>
+
+            <{ selected.description }>
           </div>
-
-          <{ selected.description }>
         </div>
       </div>
     </div>

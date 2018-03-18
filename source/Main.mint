@@ -8,31 +8,27 @@ component Main {
     }
   }
 
-  style iframe {
-    visibility: hidden;
-    display: none;
-  }
-
   get pages : Array(Ui.Pager.Item) {
     [
-      {
-        name = "examples",
-        contents = <Examples/>
-      },
-      {
-        name = "file-handling",
-        contents = <Examples.FileHandling/>
-      },
       {
         name = "home",
         contents = <Home/>
       },
       {
-        name = "index",
-        contents =
-          <Users.Layout>
-            <Users.Table/>
-          </Users.Layout>
+        name = "install",
+        contents = <Install/>
+      },
+      {
+        name = "examples",
+        contents = <Examples/>
+      },
+      {
+        name = "roadmap",
+        contents = <Roadmap/>
+      },
+      {
+        name = "file-handling",
+        contents = <Examples.FileHandling/>
       },
       {
         name = "counter",
@@ -41,6 +37,13 @@ component Main {
       {
         name = "drag",
         contents = <Drag/>
+      },
+      {
+        name = "index",
+        contents =
+          <Users.Layout>
+            <Users.Table/>
+          </Users.Layout>
       },
       {
         name = "new",
@@ -57,14 +60,6 @@ component Main {
           </Users.Layout>
       },
       {
-        name = "install",
-        contents = <Install/>
-      },
-      {
-        name = "roadmap",
-        contents = <Roadmap/>
-      },
-      {
         name = "not_found",
         contents =
           <div>
@@ -74,12 +69,10 @@ component Main {
     ]
   }
 
-  fun render : Array(Html) {
-    [
-      <Layout>
-        <{ content }>
-      </Layout>
-    ]
+  fun render : Html {
+    <Layout>
+      <{ content }>
+    </Layout>
   } where {
     content =
       pages

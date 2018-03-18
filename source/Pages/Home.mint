@@ -4,7 +4,6 @@ component Home {
   style hero {
     justify-content: center;
     flex-direction: column;
-    background: #f7f7f7;
     align-items: center;
     display: flex;
     height: 500px;
@@ -79,13 +78,7 @@ component Home {
 
       <Showcase/>
 
-      <CallToAction text="Got your attention?">
-        <Ui.Button
-          onClick={\event : Html.Event => Navigation.navigate("/install")}
-          label="Install Mint"
-          type="secondary"
-          size={20}/>
-      </CallToAction>
+      <CallToAction/>
     </div>
   }
 }

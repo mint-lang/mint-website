@@ -7,9 +7,23 @@ component CallToAction {
     background-size: 54px 54px;
     flex-direction: column;
     align-items: center;
-    padding: 75px 0;
     display: flex;
     color: #FFF;
+
+    padding: 75px 0;
+    padding-bottom: 90px;
+  }
+
+  style buttons {
+    display: flex;
+
+    & > a:hover {
+      text-decoration: none;
+    }
+
+    & > * + * {
+      margin-left: 15px;
+    }
   }
 
   style text {
@@ -20,10 +34,28 @@ component CallToAction {
   fun render : Html {
     <div::base>
       <div::text>
-        <{ text }>
+        <{ "Interested?" }>
       </div>
 
-      <{ children }>
+      <div::buttons>
+        <Ui.Link href="/install">
+          <Ui.Button
+            size={20}
+            type="secondary"
+            label="Install"/>
+        </Ui.Link>
+
+        <Ui.Link
+          href="https://guide.mint-lang.com"
+          target="_blank">
+
+          <Ui.Button
+            size={20}
+            type="secondary"
+            label="Learn"/>
+
+        </Ui.Link>
+      </div>
     </div>
   }
 }

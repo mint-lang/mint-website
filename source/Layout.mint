@@ -6,6 +6,7 @@ component Layout {
   style base {
     font-family: Open Sans;
     flex-direction: column;
+    background: #F9F9F9;
     min-height: 100vh;
     margin: 0 auto;
     display: flex;
@@ -70,7 +71,7 @@ component Layout {
           <Ui.Link
             href="https://guide.mint-lang.com"
             target="_blank"
-            label="Guide"/>
+            label="Learn"/>
 
           <Ui.Toolbar.Separator/>
 
@@ -83,12 +84,6 @@ component Layout {
           <Ui.Link
             href="/roadmap"
             label="Roadmap"/>
-
-          <Ui.Toolbar.Separator/>
-
-          <Ui.Link
-            href="/blog"
-            label="Blog"/>
         </div>
       </div>
 
