@@ -8,6 +8,11 @@ component Main {
     }
   }
 
+  style iframe {
+    visibility: hidden;
+    display: none;
+  }
+
   get pages : Array(Ui.Pager.Item) {
     [
       {
@@ -73,7 +78,13 @@ component Main {
     [
       <Layout>
         <{ content }>
-      </Layout>
+      </Layout>,
+      <noscript>
+        <iframe::iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-TJJ8DCX"
+          height="0"
+          width="0"/>
+      </noscript>
     ]
   } where {
     content =
