@@ -86,7 +86,9 @@ component Install {
           <code::code>
             <{ "/usr/local/bin/mint" }>
           </code>
-          <{":"}>
+
+          <{ " :" }>
+
           <pre::code>
             <{ "sudo mv /path/to/binary /usr/local/bin/mint" }>
           </pre>
