@@ -63,9 +63,9 @@ component Footer {
           </div>
 
           <Ui.Link
-            href="https://mint-lang.slack.com"
+            href="https://gitter.im/mint-lang/Lobby"
             target="_blank"
-            label="Slack"/>
+            label="Gitter"/>
         </div>
       </div>
     </div>
