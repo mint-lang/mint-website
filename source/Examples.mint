@@ -41,7 +41,52 @@ component Examples.Example {
   }
 }
 
+record Examples.Item {
+  description : String,
+  title : String,
+  href : String
+}
+
+store Examples.Store {
+  property userManagement : Examples.Item = {
+    title = "User Management",
+    href = "/users",
+    description =
+      "This example contains an implementation of a table of us" \
+      "ers with client side pagination and forms for creating n" \
+      "ew users and editing existsing ones through an HTTP API."
+  }
+
+  property drag : Examples.Item = {
+    title = "Drag and Drop",
+    href = "/drag",
+    description =
+      "This example shows how to drag and drop an HTML element " \
+      "on the page."
+  }
+
+  property fileHandling : Examples.Item = {
+    title = "File Handling",
+    href = "/examples/file-handling",
+    description =
+      "This example shows how to implement a component which lo" \
+      "ads and shows a file from the users computer and then up" \
+      "loads it to a server via HTTP."
+  }
+
+  property counter : Examples.Item = {
+    title = "Counter",
+    href = "/counter",
+    description =
+      "This example shows a counter which stored in a store wit" \
+      "h two buttons one for incrementing th counter and one fo" \
+      "r decrementing it."
+  }
+}
+
 component Examples {
+  connect Examples.Store exposing { userManagement, drag, fileHandling, counter }
+
   style grid {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     grid-gap: 20px 20px;
@@ -72,43 +117,24 @@ component Examples {
 
       <div::grid>
         <Examples.Example
-          title="User Management"
-          href="/users"
-          description={
-            "This example contains an implementation of a table of us" \
-            "ers with client side pagination and forms for creating n" \
-            "ew users and editing existsing ones through an HTTP API."
-          }/>
+          description={userManagement.description}
+          title={userManagement.title}
+          href={userManagement.href}/>
 
         <Examples.Example
-          title="Drag and Drop"
-          href="/drag"
-          description={
-            "This example shows how to drag and drop an HTML element " \
-            "on the page."
-          }/>
+          description={drag.description}
+          title={drag.title}
+          href={drag.href}/>
 
         <Examples.Example
-          title="Counter"
-          href="/counter"
-          description={
-            "This example shows a counter which stored in a store wit" \
-            "h two buttons one for incrementing th counter and one fo" \
-            "r decrementing it."
-          }/>
+          description={counter.description}
+          title={counter.title}
+          href={counter.href}/>
 
         <Examples.Example
-          title="File Handling"
-          href="/examples/file-handling"
-          description={
-            "This example shows how to implement a component which lo" \
-            "ads and shows a file from the users computer and then up" \
-            "loads it to a server via HTTP."
-          }/>
-
-        <Ui.Link
-          href="/examples/file-handling"
-          label=""/>
+          description={fileHandling.description}
+          title={fileHandling.title}
+          href={fileHandling.href}/>
       </div>
     </Page>
   }

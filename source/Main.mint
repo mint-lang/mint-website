@@ -1,4 +1,5 @@
 component Main {
+  connect Examples.Store exposing { userManagement, drag, fileHandling, counter }
   connect Application exposing { page, setPage }
   connect Ui exposing { theme }
 
@@ -28,36 +29,75 @@ component Main {
       },
       {
         name = "file-handling",
-        contents = <Examples.FileHandling/>
+        contents =
+          <Example
+            subTitle={fileHandling.description}
+            title={fileHandling.title}>
+
+            <Examples.FileHandling/>
+
+          </Example>
       },
       {
         name = "counter",
-        contents = <Counter/>
+        contents =
+          <Example
+            subTitle={counter.description}
+            title={counter.title}>
+
+            <Counter/>
+
+          </Example>
       },
       {
         name = "drag",
-        contents = <Drag/>
+        contents =
+          <Example
+            subTitle={drag.description}
+            title={drag.title}>
+
+            <Drag/>
+
+          </Example>
       },
       {
         name = "index",
         contents =
-          <Users.Layout>
-            <Users.Table/>
-          </Users.Layout>
+          <Example
+            subTitle={userManagement.description}
+            title={userManagement.title}>
+
+            <Users.Layout>
+              <Users.Table/>
+            </Users.Layout>
+
+          </Example>
       },
       {
         name = "new",
         contents =
-          <Users.Layout>
-            <UserForm isNew={true}/>
-          </Users.Layout>
+          <Example
+            subTitle={userManagement.description}
+            title={userManagement.title}>
+
+            <Users.Layout>
+              <UserForm isNew={true}/>
+            </Users.Layout>
+
+          </Example>
       },
       {
         name = "user",
         contents =
-          <Users.Layout>
-            <UserForm isNew={false}/>
-          </Users.Layout>
+          <Example
+            subTitle={userManagement.description}
+            title={userManagement.title}>
+
+            <Users.Layout>
+              <UserForm isNew={false}/>
+            </Users.Layout>
+
+          </Example>
       },
       {
         name = "not_found",
