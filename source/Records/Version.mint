@@ -17,27 +17,27 @@ module Version {
     }
   }
 
-  fun decodeMany (input : JSObject) : Result(Json.Error, Array(Version)) {
-    Json.Decoder.array(decode, input)
+  fun decodeMany (input : Object) : Result(Object.Error, Array(Version)) {
+    Object.Decode.array(decode, input)
   }
 
-  fun decode (input : JSObject) : Result(Json.Error, Version) {
-    with Json.Decoder {
+  fun decode (input : Object) : Result(Object.Error, Version) {
+    with Object.Decode {
       try {
         version =
-          field("tag_name", input, string)
+          field("tag_name", string, input)
 
         date =
-          field("published_at", input, date)
+          field("published_at", time, input)
 
         url =
-          field("html_url", input, string)
+          field("html_url", string, input)
 
         description =
-          field("body", input, string)
+          field("body", string, input)
 
         assets =
-          field("assets", input, Asset.decodeMany)
+          field("assets", Asset.decodeMany, input)
 
         Result.ok(
           {
@@ -47,7 +47,7 @@ module Version {
             date = date,
             url = url
           })
-      } catch Json.Error => error {
+      } catch Object.Error => error {
         Result.error(error)
       }
     }

@@ -4,24 +4,24 @@ record Asset {
 }
 
 module Asset {
-  fun decodeMany (input : JSObject) : Result(Json.Error, Array(Asset)) {
-    Json.Decoder.array(decode, input)
+  fun decodeMany (input : Object) : Result(Object.Error, Array(Asset)) {
+    Object.Decode.array(decode, input)
   }
 
-  fun decode (input : JSObject) : Result(Json.Error, Asset) {
-    with Json.Decoder {
+  fun decode (input : Object) : Result(Object.Error, Asset) {
+    with Object.Decode {
       try {
         url =
-          field("browser_download_url", input, string)
+          field("browser_download_url", string, input)
 
         name =
-          field("name", input, string)
+          field("name", string, input)
 
         Result.ok({
           name = name,
           url = url
         })
-      } catch Json.Error => error {
+      } catch Object.Error => error {
         Result.error(error)
       }
     }

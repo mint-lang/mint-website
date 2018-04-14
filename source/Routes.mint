@@ -21,7 +21,7 @@ routes {
 
       actualPage =
         Number.fromString(page)
-        |> Result.withDefault(0)
+        |> Maybe.withDefault(0)
 
       Users.List.setPage(actualPage)
     }

@@ -44,7 +44,7 @@ component UserForm {
       next { state | saving = true }
       createUser()
       next { state | saving = false }
-      Navigation.navigate("/users")
+      Window.navigate("/users")
     }
   }
 
@@ -54,14 +54,14 @@ component UserForm {
       saveUser()
       refresh()
       next { state | saving = false }
-      Navigation.navigate("/users?page=" + Number.toString(page))
+      Window.navigate("/users?page=" + Number.toString(page))
     }
   }
 
-  fun delete : Void {
+  fun handleDelete : Void {
     do {
       deleteUser()
-      Navigation.navigate("/users?page=" + Number.toString(page))
+      Window.navigate("/users?page=" + Number.toString(page))
     }
   }
 
@@ -100,7 +100,7 @@ component UserForm {
       [
         <Ui.Form.Separator/>,
         <Ui.Button
-          onClick={\event : Html.Event => delete()}
+          onClick={\event : Html.Event => handleDelete()}
           type="danger"
           label="Delete"/>
       ]

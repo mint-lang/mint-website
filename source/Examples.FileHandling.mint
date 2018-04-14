@@ -31,9 +31,8 @@ component Examples.FileHandling {
         ""
         |> Http.post()
         |> Http.formDataBody(formData)
-        |> Debug.log()
         |> Http.send()
-    } catch Http.Error => error {
+    } catch Http.ErrorResponse => error {
       Debug.log(error)
     }
   } where {
@@ -72,7 +71,7 @@ component Examples.FileHandling {
       |> Maybe.map(
         \file : File =>
           <div>
-            <{ file.name }>
+            <{ File.name(file) }>
           </div>)
       |> Maybe.withDefault(<div/>)
   }

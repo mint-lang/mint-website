@@ -23,11 +23,11 @@
   "dependencies": {
     "mint-ui": {
       "repository": "https://github.com/mint-lang/ui",
-      "constraint": "origin/master:0.0.1"
+      "constraint": "0.0.0 <= v < 1.0.0"
     },
     "mint-core": {
       "repository": "https://github.com/mint-lang/core",
-      "constraint": "origin/master:0.0.1"
+      "constraint": "0.0.0 <= v < 1.0.0"
     }
   }
 }

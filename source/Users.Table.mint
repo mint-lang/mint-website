@@ -36,7 +36,7 @@ component Users.Table {
   }
 
   fun setPage (a : Number) : Void {
-    Navigation.navigate("/users?page=" + Number.toString(a))
+    Window.navigate("/users?page=" + Number.toString(a))
   }
 
   fun renderItem (item : User) : Html {

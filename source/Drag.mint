@@ -1,16 +1,21 @@
 record Drag.State {
-  mousePosition : MouseProvider.Position,
-  startPosition : MouseProvider.Position,
+  mousePosition : Position,
+  startPosition : Position,
   dragging : Bool
 }
 
+record Position {
+  left : Number,
+  top : Number
+}
+
 store DragStore {
-  property position : MouseProvider.Position = {
+  property position : Position = {
     top = 0,
     left = 0
   }
 
-  fun setPosition (value : MouseProvider.Position) : Void {
+  fun setPosition (value : Position) : Void {
     next { state | position = value }
   }
 }
@@ -32,15 +37,15 @@ component Drag {
     dragging = false
   }
 
-  use MouseProvider {
-    moves = \data : MouseProvider.Position => move(data),
+  use Provider.Mouse {
+    moves = \data : Html.Event => move(data),
     clicks = \data : Html.Event => void,
     ups = \data : Html.Event => end()
   } when {
     state.dragging
   }
 
-  fun move (data : MouseProvider.Position) : Void {
+  fun move (data : Html.Event) : Void {
     if (state.dragging) {
       setPosition(
         {
@@ -53,8 +58,8 @@ component Drag {
   } where {
     diff =
       {
-        left = state.mousePosition.left - data.left,
-        top = state.mousePosition.top - data.top
+        left = state.mousePosition.left - data.pageX,
+        top = state.mousePosition.top - data.pageY
       }
   }
 

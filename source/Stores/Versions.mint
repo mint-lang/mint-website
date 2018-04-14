@@ -26,10 +26,13 @@ store Versions {
         |> Http.get()
         |> Http.send()
 
-      versions =
+      object =
         response.body
         |> Json.parse()
-        |> Version.decodeMany()
+        |> Maybe.toResult("Json Error")
+
+      versions
+      Version.decodeMany(object)
 
       sortedVersions =
         versions
@@ -41,9 +44,11 @@ store Versions {
           versions = sortedVersions,
           stale = false
         }
-    } catch Http.Error => error {
+    } catch Http.ErrorResponse => error {
       Debug.log(error)
-    } catch Json.Error => error {
+    } catch String => error {
+      Debug.log(error)
+    } catch Object.Error => error {
       Debug.log(error)
     } finally {
       next { state | loading = false }

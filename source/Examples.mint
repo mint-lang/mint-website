@@ -29,7 +29,7 @@ component Examples.Example {
   }
 
   fun render : Html {
-    <div::base onClick={\event : Html.Event => Navigation.navigate(href)}>
+    <div::base onClick={\event : Html.Event => Window.navigate(href)}>
       <div::title>
         <{ title }>
       </div>

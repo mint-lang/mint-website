@@ -26,26 +26,26 @@ store Users.List {
   property perPage : Number = 10
   property page : Number = 0
 
-  fun decodeUser (input : JSObject) : Result(Json.Error, User) {
-    with Json.Decoder {
+  fun decodeUser (input : Object) : Result(Object.Error, User) {
+    with Object.Decode {
       try {
         firstName =
-          field("first_name", input, string)
+          field("first_name", string, input)
 
         lastName =
-          field("last_name", input, string)
+          field("last_name", string, input)
 
         createdAt =
-          field("created_at", input, date)
+          field("created_at", time, input)
 
         updatedAt =
-          field("updated_at", input, date)
+          field("updated_at", time, input)
 
         status =
-          field("status", input, string)
+          field("status", string, input)
 
         id =
-          field("id", input, number)
+          field("id", number, input)
 
         Result.ok(
           {
@@ -56,14 +56,14 @@ store Users.List {
             status = status,
             id = id
           })
-      } catch Json.Error => e {
+      } catch Object.Error => e {
         Result.error(e)
       }
     }
   }
 
-  fun decodeUsers (input : JSObject) : Result(Json.Error, Array(User)) {
-    Json.Decoder.array(decodeUser, input)
+  fun decodeUsers (input : Object) : Result(Object.Error, Array(User)) {
+    Object.Decode.array(decodeUser, input)
   }
 
   fun endpoint : String {
@@ -87,10 +87,13 @@ store Users.List {
         |> Http.get()
         |> Http.send()
 
-      users =
+      object =
         response.body
         |> Json.parse()
-        |> decodeUsers()
+        |> Maybe.toResult("Json error!")
+
+      users =
+        decodeUsers(object)
 
       sortedUsers =
         Array.sort(\a : User, b : User => a.id - b.id, users)
@@ -101,10 +104,12 @@ store Users.List {
           users = sortedUsers,
           error = ""
         }
-    } catch Http.Error => error {
-      next { state | error = error.type }
-    } catch Json.Error => error {
-      next { state | error = error.message }
+    } catch Http.ErrorResponse => error {
+      next { state | error = "Error" }
+    } catch String => error {
+      next { state | error = error }
+    } catch Object.Error => error {
+      next { state | error = "Error" }
     } finally {
       next { state | loading = false }
     }
@@ -137,8 +142,8 @@ store Users.List {
       |> Http.send()
 
       next { state | stale = true }
-    } catch Http.Error => error {
-      next { state | error = error.type }
+    } catch Http.ErrorResponse => error {
+      next { state | error = "Error" }
     } finally {
       next { state | loading = false }
     }
@@ -153,8 +158,8 @@ store Users.List {
       |> Http.send()
 
       next { state | stale = true }
-    } catch Http.Error => error {
-      next { state | error = error.type }
+    } catch Http.ErrorResponse => error {
+      next { state | error = "Error" }
     } finally {
       next { state | loading = false }
     }
@@ -171,29 +176,20 @@ store Users.List {
       |> Http.send()
 
       next { state | stale = true }
-    } catch Http.Error => error {
-      next { state | error = error.type }
+    } catch Http.ErrorResponse => error {
+      next { state | error = "Error" }
     } finally {
       next { state | loading = false }
     }
   }
 
   fun stringifyUser : String {
-    with Json.Builder {
+    with Object.Encode {
       object(
         [
-          {
-            name = "first_name",
-            value = string(user.firstName)
-          },
-          {
-            name = "last_name",
-            value = string(user.lastName)
-          },
-          {
-            name = "status",
-            value = string(user.status)
-          }
+          field("first_name", string(user.firstName)),
+          field("last_name", string(user.lastName)),
+          field("status", string(user.status))
         ])
       |> Json.stringify()
     }
@@ -208,16 +204,21 @@ store Users.List {
         |> Http.get()
         |> Http.send()
 
-      user =
+      object =
         response.body
         |> Json.parse()
-        |> decodeUser()
+        |> Maybe.toResult("Json Error")
+
+      user =
+        decodeUser(object)
 
       next { state | user = user }
-    } catch Http.Error => error {
-      next { state | error = error.type }
-    } catch Json.Error => error {
-      next { state | error = error.message }
+    } catch Http.ErrorResponse => error {
+      next { state | error = "error" }
+    } catch String => error {
+      next { state | error = error }
+    } catch Object.Error => error {
+      next { state | error = "error" }
     } finally {
       next { state | loading = false }
     }
