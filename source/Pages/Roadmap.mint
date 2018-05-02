@@ -189,7 +189,7 @@ component Roadmap {
           name="Documentation Generator"
           icon={diamond}
           description={
-            "Generate beatuifl documentation for your project, includ" \
+            "Generate beautiful documentation for your project, includ" \
             "ing dependencies."
           }/>
 
