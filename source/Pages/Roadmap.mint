@@ -189,8 +189,8 @@ component Roadmap {
           name="Documentation Generator"
           icon={diamond}
           description={
-            "Generate beautiful documentation for your project, includ" \
-            "ing dependencies."
+            "Generate beautiful documentation for your project, inclu" \
+            "ding dependencies."
           }/>
 
         <Roadmap.Feature
