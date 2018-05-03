@@ -31,8 +31,8 @@ store Versions {
         |> Json.parse()
         |> Maybe.toResult("Json Error")
 
-      versions
-      Version.decodeMany(object)
+      versions =
+        Version.decodeMany(object)
 
       sortedVersions =
         versions
