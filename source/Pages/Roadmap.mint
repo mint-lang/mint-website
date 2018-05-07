@@ -207,14 +207,6 @@ component Roadmap {
           }/>
 
         <Roadmap.Feature
-          name="Testing"
-          icon={diamond}
-          description={
-            "Language feature for easily testing components or the wh" \
-            "ole application."
-          }/>
-
-        <Roadmap.Feature
           name="Language Server Protocol"
           icon={diamond}
           description={
@@ -347,6 +339,14 @@ component Roadmap {
           description={
             "Install external sources (packages) directly from Git re" \
             "positories."
+          }/>
+
+        <Roadmap.Feature
+          name="Testing"
+          icon={checkmark}
+          description={
+            "Language feature for easily testing modules, packages, c" \
+            "omponents or the whole application."
           }/>
 
         <Roadmap.Feature
