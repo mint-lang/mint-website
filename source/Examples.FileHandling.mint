@@ -9,6 +9,11 @@ component Examples.FileHandling {
     contents = ""
   }
 
+  style pre {
+    word-break: break-word;
+    white-space: pre-wrap;
+  }
+
   fun openDialog : Void {
     do {
       file =
@@ -61,7 +66,7 @@ component Examples.FileHandling {
 
       <{ file }>
 
-      <pre>
+      <pre::pre>
         <{ state.contents }>
       </pre>
     </div>
