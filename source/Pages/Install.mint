@@ -1,5 +1,6 @@
 component Install {
   connect Versions exposing { loading, latest }
+  connect Ui exposing { theme }
 
   style hr {
     margin: 40px 0;
@@ -14,6 +15,15 @@ component Install {
     font-size: inherit;
     background: #FFF;
     padding: 5px;
+  }
+
+  style link {
+    color: {theme.colors.primary.background};
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   style list {
@@ -53,9 +63,9 @@ component Install {
 
   fun renderFile (asset : Asset) : Html {
     <li>
-      <Ui.Link
-        href={asset.url}
-        label={asset.name}/>
+      <a::link href={asset.url}>
+        <{ asset.name }>
+      </a>
     </li>
   }
 
@@ -120,20 +130,26 @@ component Install {
         <li>
           <{ "Install the " }>
 
-          <Ui.Link
+          <a::link
             href="https://crystal-lang.org/docs/installation/"
-            label="Crystal programming language"
-            target="_blank"/>
+            target="_blank">
+
+            <{ "Crystal programming language" }>
+
+          </a>
         </li>
 
         <li>
           <{ "Download and extract the source files from Github:" }>
           <br/>
 
-          <Ui.Link
-            label="https://github.com/mint-lang/mint"
+          <a::link
             href="https://github.com/mint-lang/mint"
-            target="_blank"/>
+            target="_blank">
+
+            <{ "https://github.com/mint-lang/mint" }>
+
+          </a>
         </li>
 
         <li>
@@ -195,21 +211,27 @@ component Install {
 
         <ul::files>
           <li>
-            <Ui.Link
+            <a::link
               href={
                 "https://s3-eu-west-1.amazonaws.com/mint-lang/mint-latest" \
                 "-linux"
-              }
-              label="mint-latest-linux"/>
+              }>
+
+              <{ "mint-latest-linux" }>
+
+            </a>
           </li>
 
           <li>
-            <Ui.Link
+            <a::link
               href={
                 "https://s3-eu-west-1.amazonaws.com/mint-lang/mint-latest" \
                 "-osx"
-              }
-              label="mint-latest-osx"/>
+              }>
+
+              <{ "mint-latest-osx" }>
+
+            </a>
           </li>
         </ul>
       </SubTitle>

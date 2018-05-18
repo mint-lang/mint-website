@@ -124,7 +124,7 @@ component UserForm {
 
   fun render : Html {
     <Ui.Loader shown={loading}>
-      <div>
+      <div key={Number.toString(user.id)}>
         <div::title>
           <{ title }>
         </div>

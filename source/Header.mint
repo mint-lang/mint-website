@@ -19,21 +19,17 @@ component Header {
     align-items: center;
     display: none;
 
-    & > a {
-      text-transform: uppercase;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    & > a,
-    & > a:focus,
-    & > a:hover {
-      color: inherit;
-    }
-
     @media (min-width: 600px) {
       display: flex;
     }
+  }
+
+  style link {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    color: inherit;
   }
 
   fun render : Html {
@@ -52,28 +48,31 @@ component Header {
         <Ui.Toolbar.Spacer/>
 
         <div::desktop>
-          <Ui.Link
-            href="/install"
-            label="Install"/>
+          <a::link href="/install">
+            <{ "Install" }>
+          </a>
 
           <Ui.Toolbar.Separator/>
 
-          <Ui.Link
+          <a::link
             href="https://guide.mint-lang.com"
-            target="_blank"
-            label="Learn"/>
+            target="_blank">
+
+            <{ "Learn" }>
+
+          </a>
 
           <Ui.Toolbar.Separator/>
 
-          <Ui.Link
-            href="/examples"
-            label="Examples"/>
+          <a::link href="/examples">
+            <{ "Examples" }>
+          </a>
 
           <Ui.Toolbar.Separator/>
 
-          <Ui.Link
-            href="/roadmap"
-            label="Roadmap"/>
+          <a::link href="/roadmap">
+            <{ "Roadmap" }>
+          </a>
         </div>
       </div>
     </div>

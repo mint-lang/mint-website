@@ -18,17 +18,13 @@ component Footer {
 
   style column {
     width: 200px;
+  }
 
-    & > a {
-      margin-top: 5px;
-      display: block;
-      color: inherit;
-    }
-
-    & > a:hover,
-    & > a:focus {
-      color: inherit;
-    }
+  style link {
+    text-decoration: none;
+    margin-top: 5px;
+    display: block;
+    color: inherit;
   }
 
   style title {
@@ -48,15 +44,21 @@ component Footer {
             <{ "Source" }>
           </div>
 
-          <Ui.Link
+          <a::link
             href="https://github.com/mint-lang/mint"
-            label="Github Repository"
-            target="_blank"/>
+            target="_blank">
 
-          <Ui.Link
+            <{ "Github Repository" }>
+
+          </a>
+
+          <a::link
             href="https://github.com/mint-lang/mint/releases"
-            label="Releases / Changelog"
-            target="_blank"/>
+            target="_blank">
+
+            <{ "Releases / Changelog" }>
+
+          </a>
         </div>
 
         <div::column>
@@ -64,10 +66,13 @@ component Footer {
             <{ "Community" }>
           </div>
 
-          <Ui.Link
+          <a::link
             href="https://gitter.im/mint-lang/Lobby"
-            target="_blank"
-            label="Gitter"/>
+            target="_blank">
+
+            <{ "Gitter" }>
+
+          </a>
         </div>
       </div>
     </div>

@@ -28,13 +28,13 @@ component Home {
   style buttons {
     margin-top: 30px;
 
-    & > a:hover {
-      text-decoration: none;
-    }
-
     & > * + * {
       margin-left: 15px;
     }
+  }
+
+  style link {
+    text-decoration: none;
   }
 
   style base {
@@ -68,13 +68,13 @@ component Home {
         </h2>
 
         <div::buttons>
-          <Ui.Link href="/install">
+          <a::link href="/install">
             <Ui.Button
               size={22}
               label="Install"/>
-          </Ui.Link>
+          </a>
 
-          <Ui.Link
+          <a::link
             href="https://guide.mint-lang.com"
             target="_blank">
 
@@ -83,7 +83,7 @@ component Home {
               type="secondary"
               label="Learn"/>
 
-          </Ui.Link>
+          </a>
         </div>
       </div>
 
