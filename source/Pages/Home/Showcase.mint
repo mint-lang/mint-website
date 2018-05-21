@@ -90,6 +90,7 @@ component Showcase {
 
   style title {
     text-transform: uppercase;
+    font-family: Josefin Sans;
     margin-bottom: 5px;
     text-align: center;
     font-weight: bold;

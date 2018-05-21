@@ -3,8 +3,8 @@ component CallToAction {
   property text : String = ""
 
   style base {
-    background-image: url(/cta.png);
-    background-size: 54px 54px;
+    background-color: #2f9e59;
+    background-image: url(cta.png);
     flex-direction: column;
     align-items: center;
     display: flex;

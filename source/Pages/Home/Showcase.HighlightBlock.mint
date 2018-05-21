@@ -44,7 +44,7 @@ component Showcase.HighlightBlock {
 
   get background : String {
     if (active == name) {
-      "#3aad57"
+      "#2f9e59"
     } else {
       if (over == name) {
         "rgba(0,0,0,0.15)"

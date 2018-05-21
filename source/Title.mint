@@ -2,9 +2,10 @@ component Title {
   property children : Array(Html) = []
 
   style base {
-    font-family: Amiko;
+    font-family: Josefin Sans;
+    text-transform: uppercase;
     font-weight: 600;
-    font-size: 32px;
+    font-size: 26px;
     line-height: 1;
     color: #222;
 

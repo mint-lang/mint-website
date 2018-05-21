@@ -1,9 +1,8 @@
 component Header {
-  connect Ui exposing { theme }
-
   style base {
-    background: #222;
-    color: #EEE;
+    border-bottom: 3px solid #29894e;
+    background: #2f9e59;
+    color: #FFF;
   }
 
   style wrapper {
@@ -24,26 +23,37 @@ component Header {
     }
   }
 
+  style brand {
+    font-family: Josefin Sans;
+    text-decoration: none;
+    align-items: center;
+    font-weight: 200;
+    font-size: 26px;
+    display: flex;
+    color: #FFF;
+  }
+
   style link {
     text-transform: uppercase;
+    font-family: Josefin Sans;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 400;
     font-size: 14px;
     color: inherit;
+    height: 10px;
   }
 
   fun render : Html {
     <div::base>
       <div::wrapper>
-        <Ui.Toolbar.Title href="/">
+        <a::brand href="/">
           <Logo
-            fill={theme.colors.primary.background}
-            mobileHeight={20}
-            mobileWidth={82}
-            textFill="#FFF"
-            height={20}
-            width={82}/>
-        </Ui.Toolbar.Title>
+            mobileSize={20}
+            invert={true}
+            size={20}/>
+
+          <{ "mint" }>
+        </a>
 
         <Ui.Toolbar.Spacer/>
 
