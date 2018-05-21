@@ -4,6 +4,7 @@ component Button {
   property href : String = ""
 
   style base {
+    text-transform: uppercase;
     border: 2px solid #2f9e59;
     text-decoration: none;
     border-radius: 30px;

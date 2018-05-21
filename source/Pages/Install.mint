@@ -1,6 +1,5 @@
 component Install {
   connect Versions exposing { loading, latest }
-  connect Ui exposing { theme }
 
   style hr {
     margin: 40px 0;
@@ -18,8 +17,8 @@ component Install {
   }
 
   style link {
-    color: {theme.colors.primary.background};
     text-decoration: none;
+    color: #2f9e59;
 
     &:hover {
       text-decoration: underline;
@@ -51,7 +50,11 @@ component Install {
     if (loading) {
       <ul::files>
         <li>
-          <{ "Loading versions..." }>
+          <{ "Loading linux version..." }>
+        </li>
+
+        <li>
+          <{ "Loading osx version..." }>
         </li>
       </ul>
     } else {
@@ -200,8 +203,8 @@ component Install {
       <SubTitle>
         <p>
           <{
-            "A fresh binary is created and uploaded to S3 when someth" \
-            "ing changes in the master branch."
+            "A fresh binary is created everything something changes i" \
+            "n the master branch."
           }>
         </p>
 

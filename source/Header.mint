@@ -1,6 +1,6 @@
 component Header {
   style base {
-    border-bottom: 3px solid #29894e;
+    border-bottom: 2px solid #29894e;
     background: #2f9e59;
     color: #FFF;
   }
@@ -27,10 +27,15 @@ component Header {
     font-family: Josefin Sans;
     text-decoration: none;
     align-items: center;
-    font-weight: 200;
-    font-size: 26px;
+    font-weight: 400;
+    font-size: 20px;
     display: flex;
     color: #FFF;
+
+    & > div {
+      margin-left: 5px;
+      height: 15px;
+    }
   }
 
   style link {
@@ -52,7 +57,9 @@ component Header {
             invert={true}
             size={20}/>
 
-          <{ "mint" }>
+          <div>
+            <{ "MINT" }>
+          </div>
         </a>
 
         <Ui.Toolbar.Spacer/>

@@ -1,4 +1,4 @@
-component Pages.Home.Github {
+component Github {
   style base {
     flex-direction: column;
     align-items: center;
@@ -54,8 +54,8 @@ component Pages.Home.Github {
       </div>
 
       <Button
-        target="_blank"
-        href="">
+        href="https://github.com/mint-lang/mint"
+        target="_blank">
 
         <{ "Contribute on Github" }>
 

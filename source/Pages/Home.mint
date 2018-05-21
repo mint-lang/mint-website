@@ -1,6 +1,4 @@
 component Home {
-  connect Ui exposing { theme }
-
   style hero {
     background: url(hero.png);
     justify-content: center;
@@ -32,12 +30,8 @@ component Home {
     margin-top: 30px;
 
     & > * + * {
-      margin-left: 15px;
+      margin-left: 30px;
     }
-  }
-
-  style link {
-    text-decoration: none;
   }
 
   style base {
@@ -50,26 +44,14 @@ component Home {
     display: flex;
   }
 
-  style features {
-    padding: 0 20px 50px 20px;
-    max-width: 1040px;
-    margin: 0 auto;
-
-    & h3 {
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      margin-top: 50px;
-      font-size: 26px;
-    }
-  }
-
   style h1 {
     font-family: Josefin Sans;
-    line-height: 1;
     font-weight: 300;
-    font-size: 80px;
+    font-size: 70px;
+    line-height: 1;
+
     margin: 0;
-    margin-top: 20px;
+    margin-top: 30px;
   }
 
   fun render : Html {
@@ -81,7 +63,7 @@ component Home {
             mobileSize={60}/>
 
           <h1::h1>
-            <{ "mint" }>
+            <{ "MINT" }>
           </h1>
         </div>
 
@@ -105,8 +87,7 @@ component Home {
       </div>
 
       <Showcase/>
-
-      <Pages.Home.Github/>
+      <Github/>
     </div>
   }
 }
