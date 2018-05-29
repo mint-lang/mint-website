@@ -216,8 +216,8 @@ component Install {
           <li>
             <a::link
               href={
-                "https://s3-eu-west-1.amazonaws.com/mint-lang/mint-latest" \
-                "-linux"
+                "https://bintray.com/mint-lang/mint/download_file?file_pa" \
+                "th=mint-latest-linux"
               }>
 
               <{ "mint-latest-linux" }>
@@ -228,8 +228,8 @@ component Install {
           <li>
             <a::link
               href={
-                "https://s3-eu-west-1.amazonaws.com/mint-lang/mint-latest" \
-                "-osx"
+                "https://bintray.com/mint-lang/mint/download_file?file_pa" \
+                "th=mint-latest-osx"
               }>
 
               <{ "mint-latest-osx" }>
