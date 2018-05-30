@@ -7,7 +7,7 @@ component Footer {
   }
 
   style wrapper {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, 220px);
     grid-gap: 20px 50px;
     display: grid;
 
@@ -71,6 +71,28 @@ component Footer {
             target="_blank">
 
             <{ "Gitter" }>
+
+          </a>
+
+          <a::link
+            href="https://spectrum.chat/mint-lang"
+            target="_blank">
+
+            <{ "Spectrum" }>
+
+          </a>
+        </div>
+
+        <div::column>
+          <div::title>
+            <{ "Social" }>
+          </div>
+
+          <a::link
+            href="https://twitter.com/mint_lang"
+            target="_blank">
+
+            <{ "Twitter" }>
 
           </a>
         </div>
