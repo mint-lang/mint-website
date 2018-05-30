@@ -65,6 +65,12 @@ component Header {
         <Ui.Toolbar.Spacer/>
 
         <div::desktop>
+          <a::link href="/try">
+            <{ "Try" }>
+          </a>
+
+          <Ui.Toolbar.Separator/>
+
           <a::link href="/install">
             <{ "Install" }>
           </a>

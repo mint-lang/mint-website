@@ -65,6 +65,14 @@ routes {
     }
   }
 
+  /try {
+    do {
+      Application.setPage("try")
+      Stores.Try.init()
+      Stores.Try.compile()
+    }
+  }
+
   / {
     do {
       Application.setPage("home")

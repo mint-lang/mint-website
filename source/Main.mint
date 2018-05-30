@@ -16,6 +16,10 @@ component Main {
         contents = <Home/>
       },
       {
+        name = "try",
+        contents = <Pages.Try/>
+      },
+      {
         name = "install",
         contents = <Install/>
       },

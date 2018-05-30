@@ -72,6 +72,10 @@ component Home {
         </h2>
 
         <div::buttons>
+          <Button href="/try">
+            <{ "Try" }>
+          </Button>
+
           <Button href="/install">
             <{ "Install" }>
           </Button>
