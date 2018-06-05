@@ -8,6 +8,7 @@ component Button {
     border: 2px solid #2f9e59;
     text-decoration: none;
     border-radius: 30px;
+    text-align: center;
     font-weight: 600;
     font-size: 20px;
     line-height: 1;
@@ -19,6 +20,10 @@ component Button {
     &:hover {
       background: #2f9e59;
       color: #FFF;
+    }
+
+    @media (max-width: 600px) {
+      padding: 15px 30px;
     }
   }
 

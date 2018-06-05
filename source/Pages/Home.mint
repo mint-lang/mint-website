@@ -8,7 +8,8 @@ component Home {
     height: 80vh;
 
     @media (max-width: 600px) {
-      height: 300px;
+      padding: 50px 20px;
+      height: auto;
     }
   }
 
@@ -28,9 +29,20 @@ component Home {
 
   style buttons {
     margin-top: 30px;
+    display: flex;
 
-    & > * + * {
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
+  }
+
+  style separator {
+    @media (min-width: 600px) {
       margin-left: 30px;
+    }
+
+    @media (max-width: 600px) {
+      margin-top: 15px;
     }
   }
 
@@ -76,9 +88,13 @@ component Home {
             <{ "Try" }>
           </Button>
 
+          <div::separator/>
+
           <Button href="/install">
             <{ "Install" }>
           </Button>
+
+          <div::separator/>
 
           <Button
             href="https://guide.mint-lang.com"

@@ -5,6 +5,10 @@ component Github {
     display: flex;
     padding: 80px 0;
     padding-bottom: 140px;
+
+    @media (max-width: 600px) {
+      padding: 60px 20px;
+    }
   }
 
   style image {
@@ -14,6 +18,7 @@ component Github {
   style title {
     font-family: Josefin Sans;
     text-transform: uppercase;
+    text-align: center;
     font-weight: 600;
     margin-top: 30px;
     font-size: 26px;
