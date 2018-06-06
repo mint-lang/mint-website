@@ -32,7 +32,7 @@ store Versions {
         |> Maybe.toResult("Json Error")
 
       versions =
-        Version.decodeMany(object)
+        decode object as Array(Version)
 
       sortedVersions =
         versions

@@ -1,8 +1,8 @@
 record User {
-  firstName : String,
-  lastName : String,
-  createdAt : Time,
-  updatedAt : Time,
+  firstName : String from "first_name",
+  lastName : String from "last_name",
+  createdAt : Time from "created_at",
+  updatedAt : Time from "updated_at",
   status : String,
   id : Number
 }
@@ -25,46 +25,6 @@ store Users.List {
 
   property perPage : Number = 10
   property page : Number = 0
-
-  fun decodeUser (input : Object) : Result(Object.Error, User) {
-    with Object.Decode {
-      try {
-        firstName =
-          field("first_name", string, input)
-
-        lastName =
-          field("last_name", string, input)
-
-        createdAt =
-          field("created_at", time, input)
-
-        updatedAt =
-          field("updated_at", time, input)
-
-        status =
-          field("status", string, input)
-
-        id =
-          field("id", number, input)
-
-        Result.ok(
-          {
-            createdAt = createdAt,
-            updatedAt = updatedAt,
-            firstName = firstName,
-            lastName = lastName,
-            status = status,
-            id = id
-          })
-      } catch Object.Error => e {
-        Result.error(e)
-      }
-    }
-  }
-
-  fun decodeUsers (input : Object) : Result(Object.Error, Array(User)) {
-    Object.Decode.array(decodeUser, input)
-  }
 
   fun endpoint : String {
     "https://mint-website.herokuapp.com/"
@@ -93,7 +53,7 @@ store Users.List {
         |> Maybe.toResult("Json error!")
 
       users =
-        decodeUsers(object)
+        decode object as Array(User)
 
       sortedUsers =
         Array.sort(\a : User, b : User => a.id - b.id, users)
@@ -210,7 +170,7 @@ store Users.List {
         |> Maybe.toResult("Json Error")
 
       user =
-        decodeUser(object)
+        decode object as User
 
       next { state | user = user }
     } catch Http.ErrorResponse => error {
