@@ -1,4 +1,7 @@
 deploy:
+	git checkout deploy
+	git pull
+	git checkout master
 	mint build
 	git checkout deploy
 	mv dist/* ./
