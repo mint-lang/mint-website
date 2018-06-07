@@ -109,7 +109,7 @@ component Install {
   fun render : Html {
     <Page>
       <Title>
-        <{ "Install" }>
+        <{ "Install Binaries" }>
       </Title>
 
       <SubTitle>
@@ -171,8 +171,8 @@ component Install {
         </svg>
 
         <{
-          "The Mac OSX the binary needs some dependencies, until there is" \
-          " a pacakge you need to"
+          "The Mac OSX the binary needs some dependencies, until th" \
+          "ere is a pacakge you need to"
         }>
 
         <a::link
@@ -187,6 +187,48 @@ component Install {
 
         <{ "to satisfy them." }>
       </div>
+
+      <hr::hr/>
+
+      <Title>
+        <{ "Install with Nix" }>
+      </Title>
+
+      <SubTitle>
+        <{ "You can install Mint using the " }>
+
+        <a::link href="https://nixos.org/nix/">
+          <{ "Nix Pacakage Manager" }>
+        </a>
+
+        <{ " with these steps: " }>
+      </SubTitle>
+
+      <ol::list>
+        <li>
+          <{ "Install Nix if not installed using " }>
+
+          <a::link href="https://nixos.org/nix/download.html">
+            <{ "these instructions." }>
+          </a>
+        </li>
+
+        <li>
+          <{ "Run this command: " }>
+
+          <pre::code>
+            <{ "nix-env -f channel:nixpkgs-unstable -iA mint" }>
+          </pre>
+        </li>
+
+        <li>
+          <{ "You invoke the CLI in your terminal by just typing " }>
+
+          <code::code>
+            <{ "mint" }>
+          </code>
+        </li>
+      </ol>
 
       <hr::hr/>
 
