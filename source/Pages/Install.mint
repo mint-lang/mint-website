@@ -172,7 +172,7 @@ component Install {
 
         <{
           "The Mac OSX the binary needs some dependencies, until th" \
-          "ere is a pacakge you need to"
+          "ere is a package you need to"
         }>
 
         <a::link
@@ -198,7 +198,7 @@ component Install {
         <{ "You can install Mint using the " }>
 
         <a::link href="https://nixos.org/nix/">
-          <{ "Nix Pacakage Manager" }>
+          <{ "Nix Package Manager" }>
         </a>
 
         <{ " with these steps: " }>
