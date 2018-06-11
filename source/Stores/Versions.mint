@@ -3,7 +3,7 @@ store Versions {
   property loading : Bool = true
   property stale : Bool = true
 
-  fun latest : Version {
+  get latest : Version {
     versions
     |> Array.first()
     |> Maybe.withDefault(Version.empty())

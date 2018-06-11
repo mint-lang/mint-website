@@ -2,6 +2,7 @@ component Github {
   style base {
     flex-direction: column;
     align-items: center;
+    background: white;
     display: flex;
     padding: 80px 0;
     padding-bottom: 140px;

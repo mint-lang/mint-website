@@ -67,10 +67,6 @@ component Install {
     }
   }
 
-  get version : Version {
-    latest()
-  }
-
   get content : Html {
     if (loading) {
       <ul::files>
@@ -101,7 +97,7 @@ component Install {
     if (loading) {
       []
     } else {
-      version.assets
+      latest.assets
       |> Array.map(renderFile)
     }
   }

@@ -17,9 +17,7 @@ component Home {
     font-weight: normal;
     font-size: 18px;
     opacity: 0.75;
-
     margin: 0;
-    margin-bottom: 20px;
 
     @media (max-width: 600px) {
       margin-top: 10px;
@@ -66,6 +64,13 @@ component Home {
     margin-top: 30px;
   }
 
+  style compiles {
+    margin-bottom: 20px;
+    font-style: italic;
+    margin-top: 10px;
+    opacity: 0.5;
+  }
+
   fun render : Html {
     <div::base>
       <div::hero>
@@ -80,8 +85,15 @@ component Home {
         </div>
 
         <h2::slogan>
-          <{ "A refreshing language for the front-end web." }>
+          <{ "A refreshing language for the front-end web" }>
         </h2>
+
+        <div::compiles>
+          <{
+            "Mint is a programming language that compiles to JavaScri" \
+            "pt."
+          }>
+        </div>
 
         <div::buttons>
           <Button href="/try">
@@ -107,6 +119,7 @@ component Home {
       </div>
 
       <Showcase/>
+      <Features/>
       <Github/>
     </div>
   }
