@@ -177,7 +177,7 @@ component Install {
             "ing_homebrew.html"
           }>
 
-          <{ "install Cystal" }>
+          <{ "install Crystal" }>
 
         </a>
 
