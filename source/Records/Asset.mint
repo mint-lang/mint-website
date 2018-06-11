@@ -1,4 +1,4 @@
 record Asset {
-  name : String,
-  url : String
+  url : String from "browser_download_url",
+  name : String
 }
