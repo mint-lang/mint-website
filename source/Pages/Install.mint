@@ -277,7 +277,7 @@ component Install {
           <{ "Install dependencies:" }>
 
           <pre::code>
-            <{ "crystal deps" }>
+            <{ "shards install" }>
           </pre>
         </li>
 
