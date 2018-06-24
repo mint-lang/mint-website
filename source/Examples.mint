@@ -44,7 +44,8 @@ component Examples.Example {
 record Examples.Item {
   description : String,
   title : String,
-  href : String
+  href : String,
+  src : String
 }
 
 store Examples.Store {
@@ -54,7 +55,8 @@ store Examples.Store {
     description =
       "This example contains an implementation of a table of us" \
       "ers with client side pagination and forms for creating n" \
-      "ew users and editing existsing ones through an HTTP API."
+      "ew users and editing existsing ones through an HTTP API.",
+    src = "https://github.com/mint-lang/mint-website/blob/master/source/UserForm.mint"
   }
 
   property drag : Examples.Item = {
@@ -62,7 +64,8 @@ store Examples.Store {
     href = "/drag",
     description =
       "This example shows how to drag and drop an HTML element " \
-      "on the page."
+      "on the page.",
+    src = "https://github.com/mint-lang/mint-website/blob/master/source/Drag.mint"
   }
 
   property fileHandling : Examples.Item = {
@@ -71,7 +74,8 @@ store Examples.Store {
     description =
       "This example shows how to implement a component which lo" \
       "ads and shows a file from the users computer and then up" \
-      "loads it to a server via HTTP."
+      "loads it to a server via HTTP.",
+    src = "https://github.com/mint-lang/mint-website/blob/master/source/Examples.FileHandling.mint"
   }
 
   property counter : Examples.Item = {
@@ -80,7 +84,8 @@ store Examples.Store {
     description =
       "This example shows a counter which stored in a store wit" \
       "h two buttons one for incrementing th counter and one fo" \
-      "r decrementing it."
+      "r decrementing it.",
+    src = "https://github.com/mint-lang/mint-website/blob/master/source/Examples.Counter.mint"
   }
 }
 
