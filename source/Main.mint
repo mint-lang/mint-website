@@ -36,8 +36,8 @@ component Main {
         contents =
           <Example
             subTitle={fileHandling.description}
-            title={fileHandling.title}>
-
+            title={fileHandling.title}
+            src={fileHandling.src}>
             <Examples.FileHandling/>
 
           </Example>
@@ -47,8 +47,8 @@ component Main {
         contents =
           <Example
             subTitle={counter.description}
-            title={counter.title}>
-
+            title={counter.title}
+            src={counter.src}>
             <Counter/>
 
           </Example>
@@ -58,8 +58,8 @@ component Main {
         contents =
           <Example
             subTitle={drag.description}
-            title={drag.title}>
-
+            title={drag.title}
+            src={drag.src}>
             <Drag/>
 
           </Example>
@@ -69,7 +69,8 @@ component Main {
         contents =
           <Example
             subTitle={userManagement.description}
-            title={userManagement.title}>
+            title={userManagement.title}
+            src={userManagement.src}>
 
             <Users.Layout>
               <Users.Table/>
