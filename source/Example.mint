@@ -12,7 +12,14 @@ component Example {
   }
 
   style link {
+    text-decoration: none;
     margin-top: 10px;
+    display: block;
+    color: #2f9e59;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   fun render : Html {
@@ -28,11 +35,9 @@ component Example {
       <div::frame>
         <{ children }>
       </div>
-      
-      <div::link>
-        <a href={ src } target="_blank"> <{ "Source" }> </a>
-      </div>
-      
+
+      <a::link href={ src } target="_blank"> <{ "Source" }> </a>
+
     </Page>
   }
 }
