@@ -112,14 +112,6 @@ component Roadmap {
           icon={diamond}/>
 
         <Pages.Roadmap.Feature
-          name="Documentation Generator"
-          icon={diamond}
-          description={
-            "Generate beautiful documentation for your project, inclu" \
-            "ding dependencies."
-          }/>
-
-        <Pages.Roadmap.Feature
           name="Selective Compilation"
           icon={diamond}
           description="Only compile the entities that are being used."/>
@@ -226,6 +218,14 @@ component Roadmap {
             description="Simply call out the JavaScript when you need to."/>
 
         </Pages.Roadmap.Feature>
+
+        <Pages.Roadmap.Feature
+          name="Documentation Generator"
+          icon={checkmark}
+          description={
+            "Generate beautiful documentation for your project, inclu" \
+            "ding dependencies."
+          }/>
 
         <Pages.Roadmap.Feature
           name="Production Builder"
