@@ -36,8 +36,13 @@ component Example {
         <{ children }>
       </div>
 
-      <a::link href={ src } target="_blank"> <{ "Source" }> </a>
+      <a::link
+        href={src}
+        target="_blank">
 
+        <{ "Source" }>
+
+      </a>
     </Page>
   }
 }

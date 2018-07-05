@@ -38,6 +38,7 @@ component Main {
             subTitle={fileHandling.description}
             title={fileHandling.title}
             src={fileHandling.src}>
+
             <Examples.FileHandling/>
 
           </Example>
@@ -49,6 +50,7 @@ component Main {
             subTitle={counter.description}
             title={counter.title}
             src={counter.src}>
+
             <Counter/>
 
           </Example>
@@ -60,6 +62,7 @@ component Main {
             subTitle={drag.description}
             title={drag.title}
             src={drag.src}>
+
             <Drag/>
 
           </Example>
