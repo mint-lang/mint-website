@@ -1,12 +1,13 @@
+/* The try page. */
 component Pages.Try {
   connect Stores.Try exposing {
-    init,
-    src,
-    setSource,
-    source,
-    compile,
+    initialized,
     compiling,
-    initialized
+    setSource,
+    compile,
+    source,
+    error,
+    src
   }
 
   style base {
@@ -26,6 +27,10 @@ component Pages.Try {
     flex-direction: column;
     display: flex;
     flex: 1;
+
+    @media (max-width: 600px) {
+      display: none;
+    }
   }
 
   style loader {
@@ -69,31 +74,34 @@ component Pages.Try {
     }
   }
 
-  fun componentDidMount : Void {
-    do {
-      init()
-      compile()
-    }
-  }
-
+  /* Updates the source code. */
   fun handleChange (value : String) : Void {
     setSource(value)
   }
 
+  /* Compiles the source code. */
   fun handleCompile (event : Html.Event) : Void {
     compile()
   }
 
+  /* Returns the iframe if loaded, a loader otherwise. */
   get frame : Html {
     if (compiling) {
       <div::loader>
         <{ "Compiling..." }>
       </div>
     } else {
-      <iframe::iframe src={src}/>
+      if (String.isEmpty(error)) {
+        <iframe::iframe src={src}/>
+      } else {
+        <div::loader>
+          <{ error }>
+        </div>
+      }
     }
   }
 
+  /* Renders the page. */
   fun render : Html {
     if (initialized) {
       <div::base>
@@ -117,7 +125,13 @@ component Pages.Try {
       </div>
     } else {
       <div::loader>
-        <{ "Initializing" }>
+        <{
+          if (String.isEmpty(error)) {
+            "Initializing..."
+          } else {
+            error
+          }
+        }>
       </div>
     }
   }

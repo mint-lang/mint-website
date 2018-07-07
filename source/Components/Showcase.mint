@@ -1,9 +1,11 @@
+/* Represents a showcase item. */
 record Showcase.Item {
   description : Html,
   title : String,
   key : String
 }
 
+/* The showcase component on the home page. */
 component Showcase {
   connect Showcase.Store exposing { active }
 
@@ -115,6 +117,7 @@ component Showcase {
     }
   }
 
+  /* Returns the data for the showcase items. */
   get data : Array(Showcase.Item) {
     [
       {
@@ -734,6 +737,7 @@ component Showcase {
     ]
   }
 
+  /* Renders the showcase. */
   fun render : Html {
     <div::row>
       <div::base>

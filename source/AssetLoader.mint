@@ -1,4 +1,6 @@
+/* Functions for loading assets (JavaScripts, CSS) asyncronously. */
 module AssetLoader {
+  /* Loads the stylesheet from the given URL. */
   fun loadStyle (url : String) : Promise(Never, Void) {
     `
     new Promise((resolve, reject) => {
@@ -11,6 +13,7 @@ module AssetLoader {
     `
   }
 
+  /* Loads the script from the given URL. */
   fun loadScript (url : String) : Promise(Never, Void) {
     `
     new Promise((resolve, reject) => {

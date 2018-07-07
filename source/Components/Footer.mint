@@ -1,3 +1,4 @@
+/* The footer component. */
 component Footer {
   style base {
     min-height: 200px;
@@ -36,6 +37,7 @@ component Footer {
     color: #EEE;
   }
 
+  /* Renders the footer. */
   fun render : Html {
     <div::base>
       <div::wrapper>

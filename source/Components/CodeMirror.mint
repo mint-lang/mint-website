@@ -1,16 +1,24 @@
+/* A component that integrates the CodeMirror editor. */
 component CodeMirror {
-  property onChange : Function(String, Void) = \value : String => void
+  /* Handler for the change event. */
+  property onChange : Function(String, Void) = (\value : String => void)
+
+  /* The value of the editor. */
   property value : String = ""
 
+  /* Initializes the editor for the given dom element. */
   fun initRef (element : Dom.Element) : Void {
     `
     (() => {
       if (!window.CodeMirror) { return }
+
       if (this.editor) { return }
+
       this.editor = CodeMirror.fromTextArea(element, {
         lineNumbers: true,
         theme: "neo"
       })
+
       this.editor.on('change', (value) => {
         this.onChange(this.editor.getValue())
       })
@@ -18,6 +26,7 @@ component CodeMirror {
     `
   }
 
+  /* After an update, update the underlying editor instance. */
   fun componentDidUpdate : Void {
     `
     (() => {
@@ -42,6 +51,7 @@ component CodeMirror {
     }
   }
 
+  /* Renders the component. */
   fun render : Html {
     <div::base>
       <textarea ref={initRef}/>

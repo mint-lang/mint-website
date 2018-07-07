@@ -1,4 +1,4 @@
-record Drag.State {
+record State {
   mousePosition : Position,
   startPosition : Position,
   dragging : Bool
@@ -9,10 +9,10 @@ record Position {
   top : Number
 }
 
-store DragStore {
+store Store {
   property position : Position = {
-    top = 0,
-    left = 0
+    left = 0,
+    top = 0
   }
 
   fun setPosition (value : Position) : Void {
@@ -20,10 +20,10 @@ store DragStore {
   }
 }
 
-component Drag {
-  connect DragStore exposing { setPosition, position }
+component Main {
+  connect Store exposing { setPosition, position }
 
-  state : Drag.State {
+  state : State {
     mousePosition =
       {
         left = 0,
@@ -93,12 +93,21 @@ component Drag {
   }
 
   style base {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 100%;
+    width: 100%;
+  }
+
+  style rect {
     transform: translate3d({position.left}px,{position.top}px, 0);
     justify-content: center;
     background: orangered;
     align-items: center;
     border-radius: 10px;
     position: absolute;
+    font-family: sans;
     display: flex;
     height: 100px;
     width: 100px;
@@ -108,8 +117,10 @@ component Drag {
   }
 
   fun render : Html {
-    <div::base onMouseDown={\event : Html.Event => start(event)}>
-      <{ "DragMe" }>
+    <div::base>
+      <div::rect onMouseDown={\event : Html.Event => start(event)}>
+        <{ "DragMe" }>
+      </div>
     </div>
   }
 }

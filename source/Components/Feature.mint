@@ -1,6 +1,9 @@
 /* A component for an individual feature in the features section. */
 component Feature {
+  /* The title of the feature. */
   property title : String = ""
+
+  /* The text of the feature. */
   property text : String = ""
 
   style title {

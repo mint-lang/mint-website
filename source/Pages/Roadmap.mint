@@ -14,7 +14,7 @@ component Pages.Roadmap {
         }>
       </SubTitle>
 
-      <Pages.Roadmap.Version version="Planned Features">
+      <Pages.Roadmap.Version name="Planned Features">
         <Pages.Roadmap.Feature
           name="CSS Type Checking"
           icon={Icons.diamond()}
@@ -85,7 +85,7 @@ component Pages.Roadmap {
           }/>
       </Pages.Roadmap.Version>
 
-      <Pages.Roadmap.Version version="0.1">
+      <Pages.Roadmap.Version name="0.1">
         <Pages.Roadmap.Feature
           description="The language itself."
           name="Language Basics"

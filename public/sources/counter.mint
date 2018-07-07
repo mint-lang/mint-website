@@ -1,4 +1,4 @@
-store Counter.Store {
+store Store {
   property counter : Number = 0
 
   fun increment : Void {
@@ -10,8 +10,9 @@ store Counter.Store {
   }
 }
 
-component Counter {
-  connect Counter.Store exposing { increment, decrement, counter }
+component Main {
+  connect Store exposing { increment, decrement, counter }
+
   property disabled : Bool = false
 
   style base {
@@ -63,11 +64,5 @@ component Counter {
 
       </button>
     </div>
-  }
-}
-
-component Main {
-  fun render : Html {
-    <Counter disabled={false}/>
   }
 }

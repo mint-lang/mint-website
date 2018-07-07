@@ -1,7 +1,5 @@
+/* The possible pages. */
 enum Page {
-  ExampleCounter
-  ExampleDrag
-  ExampleFile
   NotFound
   Examples
   Install
@@ -11,20 +9,36 @@ enum Page {
 }
 
 routes {
-  /counter {
-    Application.setPage(Page::ExampleCounter)
+  /examples/counter {
+    do {
+      Application.setPage(Page::Try)
+      Stores.Try.init("/sources/counter.mint")
+    }
   }
 
-  /drag {
-    Application.setPage(Page::ExampleDrag)
+  /examples/drag {
+    do {
+      Application.setPage(Page::Try)
+      Stores.Try.init("/sources/drag.mint")
+    }
+  }
+
+  /examples/file-handling {
+    do {
+      Application.setPage(Page::Try)
+      Stores.Try.init("/sources/file-handling.mint")
+    }
+  }
+
+  /try {
+    do {
+      Application.setPage(Page::Try)
+      Stores.Try.init("/sources/counter.mint")
+    }
   }
 
   /examples {
     Application.setPage(Page::Examples)
-  }
-
-  /examples/file-handling {
-    Application.setPage(Page::ExampleFile)
   }
 
   /install {
@@ -35,15 +49,8 @@ routes {
     Application.setPage(Page::Roadmap)
   }
 
-  /try {
-    Application.setPage(Page::Try)
-  }
-
   / {
-    do {
-      Application.setPage(Page::Home)
-      Showcase.Store.setActive("store")
-    }
+    Application.setPage(Page::Home)
   }
 
   * {

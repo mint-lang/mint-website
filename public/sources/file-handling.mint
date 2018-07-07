@@ -1,10 +1,10 @@
-record Examples.FileHandling.State {
+record State {
   file : Maybe(File),
   contents : String
 }
 
-component Examples.FileHandling {
-  state : Examples.FileHandling.State {
+component Main {
+  state : State {
     file = Maybe.nothing(),
     contents = ""
   }

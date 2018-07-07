@@ -1,8 +1,12 @@
+/* A component for a roadmap version. */
 component Pages.Roadmap.Version {
+  /* The children to render. */
   property children : Array(Html) = []
-  property version : String = ""
 
-  style title {
+  /* The name of the version. */
+  property name : String = ""
+
+  style name {
     border-bottom: 2px solid #EEE;
     padding-bottom: 5px;
     margin-bottom: 15px;
@@ -18,10 +22,11 @@ component Pages.Roadmap.Version {
     }
   }
 
+  /* Renders the version. */
   fun render : Html {
     <div>
-      <div::title>
-        <{ version }>
+      <div::name>
+        <{ name }>
       </div>
 
       <div::features>

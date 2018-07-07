@@ -1,4 +1,6 @@
+/* The component for the layout. */
 component Layout {
+  /* The children to render. */
   property children : Array(Html) = []
 
   style base {
@@ -20,6 +22,7 @@ component Layout {
     }
   }
 
+  /* Renders the layout. */
   fun render : Html {
     <div::base>
       <Header/>

@@ -1,6 +1,6 @@
 /* The install page. */
 component Pages.Install {
-  connect Stores.Versions exposing { loading, refresh, latest }
+  connect Stores.Versions exposing { errored, loading, refresh, latest }
 
   style hr {
     margin: 40px 0;
@@ -15,9 +15,14 @@ component Pages.Install {
     font-size: inherit;
     background: #FFF;
     padding: 5px;
+
+    @media (max-width: 600px) {
+      padding: 3px 5px;
+    }
   }
 
   style link {
+    word-break: break-all;
     text-decoration: none;
     color: #2f9e59;
 
@@ -27,7 +32,10 @@ component Pages.Install {
   }
 
   style list {
+    margin: 0;
+
     & li {
+      line-height: 1.5;
       margin-top: 15px;
     }
 
@@ -54,6 +62,10 @@ component Pages.Install {
     & > a {
       margin: 0 5px;
     }
+
+    @media (max-width: 600px) {
+      display: block;
+    }
   }
 
   style hint-icon {
@@ -64,7 +76,7 @@ component Pages.Install {
     width: 24px;
 
     @media (max-width: 600px) {
-      align-self: flex-start;
+      display: none;
     }
   }
 
@@ -81,9 +93,17 @@ component Pages.Install {
         </li>
       </ul>
     } else {
-      <ul::files>
-        <{ files }>
-      </ul>
+      if (errored) {
+        <ul::files>
+          <li>
+            <{ "Something went wrong when trying to load the binaries..." }>
+          </li>
+        </ul>
+      } else {
+        <ul::files>
+          <{ files }>
+        </ul>
+      }
     }
   }
 

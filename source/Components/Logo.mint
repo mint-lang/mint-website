@@ -1,6 +1,12 @@
+/* A component to show the logo. */
 component Logo {
+  /* The size of the logo on mobile devices. */
   property mobileSize : Number = 90
+
+  /* If true the logo is inverted (white). */
   property invert : Bool = false
+
+  /* The size of the logo on desktops. */
   property size : Number = 90
 
   style base {
@@ -13,6 +19,7 @@ component Logo {
     }
   }
 
+  /* Returns the bottom color of the gradient. */
   get bottomColor : String {
     if (invert) {
       "#FFF"
@@ -21,6 +28,7 @@ component Logo {
     }
   }
 
+  /* Returns the top color of the gradient. */
   get topColor : String {
     if (invert) {
       "#FFF"
@@ -29,6 +37,7 @@ component Logo {
     }
   }
 
+  /* Returns the id of the gradient. */
   get id : String {
     if (invert) {
       "a"
@@ -37,6 +46,7 @@ component Logo {
     }
   }
 
+  /* Renders the logo. */
   fun render : Html {
     <svg::base
       viewBox="0 0 256 256"
@@ -45,13 +55,13 @@ component Logo {
 
       <defs>
         <linearGradient
+          gradientTransform="translate(-132.333 374.602)"
           gradientUnits="userSpaceOnUse"
           y2="435.85"
           x2="260.59"
           y1="665.136"
           x1="260.59"
-          id={id}
-          gradientTransform="translate(-132.333 374.602)">
+          id={id}>
 
           <stop
             offset="0"
@@ -83,9 +93,9 @@ component Logo {
           "62-7.314-29.78l-1.25 6.875s1.318-9.609-13.573-28.572L158" \
           " 843.307c-1.75-14.332-27.037-21.552-30-32.855z"
         }
+        transform="translate(0 -796.362)"
         fill={"url(#" + id + ")"}
-        fill-rule="evenodd"
-        transform="translate(0 -796.362)"/>
+        fill-rule="evenodd"/>
 
     </svg>
   }

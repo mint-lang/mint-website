@@ -1,7 +1,11 @@
+/* A highlighted text component for the showcase. */
 component Showcase.Highlight {
-  connect Showcase.Store exposing { active, over, setActive, setOver }
+  connect Showcase.Store exposing { setActive, setOver, active, over }
 
+  /* The text to display. */
   property text : String = ""
+
+  /* The name of the showcase item. */
   property name : String = ""
 
   style base {
@@ -17,6 +21,7 @@ component Showcase.Highlight {
     color: {color};
   }
 
+  /* Returns the CSS for the border. */
   get border : String {
     if (over == name) {
       "1px dashed rgba(0,0,0,0.6)"
@@ -25,6 +30,7 @@ component Showcase.Highlight {
     }
   }
 
+  /* Returns the color of the text. */
   get color : String {
     if (active == name) {
       "white"
@@ -33,6 +39,7 @@ component Showcase.Highlight {
     }
   }
 
+  /* Returns the background color. */
   get background : String {
     if (active == name) {
       "#2f9e59"
@@ -45,6 +52,7 @@ component Showcase.Highlight {
     }
   }
 
+  /* Handles the click event. */
   fun handleClick (event : Html.Event) : Void {
     do {
       Html.Event.stopPropagation(event)
@@ -52,6 +60,7 @@ component Showcase.Highlight {
     }
   }
 
+  /* Handles the mouse enter event. */
   fun handleMouseEnter (event : Html.Event) : Void {
     do {
       Html.Event.stopPropagation(event)
@@ -59,10 +68,12 @@ component Showcase.Highlight {
     }
   }
 
+  /* Handles the mouse leave event. */
   fun handleMouseLeave (event : Html.Event) : Void {
     setOver("")
   }
 
+  /* Renders the component. */
   fun render : Html {
     <div::base
       onMouseLeave={handleMouseLeave}

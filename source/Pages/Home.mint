@@ -67,9 +67,14 @@ component Pages.Home {
 
   style compiles {
     margin-bottom: 20px;
+    text-align: center;
     font-style: italic;
     margin-top: 10px;
     opacity: 0.5;
+  }
+
+  fun componentDidMount : Void {
+    Showcase.Store.setActive("store")
   }
 
   /* Renders the page. */

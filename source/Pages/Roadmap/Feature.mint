@@ -1,8 +1,15 @@
 /* A component for a roadmap feature. */
 component Pages.Roadmap.Feature {
+  /* The children to render. */
   property children : Array(Html) = []
+
+  /* The icon. */
   property icon : Html = Html.empty()
+
+  /* The description of the feature. */
   property description : String = ""
+
+  /* The name of the feature. */
   property name : String = ""
 
   style base {
@@ -20,6 +27,10 @@ component Pages.Roadmap.Feature {
     & > svg {
       height: 12px;
       width: 12px;
+    }
+
+    @media (max-width: 600px) {
+      display: none;
     }
   }
 
@@ -42,8 +53,13 @@ component Pages.Roadmap.Feature {
     & > * + * {
       margin-top: 7px;
     }
+
+    @media (max-width: 600px) {
+      margin-left: 3px;
+    }
   }
 
+  /* Renders the feature. */
   fun render : Html {
     <div::base>
       <div::icon>
@@ -59,15 +75,11 @@ component Pages.Roadmap.Feature {
           <{ description }>
         </div>
 
-        <{
-          if (Array.isEmpty(children)) {
-            Html.empty()
-          } else {
-            <div::features>
-              <{ children }>
-            </div>
-          }
-        }>
+        <Unless condition={Array.isEmpty(children)}>
+          <div::features>
+            <{ children }>
+          </div>
+        </Unless>
       </div>
     </div>
   }
