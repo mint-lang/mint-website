@@ -32,7 +32,6 @@ component Footer {
     border-bottom: 1px dashed #444;
     padding-bottom: 5px;
     margin-bottom: 10px;
-    font-family: Amiko;
     font-weight: 600;
     color: #EEE;
   }
