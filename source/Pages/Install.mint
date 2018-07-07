@@ -1,5 +1,6 @@
-component Install {
-  connect Versions exposing { loading, latest }
+/* The install page. */
+component Pages.Install {
+  connect Stores.Versions exposing { loading, refresh, latest }
 
   style hr {
     margin: 40px 0;
@@ -67,6 +68,7 @@ component Install {
     }
   }
 
+  /* Returns the content. */
   get content : Html {
     if (loading) {
       <ul::files>
@@ -85,14 +87,7 @@ component Install {
     }
   }
 
-  fun renderFile (asset : Asset) : Html {
-    <li>
-      <a::link href={asset.url}>
-        <{ asset.name }>
-      </a>
-    </li>
-  }
-
+  /* Returns the binary file list. */
   get files : Array(Html) {
     if (loading) {
       []
@@ -102,6 +97,21 @@ component Install {
     }
   }
 
+  /* Renders a file link from an `Asset`. */
+  fun renderFile (asset : Asset) : Html {
+    <li>
+      <a::link href={asset.url}>
+        <{ asset.name }>
+      </a>
+    </li>
+  }
+
+  /* Loads the versions when mounted. */
+  fun componentDidMount : Void {
+    refresh()
+  }
+
+  /* Renders the page. */
   fun render : Html {
     <Page>
       <Title>
@@ -225,6 +235,20 @@ component Install {
           </code>
         </li>
       </ol>
+
+      <hr::hr/>
+
+      <Title>
+        <{ "Install on Arch Linux" }>
+      </Title>
+
+      <SubTitle>
+        <{ "An aur package is available for Mint: " }>
+
+        <a::link href="https://aur.archlinux.org/packages/mint/">
+          <{ "https://aur.archlinux.org/packages/mint/" }>
+        </a>
+      </SubTitle>
 
       <hr::hr/>
 

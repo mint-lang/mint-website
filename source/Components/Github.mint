@@ -1,9 +1,11 @@
+/* A component for the Github section on the home page. */
 component Github {
   style base {
     flex-direction: column;
     align-items: center;
     background: white;
     display: flex;
+
     padding: 80px 0;
     padding-bottom: 140px;
 
@@ -33,6 +35,7 @@ component Github {
     font-size: 18px;
   }
 
+  /* Renders the component. */
   fun render : Html {
     <div::base>
       <img::image

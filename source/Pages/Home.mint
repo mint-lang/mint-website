@@ -1,4 +1,5 @@
-component Home {
+/* The home page. */
+component Pages.Home {
   style hero {
     background: url(hero.png);
     justify-content: center;
@@ -71,13 +72,14 @@ component Home {
     opacity: 0.5;
   }
 
+  /* Renders the page. */
   fun render : Html {
     <div::base>
       <div::hero>
         <div::logo>
           <Logo
-            size={180}
-            mobileSize={60}/>
+            mobileSize={60}
+            size={180}/>
 
           <h1::h1>
             <{ "MINT" }>
@@ -85,7 +87,7 @@ component Home {
         </div>
 
         <h2::slogan>
-          <{ "A refreshing language for the front-end web" }>
+          <{ "A refreshing language for the front-end web." }>
         </h2>
 
         <div::compiles>

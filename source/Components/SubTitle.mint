@@ -1,3 +1,4 @@
+/* A component for a sub title. */
 component SubTitle {
   property children : Array(Html) = []
 
@@ -9,6 +10,7 @@ component SubTitle {
     }
   }
 
+  /* Renders the component. */
   fun render : Html {
     <div::base>
       <{ children }>

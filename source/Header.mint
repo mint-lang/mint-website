@@ -5,6 +5,16 @@ component Header {
     color: #FFF;
   }
 
+  style spacer {
+    flex: 1;
+  }
+
+  style separator {
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 0 15px;
+    height: 30px;
+  }
+
   style wrapper {
     align-items: center;
     max-width: 1040px;
@@ -62,20 +72,20 @@ component Header {
           </div>
         </a>
 
-        <Ui.Toolbar.Spacer/>
+        <div::spacer/>
 
         <div::desktop>
           <a::link href="/try">
             <{ "Try" }>
           </a>
 
-          <Ui.Toolbar.Separator/>
+          <div::separator/>
 
           <a::link href="/install">
             <{ "Install" }>
           </a>
 
-          <Ui.Toolbar.Separator/>
+          <div::separator/>
 
           <a::link
             href="https://guide.mint-lang.com"
@@ -85,13 +95,13 @@ component Header {
 
           </a>
 
-          <Ui.Toolbar.Separator/>
+          <div::separator/>
 
           <a::link href="/examples">
             <{ "Examples" }>
           </a>
 
-          <Ui.Toolbar.Separator/>
+          <div::separator/>
 
           <a::link href="/roadmap">
             <{ "Roadmap" }>

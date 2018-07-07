@@ -1,6 +1,12 @@
+/* A button component. */
 component Button {
+  /* The children to render. */
   property children : Array(Html) = []
+
+  /* The links target. */
   property target : String = ""
+
+  /* The links URL. */
   property href : String = ""
 
   style base {
@@ -27,6 +33,7 @@ component Button {
     }
   }
 
+  /* Renders the component. */
   fun render : Html {
     <a::base
       target={target}

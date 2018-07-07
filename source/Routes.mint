@@ -1,86 +1,52 @@
+enum Page {
+  ExampleCounter
+  ExampleDrag
+  ExampleFile
+  NotFound
+  Examples
+  Install
+  Roadmap
+  Home
+  Try
+}
+
 routes {
-  /users/new {
-    do {
-      Application.setPage("new")
-      Users.List.resetUser()
-    }
-  }
-
-  /users/:id (id : Number) {
-    do {
-      Application.setPage("user")
-      Users.List.resetUser()
-      Users.List.getUser(id)
-    }
-  }
-
-  /users?page=:page (page : String) {
-    do {
-      Application.setPage("index")
-      Users.List.refresh()
-
-      actualPage =
-        Number.fromString(page)
-        |> Maybe.withDefault(0)
-
-      Users.List.setPage(actualPage)
-    }
-  }
-
-  /users {
-    do {
-      Application.setPage("index")
-      Users.List.refresh()
-      Users.List.setPage(0)
-    }
-  }
-
   /counter {
-    Application.setPage("counter")
+    Application.setPage(Page::ExampleCounter)
   }
 
   /drag {
-    Application.setPage("drag")
+    Application.setPage(Page::ExampleDrag)
   }
 
   /examples {
-    Application.setPage("examples")
+    Application.setPage(Page::Examples)
   }
 
   /examples/file-handling {
-    Application.setPage("file-handling")
+    Application.setPage(Page::ExampleFile)
   }
 
   /install {
-    do {
-      Application.setPage("install")
-      Versions.refresh()
-    }
+    Application.setPage(Page::Install)
   }
 
   /roadmap {
-    do {
-      Application.setPage("roadmap")
-      Versions.refresh()
-    }
+    Application.setPage(Page::Roadmap)
   }
 
   /try {
-    do {
-      Application.setPage("try")
-      Stores.Try.init()
-      Stores.Try.compile()
-    }
+    Application.setPage(Page::Try)
   }
 
   / {
     do {
-      Application.setPage("home")
+      Application.setPage(Page::Home)
       Showcase.Store.setActive("store")
     }
   }
 
   * {
-    Application.setPage("not_found")
+    Application.setPage(Page::NotFound)
   }
 }

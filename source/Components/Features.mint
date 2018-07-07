@@ -1,66 +1,4 @@
-component Feature {
-  property title : String = ""
-  property text : String = ""
-
-  style title {
-    border-bottom: 1px dashed #CCC;
-    padding-bottom: 10px;
-    align-items: center;
-    margin-bottom: 10px;
-    position: relative;
-    font-weight: bold;
-    display: flex;
-  }
-
-  style text {
-    position: relative;
-    z-index: 1;
-  }
-
-  style base {
-    position: relative;
-    background: #FFF;
-    overflow: hidden;
-    padding: 20px;
-  }
-
-  style star {
-    margin-right: 10px;
-    fill: #2f9e59;
-    height: 14px;
-    width: 14px;
-  }
-
-  get star : Html {
-    <svg::star
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      height="24"
-      width="24">
-
-      <path
-        d={
-          "M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.41" \
-          "6-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z"
-        }/>
-
-    </svg>
-  }
-
-  fun render : Html {
-    <div::base>
-      <div::title>
-        <{ star }>
-        <{ title }>
-      </div>
-
-      <div::text>
-        <{ text }>
-      </div>
-    </div>
-  }
-}
-
+/* A component for the features section on the home page. */
 component Features {
   style base {
     padding: 70px 0;
@@ -93,6 +31,7 @@ component Features {
     margin: 0 auto;
   }
 
+  /* Renders the component. */
   fun render : Html {
     <div::base>
       <div::container>

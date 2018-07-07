@@ -1,72 +1,6 @@
-component Roadmap.Version {
-  property children : Array(Html) = []
-  property version : String = ""
-
-  style title {
-    border-bottom: 2px solid #EEE;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
-    font-family: Amiko;
-    margin-top: 40px;
-    font-size: 24px;
-    color: #222;
-  }
-
-  style features {
-    & > * + * {
-      margin-top: 20px;
-    }
-  }
-
-  fun render : Html {
-    <div>
-      <div::title>
-        <{ version }>
-      </div>
-
-      <div::features>
-        <{ children }>
-      </div>
-    </div>
-  }
-}
-
-component Roadmap {
-  get checkmark : Html {
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24">
-
-      <path
-        d={
-          "M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728" \
-          " 15-15.285z"
-        }/>
-
-    </svg>
-  }
-
-  get diamond : Html {
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fillRule="evenodd"
-      clipRule="evenodd"
-      height="24"
-      width="24">
-
-      <path
-        d={
-          "M12 0l-12 12.001 12 11.999 12.001-11.999-12.001-12.001zm" \
-          "-9.171 12.001l9.171-9.172 9.172 9.172-9.172 9.172-9.171-" \
-          "9.172z"
-        }/>
-
-    </svg>
-  }
-
+/* The roadmap page. */
+component Pages.Roadmap {
+  /* Renders the page. */
   fun render : Html {
     <Page>
       <Title>
@@ -80,10 +14,10 @@ component Roadmap {
         }>
       </SubTitle>
 
-      <Roadmap.Version version="Planned Features">
+      <Pages.Roadmap.Version version="Planned Features">
         <Pages.Roadmap.Feature
           name="CSS Type Checking"
-          icon={diamond}
+          icon={Icons.diamond()}
           description={
             "Check the values of known CSS properties and warn the de" \
             "veloper if it's not matches the available values."
@@ -91,7 +25,7 @@ component Roadmap {
 
         <Pages.Roadmap.Feature
           name="HTML Attribute Checking"
-          icon={diamond}
+          icon={Icons.diamond()}
           description={
             "Check the values of HTML attributes based on the tag the" \
             "y belong to (for example check alt attributes for <img> " \
@@ -100,7 +34,7 @@ component Roadmap {
 
         <Pages.Roadmap.Feature
           name="Progressive Web Application Support"
-          icon={diamond}
+          icon={Icons.diamond()}
           description={
             "Automatically generate files for basic PWA features (ser" \
             "vice-worker, manifest, icons)."
@@ -108,17 +42,17 @@ component Roadmap {
 
         <Pages.Roadmap.Feature
           description="A package for monitoring the state of the application."
-          name="Devtools"
-          icon={diamond}/>
+          icon={Icons.diamond()}
+          name="Devtools"/>
 
         <Pages.Roadmap.Feature
           name="Selective Compilation"
-          icon={diamond}
+          icon={Icons.diamond()}
           description="Only compile the entities that are being used."/>
 
         <Pages.Roadmap.Feature
           name="Hot Reloading"
-          icon={diamond}
+          icon={Icons.diamond()}
           description={
             "In development mode replace entities that changed withou" \
             "t losing state. "
@@ -126,7 +60,7 @@ component Roadmap {
 
         <Pages.Roadmap.Feature
           name="Language Server Protocol"
-          icon={diamond}
+          icon={Icons.diamond()}
           description={
             "Implement a language server to expose the AST for code e" \
             "ditors."
@@ -134,28 +68,28 @@ component Roadmap {
 
         <Pages.Roadmap.Feature
           name="Website for Packages"
-          icon={diamond}
+          icon={Icons.diamond()}
           description="A website to browse, find and rate community packages."/>
 
         <Pages.Roadmap.Feature
           name="Image Optimization"
-          icon={diamond}
+          icon={Icons.diamond()}
           description="During the build process optimize images automatically."/>
 
         <Pages.Roadmap.Feature
           name="Application Structure Diagram"
-          icon={diamond}
+          icon={Icons.diamond()}
           description={
             "Construct an interactive diagram of application structur" \
             "e containing routes, stores, providers and components. "
           }/>
-      </Roadmap.Version>
+      </Pages.Roadmap.Version>
 
-      <Roadmap.Version version="0.1">
+      <Pages.Roadmap.Version version="0.1">
         <Pages.Roadmap.Feature
           description="The language itself."
           name="Language Basics"
-          icon={checkmark}>
+          icon={Icons.checkmark()}>
 
           <Pages.Roadmap.Feature
             name="Parser"
@@ -178,7 +112,7 @@ component Roadmap {
         <Pages.Roadmap.Feature
           description="The features of the language."
           name="Language Features"
-          icon={checkmark}>
+          icon={Icons.checkmark()}>
 
           <Pages.Roadmap.Feature
             name="Components"
@@ -221,7 +155,7 @@ component Roadmap {
 
         <Pages.Roadmap.Feature
           name="Documentation Generator"
-          icon={checkmark}
+          icon={Icons.checkmark()}
           description={
             "Generate beautiful documentation for your project, inclu" \
             "ding dependencies."
@@ -229,7 +163,7 @@ component Roadmap {
 
         <Pages.Roadmap.Feature
           name="Production Builder"
-          icon={checkmark}
+          icon={Icons.checkmark()}
           description={
             "The process of building the production version of the ap" \
             "plication."
@@ -253,7 +187,7 @@ component Roadmap {
 
         <Pages.Roadmap.Feature
           name="Development Server"
-          icon={checkmark}
+          icon={Icons.checkmark()}
           description={
             "A server that automatically formats code and reloads the" \
             " application when any of the source files change."
@@ -261,7 +195,7 @@ component Roadmap {
 
         <Pages.Roadmap.Feature
           name="Package Manager"
-          icon={checkmark}
+          icon={Icons.checkmark()}
           description={
             "Install external sources (packages) directly from Git re" \
             "positories."
@@ -269,7 +203,7 @@ component Roadmap {
 
         <Pages.Roadmap.Feature
           name="Testing"
-          icon={checkmark}
+          icon={Icons.checkmark()}
           description={
             "Language feature for easily testing modules, packages, c" \
             "omponents or the whole application."
@@ -277,12 +211,12 @@ component Roadmap {
 
         <Pages.Roadmap.Feature
           name="Command Line Interface"
-          icon={checkmark}
+          icon={Icons.checkmark()}
           description={
             "A binary that allows to access the features of the langu" \
             "age."
           }/>
-      </Roadmap.Version>
+      </Pages.Roadmap.Version>
     </Page>
   }
 }

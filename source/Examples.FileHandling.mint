@@ -55,14 +55,17 @@ component Examples.FileHandling {
 
   fun render : Html {
     <div>
-      <Ui.Button
-        onClick={\event : Html.Event => openDialog()}
-        label="Open Browse Dialog"/>
+      <button onClick={\event : Html.Event => openDialog()}>
+        <{ "Open Browse Dialog" }>
+      </button>
 
-      <Ui.Button
+      <button
         onClick={\event : Html.Event => upload()}
-        label="Upload"
-        disabled={Maybe.isNothing(state.file)}/>
+        disabled={Maybe.isNothing(state.file)}>
+
+        <{ "Upload" }>
+
+      </button>
 
       <{ file }>
 

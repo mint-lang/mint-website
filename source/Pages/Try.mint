@@ -1,5 +1,13 @@
 component Pages.Try {
-  connect Stores.Try exposing { src, setSource, source, compile, compiling, initialized }
+  connect Stores.Try exposing {
+    init,
+    src,
+    setSource,
+    source,
+    compile,
+    compiling,
+    initialized
+  }
 
   style base {
     min-height: 90vh;
@@ -58,6 +66,13 @@ component Pages.Try {
     &:hover {
       background: #2f9e59;
       color: #FFF;
+    }
+  }
+
+  fun componentDidMount : Void {
+    do {
+      init()
+      compile()
     }
   }
 

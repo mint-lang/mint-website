@@ -49,18 +49,6 @@ record Examples.Item {
 }
 
 store Examples.Store {
-  property userManagement : Examples.Item = {
-    title = "User Management",
-    href = "/users",
-    description =
-      "This example contains an implementation of a table of us" \
-      "ers with client side pagination and forms for creating n" \
-      "ew users and editing existsing ones through an HTTP API.",
-    src =
-      "https://github.com/mint-lang/mint-website/blob/master/so" \
-      "urce/UserForm.mint"
-  }
-
   property drag : Examples.Item = {
     title = "Drag and Drop",
     href = "/drag",
@@ -98,7 +86,7 @@ store Examples.Store {
 }
 
 component Examples {
-  connect Examples.Store exposing { userManagement, drag, fileHandling, counter }
+  connect Examples.Store exposing { drag, fileHandling, counter }
 
   style grid {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -129,11 +117,6 @@ component Examples {
       <hr::hr/>
 
       <div::grid>
-        <Examples.Example
-          description={userManagement.description}
-          title={userManagement.title}
-          href={userManagement.href}/>
-
         <Examples.Example
           description={drag.description}
           title={drag.title}

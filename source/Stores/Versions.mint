@@ -1,4 +1,4 @@
-store Versions {
+store Stores.Versions {
   property versions : Array(Version) = []
   property loading : Bool = true
   property stale : Bool = true

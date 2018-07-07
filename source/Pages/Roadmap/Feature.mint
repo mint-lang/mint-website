@@ -1,3 +1,4 @@
+/* A component for a roadmap feature. */
 component Pages.Roadmap.Feature {
   property children : Array(Html) = []
   property icon : Html = Html.empty()
