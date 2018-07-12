@@ -23,7 +23,7 @@ component Pages.Examples {
       <SubTitle>
         <{
           "Here you can find some examples that showcase the langua" \
-          "ge features."
+          "ge's features."
         }>
       </SubTitle>
 
@@ -43,7 +43,7 @@ component Pages.Examples {
           title="File Handling"
           description={
             "This example shows how to implement a component which lo" \
-            "ads and shows a file from the users computer and then up" \
+            "ads and shows a file from the user's computer and then up" \
             "loads it to a server via HTTP."
           }/>
 
@@ -51,8 +51,8 @@ component Pages.Examples {
           href="/examples/counter"
           title="Counter"
           description={
-            "This example shows a counter which stored in a store wit" \
-            "h two buttons one for incrementing th counter and one fo" \
+            "This example shows a counter that is stored in a store wit" \
+            "h two buttons: one for incrementing the counter and one fo" \
             "r decrementing it."
           }/>
       </div>
