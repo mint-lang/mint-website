@@ -273,6 +273,54 @@ component Pages.Install {
       <hr::hr/>
 
       <Title>
+        <{ "Install on Windows 10" }>
+      </Title>
+
+      <SubTitle>
+        <{ "For now you can use the Windows Subsystem for Linux to run Mint." }>
+      </SubTitle>
+
+      <ol::list>
+        <li>
+          <{ "Install the " }>
+
+          <a::link
+            href="https://docs.microsoft.com/en-us/windows/wsl/install-win10/"
+            target="_blank">
+
+            <{ "Windows Subsystem for Linux" }>
+
+          </a>
+        </li>
+
+        <li>
+          <{ "Install the Linux binary from the top." }>
+        </li>
+
+        <li>
+          <{ "Move the binary to " }>
+
+          <code::code>
+            <{ "/usr/local/bin/mint" }>
+          </code>
+
+          <pre::code>
+            <{ "sudo mv /path/to/binary /usr/local/bin/mint" }>
+          </pre>
+        </li>
+
+        <li>
+          <{ "You invoke the CLI in your terminal by just typing " }>
+
+          <code::code>
+            <{ "mint" }>
+          </code>
+        </li>
+      </ol>
+
+      <hr::hr/>
+
+      <Title>
         <{ "Install from Source" }>
       </Title>
 
