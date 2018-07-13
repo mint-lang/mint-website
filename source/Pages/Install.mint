@@ -294,7 +294,7 @@ component Pages.Install {
         </li>
 
         <li>
-          <{ "Install the Linux binary from the top." }>
+          <{ "Download the Linux binary from the top or the daily binaries." }>
         </li>
 
         <li>
