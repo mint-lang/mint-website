@@ -1,7 +1,6 @@
 /* The try page. */
 component Pages.Try {
   connect Stores.Try exposing {
-    initialized,
     compiling,
     setSource,
     compile,
@@ -74,6 +73,16 @@ component Pages.Try {
     }
   }
 
+  style editor {
+    flex-direction: column;
+    display: flex;
+    flex: 1;
+
+    & > * {
+      flex: 1;
+    }
+  }
+
   /* Updates the source code. */
   fun handleChange (value : String) : Void {
     setSource(value)
@@ -103,7 +112,6 @@ component Pages.Try {
 
   /* Renders the page. */
   fun render : Html {
-    if (initialized) {
       <div::base>
         <div::source>
           <div::toolbar>
@@ -116,23 +124,23 @@ component Pages.Try {
             </button>
           </div>
 
-          <CodeMirror
-            onChange={handleChange}
-            value={source}/>
+          <div::editor>
+            <CodeMirror
+              javascripts=[
+                "/codemirror.min.js",
+              ]
+              styles=[
+                "/codemirror.min.css",
+                "/codemirror.neo.min.css"
+              ]
+              onChange={handleChange}
+              value={source}
+              theme="neo"
+              />
+          </div>
         </div>
 
         <{ frame }>
       </div>
-    } else {
-      <div::loader>
-        <{
-          if (String.isEmpty(error)) {
-            "Initializing..."
-          } else {
-            error
-          }
-        }>
-      </div>
-    }
   }
 }

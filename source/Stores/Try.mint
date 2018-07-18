@@ -4,9 +4,6 @@ This store contains the business logic of the try page.
 - Compiles the source code and turns it into a blob url
 */
 store Stores.Try {
-  /* Represents whether or not that the assets are initialized or not. */
-  property initialized : Bool = false
-
   /* Represents whether or not the code is compiling. */
   property compiling : Bool = false
 
@@ -21,22 +18,7 @@ store Stores.Try {
 
   /* Initializes the store by loading the assets. */
   fun init (url : String) : Void {
-    /* If initialized do nothing. */
-    if (initialized) {
-      loadSource(url)
-    } else {
-      do {
-        /* Load the assets. */
-        AssetLoader.loadScript("/codemirror.min.js")
-        AssetLoader.loadStyle("/codemirror.min.css")
-        AssetLoader.loadStyle("/codemirror.neo.min.css")
-
-        /* Set initialized to true. */
-        next { state | initialized = true }
-
-        loadSource(url)
-      }
-    }
+    loadSource(url)
   }
 
   fun loadSource (url : String) : Void {
