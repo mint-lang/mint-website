@@ -23,11 +23,11 @@
   "dependencies": {
     "mint-core": {
       "repository": "https://github.com/mint-lang/core",
-      "constraint": "0.0.0 <= v < 1.0.0"
+      "constraint": "0.2:0.0.0"
     },
     "mint-codemirror": {
       "repository": "https://github.com/mint-lang/mint-codemirror",
-      "constraint": "1.0.0 <= v < 2.0.0"
+      "constraint": "master:1.0.0"
     }
   }
 }

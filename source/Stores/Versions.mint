@@ -52,9 +52,10 @@ store Stores.Versions {
 
       sortedVersions =
         versions
-        |> Array.sortBy(\version : Version => version.date)
+        |> Array.sortBy((version : Version) : Time => { version.date })
         |> Array.reverse()
 
+      Debug.log(encode sortedVersions)
       next
         { state |
           versions = sortedVersions,

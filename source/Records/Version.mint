@@ -1,15 +1,15 @@
 /* Represents an asset of a version. */
 record Asset {
-  url : String from "browser_download_url",
+  url : String using "browser_download_url",
   name : String
 }
 
 /* Represents a version. */
 record Version {
-  description : String from "body",
-  version : String from "tag_name",
-  date : Time from "published_at",
-  url : String from "html_url",
+  description : String using "body",
+  version : String using "tag_name",
+  date : Time using "published_at",
+  url : String using "html_url",
   assets : Array(Asset)
 }
 

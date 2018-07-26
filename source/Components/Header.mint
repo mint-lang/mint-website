@@ -2,7 +2,7 @@
 component Header {
   connect Application exposing { toggleMenu, closeMenu, menu }
 
-  use Provider.Scroll { scrolls = \event : Html.Event => closeMenu() }
+  use Provider.Scroll { scrolls = (event : Html.Event) : Void => { closeMenu() } }
 
   style base {
     border-bottom: 2px solid #29894e;
@@ -164,7 +164,7 @@ component Header {
             </a>
           </div>
 
-          <div::mobile onClick={\event : Html.Event => toggleMenu()}>
+          <div::mobile onClick={(event : Html.Event) : Void => { toggleMenu() }}>
             <{ Icons.navigation() }>
           </div>
         </div>
