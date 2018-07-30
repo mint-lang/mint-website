@@ -43,17 +43,17 @@ component Pages.Examples {
           title="File Handling"
           description={
             "This example shows how to implement a component which lo" \
-            "ads and shows a file from the user's computer and then up" \
-            "loads it to a server via HTTP."
+            "ads and shows a file from the user's computer and then u" \
+            "ploads it to a server via HTTP."
           }/>
 
         <Pages.Examples.Example
           href="/examples/counter"
           title="Counter"
           description={
-            "This example shows a counter that is stored in a store wit" \
-            "h two buttons: one for incrementing the counter and one fo" \
-            "r decrementing it."
+            "This example shows a counter that is stored in a store w" \
+            "ith two buttons: one for incrementing the counter and on" \
+            "e for decrementing it."
           }/>
       </div>
     </Page>

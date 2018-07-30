@@ -1,16 +1,16 @@
 /* A store to get the versions of Mint form the website server. */
 store Stores.Versions {
   /* The list of versions. */
-  property versions : Array(Version) = []
+  state versions : Array(Version) = []
 
   /* Whether or not the versions are loading. */
-  property loading : Bool = true
+  state loading : Bool = true
 
   /* Whether or not the store is initialized. */
-  property initialized : Bool = false
+  state initialized : Bool = false
 
   /* Whether or not the there was an error. */
-  property errored : Bool = false
+  state errored : Bool = false
 
   /* Returns the latest version. */
   get latest : Version {
@@ -32,8 +32,7 @@ store Stores.Versions {
   fun load : Void {
     do {
       next
-        { state |
-          errored = false,
+        { errored = false,
           loading = true
         }
 
@@ -55,20 +54,18 @@ store Stores.Versions {
         |> Array.sortBy((version : Version) : Time => { version.date })
         |> Array.reverse()
 
-      Debug.log(encode sortedVersions)
       next
-        { state |
-          versions = sortedVersions,
+        { versions = sortedVersions,
           initialized = true
         }
     } catch Http.ErrorResponse => error {
-      next { state | errored = true }
+      next { errored = true }
     } catch String => error {
-      next { state | errored = true }
+      next { errored = true }
     } catch Object.Error => error {
-      next { state | errored = true }
+      next { errored = true }
     } finally {
-      next { state | loading = false }
+      next { loading = false }
     }
   }
 }

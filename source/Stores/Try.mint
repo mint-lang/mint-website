@@ -5,16 +5,16 @@ This store contains the business logic of the try page.
 */
 store Stores.Try {
   /* Represents whether or not the code is compiling. */
-  property compiling : Bool = false
+  state compiling : Bool = false
 
   /* Represents an error during compilation. */
-  property error : String = ""
+  state error : String = ""
 
   /* Represents the source code. */
-  property source : String = ""
+  state source : String = ""
 
   /* The url of the example page. */
-  property src : String = ""
+  state src : String = ""
 
   /* Initializes the store by loading the assets. */
   fun init (url : String) : Void {
@@ -34,13 +34,13 @@ store Stores.Try {
 
       compile()
     } catch Http.ErrorResponse => response {
-      next { state | error = "Could not load souce file!" }
+      next { error = "Could not load souce file!" }
     }
   }
 
   /* Sets the source to the given value. */
   fun setSource (source : String) : Void {
-    next { state | source = source }
+    next { source = source }
   }
 
   /*
@@ -67,8 +67,7 @@ store Stores.Try {
     do {
       /* We are compiling. */
       next
-        { state |
-          compiling = true,
+        { compiling = true,
           error = ""
         }
 
@@ -81,7 +80,7 @@ store Stores.Try {
 
       /* If the compilation falied we need to display it as HMTL. */
       if (response.status == 500) {
-        next { state | src = createObjectUrl(response.body, "text/html") }
+        next { src = createObjectUrl(response.body, "text/html") }
       } else {
         do {
           /* Create an object URL for the script. */
@@ -93,14 +92,14 @@ store Stores.Try {
             createObjectUrl(html(url), "text/html")
 
           /* Set the src to the URL of the html. */
-          next { state | src = src }
+          next { src = src }
         }
       }
     } catch Http.ErrorResponse => response {
-      next { state | error = "Compiling failed!" }
+      next { error = "Compiling failed!" }
     } finally {
       /* After everythig is done we are not compiling anymore. */
-      next { state | compiling = false }
+      next { compiling = false }
     }
   }
 }

@@ -1,70 +1,59 @@
-record State {
-  mousePosition : Position,
-  startPosition : Position,
-  dragging : Bool
-}
-
 record Position {
   left : Number,
   top : Number
 }
 
-store Store {
-  property position : Position = {
-    left = 0,
-    top = 0
-  }
-
-  fun setPosition (value : Position) : Void {
-    next { state | position = value }
-  }
-}
-
 component Main {
-  connect Store exposing { setPosition, position }
+  state mousePosition : Position =
+    {
+      left = 0,
+      top = 0
+    }
 
-  state : State {
-    mousePosition =
-      {
-        left = 0,
-        top = 0
-      },
-    startPosition =
-      {
-        left = 0,
-        top = 0
-      },
-    dragging = false
-  }
+  state startPosition : Position =
+    {
+      left = 0,
+      top = 0
+    }
+
+  state position : Position =
+    {
+      left = 0,
+      top = 0
+    }
+
+  state dragging : Position = false
 
   use Provider.Mouse {
     moves = \data : Html.Event => move(data),
     clicks = \data : Html.Event => void,
     ups = \data : Html.Event => end()
   } when {
-    state.dragging
+    dragging
   }
 
   fun move (data : Html.Event) : Void {
-    if (state.dragging) {
-      setPosition(
-        {
-          left = state.startPosition.left - diff.left,
-          top = state.startPosition.top - diff.top
-        })
+    if (dragging) {
+      next {
+        position =
+          {
+            left = startPosition.left - diff.left,
+            top = startPosition.top - diff.top
+          }
+      }
     } else {
-      next state
+      void
     }
   } where {
     diff =
       {
-        left = state.mousePosition.left - data.pageX,
-        top = state.mousePosition.top - data.pageY
+        left = mousePosition.left - data.pageX,
+        top = mousePosition.top - data.pageY
       }
   }
 
   fun end : Void {
-    next { state | dragging = false }
+    next { dragging = false }
   }
 
   fun start (event : Html.Event) : Void {
@@ -72,8 +61,7 @@ component Main {
       Html.Event.preventDefault(event)
 
       next
-        { state |
-          mousePosition = mousePosition,
+        { mousePosition = mousePosition,
           startPosition = startPosition,
           dragging = true
         }

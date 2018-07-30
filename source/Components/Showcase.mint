@@ -947,7 +947,8 @@ component Showcase {
   } where {
     selected =
       data
-      |> Array.find((item : Showcase.Item) : Bool => { item.key == active })
+      |> Array.find(
+        (item : Showcase.Item) : Bool => { item.key == active })
       |> Maybe.withDefault(
         {
           description = Html.empty(),

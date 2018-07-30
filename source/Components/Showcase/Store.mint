@@ -1,18 +1,18 @@
 /* A store for the showcase. */
 store Showcase.Store {
   /* The active showcase item. */
-  property active : String = "store"
+  state active : String = "store"
 
   /* The hovered showcase item. */
-  property over : String = ""
+  state over : String = ""
 
   /* Sets the active showcase item. */
   fun setActive (active : String) : Void {
-    next { state | active = active }
+    next { active = active }
   }
 
   /* Sets the hovered showcase item. */
   fun setOver (over : String) : Void {
-    next { state | over = over }
+    next { over = over }
   }
 }

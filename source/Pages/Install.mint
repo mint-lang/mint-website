@@ -277,7 +277,10 @@ component Pages.Install {
       </Title>
 
       <SubTitle>
-        <{ "For now you can use the Windows Subsystem for Linux to run Mint." }>
+        <{
+          "For now you can use the Windows Subsystem for Linux to r" \
+          "un Mint."
+        }>
       </SubTitle>
 
       <ol::list>
@@ -285,7 +288,10 @@ component Pages.Install {
           <{ "Install the " }>
 
           <a::link
-            href="https://docs.microsoft.com/en-us/windows/wsl/install-win10/"
+            href={
+              "https://docs.microsoft.com/en-us/windows/wsl/install-win" \
+              "10/"
+            }
             target="_blank">
 
             <{ "Windows Subsystem for Linux" }>
@@ -294,7 +300,10 @@ component Pages.Install {
         </li>
 
         <li>
-          <{ "Download the Linux binary from the top or the daily binaries." }>
+          <{
+            "Download the Linux binary from the top or the daily bina" \
+            "ries."
+          }>
         </li>
 
         <li>

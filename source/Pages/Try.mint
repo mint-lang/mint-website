@@ -1,13 +1,6 @@
 /* The try page. */
 component Pages.Try {
-  connect Stores.Try exposing {
-    compiling,
-    setSource,
-    compile,
-    source,
-    error,
-    src
-  }
+  connect Stores.Try exposing { compiling, setSource, compile, source, error, src }
 
   style base {
     min-height: 90vh;
@@ -112,35 +105,32 @@ component Pages.Try {
 
   /* Renders the page. */
   fun render : Html {
-      <div::base>
-        <div::source>
-          <div::toolbar>
-            <div::file>
-              <{ "Main.mint" }>
-            </div>
-
-            <button::button onClick={handleCompile}>
-              <{ "Compile" }>
-            </button>
+    <div::base>
+      <div::source>
+        <div::toolbar>
+          <div::file>
+            <{ "Main.mint" }>
           </div>
 
-          <div::editor>
-            <CodeMirror
-              javascripts=[
-                "/codemirror.min.js",
-              ]
-              styles=[
-                "/codemirror.min.css",
-                "/codemirror.neo.min.css"
-              ]
-              onChange={handleChange}
-              value={source}
-              theme="neo"
-              />
-          </div>
+          <button::button onClick={handleCompile}>
+            <{ "Compile" }>
+          </button>
         </div>
 
-        <{ frame }>
+        <div::editor>
+          <CodeMirror
+            javascripts=["/codemirror.min.js"]
+            styles=[
+              "/codemirror.min.css",
+              "/codemirror.neo.min.css"
+            ]
+            onChange={handleChange}
+            value={source}
+            theme="neo"/>
+        </div>
       </div>
+
+      <{ frame }>
+    </div>
   }
 }
