@@ -159,15 +159,15 @@ component Showcase {
           </div>
       },
       {
-        title = "Store Properties",
-        key = "store-property",
+        title = "Store State",
+        key = "store-state",
         description =
           <ul>
             <li>
               <{ "The " }>
 
               <code>
-                <{ "property" }>
+                <{ "state" }>
               </code>
 
               <{
@@ -757,8 +757,8 @@ component Showcase {
               name="store">
 
               <Showcase.Highlight
-                text="property counter : Number = 0"
-                name="store-property"/>
+                text="state counter : Number = 0"
+                name="store-state"/>
 
               <div::spacer/>
 
@@ -767,7 +767,7 @@ component Showcase {
                 name="function">
 
                 <Showcase.Highlight
-                  text="next { state | counter = counter + 1 }"
+                  text="next { counter = counter + 1 }"
                   name="next"/>
 
               </Showcase.HighlightBlock>
@@ -775,7 +775,7 @@ component Showcase {
               <div::spacer/>
 
               <Showcase.Block line="fun decrement : Void">
-                <{ "next { state | counter = counter - 1 }" }>
+                <{ "next { counter = counter - 1 }" }>
               </Showcase.Block>
 
             </Showcase.HighlightBlock>
@@ -869,7 +869,7 @@ component Showcase {
                     name="html-element">
 
                     <Showcase.Highlight
-                      text="onClick={\\event : Html.Event => decrement()}"
+                      text="onClick={(event : Html.Event) : Void => { decrement() }}"
                       name="event"/>
 
                     <{ "\ndisabled={disabled}>" }>
@@ -897,7 +897,7 @@ component Showcase {
                     openingChar=""
                     line="<button">
 
-                    <{ "onClick={\\event : Html.Event => increment()}\n" }>
+                    <{ "onClick={(event : Html.Event) : Void => { increment() }}\n" }>
                     <{ "disabled=" }>
 
                     <Showcase.Highlight
