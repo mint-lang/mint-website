@@ -22,7 +22,7 @@ component Main {
       top = 0
     }
 
-  state dragging : Position = false
+  state dragging : Bool = false
 
   use Provider.Mouse {
     moves = (data : Html.Event) : Void => { move(data) },

@@ -1,8 +1,3 @@
-record State {
-  file : Maybe(File),
-  contents : String
-}
-
 component Main {
   state file : Maybe(File) = Maybe.nothing()
   state contents : String = ""
@@ -40,11 +35,11 @@ component Main {
   } where {
     formData =
       try {
-        file =
+        resultFile =
           Maybe.toResult("Got Nothing", file)
 
         FormData.empty()
-        |> FormData.addFile("file", file)
+        |> FormData.addFile("file", resultFile)
       } catch String => error {
         FormData.empty()
       }
@@ -64,14 +59,14 @@ component Main {
 
       </button>
 
-      <{ file }>
+      <{ fileHtml }>
 
       <pre::pre>
         <{ contents }>
       </pre>
     </div>
   } where {
-    file =
+    fileHtml =
       file
       |> Maybe.map(
         (file : File) : Html => {
