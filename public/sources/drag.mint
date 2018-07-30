@@ -25,9 +25,9 @@ component Main {
   state dragging : Position = false
 
   use Provider.Mouse {
-    moves = \data : Html.Event => move(data),
-    clicks = \data : Html.Event => void,
-    ups = \data : Html.Event => end()
+    moves = (data : Html.Event) : Void => { move(data) },
+    clicks = (data : Html.Event) : Void => { void },
+    ups = (data : Html.Event) : Void => { end( ) }
   } when {
     dragging
   }
@@ -106,7 +106,7 @@ component Main {
 
   fun render : Html {
     <div::base>
-      <div::rect onMouseDown={\event : Html.Event => start(event)}>
+      <div::rect onMouseDown={(event : Html.Event) : Void => { start(event) }}>
         <{ "DragMe" }>
       </div>
     </div>

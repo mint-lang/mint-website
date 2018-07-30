@@ -45,7 +45,7 @@ component Main {
   fun render : Html {
     <div::base>
       <button
-        onClick={\event : Html.Event => decrement()}
+        onClick={(event : Html.Event) : Void => { decrement() }}
         disabled={disabled}>
 
         <{ "Decrement" }>
@@ -57,7 +57,7 @@ component Main {
       </span>
 
       <button
-        onClick={\event : Html.Event => increment()}
+        onClick={(event : Html.Event) : Void => { increment() }}
         disabled={disabled}>
 
         <{ "Increment" }>

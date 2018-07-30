@@ -4,10 +4,8 @@ record State {
 }
 
 component Main {
-  state : State {
-    file = Maybe.nothing(),
-    contents = ""
-  }
+  state file : Maybe(File) = Maybe.nothing()
+  state contents : String = ""
 
   style pre {
     word-break: break-word;
@@ -23,8 +21,7 @@ component Main {
         File.readAsDataURL(file)
 
       next
-        { state |
-          contents = contents,
+        { contents = contents,
           file = Maybe.just(file)
         }
     }
@@ -44,7 +41,7 @@ component Main {
     formData =
       try {
         file =
-          Maybe.toResult("Got Nothing", state.file)
+          Maybe.toResult("Got Nothing", file)
 
         FormData.empty()
         |> FormData.addFile("file", file)
@@ -55,13 +52,13 @@ component Main {
 
   fun render : Html {
     <div>
-      <button onClick={\event : Html.Event => openDialog()}>
+      <button onClick={(event : Html.Event) : Void => { openDialog() }}>
         <{ "Open Browse Dialog" }>
       </button>
 
       <button
-        onClick={\event : Html.Event => upload()}
-        disabled={Maybe.isNothing(state.file)}>
+        onClick={(event : Html.Event) : Void => { upload() }}
+        disabled={Maybe.isNothing(file)}>
 
         <{ "Upload" }>
 
@@ -70,17 +67,18 @@ component Main {
       <{ file }>
 
       <pre::pre>
-        <{ state.contents }>
+        <{ contents }>
       </pre>
     </div>
   } where {
     file =
-      state.file
+      file
       |> Maybe.map(
-        \file : File =>
+        (file : File) : Html => {
           <div>
             <{ File.name(file) }>
-          </div>)
+          </div>
+        })
       |> Maybe.withDefault(<div/>)
   }
 }
