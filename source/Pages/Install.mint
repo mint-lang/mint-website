@@ -162,6 +162,14 @@ component Pages.Install {
         </li>
 
         <li>
+          <{ "Make the binary executable"}>
+
+          <pre::code>
+            <{ "sudo chmod +x /usr/local/bin/mint" }>
+          </pre>
+        </li>
+
+        <li>
           <{ "You invoke the CLI in your terminal by just typing " }>
 
           <code::code>
@@ -315,6 +323,14 @@ component Pages.Install {
 
           <pre::code>
             <{ "sudo mv /path/to/binary /usr/local/bin/mint" }>
+          </pre>
+        </li>
+
+        <li>
+          <{ "Make the binary executable"}>
+
+          <pre::code>
+            <{ "sudo chmod +x /usr/local/bin/mint" }>
           </pre>
         </li>
 
