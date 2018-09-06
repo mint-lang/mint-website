@@ -60,33 +60,31 @@ component Showcase.HighlightBlock {
   get background : String {
     if (active == name) {
       "#2f9e59"
+    } else if (over == name) {
+      "rgba(0,0,0,0.15)"
     } else {
-      if (over == name) {
-        "rgba(0,0,0,0.15)"
-      } else {
-        "rgba(0,0,0,0.07)"
-      }
+      "rgba(0,0,0,0.07)"
     }
   }
 
   /* Handles the click event. */
-  fun handleClick (event : Html.Event) : Void {
-    do {
+  fun handleClick (event : Html.Event) : Promise(Never, Void) {
+    sequence {
       Html.Event.stopPropagation(event)
       setActive(name)
     }
   }
 
   /* Handles the mouse enter event. */
-  fun handleMouseEnter (event : Html.Event) : Void {
-    do {
+  fun handleMouseEnter (event : Html.Event) : Promise(Never, Void) {
+    sequence {
       Html.Event.stopPropagation(event)
       setOver(name)
     }
   }
 
   /* Handles the mouse leave event. */
-  fun handleMouseLeave (event : Html.Event) : Void {
+  fun handleMouseLeave (event : Html.Event) : Promise(Never, Void) {
     setOver("")
   }
 

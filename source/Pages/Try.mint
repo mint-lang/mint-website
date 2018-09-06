@@ -77,12 +77,12 @@ component Pages.Try {
   }
 
   /* Updates the source code. */
-  fun handleChange (value : String) : Void {
+  fun handleChange (value : String) : Promise(Never, Void) {
     setSource(value)
   }
 
   /* Compiles the source code. */
-  fun handleCompile (event : Html.Event) : Void {
+  fun handleCompile (event : Html.Event) : Promise(Never, Void) {
     compile()
   }
 
@@ -92,14 +92,12 @@ component Pages.Try {
       <div::loader>
         <{ "Compiling..." }>
       </div>
+    } else if (String.isEmpty(error)) {
+      <iframe::iframe src={src}/>
     } else {
-      if (String.isEmpty(error)) {
-        <iframe::iframe src={src}/>
-      } else {
-        <div::loader>
-          <{ error }>
-        </div>
-      }
+      <div::loader>
+        <{ error }>
+      </div>
     }
   }
 

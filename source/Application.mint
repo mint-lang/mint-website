@@ -7,22 +7,23 @@ store Application {
   state menu : Bool = false
 
   /* Toggles the mobile menu. */
-  fun toggleMenu : Void {
+  fun toggleMenu : Promise(Never, Void) {
     next { menu = !menu }
   }
 
   /* Closes the mobile menu. */
-  fun closeMenu : Void {
+  fun closeMenu : Promise(Never, Void) {
     next { menu = false }
   }
 
   /* Sets the current page. */
-  fun setPage (page : Page) : Void {
-    do {
+  fun setPage (page : Page) : Promise(Never, Void) {
+    sequence {
       Http.abortAll()
 
       next
-        {           page = page,
+        {
+          page = page,
           menu = false
         }
     }

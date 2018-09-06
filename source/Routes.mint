@@ -10,28 +10,28 @@ enum Page {
 
 routes {
   /examples/counter {
-    do {
+    sequence {
       Application.setPage(Page::Try)
       Stores.Try.init("/sources/counter.mint")
     }
   }
 
   /examples/drag {
-    do {
+    sequence {
       Application.setPage(Page::Try)
       Stores.Try.init("/sources/drag.mint")
     }
   }
 
   /examples/file-handling {
-    do {
+    sequence {
       Application.setPage(Page::Try)
       Stores.Try.init("/sources/file-handling.mint")
     }
   }
 
   /try {
-    do {
+    sequence {
       Application.setPage(Page::Try)
       Stores.Try.init("/sources/counter.mint")
     }
@@ -42,7 +42,10 @@ routes {
   }
 
   /install {
-    Application.setPage(Page::Install)
+    parallel {
+      Application.setPage(Page::Install)
+      Stores.Versions.refresh()
+    }
   }
 
   /roadmap {

@@ -897,7 +897,11 @@ component Showcase {
                     openingChar=""
                     line="<button">
 
-                    <{ "onClick={(event : Html.Event) : Void => { increment() }}\n" }>
+                    <{
+                      "onClick={(event : Html.Event) : Void => { increment() }}" \
+                      "\n"
+                    }>
+
                     <{ "disabled=" }>
 
                     <Showcase.Highlight
