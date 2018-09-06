@@ -149,7 +149,7 @@ component Pages.Roadmap {
 
           <Pages.Roadmap.Feature
             name="JavaScript Interopability"
-            description="Simply call out the JavaScript when you need to."/>
+            description="Simply call out to JavaScript when you need to."/>
 
         </Pages.Roadmap.Feature>
 
