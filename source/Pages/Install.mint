@@ -205,8 +205,8 @@ component Pages.Install {
         </svg>
 
         <{
-          "The Mac OSX the binary needs some dependencies, until th" \
-          "ere is a package you need to"
+          "The Mac OSX binary needs some dependencies, until " \
+          "there is a package you need to"
         }>
 
         <a::link
