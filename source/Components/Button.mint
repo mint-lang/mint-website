@@ -40,7 +40,8 @@ component Button {
   fun render : Html {
     <a::base
       target={target}
-      href={href}>
+      href={href}
+      rel={rel}>
 
       <{ children }>
 
