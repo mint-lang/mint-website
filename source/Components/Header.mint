@@ -145,6 +145,7 @@ component Header {
 
             <a::link
               href="https://guide.mint-lang.com"
+              rel="noreferrer"
               target="_blank">
 
               <{ "Learn" }>
