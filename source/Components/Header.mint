@@ -2,7 +2,7 @@
 component Header {
   connect Application exposing { toggleMenu, closeMenu, menu }
 
-  use Provider.Scroll { scrolls = (event : Html.Event) : Void => { closeMenu() } }
+  use Provider.Scroll { scrolls = (event : Html.Event) : Promise(Never, Void) => { closeMenu() } }
 
   style base {
     border-bottom: 2px solid #29894e;
@@ -164,7 +164,7 @@ component Header {
             </a>
           </div>
 
-          <div::mobile onClick={(event : Html.Event) : Void => { toggleMenu() }}>
+          <div::mobile onClick={(event : Html.Event) : Promise(Never, Void) => { toggleMenu() }}>
             <{ Icons.navigation() }>
           </div>
         </div>

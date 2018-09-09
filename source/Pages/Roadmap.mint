@@ -33,14 +33,6 @@ component Pages.Roadmap {
           }/>
 
         <Pages.Roadmap.Feature
-          name="Progressive Web Application Support"
-          icon={Icons.diamond()}
-          description={
-            "Automatically generate files for basic PWA features (ser" \
-            "vice-worker, manifest, icons)."
-          }/>
-
-        <Pages.Roadmap.Feature
           description="A package for monitoring the state of the application."
           icon={Icons.diamond()}
           name="Devtools"/>
@@ -85,7 +77,39 @@ component Pages.Roadmap {
           }/>
       </Pages.Roadmap.Version>
 
-      <Pages.Roadmap.Version name="0.1">
+      <Pages.Roadmap.Version name="0.3.0">
+        <Pages.Roadmap.Feature
+          description="Language feature for defining Algebraic Data Types"
+          name="ADTs"
+          icon={Icons.checkmark()}/>
+
+        <Pages.Roadmap.Feature
+          description="Control structures for asynchronous task handling"
+          name="Sequence & Parallel"
+          icon={Icons.checkmark()}/>
+
+        <Pages.Roadmap.Feature
+          name="Progressive Web Application Support"
+          icon={Icons.checkmark()}
+          description={
+            "Automatically generate files for basic PWA features (ser" \
+            "vice-worker, manifest, icons)."
+          }/>
+      </Pages.Roadmap.Version>
+
+      <Pages.Roadmap.Version name="0.2.0">
+        <Pages.Roadmap.Feature
+          description="Accessing items in array with brackets"
+          name="Array access"
+          icon={Icons.checkmark()}/>
+
+        <Pages.Roadmap.Feature
+          description="Syntax for defining Html fragments"
+          name="Html fragments"
+          icon={Icons.checkmark()}/>
+      </Pages.Roadmap.Version>
+
+      <Pages.Roadmap.Version name="0.1.0">
         <Pages.Roadmap.Feature
           description="The language itself."
           name="Language Basics"

@@ -20,19 +20,20 @@ store Stores.Versions {
   }
 
   /* Refreshes the versions from the server. */
-  fun refresh : Void {
+  fun refresh : Promise(Never, Void) {
     if (initialized) {
-      void
+      Promise.never()
     } else {
       load()
     }
   }
 
   /* Loads the versions from the server. */
-  fun load : Void {
-    do {
+  fun load : Promise(Never, Void) {
+    sequence {
       next
-        { errored = false,
+        {
+          errored = false,
           loading = true
         }
 
@@ -46,23 +47,20 @@ store Stores.Versions {
         |> Json.parse()
         |> Maybe.toResult("Json Error")
 
-      versions =
+      newVersions =
         decode object as Array(Version)
 
       sortedVersions =
-        versions
+        newVersions
         |> Array.sortBy((version : Version) : Time => { version.date })
         |> Array.reverse()
 
       next
-        { versions = sortedVersions,
+        {
+          versions = sortedVersions,
           initialized = true
         }
-    } catch Http.ErrorResponse => error {
-      next { errored = true }
-    } catch String => error {
-      next { errored = true }
-    } catch Object.Error => error {
+    } catch {
       next { errored = true }
     } finally {
       next { loading = false }

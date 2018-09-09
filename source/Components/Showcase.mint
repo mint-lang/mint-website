@@ -763,7 +763,7 @@ component Showcase {
               <div::spacer/>
 
               <Showcase.HighlightBlock
-                line="fun increment : Void"
+                line="fun increment : Promise(Never, Void)"
                 name="function">
 
                 <Showcase.Highlight
@@ -774,7 +774,7 @@ component Showcase {
 
               <div::spacer/>
 
-              <Showcase.Block line="fun decrement : Void">
+              <Showcase.Block line="fun decrement : Promise(Never, Void)">
                 <{ "next { counter = counter - 1 }" }>
               </Showcase.Block>
 
@@ -853,6 +853,30 @@ component Showcase {
 
               <div::spacer/>
 
+              <Showcase.Block
+                line={
+                  "fun handleIncrement (event : Html.Event) : Promise(Never" \
+                  ", Void)"
+                }>
+
+                <{ "increment()" }>
+
+              </Showcase.Block>
+
+              <div::spacer/>
+
+              <Showcase.Block
+                line={
+                  "fun handleDecrement (event : Html.Event) : Promise(Never" \
+                  ", Void)"
+                }>
+
+                <{ "decrement()" }>
+
+              </Showcase.Block>
+
+              <div::spacer/>
+
               <Showcase.HighlightBlock
                 line="fun render : Html"
                 name="render">
@@ -869,7 +893,7 @@ component Showcase {
                     name="html-element">
 
                     <Showcase.Highlight
-                      text="onClick={(event : Html.Event) : Void => { decrement() }}"
+                      text="onClick={handleDecrement}"
                       name="event"/>
 
                     <{ "\ndisabled={disabled}>" }>
@@ -897,7 +921,8 @@ component Showcase {
                     openingChar=""
                     line="<button">
 
-                    <{ "onClick={(event : Html.Event) : Void => { increment() }}\n" }>
+                    <{ "onClick={handleIncrement}\n" }>
+
                     <{ "disabled=" }>
 
                     <Showcase.Highlight

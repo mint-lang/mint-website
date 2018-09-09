@@ -1,6 +1,6 @@
 /* The install page. */
 component Pages.Install {
-  connect Stores.Versions exposing { errored, loading, refresh, latest }
+  connect Stores.Versions exposing { errored, loading, latest }
 
   style hr {
     margin: 40px 0;
@@ -92,18 +92,16 @@ component Pages.Install {
           <{ "Loading osx version..." }>
         </li>
       </ul>
+    } else if (errored) {
+      <ul::files>
+        <li>
+          <{ "Something went wrong when trying to load the binaries..." }>
+        </li>
+      </ul>
     } else {
-      if (errored) {
-        <ul::files>
-          <li>
-            <{ "Something went wrong when trying to load the binaries..." }>
-          </li>
-        </ul>
-      } else {
-        <ul::files>
-          <{ files }>
-        </ul>
-      }
+      <ul::files>
+        <{ files }>
+      </ul>
     }
   }
 
@@ -124,11 +122,6 @@ component Pages.Install {
         <{ asset.name }>
       </a>
     </li>
-  }
-
-  /* Loads the versions when mounted. */
-  fun componentDidMount : Void {
-    refresh()
   }
 
   /* Renders the page. */
@@ -162,7 +155,7 @@ component Pages.Install {
         </li>
 
         <li>
-          <{ "Make the binary executable"}>
+          <{ "Make the binary executable" }>
 
           <pre::code>
             <{ "sudo chmod +x /usr/local/bin/mint" }>
@@ -327,7 +320,7 @@ component Pages.Install {
         </li>
 
         <li>
-          <{ "Make the binary executable"}>
+          <{ "Make the binary executable" }>
 
           <pre::code>
             <{ "sudo chmod +x /usr/local/bin/mint" }>

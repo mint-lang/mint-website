@@ -1,11 +1,11 @@
 store Store {
   state counter : Number = 0
 
-  fun increment : Void {
+  fun increment : Promise(Never, Void) {
     next { counter = counter + 1 }
   }
 
-  fun decrement : Void {
+  fun decrement : Promise(Never, Void) {
     next { counter = counter - 1 }
   }
 }
@@ -45,7 +45,7 @@ component Main {
   fun render : Html {
     <div::base>
       <button
-        onClick={(event : Html.Event) : Void => { decrement() }}
+        onClick={(event : Html.Event) : Promise(Never, Void) => { decrement() }}
         disabled={disabled}>
 
         <{ "Decrement" }>
@@ -57,7 +57,7 @@ component Main {
       </span>
 
       <button
-        onClick={(event : Html.Event) : Void => { increment() }}
+        onClick={(event : Html.Event) : Promise(Never, Void) => { increment() }}
         disabled={disabled}>
 
         <{ "Increment" }>

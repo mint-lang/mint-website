@@ -73,7 +73,7 @@ component Pages.Home {
     opacity: 0.5;
   }
 
-  fun componentDidMount : Void {
+  fun componentDidMount : Promise(Never, Void) {
     Showcase.Store.setActive("store")
   }
 

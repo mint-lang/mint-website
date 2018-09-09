@@ -17,12 +17,12 @@ store Stores.Try {
   state src : String = ""
 
   /* Initializes the store by loading the assets. */
-  fun init (url : String) : Void {
+  fun init (url : String) : Promise(Never, Void) {
     loadSource(url)
   }
 
-  fun loadSource (url : String) : Void {
-    do {
+  fun loadSource (url : String) : Promise(Never, Void) {
+    sequence {
       /* Load the example source code. */
       response =
         url
@@ -39,7 +39,7 @@ store Stores.Try {
   }
 
   /* Sets the source to the given value. */
-  fun setSource (source : String) : Void {
+  fun setSource (source : String) : Promise(Never, Void) {
     next { source = source }
   }
 
@@ -63,11 +63,12 @@ store Stores.Try {
   }
 
   /* Compiles the source code. */
-  fun compile : Void {
-    do {
+  fun compile : Promise(Never, Void) {
+    sequence {
       /* We are compiling. */
       next
-        { compiling = true,
+        {
+          compiling = true,
           error = ""
         }
 
@@ -82,17 +83,17 @@ store Stores.Try {
       if (response.status == 500) {
         next { src = createObjectUrl(response.body, "text/html") }
       } else {
-        do {
+        sequence {
           /* Create an object URL for the script. */
           url =
             createObjectUrl(response.body, "application/javascript")
 
           /* Create an object URL for the html. */
-          src =
+          newSrc =
             createObjectUrl(html(url), "text/html")
 
           /* Set the src to the URL of the html. */
-          next { src = src }
+          next { src = newSrc }
         }
       }
     } catch Http.ErrorResponse => response {

@@ -7,12 +7,12 @@ store Showcase.Store {
   state over : String = ""
 
   /* Sets the active showcase item. */
-  fun setActive (active : String) : Void {
+  fun setActive (active : String) : Promise(Never, Void) {
     next { active = active }
   }
 
   /* Sets the hovered showcase item. */
-  fun setOver (over : String) : Void {
+  fun setOver (over : String) : Promise(Never, Void) {
     next { over = over }
   }
 }
