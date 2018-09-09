@@ -5,6 +5,10 @@
   ],
   "application": {
     "title": "Mint - A refreshing language for the front-end web",
+    "orientation": "landscape",
+    "theme-color": "#2f9e59",
+    "display": "standalone",
+    "name": "Mint",
     "meta": {
       "charset": "utf-8",
       "description": "Mint is a refreshing programming language for the front-end web.",
