@@ -7,30 +7,36 @@ component Main {
     white-space: pre-wrap;
   }
 
-  fun openDialog : Void {
-    do {
-      file =
+  fun openDialog : Promise(Never, Void) {
+    sequence {
+      selectedFile =
         File.select("application/json")
 
-      contents =
-        File.readAsDataURL(file)
+      nextContents =
+        File.readAsDataURL(selectedFile)
 
       next
-        { contents = contents,
-          file = Maybe.just(file)
+        { contents = nextContents,
+          file = Maybe.just(selectedFile)
         }
     }
   }
 
-  fun upload : Void {
-    do {
+  fun upload : Promise(Never, Void) {
+    sequence {
       response =
         ""
         |> Http.post()
         |> Http.formDataBody(formData)
         |> Http.send()
+
+      Promise.never()
     } catch Http.ErrorResponse => error {
-      Debug.log(error)
+      sequence {
+        Debug.log(error)
+
+        Promise.never()
+      }
     }
   } where {
     formData =
@@ -47,12 +53,12 @@ component Main {
 
   fun render : Html {
     <div>
-      <button onClick={(event : Html.Event) : Void => { openDialog() }}>
+      <button onClick={(event : Html.Event) : Promise(Never, Void) => { openDialog() }}>
         <{ "Open Browse Dialog" }>
       </button>
 
       <button
-        onClick={(event : Html.Event) : Void => { upload() }}
+        onClick={(event : Html.Event) : Promise(Never, Void) => { upload() }}
         disabled={Maybe.isNothing(file)}>
 
         <{ "Upload" }>

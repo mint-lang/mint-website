@@ -25,14 +25,14 @@ component Main {
   state dragging : Bool = false
 
   use Provider.Mouse {
-    moves = (data : Html.Event) : Void => { move(data) },
-    clicks = (data : Html.Event) : Void => { void },
-    ups = (data : Html.Event) : Void => { end( ) }
+    moves = (data : Html.Event) : Promise(Never, Void) => { move(data) },
+    ups = (data : Html.Event) : Promise(Never, Void) => { end( ) },
+    clicks = (data : Html.Event) : Void => { void }
   } when {
     dragging
   }
 
-  fun move (data : Html.Event) : Void {
+  fun move (data : Html.Event) : Promise(Never, Void) {
     if (dragging) {
       next {
         position =
@@ -42,7 +42,7 @@ component Main {
           }
       }
     } else {
-      void
+      Promise.never()
     }
   } where {
     diff =
@@ -52,12 +52,12 @@ component Main {
       }
   }
 
-  fun end : Void {
+  fun end : Promise(Never, Void) {
     next { dragging = false }
   }
 
-  fun start (event : Html.Event) : Void {
-    do {
+  fun start (event : Html.Event) : Promise(Never, Void) {
+    sequence {
       Html.Event.preventDefault(event)
 
       next
@@ -106,7 +106,7 @@ component Main {
 
   fun render : Html {
     <div::base>
-      <div::rect onMouseDown={(event : Html.Event) : Void => { start(event) }}>
+      <div::rect onMouseDown={(event : Html.Event) : Promise(Never, Void) => { start(event) }}>
         <{ "DragMe" }>
       </div>
     </div>
