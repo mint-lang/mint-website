@@ -181,6 +181,7 @@ component Header {
 
         <a::mobile-link
           href="https://guide.mint-lang.com"
+          rel="noreferrer"
           target="_blank">
 
           <{ "Learn" }>

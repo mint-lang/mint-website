@@ -117,6 +117,7 @@ component Pages.Home {
 
           <Button
             href="https://guide.mint-lang.com"
+            rel="noreferrer"
             target="_blank">
 
             <{ "Learn" }>

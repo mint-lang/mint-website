@@ -198,11 +198,12 @@ component Pages.Install {
         </svg>
 
         <{
-          "The Mac OSX binary needs some dependencies, until " \
-          "there is a package you need to"
+          "The Mac OSX binary needs some dependencies, until there " \
+          "is a package you need to"
         }>
 
         <a::link
+          rel="noreferrer"
           href={
             "https://crystal-lang.org/docs/installation/on_mac_osx_us" \
             "ing_homebrew.html"
@@ -224,8 +225,12 @@ component Pages.Install {
       <SubTitle>
         <{ "You can install Mint using the " }>
 
-        <a::link href="https://nixos.org/nix/">
+        <a::link
+          href="https://nixos.org/nix/"
+          rel="noreferrer">
+
           <{ "Nix Package Manager" }>
+
         </a>
 
         <{ " with these steps: " }>
@@ -235,8 +240,12 @@ component Pages.Install {
         <li>
           <{ "Install Nix if not installed using " }>
 
-          <a::link href="https://nixos.org/nix/download.html">
+          <a::link
+            href="https://nixos.org/nix/download.html"
+            rel="noreferrer">
+
             <{ "these instructions." }>
+
           </a>
         </li>
 
@@ -266,8 +275,12 @@ component Pages.Install {
       <SubTitle>
         <{ "An aur package is available for Mint: " }>
 
-        <a::link href="https://aur.archlinux.org/packages/mint/">
+        <a::link
+          href="https://aur.archlinux.org/packages/mint/"
+          rel="noreferrer">
+
           <{ "https://aur.archlinux.org/packages/mint/" }>
+
         </a>
       </SubTitle>
 
@@ -293,6 +306,7 @@ component Pages.Install {
               "https://docs.microsoft.com/en-us/windows/wsl/install-win" \
               "10/"
             }
+            rel="noreferrer"
             target="_blank">
 
             <{ "Windows Subsystem for Linux" }>
@@ -352,6 +366,7 @@ component Pages.Install {
 
           <a::link
             href="https://crystal-lang.org/docs/installation/"
+            rel="noreferrer"
             target="_blank">
 
             <{ "Crystal programming language" }>
@@ -365,6 +380,7 @@ component Pages.Install {
 
           <a::link
             href="https://github.com/mint-lang/mint"
+            rel="noreferrer"
             target="_blank">
 
             <{ "https://github.com/mint-lang/mint" }>
@@ -432,6 +448,7 @@ component Pages.Install {
         <ul::files>
           <li>
             <a::link
+              rel="noreferrer"
               href={
                 "https://bintray.com/mint-lang/mint/download_file?file_pa" \
                 "th=mint-latest-linux"
@@ -444,6 +461,7 @@ component Pages.Install {
 
           <li>
             <a::link
+              rel="noreferrer"
               href={
                 "https://bintray.com/mint-lang/mint/download_file?file_pa" \
                 "th=mint-latest-osx"

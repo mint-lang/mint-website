@@ -64,6 +64,7 @@ component Github {
 
       <Button
         href="https://github.com/mint-lang/mint"
+        rel="noreferrer"
         target="_blank">
 
         <{ "Contribute on Github" }>

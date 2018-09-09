@@ -9,6 +9,9 @@ component Button {
   /* The links URL. */
   property href : String = ""
 
+  /* The rel attribute. */
+  property rel : String = ""
+
   style base {
     text-transform: uppercase;
     border: 2px solid #2f9e59;

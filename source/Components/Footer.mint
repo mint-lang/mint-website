@@ -47,6 +47,7 @@ component Footer {
 
           <a::link
             href="https://github.com/mint-lang/mint"
+            rel="noreferrer"
             target="_blank">
 
             <{ "Github Repository" }>
@@ -55,6 +56,7 @@ component Footer {
 
           <a::link
             href="https://github.com/mint-lang/mint/releases"
+            rel="noreferrer"
             target="_blank">
 
             <{ "Releases / Changelog" }>
@@ -69,6 +71,7 @@ component Footer {
 
           <a::link
             href="https://gitter.im/mint-lang/Lobby"
+            rel="noreferrer"
             target="_blank">
 
             <{ "Gitter" }>
@@ -77,6 +80,7 @@ component Footer {
 
           <a::link
             href="https://spectrum.chat/mint-lang"
+            rel="noreferrer"
             target="_blank">
 
             <{ "Spectrum" }>
@@ -91,6 +95,7 @@ component Footer {
 
           <a::link
             href="https://twitter.com/mint_lang"
+            rel="noreferrer"
             target="_blank">
 
             <{ "Twitter" }>
