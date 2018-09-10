@@ -5,7 +5,7 @@
   ],
   "application": {
     "title": "Mint - A refreshing language for the front-end web",
-    "orientation": "landscape",
+    "orientation": "portrait",
     "theme-color": "#2f9e59",
     "display": "standalone",
     "name": "Mint",
