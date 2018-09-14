@@ -10,6 +10,9 @@
     "display": "standalone",
     "name": "Mint",
     "meta": {
+      "og:title": "Mint",
+      "og:image": "og.png",
+      "og:description": "Mint is a refreshing programming language for the front-end web.",
       "charset": "utf-8",
       "description": "Mint is a refreshing programming language for the front-end web.",
       "keywords": [
