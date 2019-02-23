@@ -2,7 +2,7 @@
 component Header {
   connect Application exposing { toggleMenu, closeMenu, menu }
 
-  use Provider.Scroll { scrolls = (event : Html.Event) : Promise(Never, Void) => { closeMenu() } }
+  use Provider.Scroll { scrolls = (event : Html.Event) : Promise(Never, Void) { closeMenu() } }
 
   style base {
     border-bottom: 2px solid #29894e;
@@ -124,7 +124,7 @@ component Header {
               size={20}/>
 
             <div>
-              <{ "MINT" }>
+              "MINT"
             </div>
           </a>
 
@@ -132,13 +132,13 @@ component Header {
 
           <div::desktop>
             <a::link href="/try">
-              <{ "Try" }>
+              "Try"
             </a>
 
             <div::separator/>
 
             <a::link href="/install">
-              <{ "Install" }>
+              "Install"
             </a>
 
             <div::separator/>
@@ -148,35 +148,35 @@ component Header {
               rel="noreferrer"
               target="_blank">
 
-              <{ "Learn" }>
+              "Learn"
 
             </a>
 
             <div::separator/>
 
             <a::link href="/examples">
-              <{ "Examples" }>
+              "Examples"
             </a>
 
             <div::separator/>
 
             <a::link href="/roadmap">
-              <{ "Roadmap" }>
+              "Roadmap"
             </a>
           </div>
 
-          <div::mobile onClick={(event : Html.Event) : Promise(Never, Void) => { toggleMenu() }}>
+          <div::mobile onClick={(event : Html.Event) : Promise(Never, Void) { toggleMenu() }}>
             <{ Icons.navigation() }>
           </div>
         </div>
       </div>,
       <div::mobile-menu>
         <a::mobile-link href="/try">
-          <{ "Try" }>
+          "Try"
         </a>
 
         <a::mobile-link href="/install">
-          <{ "Install" }>
+          "Install"
         </a>
 
         <a::mobile-link
@@ -184,16 +184,16 @@ component Header {
           rel="noreferrer"
           target="_blank">
 
-          <{ "Learn" }>
+          "Learn"
 
         </a>
 
         <a::mobile-link href="/examples">
-          <{ "Examples" }>
+          "Examples"
         </a>
 
         <a::mobile-link href="/roadmap">
-          <{ "Roadmap" }>
+          "Roadmap"
         </a>
       </div>
     ]

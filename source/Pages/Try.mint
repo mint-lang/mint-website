@@ -90,7 +90,7 @@ component Pages.Try {
   get frame : Html {
     if (compiling) {
       <div::loader>
-        <{ "Compiling..." }>
+        "Compiling..."
       </div>
     } else if (String.isEmpty(error)) {
       <iframe::iframe src={src}/>
@@ -107,11 +107,11 @@ component Pages.Try {
       <div::source>
         <div::toolbar>
           <div::file>
-            <{ "Main.mint" }>
+            "Main.mint"
           </div>
 
           <button::button onClick={handleCompile}>
-            <{ "Compile" }>
+            "Compile"
           </button>
         </div>
 

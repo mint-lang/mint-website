@@ -42,7 +42,7 @@ component Footer {
       <div::wrapper>
         <div::column>
           <div::title>
-            <{ "Source" }>
+            "Source"
           </div>
 
           <a::link
@@ -50,7 +50,7 @@ component Footer {
             rel="noreferrer"
             target="_blank">
 
-            <{ "Github Repository" }>
+            "Github Repository"
 
           </a>
 
@@ -59,14 +59,14 @@ component Footer {
             rel="noreferrer"
             target="_blank">
 
-            <{ "Releases / Changelog" }>
+            "Releases / Changelog"
 
           </a>
         </div>
 
         <div::column>
           <div::title>
-            <{ "Community" }>
+            "Community"
           </div>
 
           <a::link
@@ -74,7 +74,7 @@ component Footer {
             rel="noreferrer"
             target="_blank">
 
-            <{ "Gitter" }>
+            "Gitter"
 
           </a>
 
@@ -83,14 +83,14 @@ component Footer {
             rel="noreferrer"
             target="_blank">
 
-            <{ "Spectrum" }>
+            "Spectrum"
 
           </a>
         </div>
 
         <div::column>
           <div::title>
-            <{ "Social" }>
+            "Social"
           </div>
 
           <a::link
@@ -98,7 +98,7 @@ component Footer {
             rel="noreferrer"
             target="_blank">
 
-            <{ "Twitter" }>
+            "Twitter"
 
           </a>
         </div>

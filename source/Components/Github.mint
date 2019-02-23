@@ -45,21 +45,19 @@ component Github {
         }/>
 
       <div::title>
-        <{ "Fork the project on GitHub" }>
+        "Fork the project on GitHub"
       </div>
 
       <div::text>
         <b>
-          <{ "Mint" }>
+          "Mint"
         </b>
 
-        <{ " is open source! " }>
+        " is open source! "
         <br/>
 
-        <{
-          "It’s hosted, developed, and maintained on GitHub by folk" \
-          "s like you."
-        }>
+        "It’s hosted, developed, and maintained on GitHub by folk" \
+        "s like you."
       </div>
 
       <Button
@@ -67,7 +65,7 @@ component Github {
         rel="noreferrer"
         target="_blank">
 
-        <{ "Contribute on Github" }>
+        "Contribute on Github"
 
       </Button>
     </div>

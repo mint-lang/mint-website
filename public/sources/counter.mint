@@ -45,10 +45,10 @@ component Main {
   fun render : Html {
     <div::base>
       <button
-        onClick={(event : Html.Event) : Promise(Never, Void) => { decrement() }}
+        onClick={(event : Html.Event) : Promise(Never, Void) { decrement() }}
         disabled={disabled}>
 
-        <{ "Decrement" }>
+        "Decrement"
 
       </button>
 
@@ -57,10 +57,10 @@ component Main {
       </span>
 
       <button
-        onClick={(event : Html.Event) : Promise(Never, Void) => { increment() }}
+        onClick={(event : Html.Event) : Promise(Never, Void) { increment() }}
         disabled={disabled}>
 
-        <{ "Increment" }>
+        "Increment"
 
       </button>
     </div>

@@ -53,15 +53,15 @@ component Main {
 
   fun render : Html {
     <div>
-      <button onClick={(event : Html.Event) : Promise(Never, Void) => { openDialog() }}>
-        <{ "Open Browse Dialog" }>
+      <button onClick={(event : Html.Event) : Promise(Never, Void) { openDialog() }}>
+        "Open Browse Dialog"
       </button>
 
       <button
-        onClick={(event : Html.Event) : Promise(Never, Void) => { upload() }}
+        onClick={(event : Html.Event) : Promise(Never, Void) { upload() }}
         disabled={Maybe.isNothing(file)}>
 
-        <{ "Upload" }>
+        "Upload"
 
       </button>
 
@@ -75,7 +75,7 @@ component Main {
     fileHtml =
       file
       |> Maybe.map(
-        (file : File) : Html => {
+        (file : File) : Html {
           <div>
             <{ File.name(file) }>
           </div>

@@ -26,15 +26,15 @@ component Pages.NotFound {
     <Page>
       <div::base>
         <div::title>
-          <{ "404" }>
+          "404"
         </div>
 
         <div::text>
-          <{ "There is nothing here..." }>
+          "There is nothing here..."
         </div>
 
         <Button href="/">
-          <{ "Home" }>
+          "Home"
         </Button>
       </div>
     </Page>

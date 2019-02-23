@@ -52,7 +52,7 @@ store Stores.Versions {
 
       sortedVersions =
         newVersions
-        |> Array.sortBy((version : Version) : Time => { version.date })
+        |> Array.sortBy((version : Version) : Time { version.date })
         |> Array.reverse()
 
       next

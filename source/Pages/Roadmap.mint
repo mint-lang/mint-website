@@ -4,14 +4,12 @@ component Pages.Roadmap {
   fun render : Html {
     <Page>
       <Title>
-        <{ "Roadmap" }>
+        "Roadmap"
       </Title>
 
       <SubTitle>
-        <{
-          "This page contains planned and shipped high level featur" \
-          "es up to the stable release (1.0.0)."
-        }>
+        "This page contains planned and shipped high level featur" \
+        "es up to the stable release (1.0.0)."
       </SubTitle>
 
       <Pages.Roadmap.Version name="Planned Features">
@@ -36,11 +34,6 @@ component Pages.Roadmap {
           description="A package for monitoring the state of the application."
           icon={Icons.diamond()}
           name="Devtools"/>
-
-        <Pages.Roadmap.Feature
-          name="Selective Compilation"
-          icon={Icons.diamond()}
-          description="Only compile the entities that are being used."/>
 
         <Pages.Roadmap.Feature
           name="Hot Reloading"
@@ -75,6 +68,31 @@ component Pages.Roadmap {
             "Construct an interactive diagram of application structur" \
             "e containing routes, stores, providers and components. "
           }/>
+      </Pages.Roadmap.Version>
+
+      <Pages.Roadmap.Version name="0.4.0">
+        <Pages.Roadmap.Feature
+          name="Selective Compilation (Dead Code Elimination)"
+          icon={Icons.checkmark()}
+          description="Only compile the entities that are being used."/>
+
+        <Pages.Roadmap.Feature
+          name="For Expression"
+          icon={Icons.checkmark()}
+          description={
+            "For expressions allows iterating over maps, sets and arr" \
+            "ays."
+          }/>
+
+        <Pages.Roadmap.Feature
+          name="JavaScript Interpolation"
+          icon={Icons.checkmark()}
+          description="Allows calling Mint code from inlined javascript."/>
+
+        <Pages.Roadmap.Feature
+          name="Environment Variables"
+          icon={Icons.checkmark()}
+          description="Allows inlining of environment variables specified in a file."/>
       </Pages.Roadmap.Version>
 
       <Pages.Roadmap.Version name="0.3.0">

@@ -87,30 +87,27 @@ component Pages.Home {
             size={180}/>
 
           <h1::h1>
-            <{ "MINT" }>
+            "MINT"
           </h1>
         </div>
 
         <h2::slogan>
-          <{ "A refreshing language for the front-end web." }>
+          "A refreshing language for the front-end web."
         </h2>
 
         <div::compiles>
-          <{
-            "Mint is a programming language that compiles to JavaScri" \
-            "pt."
-          }>
+          "Mint is a programming language that compiles to JavaScript."
         </div>
 
         <div::buttons>
           <Button href="/try">
-            <{ "Try" }>
+            "Try"
           </Button>
 
           <div::separator/>
 
           <Button href="/install">
-            <{ "Install" }>
+            "Install"
           </Button>
 
           <div::separator/>
@@ -120,7 +117,7 @@ component Pages.Home {
             rel="noreferrer"
             target="_blank">
 
-            <{ "Learn" }>
+            "Learn"
 
           </Button>
         </div>

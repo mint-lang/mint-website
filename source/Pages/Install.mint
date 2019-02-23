@@ -85,17 +85,17 @@ component Pages.Install {
     if (loading) {
       <ul::files>
         <li>
-          <{ "Loading linux version..." }>
+          "Loading linux version..."
         </li>
 
         <li>
-          <{ "Loading osx version..." }>
+          "Loading osx version..."
         </li>
       </ul>
     } else if (errored) {
       <ul::files>
         <li>
-          <{ "Something went wrong when trying to load the binaries..." }>
+          "Something went wrong when trying to load the binaries..."
         </li>
       </ul>
     } else {
@@ -110,63 +110,59 @@ component Pages.Install {
     if (loading) {
       []
     } else {
-      latest.assets
-      |> Array.map(renderFile)
+      for (asset of latest.assets) {
+        <li>
+          <a::link href={asset.url}>
+            <{ asset.name }>
+          </a>
+        </li>
+      }
     }
-  }
-
-  /* Renders a file link from an `Asset`. */
-  fun renderFile (asset : Asset) : Html {
-    <li>
-      <a::link href={asset.url}>
-        <{ asset.name }>
-      </a>
-    </li>
   }
 
   /* Renders the page. */
   fun render : Html {
     <Page>
       <Title>
-        <{ "Install Binaries" }>
+        "Install Binaries"
       </Title>
 
       <SubTitle>
-        <{ "Follow the directions below to install Mint:" }>
+        "Follow the directions below to install Mint:"
       </SubTitle>
 
       <ol::list>
         <li>
-          <{ "Download the binary for your operating system: " }>
+          "Download the binary for your operating system: "
 
           <{ content }>
         </li>
 
         <li>
-          <{ "Move the binary to " }>
+          "Move the binary to "
 
           <code::code>
-            <{ "/usr/local/bin/mint" }>
+            "/usr/local/bin/mint"
           </code>
 
           <pre::code>
-            <{ "sudo mv /path/to/binary /usr/local/bin/mint" }>
+            "sudo mv /path/to/binary /usr/local/bin/mint"
           </pre>
         </li>
 
         <li>
-          <{ "Make the binary executable" }>
+          "Make the binary executable"
 
           <pre::code>
-            <{ "sudo chmod +x /usr/local/bin/mint" }>
+            "sudo chmod +x /usr/local/bin/mint"
           </pre>
         </li>
 
         <li>
-          <{ "You invoke the CLI in your terminal by just typing " }>
+          "You invoke the CLI in your terminal by just typing "
 
           <code::code>
-            <{ "mint" }>
+            "mint"
           </code>
         </li>
       </ol>
@@ -197,10 +193,8 @@ component Pages.Install {
 
         </svg>
 
-        <{
-          "The Mac OSX binary needs some dependencies, until there " \
-          "is a package you need to"
-        }>
+        "The Mac OSX binary needs some dependencies, until there " \
+        "is a package you need to"
 
         <a::link
           rel="noreferrer"
@@ -209,59 +203,59 @@ component Pages.Install {
             "ing_homebrew.html"
           }>
 
-          <{ "install Crystal" }>
+          "install Crystal"
 
         </a>
 
-        <{ "to satisfy them." }>
+        "to satisfy them."
       </div>
 
       <hr::hr/>
 
       <Title>
-        <{ "Install with Nix" }>
+        "Install with Nix"
       </Title>
 
       <SubTitle>
-        <{ "You can install Mint using the " }>
+        "You can install Mint using the "
 
         <a::link
           href="https://nixos.org/nix/"
           rel="noreferrer">
 
-          <{ "Nix Package Manager" }>
+          "Nix Package Manager"
 
         </a>
 
-        <{ " with these steps: " }>
+        " with these steps: "
       </SubTitle>
 
       <ol::list>
         <li>
-          <{ "Install Nix if not installed using " }>
+          "Install Nix if not installed using "
 
           <a::link
             href="https://nixos.org/nix/download.html"
             rel="noreferrer">
 
-            <{ "these instructions." }>
+            "these instructions."
 
           </a>
         </li>
 
         <li>
-          <{ "Run this command: " }>
+          "Run this command: "
 
           <pre::code>
-            <{ "nix-env -f channel:nixpkgs-unstable -iA mint" }>
+            "nix-env -f channel:nixpkgs-unstable -iA mint"
           </pre>
         </li>
 
         <li>
-          <{ "You invoke the CLI in your terminal by just typing " }>
+          "You invoke the CLI in your terminal by just typing "
 
           <code::code>
-            <{ "mint" }>
+            "mint"
           </code>
         </li>
       </ol>
@@ -269,17 +263,17 @@ component Pages.Install {
       <hr::hr/>
 
       <Title>
-        <{ "Install on Arch Linux" }>
+        "Install on Arch Linux"
       </Title>
 
       <SubTitle>
-        <{ "An aur package is available for Mint: " }>
+        "An aur package is available for Mint: "
 
         <a::link
           href="https://aur.archlinux.org/packages/mint/"
           rel="noreferrer">
 
-          <{ "https://aur.archlinux.org/packages/mint/" }>
+          "https://aur.archlinux.org/packages/mint/"
 
         </a>
       </SubTitle>
@@ -287,19 +281,17 @@ component Pages.Install {
       <hr::hr/>
 
       <Title>
-        <{ "Install on Windows 10" }>
+        "Install on Windows 10"
       </Title>
 
       <SubTitle>
-        <{
-          "For now you can use the Windows Subsystem for Linux to r" \
-          "un Mint."
-        }>
+        "For now you can use the Windows Subsystem for Linux to r" \
+        "un Mint."
       </SubTitle>
 
       <ol::list>
         <li>
-          <{ "Install the " }>
+          "Install the "
 
           <a::link
             href={
@@ -309,43 +301,41 @@ component Pages.Install {
             rel="noreferrer"
             target="_blank">
 
-            <{ "Windows Subsystem for Linux" }>
+            "Windows Subsystem for Linux"
 
           </a>
         </li>
 
         <li>
-          <{
-            "Download the Linux binary from the top or the daily bina" \
-            "ries."
-          }>
+          "Download the Linux binary from the top or the daily bina" \
+          "ries."
         </li>
 
         <li>
-          <{ "Move the binary to " }>
+          "Move the binary to "
 
           <code::code>
-            <{ "/usr/local/bin/mint" }>
+            "/usr/local/bin/mint"
           </code>
 
           <pre::code>
-            <{ "sudo mv /path/to/binary /usr/local/bin/mint" }>
+            "sudo mv /path/to/binary /usr/local/bin/mint"
           </pre>
         </li>
 
         <li>
-          <{ "Make the binary executable" }>
+          "Make the binary executable"
 
           <pre::code>
-            <{ "sudo chmod +x /usr/local/bin/mint" }>
+            "sudo chmod +x /usr/local/bin/mint"
           </pre>
         </li>
 
         <li>
-          <{ "You invoke the CLI in your terminal by just typing " }>
+          "You invoke the CLI in your terminal by just typing "
 
           <code::code>
-            <{ "mint" }>
+            "mint"
           </code>
         </li>
       </ol>
@@ -353,29 +343,29 @@ component Pages.Install {
       <hr::hr/>
 
       <Title>
-        <{ "Install from Source" }>
+        "Install from Source"
       </Title>
 
       <SubTitle>
-        <{ "Follow the directions below to install Mint from source:" }>
+        "Follow the directions below to install Mint from source:"
       </SubTitle>
 
       <ol::list>
         <li>
-          <{ "Install the " }>
+          "Install the "
 
           <a::link
             href="https://crystal-lang.org/docs/installation/"
             rel="noreferrer"
             target="_blank">
 
-            <{ "Crystal programming language" }>
+            "Crystal programming language"
 
           </a>
         </li>
 
         <li>
-          <{ "Download and extract the source files from Github:" }>
+          "Download and extract the source files from Github:"
           <br/>
 
           <a::link
@@ -383,46 +373,42 @@ component Pages.Install {
             rel="noreferrer"
             target="_blank">
 
-            <{ "https://github.com/mint-lang/mint" }>
+            "https://github.com/mint-lang/mint"
 
           </a>
         </li>
 
         <li>
-          <{
-            "In your terminal enter the folder you extracted the sour" \
-            "ce code:"
-          }>
+          "In your terminal enter the folder you extracted the sour" \
+          "ce code:"
 
           <pre::code>
-            <{ "cd /path/to/source" }>
+            "cd /path/to/source"
           </pre>
         </li>
 
         <li>
-          <{ "Install dependencies:" }>
+          "Install dependencies:"
 
           <pre::code>
-            <{ "shards install" }>
+            "shards install"
           </pre>
         </li>
 
         <li>
-          <{ "Build the binary (might need to use sudo):" }>
+          "Build the binary (might need to use sudo):"
 
           <pre::code>
-            <{
-              "crystal build src/mint.cr -o /usr/local/bin/mint -p --re" \
-              "lease --no-debug"
-            }>
+            "crystal build src/mint.cr -o /usr/local/bin/mint -p --re" \
+            "lease --no-debug"
           </pre>
         </li>
 
         <li>
-          <{ "You invoke the CLI in your terminal by just typing " }>
+          "You invoke the CLI in your terminal by just typing "
 
           <code::code>
-            <{ "mint" }>
+            "mint"
           </code>
         </li>
       </ol>
@@ -430,19 +416,17 @@ component Pages.Install {
       <hr::hr/>
 
       <Title>
-        <{ "Daily Binaries" }>
+        "Daily Binaries"
       </Title>
 
       <SubTitle>
         <p>
-          <{
-            "A fresh binary is created everything something changes i" \
-            "n the master branch."
-          }>
+          "A fresh binary is created everything something changes i" \
+          "n the master branch."
         </p>
 
         <p>
-          <{ "You can download those binaries here:" }>
+          "You can download those binaries here:"
         </p>
 
         <ul::files>
@@ -454,7 +438,7 @@ component Pages.Install {
                 "th=mint-latest-linux"
               }>
 
-              <{ "mint-latest-linux" }>
+              "mint-latest-linux"
 
             </a>
           </li>
@@ -467,7 +451,7 @@ component Pages.Install {
                 "th=mint-latest-osx"
               }>
 
-              <{ "mint-latest-osx" }>
+              "mint-latest-osx"
 
             </a>
           </li>

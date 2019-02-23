@@ -36,11 +36,11 @@ component Features {
     <div::base>
       <div::container>
         <div::title>
-          <{ "Why use Mint?" }>
+          "Why use Mint?"
         </div>
 
         <div::subtitle>
-          <{ "Because it has a lot of awesome features!" }>
+          "Because it has a lot of awesome features!"
         </div>
 
         <div::grid>

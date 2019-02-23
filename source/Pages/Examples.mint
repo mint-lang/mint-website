@@ -17,14 +17,12 @@ component Pages.Examples {
   fun render : Html {
     <Page>
       <Title>
-        <{ "Examples" }>
+        "Examples"
       </Title>
 
       <SubTitle>
-        <{
-          "Here you can find some examples that showcase the langua" \
-          "ge's features."
-        }>
+        "Here you can find some examples that showcase the langua" \
+        "ge's features."
       </SubTitle>
 
       <hr::hr/>

@@ -25,9 +25,9 @@ component Main {
   state dragging : Bool = false
 
   use Provider.Mouse {
-    moves = (data : Html.Event) : Promise(Never, Void) => { move(data) },
-    ups = (data : Html.Event) : Promise(Never, Void) => { end( ) },
-    clicks = (data : Html.Event) : Void => { void }
+    moves = (data : Html.Event) : Promise(Never, Void) { move(data) },
+    ups = (data : Html.Event) : Promise(Never, Void) { end( ) },
+    clicks = (data : Html.Event) : Void { void }
   } when {
     dragging
   }
@@ -106,8 +106,8 @@ component Main {
 
   fun render : Html {
     <div::base>
-      <div::rect onMouseDown={(event : Html.Event) : Promise(Never, Void) => { start(event) }}>
-        <{ "DragMe" }>
+      <div::rect onMouseDown={(event : Html.Event) : Promise(Never, Void) { start(event) }}>
+        "DragMe"
       </div>
     </div>
   }
