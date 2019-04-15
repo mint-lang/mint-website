@@ -194,7 +194,7 @@ component Pages.Install {
         </svg>
 
         "The Mac OSX binary needs some dependencies, until there " \
-        "is a package you need to"
+        "is a Mint package you need to"
 
         <a::link
           rel="noreferrer"

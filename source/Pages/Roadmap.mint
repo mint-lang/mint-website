@@ -70,6 +70,23 @@ component Pages.Roadmap {
           }/>
       </Pages.Roadmap.Version>
 
+      <Pages.Roadmap.Version name="0.5.0">
+        <Pages.Roadmap.Feature
+          name="Generted Code Optimization"
+          icon={Icons.checkmark()}
+          description="Minify and mangle compiled code to reduce file size."/>
+
+        <Pages.Roadmap.Feature
+          name="Partial Function Application"
+          icon={Icons.checkmark()}
+          description="Implemented partial application of functions."/>
+
+        <Pages.Roadmap.Feature
+          name="CSS Property Name Checking"
+          icon={Icons.checkmark()}
+          description="Implemented compile error for unkown CSS property names."/>
+      </Pages.Roadmap.Version>
+
       <Pages.Roadmap.Version name="0.4.0">
         <Pages.Roadmap.Feature
           name="Selective Compilation (Dead Code Elimination)"

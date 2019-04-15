@@ -43,20 +43,6 @@ store Stores.Try {
     next { source = source }
   }
 
-  /*
-  Creates an object url from the given content and type.
-
-  TODO: Move it to mint-core
-  */
-  fun createObjectUrl (string : String, type : String) : String {
-    `
-    (() => {
-      let blob = new Blob([string], {type : type})
-      return URL.createObjectURL(blob)
-    })()
-    `
-  }
-
   /* Returns the html for the given URL. */
   fun html (url : String) : String {
     "<html><body><script src=\"" + url + "\"></script></body></html>"
@@ -81,16 +67,18 @@ store Stores.Try {
 
       /* If the compilation falied we need to display it as HMTL. */
       if (response.status == 500) {
-        next { src = createObjectUrl(response.body, "text/html") }
+        next { src = Url.createObjectUrlFromString(response.body, "text/html") }
       } else {
         sequence {
           /* Create an object URL for the script. */
           url =
-            createObjectUrl(response.body, "application/javascript")
+            Url.createObjectUrlFromString(
+              response.body,
+              "application/javascript")
 
           /* Create an object URL for the html. */
           newSrc =
-            createObjectUrl(html(url), "text/html")
+            Url.createObjectUrlFromString(html(url), "text/html")
 
           /* Set the src to the URL of the html. */
           next { src = newSrc }
