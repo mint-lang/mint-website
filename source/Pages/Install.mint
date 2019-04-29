@@ -59,7 +59,7 @@ component Pages.Install {
     padding: 20px;
     display: flex;
 
-    & > a {
+    & a {
       margin: 0 5px;
     }
 
@@ -77,6 +77,15 @@ component Pages.Install {
 
     @media (max-width: 600px) {
       display: none;
+    }
+  }
+
+  style hint-note {
+    margin: 5px 0;
+
+    & i,
+    & code {
+      margin: 0 5px;
     }
   }
 
@@ -193,21 +202,45 @@ component Pages.Install {
 
         </svg>
 
-        "The Mac OSX binary needs some dependencies, until there " \
-        "is a Mint package you need to"
+        <div>
+          "The Mac OSX binary needs some dependencies, until there " \
+          "is a Mint package you need to"
 
-        <a::link
-          rel="noreferrer"
-          href={
-            "https://crystal-lang.org/docs/installation/on_mac_osx_us" \
-            "ing_homebrew.html"
-          }>
+          <a::link
+            rel="noreferrer"
+            href={
+              "https://crystal-lang.org/docs/installation/on_mac_osx_us" \
+              "ing_homebrew.html"
+            }>
 
-          "install Crystal"
+            "install Crystal"
 
-        </a>
+          </a>
 
-        "to satisfy them."
+          "to satisfy them."
+
+          <div::hint-note>
+            "If"
+
+            <code::code>
+              "mint"
+            </code>
+
+            "errors with"
+
+            <i>
+              "\"dyld: Library not loaded\""
+            </i>
+
+            ", install bdw-gc via"
+
+            <code::code>
+              "brew install bdw-gc"
+            </code>
+
+            "."
+          </div>
+        </div>
       </div>
 
       <hr::hr/>
