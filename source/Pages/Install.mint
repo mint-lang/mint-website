@@ -59,7 +59,7 @@ component Pages.Install {
     padding: 20px;
     display: flex;
 
-    & > a {
+    & a {
       margin: 0 5px;
     }
 
@@ -77,6 +77,14 @@ component Pages.Install {
 
     @media (max-width: 600px) {
       display: none;
+    }
+  }
+
+  style hint-note {
+    margin: 5px 0;
+    & i,
+    & code {
+      margin: 0 5px;
     }
   }
 
@@ -168,46 +176,56 @@ component Pages.Install {
       </ol>
 
       <div::hint>
-        <svg::hint-icon
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="xMidYMid meet"
-          viewBox="0 0 24 24">
+          <svg::hint-icon
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMidYMid meet"
+            viewBox="0 0 24 24">
 
-          <g>
-            <path
-              d={
-                "M12.2 8.98c.06-.01.12-.03.18-.06.06-.02.12-.05.18-.09l.1" \
-                "5-.12c.18-.19.29-.45.29-.71 0-.06-.01-.13-.02-.19a.603.6" \
-                "03 0 0 0-.06-.19.757.757 0 0 0-.09-.18c-.03-.05-.08-.1-." \
-                "12-.15-.28-.27-.72-.37-1.09-.21-.13.05-.23.12-.33.21-.04" \
-                ".05-.09.1-.12.15-.04.06-.07.12-.09.18-.03.06-.05.12-.06." \
-                "19-.01.06-.02.13-.02.19 0 .26.11.52.29.71.1.09.2.16.33.2" \
-                "1.12.05.25.08.38.08.06 0 .13-.01.2-.02M13 16v-4a1 1 0 1 " \
-                "0-2 0v4a1 1 0 1 0 2 0M12 3c-4.962 0-9 4.038-9 9 0 4.963 " \
-                "4.038 9 9 9 4.963 0 9-4.037 9-9 0-4.962-4.037-9-9-9m0 20" \
-                "C5.935 23 1 18.065 1 12S5.935 1 12 1c6.066 0 11 4.935 11" \
-                " 11s-4.934 11-11 11"
-              }
-              fill-rule="evenodd"/>
-          </g>
+            <g>
+              <path
+                d={
+                  "M12.2 8.98c.06-.01.12-.03.18-.06.06-.02.12-.05.18-.09l.1" \
+                  "5-.12c.18-.19.29-.45.29-.71 0-.06-.01-.13-.02-.19a.603.6" \
+                  "03 0 0 0-.06-.19.757.757 0 0 0-.09-.18c-.03-.05-.08-.1-." \
+                  "12-.15-.28-.27-.72-.37-1.09-.21-.13.05-.23.12-.33.21-.04" \
+                  ".05-.09.1-.12.15-.04.06-.07.12-.09.18-.03.06-.05.12-.06." \
+                  "19-.01.06-.02.13-.02.19 0 .26.11.52.29.71.1.09.2.16.33.2" \
+                  "1.12.05.25.08.38.08.06 0 .13-.01.2-.02M13 16v-4a1 1 0 1 " \
+                  "0-2 0v4a1 1 0 1 0 2 0M12 3c-4.962 0-9 4.038-9 9 0 4.963 " \
+                  "4.038 9 9 9 4.963 0 9-4.037 9-9 0-4.962-4.037-9-9-9m0 20" \
+                  "C5.935 23 1 18.065 1 12S5.935 1 12 1c6.066 0 11 4.935 11" \
+                  " 11s-4.934 11-11 11"
+                }
+                fill-rule="evenodd"/>
+            </g>
 
-        </svg>
+          </svg>
+        <div>
 
-        "The Mac OSX binary needs some dependencies, until there " \
-        "is a Mint package you need to"
+          "The Mac OSX binary needs some dependencies, until there " \
+          "is a Mint package you need to"
 
-        <a::link
-          rel="noreferrer"
-          href={
-            "https://crystal-lang.org/docs/installation/on_mac_osx_us" \
-            "ing_homebrew.html"
-          }>
+          <a::link
+            rel="noreferrer"
+            href={
+              "https://crystal-lang.org/docs/installation/on_mac_osx_us" \
+              "ing_homebrew.html"
+            }>
 
-          "install Crystal"
+            "install Crystal"
 
-        </a>
+          </a>
 
-        "to satisfy them."
+          "to satisfy them."
+
+          <div::hint-note>
+            "If" <code::code>"mint"</code> "errors with" 
+            <i>"\"dyld: Library not loaded\""</i> ", install bdw-gc via" 
+            <code::code>
+              "brew install bdw-gc"
+            </code>"."
+          </div>
+        </div>
       </div>
 
       <hr::hr/>
