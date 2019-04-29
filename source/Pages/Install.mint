@@ -82,6 +82,7 @@ component Pages.Install {
 
   style hint-note {
     margin: 5px 0;
+
     & i,
     & code {
       margin: 0 5px;
@@ -200,8 +201,8 @@ component Pages.Install {
           </g>
 
         </svg>
-        <div>
 
+        <div>
           "The Mac OSX binary needs some dependencies, until there " \
           "is a Mint package you need to"
 
@@ -219,13 +220,26 @@ component Pages.Install {
           "to satisfy them."
 
           <div::hint-note>
-            "If" <code::code>"mint"</code> "errors with" 
-            <i>"\"dyld: Library not loaded\""</i> ", install bdw-gc via" 
+            "If"
+
+            <code::code>
+              "mint"
+            </code>
+
+            "errors with"
+
+            <i>
+              "\"dyld: Library not loaded\""
+            </i>
+
+            ", install bdw-gc via"
+
             <code::code>
               "brew install bdw-gc"
-            </code>"."
-          </div>
+            </code>
 
+            "."
+          </div>
         </div>
       </div>
 
