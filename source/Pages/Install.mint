@@ -243,6 +243,59 @@ component Pages.Install {
         </div>
       </div>
 
+       <hr::hr/>
+
+      <Title>
+        "Install with Homebrew"
+      </Title>
+
+      <SubTitle>
+        "You can install Mint (on macOs) using the "
+
+        <a::link
+          href="https://brew.sh"
+          rel="noreferrer"
+          target="_blank">
+
+          "Homebrew Package Manager"
+
+        </a>
+
+        " with these steps: "
+      </SubTitle>
+
+      <ol::list>
+        <li>
+          "Install Homebrew if not installed using "
+
+          <a::link
+            href="https://brew.sh"
+            rel="noreferrer"
+            target="_blank">
+
+            "these instructions."
+
+          </a>
+        </li>
+
+        <li>
+          "Run the following commands command: "
+
+          <pre::code>
+            "brew tap acciaiodigitale/homebrew-mint-lang\n"
+            "brew install mint-lang"
+          </pre>
+        </li>
+
+        <li>
+          "You invoke the CLI in your terminal by just typing "
+
+          <code::code>
+            "mint-lang"
+          </code>
+        </li>
+      </ol>
+
       <hr::hr/>
 
       <Title>
@@ -254,7 +307,8 @@ component Pages.Install {
 
         <a::link
           href="https://nixos.org/nix/"
-          rel="noreferrer">
+          rel="noreferrer"
+          target="_blank">
 
           "Nix Package Manager"
 
@@ -269,7 +323,8 @@ component Pages.Install {
 
           <a::link
             href="https://nixos.org/nix/download.html"
-            rel="noreferrer">
+            rel="noreferrer"
+            target="_blank">
 
             "these instructions."
 
@@ -304,7 +359,8 @@ component Pages.Install {
 
         <a::link
           href="https://aur.archlinux.org/packages/mint/"
-          rel="noreferrer">
+          rel="noreferrer"
+          target="_blank">
 
           "https://aur.archlinux.org/packages/mint/"
 
