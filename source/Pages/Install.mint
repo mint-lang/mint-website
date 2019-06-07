@@ -243,7 +243,7 @@ component Pages.Install {
         </div>
       </div>
 
-       <hr::hr/>
+      <hr::hr/>
 
       <Title>
         "Install with Homebrew"
