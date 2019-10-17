@@ -50,7 +50,7 @@ component Footer {
             rel="noreferrer"
             target="_blank">
 
-            "Github Repository"
+            "GitHub Repository"
 
           </a>
 
