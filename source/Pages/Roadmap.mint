@@ -70,6 +70,23 @@ component Pages.Roadmap {
           }/>
       </Pages.Roadmap.Version>
 
+      <Pages.Roadmap.Version name="0.6.0">
+        <Pages.Roadmap.Feature
+          name="Styling Improvements"
+          icon={Icons.checkmark()}
+          description="Allow multiple style, arguments, nesting, if and case expressions."/>
+
+        <Pages.Roadmap.Feature
+          name="String Interpolation"
+          icon={Icons.checkmark()}
+          description="Allow interpolating expressions into strings."/>
+
+        <Pages.Roadmap.Feature
+          name="Safe Operators"
+          icon={Icons.checkmark()}
+          description="Safe operators makes working with Maybe easier."/>
+      </Pages.Roadmap.Version>
+
       <Pages.Roadmap.Version name="0.5.0">
         <Pages.Roadmap.Feature
           name="Generted Code Optimization"
