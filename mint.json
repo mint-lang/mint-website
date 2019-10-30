@@ -30,7 +30,7 @@
   "dependencies": {
     "mint-codemirror": {
       "repository": "https://github.com/mint-lang/mint-codemirror",
-      "constraint": "master:5.0.0"
+      "constraint": "6.0.0 <= v < 7.0.0"
     }
   }
 }

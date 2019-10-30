@@ -12,13 +12,13 @@ component Showcase.Highlight {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
-    background: {background};
+    background: #{background};
     border-radius: 2px;
-    border: {border};
+    border: #{border};
     padding: 3px 5px;
     cursor: pointer;
     display: inline;
-    color: {color};
+    color: #{color};
   }
 
   /* Returns the CSS for the border. */

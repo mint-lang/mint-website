@@ -10,12 +10,12 @@ component Logo {
   property size : Number = 90
 
   style base {
-    height: {size}px;
-    width: {size}px;
+    height: #{size}px;
+    width: #{size}px;
 
     @media (max-width: 500px) {
-      height: {size}px;
-      width: {size}px;
+      height: #{size}px;
+      width: #{size}px;
     }
   }
 

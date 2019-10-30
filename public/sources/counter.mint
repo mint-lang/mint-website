@@ -16,7 +16,7 @@ component Main {
   property disabled : Bool = false
 
   style base {
-    background: {background};
+    background: #{background};
     border-radius: 5px;
     transition: 320ms;
     display: flex;

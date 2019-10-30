@@ -17,7 +17,7 @@ component Layout {
     margin-top: 2px;
     width: 22px;
 
-    & path {
+    path {
       fill: white;
     }
   }

@@ -71,7 +71,7 @@ component Pages.Try {
     display: flex;
     flex: 1;
 
-    & > * {
+    > * {
       flex: 1;
     }
   }

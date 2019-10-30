@@ -41,12 +41,12 @@ component Showcase {
     position: sticky;
     top: 30px;
 
-    & hr {
+    hr {
       border: 0;
       border-bottom: 1px solid #E6E6E6;
     }
 
-    & code {
+    code {
       border: 1px solid #E6E6E6;
       background: #F6F6F6;
       border-radius: 3px;
@@ -54,17 +54,17 @@ component Showcase {
       padding: 1px 5px;
     }
 
-    & p,
-    & ul,
-    & li {
+    p,
+    ul,
+    li {
       line-height: 1.4;
     }
 
-    & ul {
+    ul {
       padding-left: 20px;
     }
 
-    & li {
+    li {
       margin-bottom: 10px;
     }
 
@@ -711,7 +711,7 @@ component Showcase {
                 "background: "
 
                 <Showcase.Highlight
-                  text="{background}"
+                  text="\#{background}"
                   name="css-interpolation"/>
 
                 ";\n"

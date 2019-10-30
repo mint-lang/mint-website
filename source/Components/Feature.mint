@@ -15,7 +15,7 @@ component Feature {
     font-weight: bold;
     display: flex;
 
-    & svg {
+    svg {
       margin-right: 10px;
       fill: #2f9e59;
       height: 14px;

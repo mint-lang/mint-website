@@ -30,7 +30,7 @@ component Pages.Examples.Example {
     font-weight: bold;
     font-size: 18px;
 
-    & > a {
+    > a {
       color: inherit;
     }
   }

@@ -34,7 +34,7 @@ component Pages.Install {
   style list {
     margin: 0;
 
-    & li {
+    li {
       line-height: 1.5;
       margin-top: 15px;
     }
@@ -46,7 +46,7 @@ component Pages.Install {
   }
 
   style files {
-    & li {
+    li {
       margin-top: 10px;
     }
   }
@@ -59,7 +59,7 @@ component Pages.Install {
     padding: 20px;
     display: flex;
 
-    & a {
+    a {
       margin: 0 5px;
     }
 
@@ -83,8 +83,8 @@ component Pages.Install {
   style hint-note {
     margin: 5px 0;
 
-    & i,
-    & code {
+    i,
+    code {
       margin: 0 5px;
     }
   }

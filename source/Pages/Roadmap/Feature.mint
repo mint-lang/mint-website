@@ -24,7 +24,7 @@ component Pages.Roadmap.Feature {
       display: none;
     }
 
-    & > svg {
+    > svg {
       height: 12px;
       width: 12px;
     }
@@ -50,7 +50,7 @@ component Pages.Roadmap.Feature {
     margin-left: 10px;
     margin-top: 10px;
 
-    & > * + * {
+    > * + * {
       margin-top: 7px;
     }
 

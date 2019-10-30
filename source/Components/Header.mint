@@ -48,7 +48,7 @@ component Header {
       display: block;
     }
 
-    & svg {
+    svg {
       fill: currentColor;
     }
   }
@@ -62,7 +62,7 @@ component Header {
     display: flex;
     color: #FFF;
 
-    & > div {
+    > div {
       margin-left: 5px;
       height: 15px;
     }
@@ -83,7 +83,7 @@ component Header {
     border-bottom: 2px solid #29894e;
     background: #2f9e59;
 
-    transform: {transform};
+    transform: #{transform};
     position: absolute;
     transition: 320ms;
     padding: 0 20px;
@@ -99,7 +99,7 @@ component Header {
     display: block;
     color: white;
 
-    & + * {
+    + * {
       border-top: 1px solid rgba(255, 255, 255, 0.2);
     }
   }

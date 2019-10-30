@@ -22,12 +22,12 @@ component Showcase.HighlightBlock {
 
   style base {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
-    background: {background};
-    padding: {padding};
+    background: #{background};
+    padding: #{padding};
     border-radius: 2px;
-    border: {border};
+    border: #{border};
     cursor: pointer;
-    color: {color};
+    color: #{color};
 
     @media (max-width: 600px) {
       white-space: pre-wrap;

@@ -16,7 +16,7 @@ component Pages.Roadmap.Version {
   }
 
   style features {
-    & > * + * {
+    > * + * {
       margin-top: 20px;
     }
   }

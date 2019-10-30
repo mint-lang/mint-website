@@ -89,7 +89,7 @@ component Main {
   }
 
   style rect {
-    transform: translate3d({position.left}px,{position.top}px, 0);
+    transform: translate3d(#{position.left}px,#{position.top}px, 0);
     justify-content: center;
     background: orangered;
     align-items: center;
