@@ -1,5 +1,5 @@
 component Main {
-  connect Application exposing { page, setPage }
+  connect Application exposing { page }
 
   fun render : Html {
     <Layout>

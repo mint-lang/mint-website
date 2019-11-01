@@ -67,12 +67,17 @@ component Pages.Try {
   }
 
   style editor {
-    flex-direction: column;
-    display: flex;
+    position: relative;
+    display: grid;
     flex: 1;
 
-    > * {
-      flex: 1;
+    .CodeMirror {
+      position: absolute !important;
+      height: auto;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      top: 0;
     }
   }
 

@@ -1,5 +1,7 @@
 /* The component for the layout. */
 component Layout {
+  connect Application exposing { page }
+
   /* The children to render. */
   property children : Array(Html) = []
 
@@ -29,7 +31,11 @@ component Layout {
 
       <{ children }>
 
-      <Footer/>
+      if (page != Page::Try) {
+        <Footer/>
+      } else {
+        <></>
+      }
     </div>
   }
 }
