@@ -70,6 +70,18 @@ component Pages.Roadmap {
           }/>
       </Pages.Roadmap.Version>
 
+      <Pages.Roadmap.Version name="0.7.0">
+        <Pages.Roadmap.Feature
+          name="Global Components"
+          icon={Icons.checkmark()}
+          description="Allow components to be singleton and added to the DOM automatically"/>
+
+        <Pages.Roadmap.Feature
+          name="Static Components"
+          icon={Icons.checkmark()}
+          description="Only build VDOM for static components / HTML fragments once."/>
+      </Pages.Roadmap.Version>
+
       <Pages.Roadmap.Version name="0.6.0">
         <Pages.Roadmap.Feature
           name="Styling Improvements"
