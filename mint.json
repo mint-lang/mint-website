@@ -1,36 +1,25 @@
 {
-  "name": "mint-website",
+  "name": "mint-website-2",
+  "application": {
+    "title": "Mint Programming Language",
+    "icon": "assets/favicon.png",
+    "head": "assets/head.html"
+  },
+  "external": {
+    "stylesheets": [
+      "assets/style.css"
+    ]
+  },
   "source-directories": [
     "source"
   ],
-  "application": {
-    "title": "Mint - A refreshing language for the front-end web",
-    "orientation": "portrait",
-    "theme-color": "#2f9e59",
-    "display": "standalone",
-    "name": "Mint",
-    "meta": {
-      "og:title": "Mint",
-      "og:image": "og.png",
-      "og:description": "Mint is a refreshing programming language for the front-end web.",
-      "charset": "utf-8",
-      "description": "Mint is a refreshing programming language for the front-end web.",
-      "keywords": [
-        "mint",
-        "mint-lang",
-        "javascript",
-        "transplier",
-        "framework"
-      ],
-      "viewport": "width=device-width, initial-scale=1, shrink-to-fit=no"
-    },
-    "icon": "assets/icon.png",
-    "head": "assets/head.html"
-  },
+  "test-directories": [
+    "tests"
+  ],
   "dependencies": {
-    "mint-codemirror": {
-      "repository": "https://github.com/mint-lang/mint-codemirror",
-      "constraint": "6.0.0 <= v < 7.0.0"
+    "mint-tabler-icons": {
+      "repository": "https://github.com/mint-lang/mint-tabler-icons",
+      "constraint": "master:1.0.0"
     }
   }
 }

@@ -1,103 +1,163 @@
-/* The footer component. */
 component Footer {
-  style base {
-    min-height: 200px;
-    background: #222;
-    margin-top: auto;
-    color: #BBB;
+  /* Styles for the root element. */
+  style root {
+    border-top: 3px double currentColor;
+    padding-top: 40px;
+    margin-top: 100px;
+
+    grid-template-columns: 1fr auto;
+    display: grid;
   }
 
-  style wrapper {
-    grid-template-columns: repeat(auto-fill, 220px);
-    grid-gap: 20px 50px;
+  /* Styles for the columns. */
+  style columns {
+    grid-auto-flow: column;
+    grid-gap: 50px;
+    display: grid;
+  }
+
+  /* Styles for a column. */
+  style column {
+    align-content: start;
+    grid-gap: 10px;
     display: grid;
 
-    padding: 30px 20px;
-    max-width: 1040px;
-    margin: 0 auto;
+    a {
+      grid-template-columns: auto 1fr;
+      text-decoration: none;
+      align-items: center;
+      font-size: 18px;
+      color: inherit;
+      grid-gap: 5px;
+      display: grid;
+
+      &:hover {
+        text-decoration: underline;
+        color: seagreen;
+      }
+    }
+
+    svg {
+      --tabler-stroke-width: 1.5;
+
+      position: relative;
+      height: 20px;
+      width: 20px;
+      top: 1px;
+    }
   }
 
-  style column {
-    width: 200px;
+  /* Styles for the infos. */
+  style infos {
+    max-width: 580px;
+    line-height: 1.5;
+
+    svg {
+      fill: seagreen;
+    }
   }
 
-  style link {
-    text-decoration: none;
-    margin-top: 5px;
-    display: block;
-    color: inherit;
-  }
-
-  style title {
-    border-bottom: 1px dashed #444;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-    font-weight: 600;
-    color: #EEE;
-  }
-
-  /* Renders the footer. */
   fun render : Html {
-    <div::base>
-      <div::wrapper>
-        <div::column>
-          <div::title>
-            "Source"
-          </div>
+    <div::root>
+      <div::infos>
+        @svg(../../assets/logo.svg)
 
-          <a::link
+        <p>
+          "Mint delivers developer happiness and productivity by of" \
+          "fering a set of tools like build tool, code formatter, d" \
+          "ocumentation generator, playground and package manager."
+        </p>
+
+        <span>
+          "Copyright © #{Time.year(Time.now())} Mint."
+          " All rights reserved."
+        </span>
+      </div>
+
+      <div::columns>
+        <div::column>
+          <strong>"Site"</strong>
+
+          <a href="/">
+            TablerIcons.HOME
+            "Home"
+          </a>
+
+          <a href="/install">
+            TablerIcons.DOWNLOAD
+            "Install"
+          </a>
+
+          <a href="https://sandbox.mint-lang.com">
+            TablerIcons.TERMINAL
+            "Sandbox"
+          </a>
+
+          <a href="https://tutorial.mint-lang.com">
+            TablerIcons.BOOK
+            "Learn"
+          </a>
+
+          <a href="/guide">
+            TablerIcons.BOOKMARKS
+            "Reference"
+          </a>
+        </div>
+
+        <div::column>
+          <strong>"Source"</strong>
+
+          <a href="/api">
+            TablerIcons.TablerIcons.BOOKS
+            "Core Library"
+          </a>
+
+          <a href="/packages">
+            TablerIcons.BOX_SEAM
+            "Packages"
+          </a>
+
+          <a
             href="https://github.com/mint-lang/mint"
-            rel="noreferrer"
             target="_blank">
 
-            "GitHub Repository"
+            TablerIcons.BRAND_GITHUB
+            "GitHub"
 
           </a>
 
-          <a::link
+          <a
             href="https://github.com/mint-lang/mint/releases"
-            rel="noreferrer"
             target="_blank">
 
-            "Releases / Changelog"
+            TablerIcons.GIT_PULL_REQUEST
+            "Releases"
 
           </a>
         </div>
 
         <div::column>
-          <div::title>
-            "Community"
-          </div>
+          <strong>"Community & Social"</strong>
 
-          <a::link
-            href="https://gitter.im/mint-lang/Lobby"
-            rel="noreferrer"
+          <a
+            href="https://discord.gg/NXFUJs2"
             target="_blank">
 
-            "Gitter"
+            TablerIcons.BRAND_DISCORD
+            "Discord"
 
           </a>
 
-          <a::link
-            href="https://spectrum.chat/mint-lang"
-            rel="noreferrer"
-            target="_blank">
-
-            "Spectrum"
-
+          <a href="/blog">
+            TablerIcons.ARTICLE
+            "Blog"
           </a>
-        </div>
 
-        <div::column>
-          <div::title>
-            "Social"
-          </div>
-
-          <a::link
+          <a
             href="https://twitter.com/mint_lang"
-            rel="noreferrer"
             target="_blank">
 
+            TablerIcons.BRAND_TWITTER
             "Twitter"
 
           </a>
