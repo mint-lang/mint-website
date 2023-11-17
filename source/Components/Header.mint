@@ -4,36 +4,21 @@ component Header {
     font-family: 'Noto Sans';
     font-size: 18px;
 
-    margin-bottom: 100px;
+    border-bottom: 3px double currentColor;
+    padding-bottom: 20px;
+    margin-bottom: 75px;
     position: relative;
 
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    display: grid;
-  }
-
-  /* Styles for the divider. */
-  style divider {
-    margin: 0 50px;
-
-    svg {
-      position: relative;
-      top: 15px;
-      fill: currentColor;
-      height: auto;
-      width: 130px;
-    }
+    justify-content: space-between;
+    display: flex;
   }
 
   /* Styles for the navigation. */
   style navigation {
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     display: flex;
     gap: 30px;
-
-    border-bottom: 3px double currentColor;
-    padding: 20px 0;
 
     a {
       text-decoration: none;
@@ -44,8 +29,6 @@ component Header {
       align-items: center;
       grid-gap: 10px;
       display: grid;
-
-      flex: 1;
 
       svg {
         --tabler-stroke-width: 1.25;
@@ -59,6 +42,8 @@ component Header {
   /* Renders the component. */
   fun render : Html {
     <div::root>
+      <div>""</div>
+
       <div::navigation>
         <a href="/install">
           TablerIcons.DOWNLOAD
@@ -79,13 +64,7 @@ component Header {
           TablerIcons.BOOKMARKS
           "Reference"
         </a>
-      </div>
 
-      <div::divider>
-        @svg(../../assets/divider.svg)
-      </div>
-
-      <div::navigation>
         <a href="/">
           TablerIcons.TablerIcons.BOOKS
           "Core Library"

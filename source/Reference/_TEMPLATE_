@@ -1,0 +1,6 @@
+async component Reference. {
+  fun render : Html {
+    <<#MARKDOWN
+    MARKDOWN
+  }
+}

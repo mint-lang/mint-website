@@ -1,4 +1,4 @@
-component Snippet {
+async component Snippet {
   /* The snippet to display. */
   property children : Array(Html) = []
 
@@ -7,18 +7,17 @@ component Snippet {
 
   /* Styles of the root element. */
   style root {
-    border: 1px dashed currentColor;
-    background: #FCFCFC;
+    background: #FAFAFA;
     position: relative;
     min-width: 600px;
     font-size: 16px;
     margin: 0;
 
-    outline: 1px solid #CCC;
+    outline: 1px dashed #AAA;
     outline-offset: 3px;
 
     p {
-      border-bottom: 1px dashed currentColor;
+      border-bottom: 1px dashed #AAA;
       padding: 10px 15px;
       margin: 0;
 
@@ -35,6 +34,10 @@ component Snippet {
 
         height: 20px;
         width: 20px;
+
+        path {
+          stroke: #AAA;
+        }
       }
     }
 

@@ -1,5 +1,5 @@
 {
-  "name": "mint-website-2",
+  "name": "mint-website",
   "application": {
     "title": "Mint Programming Language",
     "icon": "assets/favicon.png",
@@ -12,9 +12,6 @@
   },
   "source-directories": [
     "source"
-  ],
-  "test-directories": [
-    "tests"
   ],
   "dependencies": {
     "mint-tabler-icons": {

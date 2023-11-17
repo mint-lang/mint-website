@@ -1,4 +1,4 @@
-component Footer {
+async component Footer {
   /* Styles for the root element. */
   style root {
     border-top: 3px double currentColor;
@@ -7,6 +7,12 @@ component Footer {
 
     grid-template-columns: 1fr auto;
     display: grid;
+  }
+
+  /* Styles for the wrapper element. */
+  style wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
   }
 
   /* Styles for the columns. */

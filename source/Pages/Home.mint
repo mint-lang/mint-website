@@ -1,8 +1,71 @@
-component Pages.Home {
+async component Pages.Home {
+  style hero {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    grid-gap: 100px;
+    display: grid;
+
+    h1 {
+      font-family: Courgette;
+      line-height: 1.25;
+      font-size: 38px;
+      margin: 0;
+    }
+
+    div > p {
+      line-height: 1.5;
+      font-size: 20px;
+      margin: 0;
+    }
+
+    button {
+      background: seagreen;
+      border-radius: 4px;
+      padding: 15px 30px;
+      margin-top: 20px;
+      border: 0;
+
+      font-family: 'Noto Sans';
+      font-weight: 600;
+      font-size: 20px;
+      color: white;
+    }
+
+    div > svg {
+      margin-bottom: 40px;
+      display: block;
+      height: auto;
+      width: 300px;
+
+      path {
+        fill: seagreen;
+      }
+    }
+  }
+
   /* Renders the component. */
   fun render : Html {
-    <>
-      <Hero/>
+    <div>
+      <div::hero>
+        <div>
+          @svg(../../assets/hero.svg)
+          <h1>"The programming language for writing single page applications"</h1>
+
+          <p>
+            <<#MARKDOWN
+          Mint has all the tools you need to write **error free**, **easily
+          readable** and **maintainable** applications in **record time**.
+          MARKDOWN
+          </p>
+
+          <button>"Getting Started"</button>
+        </div>
+
+        <Snippet title={"Counter.mint"}>
+          @highlight-file(../../assets/examples/Component.mint)
+        </Snippet>
+      </div>
+
       <Divider/>
 
       <Section
@@ -26,7 +89,6 @@ component Pages.Home {
         MARKDOWN
 
         <a href="/">
-          TablerIcons.LINK
           "Full Styling Reference"
         </a>
 
@@ -53,7 +115,6 @@ component Pages.Home {
         MARKDOWN
 
         <a href="/">
-          TablerIcons.LINK
           "Stores & State Reference"
         </a>
 
@@ -96,7 +157,6 @@ component Pages.Home {
         MARKDOWN
 
         <a href="/">
-          TablerIcons.LINK
           "Routing Reference"
         </a>
 
@@ -122,7 +182,6 @@ component Pages.Home {
         MARKDOWN
 
         <a href="/">
-          TablerIcons.LINK
           "Interopability Reference"
         </a>
 
@@ -149,37 +208,37 @@ component Pages.Home {
         snippet={
           <Snippet title="CLI">
             <<~CLI
-          $ mint init my-awesome-project
+              $ mint init my-awesome-project
 
-          Mint - Initializing a new project
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          ⚙ Creating directory structure...
-          ⚙ Writing initial files...
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          All done in 2.231ms!
+              Mint - Initializing a new project
+              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+              ⚙ Creating directory structure...
+              ⚙ Writing initial files...
+              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+              All done in 2.231ms!
 
-          $ mint start --auto-format
+              $ mint start --auto-format
 
-          Mint - Running the development server
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          ⚙ Ensuring dependencies... 181μs
-          ⚙ Parsing files... 2.608ms
-          ⚙ Development server started on http://127.0.0.1:3000/
+              Mint - Running the development server
+              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+              ⚙ Ensuring dependencies... 181μs
+              ⚙ Parsing files... 2.608ms
+              ⚙ Development server started on http://127.0.0.1:3000/
 
-          $ mint install
+              $ mint install
 
-          Mint - Installing dependencies
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          ⚙ Constructing dependency tree...
-            ✔ Cloned mint-codemirror (https://github.com/mint...)
+              Mint - Installing dependencies
+              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+              ⚙ Constructing dependency tree...
+                ✔ Cloned mint-codemirror (https://github.com/mint...)
 
-          ⚙ Resolving dependency tree...
-            ◈ mint-codemirror ➔ 6.0.0
+              ⚙ Resolving dependency tree...
+                ◈ mint-codemirror ➔ 6.0.0
 
-          ⚙ Copying packages...
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          All done in 2.75s!
-        CLI
+              ⚙ Copying packages...
+              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+              All done in 2.75s!
+            CLI
           </Snippet>
         }>
 
@@ -197,11 +256,10 @@ component Pages.Home {
         MARKDOWN
 
         <a href="/">
-          TablerIcons.LINK
           "CLI Reference"
         </a>
 
       </Section>
-    </>
+    </div>
   }
 }

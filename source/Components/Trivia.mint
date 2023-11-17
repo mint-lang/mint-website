@@ -1,4 +1,4 @@
-component Trivia {
+async component Trivia {
   /* The contents to display. */
   property children : Array(Html) = []
 
@@ -53,8 +53,6 @@ component Trivia {
   /* Renders the component. */
   fun render : Html {
     <div::root>
-      @svg(../../assets/leaves.svg)
-
       <div>
         <p::title>"Did you know?"</p>
 
@@ -62,8 +60,6 @@ component Trivia {
           children
         </p>
       </div>
-
-      @svg(../../assets/leaves.svg)
     </div>
   }
 }
