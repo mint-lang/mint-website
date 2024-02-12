@@ -1,62 +1,69 @@
-async component Content {
+component Content {
   /* The contents. */
   property children : Array(Html) = []
 
-  property instrument : Bool = false
+  property fontSize : Number = 18
 
-  use Provider.Mutation {
-    changes: update,
-    element: root
-  }
-
+  /* Styles for the root element. */
   style root {
+    font-size: #{fontSize}px;
     line-height: 1.5;
-    font-size: 18px;
+
+    h1,
+    h2,
+    h3 {
+      font-weight: normal;
+      font-family: Forum;
+    }
+
+    h2,
+    h3 {
+      align-items: center;
+      position: relative;
+      display: flex;
+
+      margin-bottom: 0;
+
+      &:after {
+        border-top: 1px solid #EEE;
+        margin-left: 1em;
+        margin-top: 1em;
+        content: "";
+        flex: 1;
+      }
+    }
 
     h1 {
-      border-bottom: 2px dotted #BBB;
-      font-family: Courgette;
-      font-size: 40px;
+      border-bottom: 3px double #EEE;
+      font-size: 2.25em;
     }
 
     h3 {
-      margin-top: 40px;
+      margin-top: 1.25em;
+      font-size: 1.5em;
     }
 
     h2 {
-      align-items: center;
-      display: flex;
+      font-size: 1.75em;
+      margin-top: 1em;
 
-      position: relative;
-      margin-bottom: 0;
-      margin-top: 50px;
-
-      font-family: Courgette;
-      font-size: 32px;
-
-      &:after {
-        border-top: 2px dotted #BBB;
-        margin-left: 20px;
-        margin-top: 20px;
-        flex: 1;
-
-        if !instrument {
-          content: "";
-        }
+      :not(pre) code {
+        font-weight: bold;
+        font-size: 0.5em;
       }
 
       > svg {
-        --tabler-stroke-width: 1.5;
+        --tabler-stroke-width: 1.25;
 
-        margin-right: 10px;
+        margin-right: 0.25em;
         flex: 0 0 auto;
         height: auto;
-        width: 32px;
+        width: 1em;
       }
     }
 
     li + li {
-      margin-top: 10px;
+      margin-top: 0.75em;
     }
 
     li p {
@@ -80,22 +87,46 @@ async component Content {
     }
 
     :not(pre) > code {
-      border: 1px solid #E3E3E3;
-      padding: 3px 5px 1px 5px;
+      border: 1px solid #EEE;
+      border-radius: 2px;
+
+      padding: 3px 5px 2px 5px;
       background: #FEFEFE;
-      font-size: 16px;
+      font-size: 14px;
     }
 
     pre {
       overflow: auto;
-      border: 1px solid #E3E3E3;
-      background: #FCFCFC;
       font-size: 16px;
 
       code {
         display: block;
-        padding: 15px;
-        max-width: 0;
+        min-width: 0;
+
+        .line {
+          counter-increment: snippet;
+          position: relative;
+          display: block;
+
+          &::before {
+            content: counter(snippet);
+            display: inline-block;
+            margin-right: 20px;
+            text-align: right;
+            opacity: 0.3;
+            width: 20px;
+          }
+
+          &::after {
+            position: absolute;
+            background: #EEE;
+            content: "";
+            width: 1px;
+            left: 30px;
+            bottom: 0;
+            top: 0;
+          }
+        }
 
         .comment {
           opacity: 0.5;
@@ -131,24 +162,16 @@ async component Content {
       display: inline-block;
       color: seagreen;
 
-      &:focus-visible {
-        outline: 2px solid #333;
-        outline-offset: 3px;
-      }
-
       svg {
+        --tabler-stroke-width: 1.5;
         vertical-align: middle;
-        --tabler-stroke-width: 2;
-
+        margin-right: 0.1em;
         position: relative;
-        margin-right: 5px;
-        height: 20px;
-        width: 20px;
+        height: 1em;
+        width: 1em;
       }
     }
-  }
 
-  style wrapper {
     > *:first-child {
       margin-top: 0;
     }
@@ -162,95 +185,53 @@ async component Content {
       text-decoration: none;
       color: inherit;
 
-      &:first-child h1,
-      &:first-child h2 {
-        margin-top: 0;
-      }
-
-      &:focus-visible {
-        outline: 2px solid #333;
-        outline-offset: 3px;
-      }
-
       &:hover {
         text-decoration: underline;
         color: seagreen;
       }
     }
-  }
 
-  style icon {
-    display: none;
-  }
+    table {
+      border-collapse: collapse;
+      font-size: 0.8em;
+      width: 100%;
 
-  fun update {
-    if let Just(element) = root {
-      if let Just(icon) = icon {
-        if let Just(external) = external {
-          for link of Dom.getElementsBySelector(element, "a") {
-            `
-            (() => {
-              if (#{link}.parentElement.tagName == "H2") { return }
-              if (#{link}.parentElement.tagName == "H1") { return }
+      thead {
+        border-bottom: 2px solid #EEE;
+      }
 
-              if (this.processed == undefined) { this.processed = new Set }
-              if (this.processed.has(#{link})) { return }
-              this.processed.add(#{link});
+      tr:last-child td {
+        border-bottom: 0;
+      }
 
-              if (!#{link}.firstChildElement) {
-                if (#{link}.href.startsWith(window.location.origin)) {
-                  #{link}.prepend(#{icon}.firstElementChild.cloneNode(true))
-                } else {
-                  #{link}.target = "_blank"
-                  #{link}.prepend(#{external}.firstElementChild.cloneNode(true))
-                  #{link}.firstElementChild.style = "position:relative;top:-1px"
-                }
-              }
-            })()
-            `
-          }
+      th,
+      td {
+        border: 1px solid #EEE;
+        padding: 0.5em;
+
+        &:first-child {
+          border-left: 0;
+        }
+
+        &:last-child {
+          border-right: 0;
+        }
+
+        p:only-child {
+          margin: 0;
         }
       }
 
-      if instrument {
-        for h2 of Dom.getElementsBySelector(element, "h1, h2, h3") {
-          `
-        (() => {
-          if (this.processed == undefined) { this.processed = new Set }
-          if (this.processed.has(#{h2})) { return }
-          this.processed.add(#{h2});
-
-          const anchor = document.createElement("a")
-          anchor.name = #{h2}.textContent.toLowerCase().replace(/\s/g, '_');
-          anchor.href = "#" + anchor.name;
-
-          for (let child of #{h2}.childNodes) {
-            anchor.appendChild(child)
-          }
-
-          #{h2}.appendChild(anchor)
-        })()
-        `
-        }
+      th {
+        text-align: left;
+        border-top: 0;
       }
     }
-
-    next { }
   }
 
   fun render : Html {
     <div::root as root>
-      <div::icon as external>
-        TablerIcons.TablerIcons.EXTERNAL_LINK
-      </div>
-
-      <div::icon as icon>
-        TablerIcons.LINK
-      </div>
-
-      <div::wrapper>
-        children
-      </div>
+      children
     </div>
   }
 }

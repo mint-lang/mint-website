@@ -1,6 +1,6 @@
-async component Reference.CustomTypes {
-  fun render : Html {
-    <<#MARKDOWN
+module References {
+  const CUSTOM_TYPES =
+    <<#MARKDOWN(highlight)
     # Custom Types
 
     In Mint supports two kinds of custom types:
@@ -10,9 +10,9 @@ async component Reference.CustomTypes {
 
     ## Composite Type
 
-    Composite types are called records, structs, or objects in various
-    languages. A composite type is a collection of named fields, an instance
-    of which can be treated as a single value.
+    Composite types are called **records**, **structs**, or **objects** in
+    various languages. A composite type is a collection of named fields, an
+    instance of which can be treated as a single value.
 
     You can define a custom composite type like this:
 
@@ -35,8 +35,8 @@ async component Reference.CustomTypes {
     }
     ```
 
-    Records are **immutable** so instead of mutating you can create a new record
-    with updated fields like this:
+    Records are **immutable** so instead of mutating you can create a new
+    record with updated fields like this:
 
     ```mint
     let user =
@@ -126,7 +126,8 @@ async component Reference.CustomTypes {
     Content.Html(value: <></>, code: true)
     ```
 
-    The parameters can be destructured using their name (and thus can be in any order):
+    The parameters can be destructured using their name (and thus can be in
+    any order):
 
     ```mint
     case content {
@@ -135,5 +136,5 @@ async component Reference.CustomTypes {
     }
     ```
     MARKDOWN
-  }
+    |> ContentInstrumenter.instrument
 }

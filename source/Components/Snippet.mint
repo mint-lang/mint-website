@@ -1,4 +1,4 @@
-async component Snippet {
+component Snippet {
   /* The snippet to display. */
   property children : Array(Html) = []
 
@@ -7,43 +7,40 @@ async component Snippet {
 
   /* Styles of the root element. */
   style root {
-    background: #FAFAFA;
     position: relative;
+    line-height: 1.25;
     min-width: 600px;
     font-size: 16px;
     margin: 0;
 
-    outline: 1px dashed #AAA;
-    outline-offset: 3px;
+    .line {
+      counter-increment: snippet;
+      position: relative;
+      display: block;
 
-    p {
-      border-bottom: 1px dashed #AAA;
-      padding: 10px 15px;
-      margin: 0;
-
-      font-family: monospace;
-      font-weight: bold;
-      font-size: 14px;
-
-      justify-content: space-between;
-      align-items: center;
-      display: flex;
-
-      svg {
-        --tabler-stroke-width: 1.75;
-
-        height: 20px;
+      &::before {
+        content: counter(snippet);
+        margin-right: 20px;
         width: 20px;
+        display: inline-block;
+        text-align: right;
+        opacity: 0.3;
+      }
 
-        path {
-          stroke: #AAA;
-        }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 1px;
+        background: #EEE;
+        top: 0;
+        left: 30px;
+        bottom: 0;
       }
     }
 
     code {
       display: block;
-      padding: 15px;
+      padding: 20px;
     }
 
     .string {
@@ -66,11 +63,6 @@ async component Snippet {
   /* Renders the component. */
   fun render : Html {
     <pre::root>
-      <p>
-        title
-        TablerIcons.COPY
-      </p>
-
       <code>
         children
       </code>

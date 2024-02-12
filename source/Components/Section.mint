@@ -10,28 +10,24 @@ component Section {
 
   /* Styles of the root element. */
   style root {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr auto;
     align-items: center;
     grid-gap: 100px;
     display: grid;
-
-    > h2 {
-      margin-top: 50px;
-    }
   }
 
   /* Renders the component. */
   fun render : Html {
     <div::root>
-      snippet
-
       <Content>
-        <h2>
+        <h2 style="font-size: 38px;">
           title
         </h2>
 
-        children
+        ContentInstrumenter.instrumentMany(children)
       </Content>
+
+      snippet
     </div>
   }
 }

@@ -1,6 +1,6 @@
-async component Reference.Literals {
-  fun render : Html {
-    <<#MARKDOWN
+module References {
+  const LITERALS =
+    <<#MARKDOWN(highlight)
     # Literals
 
     Fixed values such as **numbers**, **strings** and **booleans** are
@@ -81,5 +81,5 @@ async component Reference.Literals {
     ```
 
     MARKDOWN
-  }
+    |> ContentInstrumenter.instrument
 }

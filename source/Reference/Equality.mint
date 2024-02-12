@@ -1,6 +1,6 @@
-async component Reference.Equality {
-  fun render : Html {
-    <<#MARKDOWN
+module References {
+  const EQUALITY =
+    <<#MARKDOWN(highlight)
     # Equality
 
     In Mint, two objects are considered equal if they have the same type and
@@ -13,26 +13,15 @@ async component Reference.Equality {
     ```
 
     In JavaScript, the same `==` operator would return `false`. We say Mint
-    uses **_logical_** equality.
+    uses **_structural_** equality.
 
-    In addition to **custom types**, the following types use logical equality:
+    In addition to **custom types**, the following types use structural
+    equality:`SearchParams`, `FormData`, `Result`, `String`, `Number`, `Array`,
+    `Maybe`, `Bool`, `Date`, `Map` and `Set`.
 
-    - `SearchParams`
-    - `FormData`
-    - `Result`
-    - `String`
-    - `Number`
-    - `Array`
-    - `Maybe`
-    - `Bool`
-    - `Date`
-    - `Map`
-    - `Set`
-
-    > #{TablerIcons.INFO_CIRCLE} Types that does not implement the logical
+    > Types that does not implement the structural
     equality operation fall back to using the JavaScript strict equality
     operator `===`
 
     MARKDOWN
-  }
 }

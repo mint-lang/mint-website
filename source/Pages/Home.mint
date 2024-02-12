@@ -1,4 +1,4 @@
-async component Pages.Home {
+component Pages.Home {
   style hero {
     grid-template-columns: 1fr auto;
     align-items: center;
@@ -6,10 +6,13 @@ async component Pages.Home {
     display: grid;
 
     h1 {
-      font-family: Courgette;
+      font-family: Forum;
+      font-weight: normal;
       line-height: 1.25;
       font-size: 38px;
+
       margin: 0;
+      margin-top: 0.5em;
     }
 
     div > p {
@@ -19,27 +22,32 @@ async component Pages.Home {
     }
 
     button {
-      background: seagreen;
+      background-image: radial-gradient(farthest-corner at center top, rgba(255,255,255,0.25), rgba(255,255,255,0));
+      background-color: #329754;
+      outline-offset: 2px;
+      outline: 1px solid #32975459;
       border-radius: 4px;
-      padding: 15px 30px;
+      padding: 12px 24px;
       margin-top: 20px;
       border: 0;
 
       font-family: 'Noto Sans';
-      font-weight: 600;
-      font-size: 20px;
+      text-shadow: 0 0 2px #329754;
+      font-weight: 400;
+      font-size: 18px;
       color: white;
+
+      &:hover {
+        outline-color: #329754;
+        cursor: pointer;
+      }
     }
 
-    div > svg {
+    div > img {
       margin-bottom: 40px;
       display: block;
       height: auto;
-      width: 300px;
-
-      path {
-        fill: seagreen;
-      }
+      width: 200px;
     }
   }
 
@@ -48,17 +56,17 @@ async component Pages.Home {
     <div>
       <div::hero>
         <div>
-          @svg(../../assets/hero.svg)
+          <img src={@asset(../../assets/logo.png)}/>
           <h1>"The programming language for writing single page applications"</h1>
 
           <p>
             <<#MARKDOWN
-          Mint has all the tools you need to write **error free**, **easily
-          readable** and **maintainable** applications in **record time**.
-          MARKDOWN
+            Mint has all the tools you need to write **error free**, **easily
+            readable** and **maintainable** applications in **record time**.
+            MARKDOWN
           </p>
 
-          <button>"Getting Started"</button>
+          <button>"Get Started"</button>
         </div>
 
         <Snippet title={"Counter.mint"}>
@@ -109,9 +117,10 @@ async component Pages.Home {
           state management (~4000 packages on NPM), in Mint there are **stores**
           that provide the same functionality out of the box:
 
-          - Stores can be **connected to components** to **re-rendered** when data changes
+          - Stores can be **connected to components** to be **re-rendered**
+            when data changes
           - Stores are **globally accessible** from anywhere
-          - Components have their own store like state management
+          - Components have their own state
         MARKDOWN
 
         <a href="/">
@@ -152,8 +161,8 @@ async component Pages.Home {
           Mint makes routing simple by offering language features to define
           routes and handle their parameters easily.
 
+          - Route parameters are type checked and decoded to Mint values
           - Links and navigation handled automatically
-          - Route parameters are type checked
         MARKDOWN
 
         <a href="/">
@@ -217,14 +226,6 @@ async component Pages.Home {
               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
               All done in 2.231ms!
 
-              $ mint start --auto-format
-
-              Mint - Running the development server
-              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-              ⚙ Ensuring dependencies... 181μs
-              ⚙ Parsing files... 2.608ms
-              ⚙ Development server started on http://127.0.0.1:3000/
-
               $ mint install
 
               Mint - Installing dependencies
@@ -238,6 +239,14 @@ async component Pages.Home {
               ⚙ Copying packages...
               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
               All done in 2.75s!
+
+              $ mint start --auto-format
+
+              Mint - Running the development server
+              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+              ⚙ Ensuring dependencies... 181μs
+              ⚙ Parsing files... 2.608ms
+              ⚙ Development server started on http://127.0.0.1:3000/
             CLI
           </Snippet>
         }>

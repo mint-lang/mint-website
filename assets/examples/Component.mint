@@ -16,7 +16,7 @@ component Counter {
       </button>
 
       <span>
-        <{ Number.toString(counter) }>
+        Number.toString(counter)
       </span>
 
       <button onClick={increment}>

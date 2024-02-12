@@ -1,10 +1,15 @@
-async component Reference.Constants {
-  fun render : Html {
-    <<#MARKDOWN
+module References {
+  const CONSTANTS =
+    <<#MARKDOWN(highlight)
     # Constants
 
+    Constants may be useful for values that are used throughout your program,
+    permitting them to be named and to ensure there are no differences in the
+    definition between each use.
+
     Constants can be added to **stores**, **modules**, **providers**,
-    **suites**, and **components**.
+    **suites**, and **components**. The name of a constant must be in
+    all-uppercase characters and their type is inferred from their value.
 
     ```mint
     module Math {
@@ -16,13 +21,11 @@ async component Reference.Constants {
     which defined them and from outside they can be accessed with the
     following syntax:
 
-    ```
+    ```mint
     Math.PI
     ```
 
-    > #{TablerIcons.ALERT_CIRCLE} The variable name of a constant must be in
-    all-uppercase characters.
 
     MARKDOWN
-  }
+    |> ContentInstrumenter.instrument
 }

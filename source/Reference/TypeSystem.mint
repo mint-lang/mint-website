@@ -1,6 +1,6 @@
-async component Reference.TypeSystem {
-  fun render : Html {
-    <<#MARKDOWN
+module References {
+  const TYPE_SYSTEM =
+    <<#MARKDOWN(highlight)
     # Type System
 
     In Mint the types and type definitions are only for the type checker and
@@ -28,5 +28,4 @@ async component Reference.TypeSystem {
 
     because the `Time.now()` is the only place values of `Time` can come from.
     MARKDOWN
-  }
 }

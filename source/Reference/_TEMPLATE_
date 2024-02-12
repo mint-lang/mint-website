@@ -1,6 +1,6 @@
-async component Reference. {
-  fun render : Html {
-    <<#MARKDOWN
+module References {
+  const  =
+    <<#MARKDOWN(highlight)
     MARKDOWN
-  }
+    |> ContentInstrumenter.instrument
 }

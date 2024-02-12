@@ -1,10 +1,14 @@
 async component Reference {
-  /* The contents. */
-  property children : Array(Html) = []
+  property contents : Html
+  property title : String
+  property path : String
+  property docs : Docs
 
   style root {
-    grid-template-columns: 200px auto 1fr;
+    grid-template-columns: 200px auto 80ch 1fr;
+    min-height: calc(100vh - 140px);
     margin-bottom: auto;
+    font-size: 16px;
     grid-gap: 50px;
     display: grid;
   }
@@ -26,27 +30,63 @@ async component Reference {
   }
 
   style divider {
-    border-right: 2px dotted #BBB;
+    border-right: 3px double #EEE;
+  }
+
+  style category {
+    border-bottom: 1px solid #EEE;
+    padding-bottom: 0.25em;
+    margin-bottom: 0.25em;
+    margin-top: 1em;
+    display: block;
+  }
+
+  fun renderPages (pages : Array(Docs.Page), path : String = "") {
+    for reference of pages {
+      let pagePath =
+        if String.isBlank(path) {
+          "/reference/#{reference.path}"
+        } else {
+          "/reference/#{path}/#{reference.path}"
+        }
+
+      <a::link(Window.isActiveURL(pagePath)) href={pagePath}>
+        reference.name
+      </a>
+    }
   }
 
   fun render : Html {
     <div::root>
       <div>
-        for reference of Application.REFERENCE {
-          let pagePath =
-            "/reference/#{reference.path}"
+        <div>
+          <strong::category>
+            title
+          </strong>
 
-          <a::link(Window.isActiveURL(pagePath)) href={pagePath}>
-            reference.name
-          </a>
+          renderPages(docs.pages)
+        </div>
+
+        for category of docs.categories {
+          <div>
+            <strong::category>
+              category.name
+            </strong>
+
+            renderPages(category.pages, category.path)
+          </div>
         }
       </div>
 
       <div::divider/>
 
-      <Content instrument={true}>
-        children
-      </Content>
+      <div key={path}>
+        <Content>
+          contents
+        </Content>
+      </div>
+
+      <div/>
     </div>
   }
 }

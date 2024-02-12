@@ -1,6 +1,6 @@
-async component Reference.StateManagement {
-  fun render : Html {
-    <<#MARKDOWN
+module References {
+  const STATE_MANAGEMENT =
+    <<#MARKDOWN(highlight)
     # State Management
 
     Before we cover **stores** and **components** you need to learn how Mint
@@ -14,7 +14,7 @@ async component Reference.StateManagement {
     ```
 
     Every program needs to have mutation to function, so if everything is
-    immutable how is mutation done? Mint has the concept of **state**:
+    immutable how is mutation done? Mint has the concept of **state** -
     mutable variables that can be defined in **stores**, **components** and
     **providers**:
 
@@ -40,7 +40,7 @@ async component Reference.StateManagement {
     The return type of a next expression is `Promise(Void)` because it's an
     asynchronous operation and it does not return any value.
 
-    Because it's asynchronous next epressions needs to be **awaited** if you
+    Because it's asynchronous next expressions needs to be **awaited** if you
     want to use the updated value:
 
     ```mint
@@ -52,5 +52,4 @@ async component Reference.StateManagement {
     // "Joe" - Not changed because the next wasn't awaited
     ```
     MARKDOWN
-  }
 }

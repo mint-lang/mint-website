@@ -1,6 +1,6 @@
-async component Reference.Array {
-  fun render : Html {
-    <<#MARKDOWN
+module References {
+  const ARRAY =
+    <<#MARKDOWN(highlight)
     # Array
 
     An `Array(a)` is an ordered and integer-indexed generic collection of
@@ -15,12 +15,14 @@ async component Reference.Array {
 
     ## Type
 
-    You can define the type of an array using the `of` keyword. It is useful
-    for defining the type of an empty array:
+    The type of an array is inferred from it's content, however you can define
+    the type directly with the `of` keyword. It is useful for defining the type
+    of an empty array:
 
     ```mint
-    [] of Number
-    [1,2,3] of Number
+    []                // Array(a)
+    [1, 2, 3]         // Array(Number)
+    [] of Number      // Array(Number)
     ```
 
     ## Accessing Items
@@ -31,7 +33,7 @@ async component Reference.Array {
     let array =
       [1, 2, 3]
 
-    array[0]
+    array[0] // Maybe(Number)
     ```
 
     When accessing an item this way the type of the item will be `Maybe(a)`
@@ -52,11 +54,11 @@ async component Reference.Array {
       [a, ...middle, b] => "" /* Array at least with two elements (middle can be empty) */
       [...head, tail] => ""   /* Array at one element (head can be empty) */
       [head, ...tail] => ""   /* Array at one element (tail can be empty) */
-      [...items] => ""        /* Items would be the array */
+      [...items] => ""        /* Items would be the array itself */
       => ""                   /* Fallback as usual */
     }
     ```
 
     MARKDOWN
-  }
+    |> ContentInstrumenter.instrument
 }

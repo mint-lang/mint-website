@@ -1,13 +1,14 @@
-async component Reference.Tuple {
-  fun render : Html {
-    <<#MARKDOWN
+module References {
+  const TUPLE =
+    <<#MARKDOWN(highlight)
     # Tuple
 
     A tuple is a data structure which contains a fixed set values, where each
     value can have a different type.
 
     - they are useful when you don't want to declare a record
-    - they can contain any number of items
+    - they can contain two or more of items (empty or single element tuples are
+      not possible)
     - their items can be destuctured and matched against
 
     ## Type
@@ -24,7 +25,7 @@ async component Reference.Tuple {
     Tuples can be created with the following syntax:
 
     ```mint
-    #("First Value", 10, true)
+    {"First Value", 10, true} // Tuple(String, Number, Bool)
     ```
 
     ## Destructuring
@@ -33,29 +34,29 @@ async component Reference.Tuple {
     to a variable) or use brackets `[]`:
 
     ```mint
-    let #(first, second, third) =
-      #("First Value", 10, true)
+    let {first, second, third} =
+      {"First Value", 10, true}
 
-    #("First Value", 10, true)[0] /* "First Value" */
+    {"First Value", 10, true}[0] /* "First Value" */
     ```
 
     Destructuring can be used in **statements** and **case expressions**:
 
     ```mint
-    case #("First Value", 10, true) {
+    case {"First Value", 10, true} {
       /* match by value (will not match) */
-      #("A", 0, false) => "A"
+      {"A", 0, false} => "A"
 
       /* match by value (will match) */
-      #("First Value", 10, true) => "B"
+      {"First Value", 10, true} => "B"
 
       /* destructure */
-      #(a, b, c) => a
+      {a, b, c} => a
     }
 
     fun tuples : String {
-      let #(first, second, third) =
-        #("First Value", 10, true)
+      let {first, second, third} =
+        {"First Value", 10, true}
 
       first
     }
@@ -65,5 +66,4 @@ async component Reference.Tuple {
     exhaustive.
 
     MARKDOWN
-  }
 }

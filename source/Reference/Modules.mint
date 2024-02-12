@@ -1,6 +1,6 @@
-async component Reference.Modules {
-  fun render : Html {
-    <<#MARKDOWN
+module References {
+  const MODULES =
+    <<#MARKDOWN(highlight)
     # Modules
 
     In Mint modules are kind of containers for a set of relatable functions and
@@ -39,5 +39,5 @@ async component Reference.Modules {
     ```
 
     MARKDOWN
-  }
+    |> ContentInstrumenter.instrument
 }

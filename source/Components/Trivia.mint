@@ -1,33 +1,13 @@
-async component Trivia {
+component Trivia {
   /* The contents to display. */
   property children : Array(Html) = []
 
   /* Styles of the root element. */
   style root {
-    grid-template-columns: auto 1fr auto;
-    place-content: center;
-    place-items: center;
-    margin: 0 auto;
-    grid-gap: 70px;
-    display: grid;
-
-    text-align: center;
-
-    svg {
-      --tabler-stroke-width: 0.7;
-
-      height: 120px;
-      width: 120px;
-      opacity: 0.75;
-
-      path {
-        stroke: seagreen;
-      }
-
-      &:last-child {
-        transform: scaleX(-1);
-      }
-    }
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
   }
 
   /* Styles of the fact. */
@@ -53,13 +33,13 @@ async component Trivia {
   /* Renders the component. */
   fun render : Html {
     <div::root>
-      <div>
-        <p::title>"Did you know?"</p>
+      <p::title>"Did you know?"</p>
 
-        <p::fact>
-          children
-        </p>
-      </div>
+      <p::fact>
+        <Content>
+          ContentInstrumenter.instrumentMany(children)
+        </Content>
+      </p>
     </div>
   }
 }

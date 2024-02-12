@@ -7,11 +7,11 @@ store Todos {
   state items = [] of Todo
 
   fun add (todo : Todo) {
-    next { items: Array.push(todo, items) }
+    next { items: Array.push(items, todo) }
   }
 
   fun delete (todo : Todo) {
-    next { items: Array.delete(todo, items) }
+    next { items: Array.delete(items, todo) }
   }
 }
 

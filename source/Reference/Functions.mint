@@ -1,6 +1,6 @@
-async component Reference.Functions {
-  fun render : Html {
-    <<#MARKDOWN
+module References {
+  const FUNCTIONS =
+    <<#MARKDOWN(highlight)
     # Functions
 
     Functions are callable pieces of code which:
@@ -91,7 +91,7 @@ async component Reference.Functions {
       </div>
     }
 
-    greet(name: "Bob") /* Hello Bob? */
+    greet(name: "Bob") /* Hello Bob! */
     ```
 
     When there are many arguments, the order of the names in the invocation
@@ -215,5 +215,5 @@ async component Reference.Functions {
     Using this operator makes the code more readable.
 
     MARKDOWN
-  }
+    |> ContentInstrumenter.instrument
 }

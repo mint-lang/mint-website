@@ -17,6 +17,10 @@
     "mint-tabler-icons": {
       "repository": "https://github.com/mint-lang/mint-tabler-icons",
       "constraint": "master:1.0.0"
+    },
+    "mint-codemirror": {
+      "repository": "https://github.com/mint-lang/mint-codemirror",
+      "constraint": "0.20.0:10.0.0"
     }
   }
 }

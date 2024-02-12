@@ -1,10 +1,10 @@
-async component Reference.BuiltInTypes {
-  fun render : Html {
-    <<#MARKDOWN
+module References {
+  const BUILT_IN_TYPES =
+    <<#MARKDOWN(highlight)
     # Built-in Types
 
     Mint comes with several built-in types. These are used in control
-    expressions: `Maybe`, `Result`, `Promise` and `Void`.
+    expressions: `Maybe`, `Result`, `Promise`, `Deferred` and `Void`.
 
     ## Maybe
 
@@ -82,11 +82,17 @@ async component Reference.BuiltInTypes {
     that happened while `Http.Response` is a record containing the response of
     the request.
 
+    ## Deferred
+
+    This type represents a piece of code which is loaded asyncronhously from a
+    different file. To learn more about it check out the
+    [defer expression](/reference/defer).
+
     ## Void
 
     The void type represents an expression that does not have any value. `Void`
     can only be explicitly returned with the `void` keyword.
 
     MARKDOWN
-  }
+    |> ContentInstrumenter.instrument
 }
