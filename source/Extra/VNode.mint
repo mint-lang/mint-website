@@ -3,28 +3,6 @@ module VNode {
     `#{vnode}`
   }
 
-  fun type (vnode : VNode) : Object {
-    `#{vnode}.type`
-  }
-
-  fun getTextContent (vnode : VNode) : String {
-    `
-    (() => {
-      let content = "";
-      if (#{vnode}.props.children) {
-        #{vnode}.props.children.forEach((child) => {
-          if (typeof child == "string") {
-            content += child
-          } else {
-            content += #{getTextContent}(child)
-          }
-        })
-      }
-      return content;
-    })()
-    `
-  }
-
   fun deleteProp (vnode : VNode, name : String) : VNode {
     `
     (() => {
@@ -38,13 +16,36 @@ module VNode {
     `#{vnode}.props[#{name}]`
   }
 
-  fun setProp (vnode : VNode, name : String, value : Object) : VNode {
+  fun getTextContent (vnode : VNode) : String {
     `
     (() => {
-      #{vnode}.props[#{name}] = #{value};
-      return #{vnode}
+      let content = "";
+
+      if (typeof #{vnode} == "string") {
+        content += #{vnode}
+      } else if (Array.isArray(#{vnode})) {
+        #{vnode}.forEach((child) => {
+          content += #{getTextContent}(child)
+        })
+      } else {
+        let children =
+          #{vnode}.props.children;
+
+        if (children) {
+          if (typeof children == "string") {
+            content += children
+          } else {
+            content += #{getTextContent}(children)
+          }
+        }
+      }
+      return content;
     })()
     `
+  }
+
+  fun ofHtml (html : Html) : VNode {
+    `#{html}`
   }
 
   fun prependChild (vnode : VNode, child : Html) : VNode {
@@ -58,8 +59,35 @@ module VNode {
     `
   }
 
-  fun ofHtml (html : Html) : VNode {
-    `#{html}`
+  fun reduce (
+    vnode : Html,
+    memo : a,
+    function : Function(VNode, a, a)
+  ) : a {
+    `
+    (() => {
+      let memo = #{memo};
+
+      #{walk}(#{vnode}, (vnode) => {
+        memo = #{function}(vnode, memo)
+      })
+
+      return memo
+    })()
+    `
+  }
+
+  fun setProp (vnode : VNode, name : String, value : Object) : VNode {
+    `
+    (() => {
+      #{vnode}.props[#{name}] = #{value};
+      return #{vnode}
+    })()
+    `
+  }
+
+  fun type (vnode : VNode) : Object {
+    `#{vnode}.type`
   }
 
   fun walk (vnode : Html, function : Function(VNode, a)) : Html {

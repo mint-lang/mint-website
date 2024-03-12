@@ -16,7 +16,7 @@ component TodoItem {
   fun render {
     <div>
       <span::label>
-        <{ label }>
+        label
       </span>
 
       <Icon.Checkmark/>

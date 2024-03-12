@@ -1,5 +1,5 @@
 module MyFunctions {
-  fun alert(message : String) : Promise(Never, Void) {
+  fun alert(message : String) : Promise(Void) {
     `
     (new Promise((resolve) => {
       alert(#{message})

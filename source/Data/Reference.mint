@@ -107,17 +107,17 @@ module Data {
             pages:
               [
                 {
-                  contents: defer References.TYPE_SYSTEM,
+                  contents: defer References.TYPES_TYPE_SYSTEM,
                   name: "Type System",
                   path: "type-system"
                 },
                 {
-                  contents: defer References.CUSTOM_TYPES,
+                  contents: defer References.TYPES_CUSTOM_TYPES,
                   name: "Custom Types",
                   path: "custom-types"
                 },
                 {
-                  contents: defer References.BUILT_IN_TYPES,
+                  contents: defer References.TYPES_BUILT_IN_TYPES,
                   name: "Built-in Types",
                   path: "built-in-types"
                 }
@@ -129,22 +129,22 @@ module Data {
             pages:
               [
                 {
-                  contents: defer References.IF,
+                  contents: defer References.CONTROL_FLOW_IF_ELSE,
                   name: "if...else",
                   path: "if"
                 },
                 {
-                  contents: defer References.CASE,
+                  contents: defer References.CONTROL_FLOW_CASE,
                   name: "case",
                   path: "case"
                 },
                 {
-                  contents: defer References.FOR,
+                  contents: defer References.CONTROL_FLOW_FOR_OF,
                   name: "for...of",
                   path: "for"
                 },
                 {
-                  contents: defer References.DEFER,
+                  contents: defer References.CONTROL_FLOW_DEFER,
                   name: "defer",
                   path: "defer"
                 }
@@ -156,7 +156,7 @@ module Data {
             pages:
               [
                 {
-                  contents: defer References.COMPONENTS_BASICS,
+                  contents: defer References.COMPONENTS_INTRODUCTION,
                   name: "Introduction",
                   path: "introduction"
                 },
@@ -179,6 +179,63 @@ module Data {
                   contents: defer References.COMPONENTS_USING_PROVIDERS,
                   name: "Using Providers",
                   path: "using-providers"
+                },
+                {
+                  contents: defer References.COMPONENTS_REFERENCING_ENTITIES,
+                  name: "Referencing Entities",
+                  path: "referencing-entities"
+                },
+                {
+                  contents: defer References.COMPONENTS_LIFECYCLE_FUNCTIONS,
+                  name: "Lifecycle Functions",
+                  path: "lifecycle-functions"
+                },
+                {
+                  contents: defer References.COMPONENTS_GLOBAL_COMPONENTS,
+                  name: "Global Components",
+                  path: "global-components"
+                },
+                {
+                  contents: defer References.COMPONENTS_ASYNC_COMPONENTS,
+                  name: "Async Components",
+                  path: "async-components"
+                }
+              ]
+          },
+          {
+            name: "Styling",
+            path: "styling",
+            pages:
+              [
+                {
+                  contents: defer References.STYLING_INTRODUCTION,
+                  name: "Introduction",
+                  path: "introduction"
+                },
+                {
+                  contents: defer References.STYLING_SELECTORS_AND_NESTING,
+                  name: "Selectors and Nesting",
+                  path: "selectors-and-nesting"
+                },
+                {
+                  contents: defer References.STYLING_CONTROL_FLOW,
+                  name: "Control Flow",
+                  path: "control-flow"
+                },
+                {
+                  contents: defer References.STYLING_INTERPOLATION,
+                  name: "Interpolation",
+                  path: "interpolation"
+                },
+                {
+                  contents: defer References.STYLING_ARGUMENTS,
+                  name: "Arguments",
+                  path: "arguments"
+                },
+                {
+                  contents: defer References.STYLING_INLINE_STYLES,
+                  name: "Inline Styles",
+                  path: "inline-styles"
                 }
               ]
           },
@@ -188,24 +245,24 @@ module Data {
             pages:
               [
                 {
-                  contents: defer References.ASSET_DIRECTIVE,
+                  contents: defer References.DIRECTIVES_ASSET,
                   name: "@asset",
-                  path: "asset-directive"
+                  path: "asset"
                 },
                 {
-                  contents: defer References.SVG_DIRECTIVE,
+                  contents: defer References.DIRECTIVES_SVG,
                   name: "@svg",
-                  path: "svg-directive"
+                  path: "svg"
                 },
                 {
-                  contents: defer References.FORMAT_DIRECTIVE,
+                  contents: defer References.DIRECTIVES_FORMAT,
                   name: "@format",
-                  path: "format-directive"
+                  path: "format"
                 },
                 {
-                  contents: defer References.INLINE_DIRECTIVE,
+                  contents: defer References.DIRECTIVES_INLINE,
                   name: "@inline",
-                  path: "inline-directive"
+                  path: "inline"
                 }
               ]
           },
@@ -215,17 +272,17 @@ module Data {
             pages:
               [
                 {
-                  contents: defer References.INLINING,
+                  contents: defer References.JAVASCRIPT_INLINING,
                   name: "Inlining",
                   path: "inlining"
                 },
                 {
-                  contents: defer References.DECODE,
+                  contents: defer References.JAVASCRIPT_DECODE,
                   name: "Decode Expression",
                   path: "decode"
                 },
                 {
-                  contents: defer References.ENCODE,
+                  contents: defer References.JAVASCRIPT_ENCODE,
                   name: "Encode Expression",
                   path: "encode"
                 }

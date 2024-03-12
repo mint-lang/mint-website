@@ -2,6 +2,7 @@ component Content {
   /* The contents. */
   property children : Array(Html) = []
 
+  property preMinWidth : String = "auto"
   property fontSize : Number = 18
 
   /* Styles for the root element. */
@@ -26,8 +27,8 @@ component Content {
 
       &:after {
         border-top: 1px solid #EEE;
+        margin-top: 0.6em;
         margin-left: 1em;
-        margin-top: 1em;
         content: "";
         flex: 1;
       }
@@ -63,7 +64,7 @@ component Content {
     }
 
     li + li {
-      margin-top: 0.75em;
+      margin-top: 0.25em;
     }
 
     li p {
@@ -95,9 +96,20 @@ component Content {
       font-size: 14px;
     }
 
+    pre:has(.language-bash) {
+      border-left: 3px solid #EEE;
+      padding-left: 20px;
+
+      .line::before,
+      .line::after {
+        display: none;
+      }
+    }
+
     pre {
-      overflow: auto;
+      min-width: #{preMinWidth};
       font-size: 16px;
+      overflow: auto;
 
       code {
         display: block;
@@ -106,6 +118,7 @@ component Content {
         .line {
           counter-increment: snippet;
           position: relative;
+          min-height: 1em;
           display: block;
 
           &::before {
@@ -144,8 +157,9 @@ component Content {
           color: seagreen;
         }
 
-        .namespace {
-          color: orangered;
+        .namespace,
+        .property {
+          color: indianred;
         }
 
         .type {
@@ -180,14 +194,17 @@ component Content {
       margin-bottom: 0;
     }
 
-    > h1 > a,
-    > h2 > a {
-      text-decoration: none;
-      color: inherit;
+    > h1,
+    > h2,
+    > h3 {
+      > a {
+        text-decoration: none;
+        color: inherit;
 
-      &:hover {
-        text-decoration: underline;
-        color: seagreen;
+        &:hover {
+          text-decoration: underline;
+          color: seagreen;
+        }
       }
     }
 
@@ -207,6 +224,7 @@ component Content {
       th,
       td {
         border: 1px solid #EEE;
+        line-height: 1.6;
         padding: 0.5em;
 
         &:first-child {

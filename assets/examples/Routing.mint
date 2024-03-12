@@ -8,7 +8,7 @@ routes {
   }
 
   /blog/:slug (slug : String) {
-    Posts.load(slug)
+    await Posts.load(slug)
     Application.setPage(Page::Post)
   }
 

@@ -1,8 +1,11 @@
 type Page {
-  Reference(
-    docs : Docs,
+  Documents(
+    category : Maybe(DocumentCategory),
+    documents : Documents,
+    document : Document,
+    basePath : String,
     contents : Html,
-    path : String)
+    title : String)
 
   Learn(String, Lesson)
   NotFound
@@ -11,18 +14,18 @@ type Page {
   Home
 }
 
-type Docs {
-  categories : Array(Docs.Category),
-  pages : Array(Docs.Page)
+type Documents {
+  categories : Array(DocumentCategory),
+  pages : Array(Document)
 }
 
-type Docs.Category {
-  pages : Array(Docs.Page),
+type DocumentCategory {
+  pages : Array(Document),
   path : String,
   name : String
 }
 
-type Docs.Page {
+type Document {
   contents : Deferred(Html),
   name : String,
   path : String
@@ -34,12 +37,13 @@ component Main {
   fun render : Html {
     <Body>
       case page {
-        Reference(path, contents, docs) =>
-          <Reference
+        Documents(contents, documents, document, title, basePath) =>
+          <Documents
+            documents={documents}
+            document={document}
             contents={contents}
-            title="Reference"
-            docs={docs}
-            path={path}/>
+            basePath={basePath}
+            title={title}/>
 
         Install => <Pages.Install/>
 

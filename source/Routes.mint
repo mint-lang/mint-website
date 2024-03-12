@@ -4,12 +4,19 @@ routes {
   }
 
   /reference*path (path : String) {
-    if String.isBlank(path) {
-      Window.setUrl("/reference/")
-      Application.loadDocuments("/", Data.REFERENCE)
-    } else {
-      Application.loadDocuments(path, Data.REFERENCE)
-    }
+    Application.loadDocuments(
+      deferredDocuments: Data.REFERENCE,
+      basePath: "reference",
+      title: "Reference",
+      path: path)
+  }
+
+  /guides*path (path : String) {
+    Application.loadDocuments(
+      deferredDocuments: Data.GUIDES,
+      basePath: "guides",
+      title: "Guides",
+      path: path)
   }
 
   /tutorial*path (path : String) {

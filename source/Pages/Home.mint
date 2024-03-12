@@ -21,34 +21,53 @@ component Pages.Home {
       margin: 0;
     }
 
-    button {
-      background-image: radial-gradient(farthest-corner at center top, rgba(255,255,255,0.25), rgba(255,255,255,0));
-      background-color: #329754;
-      outline-offset: 2px;
-      outline: 1px solid #32975459;
-      border-radius: 4px;
-      padding: 12px 24px;
-      margin-top: 20px;
-      border: 0;
-
-      font-family: 'Noto Sans';
-      text-shadow: 0 0 2px #329754;
-      font-weight: 400;
-      font-size: 18px;
-      color: white;
-
-      &:hover {
-        outline-color: #329754;
-        cursor: pointer;
-      }
-    }
-
     div > img {
       margin-bottom: 40px;
       display: block;
       height: auto;
       width: 200px;
     }
+  }
+
+  style button {
+    background-image: radial-gradient(farthest-corner at center top, rgba(255,255,255,0.25), rgba(255,255,255,0));
+    background-color: #329754;
+    outline-offset: 2px;
+    outline: 1px solid #32975459;
+
+    border-radius: 4px;
+    padding: 12px 18px;
+    margin-top: 20px;
+    border: 0;
+
+    text-shadow: 0 0 2px #329754;
+    font-family: 'Noto Sans';
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 18px;
+    color: white;
+
+    display: inline-grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 8px;
+
+    svg {
+      --tabler-stroke-width: 1.5;
+
+      height: 24px;
+      width: 24px;
+    }
+
+    &:hover {
+      outline-color: #329754;
+      cursor: pointer;
+    }
+  }
+
+  fun snippet (content : Html) {
+    <Content preMinWidth="600px">
+      content
+    </Content>
   }
 
   /* Renders the component. */
@@ -66,37 +85,98 @@ component Pages.Home {
             MARKDOWN
           </p>
 
-          <button>"Get Started"</button>
+          <a::button href="/guide/getting-started">
+            "Get Started"
+            TablerIcons.ARROW_RIGHT
+          </a>
         </div>
 
-        <Snippet title={"Counter.mint"}>
-          @highlight-file(../../assets/examples/Component.mint)
-        </Snippet>
+        snippet(
+          <<#MARKDOWN(highlight)
+          ```mint
+          component Counter {
+            state counter = 0
+
+            fun increment {
+              next { counter: counter + 1 }
+            }
+
+            fun decrement {
+              next { counter: counter - 1 }
+            }
+
+            fun render {
+              <div>
+                <button onClick={decrement}>
+                  "Decrement"
+                </button>
+
+                <span>
+                  Number.toString(counter)
+                </span>
+
+                <button onClick={increment}>
+                  "Increment"
+                </button>
+              </div>
+            }
+          }
+          ```
+          MARKDOWN)
       </div>
 
       <Divider/>
 
       <Section
         title="Styling"
+        flipped={true}
         snippet={
-          <Snippet title="Styling.mint">
-            @highlight-file(../../assets/examples/Styling.mint)
-          </Snippet>
+          snippet(
+            <<#MARKDOWN(highlight)
+            ```mint
+            component TodoItem {
+              property color = "#333"
+              property done = false
+              property label = ""
+
+              style label {
+                font-weight: bold;
+                color: \#{color};
+                flex: 1;
+
+                if (done) {
+                  text-decoration: line-through;
+                }
+              }
+
+              fun render {
+                <div>
+                  <span::label>
+                    label
+                  </span>
+
+                  <Icon.Checkmark/>
+                  <Icon.Trash/>
+                </div>
+              }
+            }
+            ```
+            MARKDOWN)
         }>
 
         <<#MARKDOWN
-          Styling elements in traditional single page applications is done through
-          a library which restricts what is possible, so in Mint styling is a
-          feature of the language and much more powerful than any library cloud
-          ever be.
+        Styling elements in traditional single page applications is done through
+        a library which restricts what is possible, so in Mint styling is a
+        feature of the language and much more powerful than any library cloud
+        ever be.
 
-          - Style elements directly with **CSS** using **style blocks**
-          - Infinitely nest **sub selectors** and **media queries**
-          - Use **`if`** and **`case`** to apply styles conditionally
-          - Interpolate values with **`\#{...}`**
+        - Style elements directly with **CSS** using **style blocks**
+        - Infinitely nest **sub selectors** and **media queries**
+        - Use **`if`** and **`case`** to apply styles conditionally
+        - Interpolate values with **`\#{...}`**
         MARKDOWN
 
-        <a href="/">
+        <a href="/reference/styling/introduction">
           "Full Styling Reference"
         </a>
 
@@ -107,24 +187,54 @@ component Pages.Home {
       <Section
         title="Stores & State"
         snippet={
-          <Snippet title="Stores.mint">
-            @highlight-file(../../assets/examples/Stores.mint)
-          </Snippet>
+          snippet(
+            <<#MARKDOWN(highlight)
+            ```mint
+            type Todo {
+              label : String,
+              done : Bool
+            }
+
+            store Todos {
+              state items = [] of Todo
+
+              fun add (todo : Todo) {
+                next { items: Array.push(items, todo) }
+              }
+
+              fun delete (todo : Todo) {
+                next { items: Array.delete(items, todo) }
+              }
+            }
+
+            component TodoList {
+              connect Todos exposing { add, delete, items }
+
+              fun render : Html {
+                <div>
+                  for item of items {
+                    "Item rendered here..."
+                  }
+                </div>
+              }
+            }
+            ```
+            MARKDOWN)
         }>
 
         <<#MARKDOWN
-          In the JavaScript world you can choose from a plethora of options for
-          state management (~4000 packages on NPM), in Mint there are **stores**
-          that provide the same functionality out of the box:
+        In the JavaScript world you can choose from a plethora of options for
+        state management (~4000 packages on NPM), in Mint there are **stores**
+        that provide the same functionality out of the box:
 
-          - Stores can be **connected to components** to be **re-rendered**
-            when data changes
-          - Stores are **globally accessible** from anywhere
-          - Components have their own state
+        - Stores can be **connected to components** to be **re-rendered**
+          when data changes
+        - Stores are **globally accessible** from anywhere
+        - Components have their own state
         MARKDOWN
 
-        <a href="/">
-          "Stores & State Reference"
+        <a href="/reference/stores">
+          "Stores Reference"
         </a>
 
       </Section>
@@ -152,20 +262,40 @@ component Pages.Home {
       <Section
         title="Routing"
         snippet={
-          <Snippet title="Routing.mint">
-            @highlight-file(../../assets/examples/Routing.mint)
-          </Snippet>
+          snippet(
+            <<#MARKDOWN(highlight)
+            ```mint
+            routes {
+              / {
+                Application.setPage(Page::Home)
+              }
+
+              /blog {
+                Application.setPage(Page::Blog)
+              }
+
+              /blog/:slug (slug : String) {
+                await Posts.load(slug)
+                Application.setPage(Page::Post)
+              }
+
+              * {
+                Application.setPage(Page::NotFound)
+              }
+            }
+            ```
+            MARKDOWN)
         }>
 
         <<#MARKDOWN
-          Mint makes routing simple by offering language features to define
-          routes and handle their parameters easily.
+        Mint makes routing simple by offering language features to define
+        routes and handle their parameters easily.
 
-          - Route parameters are type checked and decoded to Mint values
-          - Links and navigation handled automatically
+        - Route parameters are type checked and decoded to Mint values
+        - Links and navigation handled automatically
         MARKDOWN
 
-        <a href="/">
+        <a href="/reference/routes">
           "Routing Reference"
         </a>
 
@@ -175,22 +305,42 @@ component Pages.Home {
 
       <Section
         title="Interopability"
+        flipped={true}
         snippet={
-          <Snippet title="Interopability.mint">
-            @highlight-file(../../assets/examples/Interopability.mint)
-          </Snippet>
+          snippet(
+            <<#MARKDOWN(highlight)
+            ```mint
+            module MyFunctions {
+              fun alert(message : String) : Promise(Void) {
+                `
+                (new Promise((resolve) => {
+                  alert(\#{message})
+                  resolve()
+                })()
+                `
+              }
+
+              fun decode : Maybe(TodoItem) {
+                let object =
+                  `{ label: "Check out Mint!", done: false }`
+
+                Result.toMaybe(decode object as TodoItem)
+              }
+            }
+            ```
+            MARKDOWN)
         }>
 
         <<#MARKDOWN
-          Interfacing with JavaScript is super easy using the built-in language
-          features:
+        Interfacing with JavaScript is super easy using the built-in language
+        features:
 
-          - **`encode`** - converts a typed value into a JavaScript object
-          - **`decode`** - converts a JavaScript object into a typed value
-          - **\`...\`** - inline JavaScript with interpolations
+        - **`encode`** - converts a typed value into a JavaScript object
+        - **`decode`** - converts a JavaScript object into a typed value
+        - **\`...\`** - inline JavaScript with interpolations
         MARKDOWN
 
-        <a href="/">
+        <a href="/reference/javascript-interopbility/inlining">
           "Interopability Reference"
         </a>
 
@@ -215,40 +365,41 @@ component Pages.Home {
       <Section
         title="Batteries Included"
         snippet={
-          <Snippet title="CLI">
-            <<~CLI
-              $ mint init my-awesome-project
+          snippet(
+            <<#CLI(highlight)
+            ```bash
+            $ mint init my-awesome-project
 
-              Mint - Initializing a new project
-              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-              ⚙ Creating directory structure...
-              ⚙ Writing initial files...
-              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-              All done in 2.231ms!
+            Mint - Initializing a new project
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            ⚙ Creating directory structure...
+            ⚙ Writing initial files...
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            All done in 2.231ms!
 
-              $ mint install
+            $ mint install
 
-              Mint - Installing dependencies
-              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-              ⚙ Constructing dependency tree...
-                ✔ Cloned mint-codemirror (https://github.com/mint...)
+            Mint - Installing dependencies
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            ⚙ Constructing dependency tree...
+              ✔ Cloned mint-codemirror (https://github.com/mint...)
 
-              ⚙ Resolving dependency tree...
-                ◈ mint-codemirror ➔ 6.0.0
+            ⚙ Resolving dependency tree...
+              ◈ mint-codemirror ➔ 6.0.0
 
-              ⚙ Copying packages...
-              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-              All done in 2.75s!
+            ⚙ Copying packages...
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            All done in 2.75s!
 
-              $ mint start --auto-format
+            $ mint start --auto-format
 
-              Mint - Running the development server
-              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-              ⚙ Ensuring dependencies... 181μs
-              ⚙ Parsing files... 2.608ms
-              ⚙ Development server started on http://127.0.0.1:3000/
-            CLI
-          </Snippet>
+            Mint - Running the development server
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            ⚙ Ensuring dependencies... 181μs
+            ⚙ Parsing files... 2.608ms
+            ⚙ Development server started on http://127.0.0.1:3000/
+            ```
+            CLI)
         }>
 
         <<#MARKDOWN
@@ -264,7 +415,7 @@ component Pages.Home {
           - Build Tool
         MARKDOWN
 
-        <a href="/">
+        <a href="/guides/cli">
           "CLI Reference"
         </a>
 

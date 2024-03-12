@@ -5,11 +5,6 @@
     "icon": "assets/favicon.png",
     "head": "assets/head.html"
   },
-  "external": {
-    "stylesheets": [
-      "assets/style.css"
-    ]
-  },
   "source-directories": [
     "source"
   ],
