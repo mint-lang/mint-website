@@ -62,14 +62,14 @@ module References {
 
     ```mint
     module Greeter {
-      get name : String {
+      fun name : String {
         "Me"
       }
 
       fun greet : String {
         `
         (() => {
-          return "Hello " + \#{name} + "!"
+          return "Hello " + \#{name()} + "!"
         })()
         `
       }
@@ -89,5 +89,4 @@ module References {
     `"Hello World!"` as String
     ```
     MARKDOWN
-
 }

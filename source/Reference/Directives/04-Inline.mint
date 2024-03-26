@@ -28,6 +28,6 @@ module References {
     ```
 
     It's the same as copy-pasting the file itself into the code.
-    MARKDOWN
 
+    MARKDOWN
 }

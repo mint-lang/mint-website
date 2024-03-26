@@ -16,12 +16,6 @@ component LabelledIcon {
     grid-gap: 0.5em;
     display: grid;
 
-    if disabled {
-      cursor: not-allowed;
-    } else {
-      cursor: pointer;
-    }
-
     &:hover {
       if !disabled {
         color: seagreen;
@@ -29,9 +23,11 @@ component LabelledIcon {
     }
 
     if disabled {
-      cursor: initial;
+      cursor: not-allowed;
+      opacity: 0.5;
     } else {
       cursor: pointer;
+      opacity: 1;
     }
 
     svg {

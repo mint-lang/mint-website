@@ -121,7 +121,9 @@ component Header {
     <div::root>
       <div::wrapper>
         <a::brand href="/">
-          <img src={@asset(../../assets/logo.png)}/>
+          <img
+            src={@asset(../../assets/brand-book/logo.svg)}
+            alt="Mint Logo"/>
         </a>
 
         <div::navigation>
@@ -130,11 +132,12 @@ component Header {
             "Install"
           </a>
 
+          /*
           <a::item href="/try">
             TablerIcons.TERMINAL
             "Sandbox"
           </a>
-
+          */
           <div::menu-wrapper tabindex="0">
             <a::item>
               TablerIcons.BOOK
@@ -157,18 +160,21 @@ component Header {
                 "Reference"
               </a>
 
+              /*
               <a::item href="/api/">
                 TablerIcons.TablerIcons.BOOKS
                 "Core Library"
               </a>
+              */
             </div>
           </div>
 
+          /*
           <a::item href="/">
             TablerIcons.BOX_SEAM
             "Packages"
           </a>
-
+          */
           <a::item href="/">
             TablerIcons.ARTICLE
             "Blog"

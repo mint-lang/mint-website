@@ -7,11 +7,15 @@ type Page {
     contents : Html,
     title : String)
 
-  Learn(String, Lesson)
-  NotFound
+  Learn(
+    previousLessonPath : Maybe(String),
+    nextLessonPath : Maybe(String),
+    lessons : Array(Lesson),
+    lesson : LessonData,
+    path : String)
+
+  Page(String, Html)
   Initial
-  Install
-  Home
 }
 
 type Documents {
@@ -45,19 +49,17 @@ component Main {
             basePath={basePath}
             title={title}/>
 
-        Install => <Pages.Install/>
-
-        Learn(path, lesson) =>
+        Learn(previousLessonPath, nextLessonPath, path, lesson, lessons) =>
           <Lesson
-            previousLesson={lesson.previousLesson}
-            nextLesson={lesson.nextLesson}
+            previousLessonPath={previousLessonPath}
+            nextLessonPath={nextLessonPath}
             instructions={lesson.contents}
             files={lesson.files}
+            lessons={lessons}
             path={path}/>
 
-        Home => <Pages.Home/>
+        Page(title, page) => page
         Initial => <></>
-        NotFound => <>"404"</>
       }
     </Body>
   }

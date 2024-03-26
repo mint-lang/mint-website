@@ -1,7 +1,44 @@
 module Lessons {
   const INTRODUCTION =
     {
-      let content =
+      files:
+        [
+          {
+            path: "Main.mint",
+            solution: "",
+            contents:
+              <<~MINT
+              component Main {
+                state counter = 0
+
+                fun increment {
+                  next { counter: counter + 1 }
+                }
+
+                fun decrement {
+                  next { counter: counter - 1 }
+                }
+
+                fun render {
+                  <div>
+                    <button onClick={decrement}>
+                      "Decrement"
+                    </button>
+
+                    <span>
+                      Number.toString(counter)
+                    </span>
+
+                    <button onClick={increment}>
+                      "Increment"
+                    </button>
+                  </div>
+                }
+              }
+              MINT
+          }
+        ],
+      contents:
         <<#MARKDOWN
         ## Introduction
 
@@ -36,60 +73,9 @@ module Lessons {
         above (click 'Introduction').
 
         Some tutorial chapters will have a button that you can click if you
-        get stuck following the instructions.
-
-        Try not to rely on it too much; you will learn faster by figuring out
-        where to put each suggested code block and manually typing it in to
-        the editor.
+        get stuck following the instructions. Try not to rely on it too much;
+        you will learn faster by figuring out where to put each suggested code
+        block and manually typing it in to the editor.
         MARKDOWN
-
-      {
-        nextLesson: "/language/types",
-        category: "Introduction",
-        previousLesson: "/",
-        title: "",
-        files:
-          [
-            {
-              title: "Main.mint",
-              path: "Main.mint",
-              solution: "",
-              contents:
-                <<~MINT
-              component Main {
-                state counter = 0
-
-                fun increment {
-                  next { counter: counter + 1 }
-                }
-
-                fun decrement {
-                  next { counter: counter - 1 }
-                }
-
-                fun render {
-                  <div>
-                    <button onClick={decrement}>
-                      "Decrement"
-                    </button>
-
-                    <span>
-                      <{ Number.toString(counter) }>
-                    </span>
-
-                    <button onClick={increment}>
-                      "Increment"
-                    </button>
-                  </div>
-                }
-              }
-              MINT
-            }
-          ],
-        contents:
-          ContentInstrumenter.instrument(
-            skipAnchors: true,
-            html: content)
-      }
     }
 }

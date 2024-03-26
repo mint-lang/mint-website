@@ -1,42 +1,48 @@
 component Lesson {
-  /* The previous lesson. */
-  property previousLesson : String = ""
+  /* The path to the previous lesson (if any). */
+  property previousLessonPath : Maybe(String)
 
-  /* The next lesson. */
-  property nextLesson : String = ""
+  /* The path to the next lesson (if any). */
+  property nextLessonPath : Maybe(String)
 
-  property files : Array(LessonFile) = []
+  /* The files to show. */
+  property files : Array(LessonFile)
 
-  property instructions : Html = <></>
+  /* The list of lessons for the select. */
+  property lessons : Array(Lesson)
 
+  /* The instructions to show. */
+  property instructions : Html
+
+  /* The path of the lesson. */
   property path : String
 
   /* The contents of each file. */
   state values : Map(String, String) = Map.empty()
 
+  /* The current path of the lesson. */
+  state currentPath : String = ""
+
   /* The currently shown file. */
   state activeFile : String = ""
 
-  /* The URL of the preview. */
-  state previewURL : String = ""
+  state id : String = ""
 
-  state currentPath : String = ""
-
-  /* The style for the base. */
-  style base {
+  /* Styles for the root element. */
+  style root {
     grid-template-columns: minmax(33.333%, 32em) auto;
-    background: rgba(255,255,255,0.5);
+    background: rgba(255, 255, 255, 0.5);
     grid-template-rows: 1fr 1fr;
     height: calc(100vh - 67px);
     display: grid;
   }
 
-  /* The style for the instructions. */
+  /* Styles for the instructions. */
   style instructions {
     padding: 1.5em;
-    padding-top: 0.5em;
   }
 
+  /* Styles fot the empty message. */
   style empty {
     grid-row: span 2;
     grid-column: 2;
@@ -58,14 +64,12 @@ component Lesson {
     min-height: 0;
     display: grid;
 
-    .CodeMirror {
-      height: auto;
+    textarea {
+      border: 0;
     }
 
-    > * > *:last-child {
-      display: grid;
-      min-height: 0;
-      padding: 0;
+    .CodeMirror {
+      height: auto;
     }
   }
 
@@ -83,9 +87,10 @@ component Lesson {
     border-top: 3px double #EEE;
     padding: 0.75em 1.5em;
 
-    justify-content: end;
     grid-auto-flow: column;
+    justify-content: end;
     align-items: center;
+    grid-gap: 1.5em;
     display: grid;
   }
 
@@ -100,6 +105,7 @@ component Lesson {
     display: grid;
   }
 
+  /* Styles for the IDE. */
   style ide {
     border-bottom: 3px double #EEE;
     min-height: 0;
@@ -110,16 +116,77 @@ component Lesson {
     }
   }
 
+  /* Styles for the files. */
   style files {
     border-right: 3px double #EEE;
-    padding: 10px 20px;
   }
 
+  /* Styles for a file in the file tree. */
+  style file (active : Bool) {
+    border-bottom: 1px solid #EEE;
+    font-weight: normal;
+    padding: 7px 20px;
+    font-size: 14px;
+    cursor: pointer;
+
+    &:hover {
+      color: #277944;
+    }
+
+    if active {
+      background: #F6F6F6;
+      color: #277944;
+    }
+  }
+
+  /* Styles for the scrollable panel. */
   style scroll-panel {
     overflow: auto;
   }
 
-  fun componentDidMount {
+  /* Styles for the select. */
+  style select {
+    appearance: none;
+
+    border: 1px solid #DDD;
+    padding: 0.5em 0.75em;
+    background: #FCFCFC;
+    border-radius: 3px;
+
+    font-family: Noto Sans;
+  }
+
+  /* Debounced version of the compile function. */
+  const DEBOUNCED_COMPILE = Function.debounce(compile, 500)
+
+  /* When the component mounts. */
+  fun componentDidMount : Promise(Void) {
+    let id =
+      Storage.Local.get("tutorial-id") or Uid.generate()
+
+    Storage.Local.set("tutorial-id", id)
+
+    await next
+      {
+        currentPath: path,
+        id: id
+      }
+
+    await setFirstFileActive()
+    compile()
+  }
+
+  /* When the component is updated. */
+  fun componentDidUpdate : Promise(Void) {
+    if currentPath != path {
+      await setFirstFileActive()
+      await next { currentPath: path }
+      compile()
+    }
+  }
+
+  /* Set the first file as the active one. */
+  fun setFirstFileActive : Promise(Void) {
     let nextActiveFile =
       Maybe.map(files[0], (file : LessonFile) { file.path })
 
@@ -132,55 +199,28 @@ component Lesson {
               (#(file.path, file.contents))
             })
       }
-
-    compile()
-  }
-
-  fun componentDidUpdate {
-    if currentPath != path {
-      let nextActiveFile =
-        Maybe.map(files[0], (file : LessonFile) { file.path })
-
-      await next
-        {
-          activeFile: nextActiveFile or "",
-          currentPath: path,
-          previewURL: "",
-          values:
-            Map.fromArray(
-              for file of files {
-                (#(file.path, file.contents))
-              })
-        }
-
-      compile()
-    }
   }
 
   /* Sets the currently shown file. */
-  fun setFile (path : String) {
+  fun setFile (path : String) : Promise(Void) {
     next { activeFile: path }
   }
 
   /* Updates the source code of a file and compiles to get the preview URL. */
-  fun updateValue (path : String) {
-    (value : String) {
-      if Map.getWithDefault(values, path, "") == value {
-        next { }
-      } else {
-        next { values: Map.set(values, path, value) }
-        (DEBOUNCED_COMPILE)()
-      }
+  fun updateValue (value : String) {
+    if Map.getWithDefault(values, activeFile, "") == value {
+      next { }
+    } else {
+      next { values: Map.set(values, activeFile, value) }
+      (DEBOUNCED_COMPILE)()
     }
   }
-
-  /* Debounced version of the compile function. */
-  const DEBOUNCED_COMPILE = Function.debounce(compile, 500)
 
   /* Compiles the current state ito get the preview URL. */
   fun compile : Promise(Void) {
     let data =
       encode {
+        id: id,
         files:
           for path, contents of values {
             {
@@ -191,15 +231,29 @@ component Lesson {
       }
 
     let compileResponse =
-      await "https://mint-sandbox-0190.szikszai.co/compile"
+      await "http://localhost:3003/compile"
       |> Http.post()
       |> Http.jsonBody(data)
       |> Http.send()
 
-    Url.revokeObjectUrl(previewURL)
-
     if let Result.Ok(response) = compileResponse {
-      next { previewURL: Url.createObjectUrlFromString(response.bodyString, "text/html") }
+      if let Http.ResponseBody.JSON(object) = response.body {
+        if let Result.Ok(decoded) = decode object as LessonResponse {
+          if let Maybe.Just(frame) = iframe {
+            `
+            (() => {
+              if (#{frame}) {
+                if (#{frame}.src == #{decoded.url}) {
+                  #{frame}.contentWindow.location.replace(#{decoded.url});
+                } else {
+                  #{frame}.src = #{decoded.url};
+                }
+              }
+            })()
+            `
+          }
+        }
+      }
     }
   }
 
@@ -245,74 +299,96 @@ component Lesson {
     let darkMode =
       false
 
-    <div::base>
+    let options =
+      for item of lessons {
+        <option value={item.path}>
+          [item.category, item.title]
+          |> Array.reject(String.isBlank)
+          |> String.join(" / ")
+        </option>
+      }
+
+    <div::root>
       <div::sidebar>
         <div::navigation>
           <Icon
-            disabled={String.isBlank(previousLesson)}
+            disabled={Maybe.isNothing(previousLessonPath)}
             icon={TablerIcons.ARROW_LEFT}
             onClick={
               (event : Html.Event) {
-                if previousLesson == "/" {
-                  Window.navigate("/learn")
-                } else {
-                  Window.navigate("/learn#{previousLesson}")
+                if let Maybe.Just(path) = previousLessonPath {
+                  Window.navigate("/tutorial#{path}")
                 }
               }
             }/>
 
-          /*
-          <select
-                      onChange={(event : Html.Event) { Dom.getValue(event.target) }}
-                      value={path}/>
-          */
-          <div/>
+          <select::select
+            value={path}
+            onChange={
+              (event : Html.Event) {
+                let path =
+                  Dom.getValue(event.target)
+
+                Window.navigate("/tutorial#{path}")
+              }
+            }>
+
+            options
+
+          </select>
 
           <Icon
-            onClick={(event : Html.Event) { Window.navigate("/learn#{nextLesson}") }}
-            disabled={String.isBlank(nextLesson)}
-            icon={TablerIcons.ARROW_RIGHT}/>
+            disabled={Maybe.isNothing(nextLessonPath)}
+            icon={TablerIcons.ARROW_RIGHT}
+            onClick={
+              (event : Html.Event) {
+                if let Maybe.Just(path) = nextLessonPath {
+                  Window.navigate("/tutorial#{path}")
+                }
+              }
+            }/>
         </div>
 
         <div::scroll-panel>
           <div::instructions key={path}>
             <Content fontSize={16}>
-              instructions
+              ContentInstrumenter.instrument(
+                skipAnchors: true,
+                html: instructions)
             </Content>
           </div>
         </div>
 
         <div::toolbar>
           if hasSolution {
-            if isSolution {
-              <{  }>
-            } else {
-              <div onClick={handleShowSolution}>
-                "Next"
-                TablerIcons.EYE_BOLT
-              </div>
+            if !isSolution {
+              <LabelledIcon
+                onClick={handleShowSolution}
+                label=<{ "Show Solution" }>
+                icon={TablerIcons.EYE_BOLT}/>
             }
           }
 
           <LabelledIcon
+            disabled={Maybe.isNothing(nextLessonPath)}
             icon={TablerIcons.ARROW_RIGHT}
-            onClick={(event : Html.Event) { Window.navigate("/learn#{nextLesson}") }}
-            label=<{ "Next" }>/>
+            label=<{ "Next" }>
+            onClick={
+              (event : Html.Event) {
+                if let Maybe.Just(path) = nextLessonPath {
+                  Window.navigate("/tutorial#{path}")
+                }
+              }
+            }/>
         </div>
       </div>
 
       if Array.isEmpty(files) {
         <div::empty>
-          /*
-          <Ui.IllustratedMessage
-                      subtitle=<{ "This chapter does not have an interactive example." }>
-                      title=<{ "Read and Relax" }>
-                      image=<{
-                        <Ui.Icon
-                          icon={TablerIcons:BOOK}
-                          size={Ui.Size::Em(10)}/>
-                      }>/>
-          */
+          <IllustratedMessage
+            subtitle=<{ "This chapter does not have an interactive example." }>
+            title=<{ "Read and Relax" }>
+            image={TablerIcons.BOOKS}/>
         </div>
       } else {
         <>
@@ -320,7 +396,7 @@ component Lesson {
             if Array.size(files) > 1 {
               <div::files>
                 for file of files {
-                  <div onClick={() { setFile(file.path) }}>
+                  <div::file(file.path == activeFile) onClick={() { setFile(file.path) }}>
                     <{ file.path }>
                   </div>
                 }
@@ -336,7 +412,7 @@ component Lesson {
                   <div style="display:grid;min-height:0;">
                     <CodeMirror
                       value={Map.get(values, file.path) or file.contents}
-                      onChange={updateValue(file.path)}
+                      onChange={updateValue}
                       javascripts=[
                         @asset(../../assets/codemirror.min.js),
                         @asset(../../assets/codemirror.simple-mode.js),
@@ -361,7 +437,7 @@ component Lesson {
           </div>
 
           <div>
-            <iframe::iframe src={previewURL}/>
+            <iframe::iframe as iframe/>
           </div>
         </>
       }

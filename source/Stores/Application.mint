@@ -59,13 +59,22 @@ store Application {
           document: item,
           title: title))
     } else {
-      Application.setPage(Page.NotFound)
+      setNotFoundPage()
     }
+  }
+
+  fun setNotFoundPage {
+    Application.setPage(Page.Page("404", <Pages.NotFound/>))
   }
 
   fun setPage (page : Page) {
     let title =
       case page {
+        Page(title) =>
+          if String.isNotBlank(title) {
+            [title]
+          }
+
         Learn =>
           ["Tutorial"]
 
@@ -79,15 +88,19 @@ store Application {
         => []
       }
 
-    if Array.isEmpty(title) {
-      ["Mint Programming Language"]
-    } else {
-      Array.unshift(title, "Mint")
-    }
-    |> Array.reject(String.isBlank)
-    |> String.join(" / ")
-    |> Window.setTitle()
+    let head =
+      title
+      |> Array.reject(String.isBlank)
+      |> String.join(" / ")
 
+    let final =
+      if String.isEmpty(head) {
+        "Mint Programming Language"
+      } else {
+        "#{head} - Mint Programming Language"
+      }
+
+    Window.setTitle(final)
     Dom.blurActiveElement()
     next { page: page }
   }

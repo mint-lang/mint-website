@@ -1,7 +1,8 @@
 module Lessons {
   const LANGUAGE_STRINGS =
     {
-      let content =
+      files: [],
+      contents:
         <<#MARKDOWN(highlight)
         A `String` represents a sequence of characters.
 
@@ -14,11 +15,11 @@ module Lessons {
         An other line"
         ```
 
-        Strings can be broken apart with the `\` operator:
+        Strings can be broken apart with the `\\` operator:
 
         ```mint
-        "First line" \
-        "Second line" \
+        "First line" \\
+        "Second line" \\
         "Third line" == "First lineSecond lineThird line"
         ```
 
@@ -42,17 +43,5 @@ module Lessons {
         string). If you try to use something else, you will get a nice error
         message.
         MARKDOWN
-
-      {
-        previousLesson: "/language/literals",
-        nextLesson: "/language/array",
-        category: "Language",
-        title: "Strings",
-        files: [],
-        contents:
-          ContentInstrumenter.instrument(
-            skipAnchors: true,
-            html: content)
-      }
     }
 }

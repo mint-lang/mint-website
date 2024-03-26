@@ -1,7 +1,8 @@
 module Lessons {
   const LANGUAGE_TYPES =
     {
-      let content =
+      files: [],
+      contents:
         <<#MARKDOWN(highlight)
         Mint is a strongly typed programming language, which means that you will
         encounter a lot of type definitions.
@@ -12,23 +13,25 @@ module Lessons {
         A type gives a name to a value conforming to a specific data structure.
 
         ```mint
-        "Hello World!" // The type of this value is `String`
+        // The type of this value is `String`
+        "Hello World!"
         ```
 
         A type can have **type variables**. These variables make the type
-        [polymorphic](https://en.wikipedia.org/wiki/Polymorphism_(computer_science)),
-        which means that the type can be used with other types
+        [polymorphic], which means that the type can be used with other types
         instead of the type variable.
 
+
         ```mint
-        // This is a generic type where the "a" can be any other type.
+        // This is a generic type where the `a`
+        // can be any other type.
         Maybe(a)
 
         // This represents just a `String` or nothing.
         Maybe(String)
         ```
 
-        These kinds of types are called composite types because the data
+        These kinds of types are called [composite types] because the data
         structure they describe are composed of multiple types.
 
         Types appear in Mint code in multiple places, usually preceded by a
@@ -37,18 +40,9 @@ module Lessons {
         ```mint
         property name : String
         ```
-        MARKDOWN
 
-      {
-        nextLesson: "/language/literals",
-        category: "Language",
-        previousLesson: "/",
-        title: "Types",
-        files: [],
-        contents:
-          ContentInstrumenter.instrument(
-            skipAnchors: true,
-            html: content)
-      }
+        [polymorphic]: https://en.wikipedia.org/wiki/Polymorphism_(computer_science)
+        [composite types]: https://en.wikipedia.org/wiki/Composite_data_type
+        MARKDOWN
     }
 }

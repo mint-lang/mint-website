@@ -24,16 +24,16 @@
 }
 
 .cm-s-light .cm-namespace {
-  color: orangered;
+  color: indianred;
 }
 
 .cm-s-light .cm-node,
 .cm-s-light .cm-tag {
-  color: FireBrick;
+  color: crimson;
 }
 
 .cm-s-light .cm-string {
-  color: seagreen;
+  color: #277944;
 }
 
 .cm-s-light .cm-meta,

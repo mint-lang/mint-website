@@ -63,6 +63,11 @@ component Content {
       }
     }
 
+    hr {
+      border: 0;
+      border-bottom: 1px double #EEE;
+    }
+
     li + li {
       margin-top: 0.25em;
     }
@@ -241,9 +246,15 @@ component Content {
       }
 
       th {
+        font-weight: normal;
         text-align: left;
         border-top: 0;
       }
+    }
+
+    strong,
+    b {
+      font-weight: normal;
     }
   }
 

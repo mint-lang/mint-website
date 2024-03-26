@@ -263,6 +263,16 @@ module Data {
                   contents: defer References.DIRECTIVES_INLINE,
                   name: "@inline",
                   path: "inline"
+                },
+                {
+                  contents: defer References.DIRECTIVES_HIGHLIGHT,
+                  name: "@highlight",
+                  path: "highlight"
+                },
+                {
+                  contents: defer References.DIRECTIVES_HIGHLIGHT_FILE,
+                  name: "@highlight-file",
+                  path: "highlight-file"
                 }
               ]
           },
@@ -285,6 +295,11 @@ module Data {
                   contents: defer References.JAVASCRIPT_ENCODE,
                   name: "Encode Expression",
                   path: "encode"
+                },
+                {
+                  contents: defer References.JAVASCRIPT_BUILTINS,
+                  name: "Builtins",
+                  path: "builtins"
                 }
               ]
           }

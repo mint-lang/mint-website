@@ -51,6 +51,7 @@ async component Documents {
     border-bottom: 1px solid #EEE;
     padding-bottom: 0.25em;
     margin-bottom: 0.25em;
+    font-weight: normal;
     margin-top: 1em;
     display: block;
   }

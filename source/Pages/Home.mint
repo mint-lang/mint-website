@@ -15,6 +15,10 @@ component Pages.Home {
       margin-top: 0.5em;
     }
 
+    strong {
+      font-weight: normal;
+    }
+
     div > p {
       line-height: 1.5;
       font-size: 20px;
@@ -75,7 +79,10 @@ component Pages.Home {
     <div>
       <div::hero>
         <div>
-          <img src={@asset(../../assets/logo.png)}/>
+          <img
+            src={@asset(../../assets/brand-book/logo.svg)}
+            alt="Mint Logo"/>
+
           <h1>"The programming language for writing single page applications"</h1>
 
           <p>

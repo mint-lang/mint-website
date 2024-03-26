@@ -1,6 +1,10 @@
 routes {
   /install {
-    Application.setPage(Page.Install)
+    Application.setPage(Page.Page("Install", <Pages.Install/>))
+  }
+
+  /brand-book {
+    Application.setPage(Page.Page("Brand Book", <Pages.BrandBook/>))
   }
 
   /reference*path (path : String) {
@@ -20,24 +24,50 @@ routes {
   }
 
   /tutorial*path (path : String) {
+    let lessons =
+      await Data.LESSONS
+
+    let normalizedPath =
+      if String.isBlank(path) {
+        Window.setUrl("/tutorial/")
+        "/"
+      } else {
+        path
+      }
+
     let lesson =
-      Array.find(Lessons.ITEMS, (lesson : Tuple(String, Deferred(Lesson))) { lesson[0] == path })
+      Array.find(lessons, (lesson : Lesson) { lesson.path == normalizedPath })
 
     if let Maybe.Just(item) = lesson {
-      let x =
-        await item[1]
+      let index =
+        Array.indexOf(lessons, item) or -1
 
-      Application.setPage(Page.Learn(path, x))
+      let previousLessonPath =
+        Maybe.map(lessons[index - 1], (item : Lesson) { item.path })
+
+      let nextLessonPath =
+        Maybe.map(lessons[index + 1], (item : Lesson) { item.path })
+
+      let data =
+        await item.data
+
+      Application.setPage(
+        Page.Learn(
+          previousLessonPath: previousLessonPath,
+          nextLessonPath: nextLessonPath,
+          lesson: data,
+          lessons: lessons,
+          path: normalizedPath))
     } else {
-      Application.setPage(Page.NotFound)
+      Application.setNotFoundPage()
     }
   }
 
   / {
-    Application.setPage(Page.Home)
+    Application.setPage(Page.Page("", <Pages.Home/>))
   }
 
   * {
-    Application.setPage(Page.NotFound)
+    Application.setNotFoundPage()
   }
 }

@@ -69,7 +69,9 @@ async component Footer {
     <div::root>
       <div::wrapper>
         <div::infos>
-          <img src={@asset(../../assets/logo.png)}/>
+          <img
+            src={@asset(../../assets/brand-book/logo.svg)}
+            alt="Mint Logo"/>
 
           <p>
             "Mint delivers developer happiness and productivity by of" \
@@ -79,7 +81,7 @@ async component Footer {
           </p>
 
           <span>
-            "Copyright © #{Time.year(Time.now())} Mint."
+            "Copyright © 2018-#{Time.year(Time.now())} Mint."
             " All rights reserved."
           </span>
         </div>
@@ -98,25 +100,38 @@ async component Footer {
               "Install"
             </a>
 
-            <a href="https://sandbox.mint-lang.com">
+            <a href="/brand-book">
+              TablerIcons.PALETTE
+              "Brand Book"
+            </a>
+
+            /*
+            <a href="/sandbox">
               TablerIcons.TERMINAL
               "Sandbox"
             </a>
-
-            <a href="https://tutorial.mint-lang.com">
-              TablerIcons.BOOK
-              "Learn"
-            </a>
-
-            <a href="/guide">
-              TablerIcons.BOOKMARKS
-              "Reference"
-            </a>
+            */
           </div>
 
           <div::column>
-            <strong>"Source"</strong>
+            <strong>"Docs"</strong>
 
+            <a href="/tutorial/">
+              TablerIcons.CODE
+              "Tutorial"
+            </a>
+
+            <a href="/guides/">
+              TablerIcons.NOTEBOOK
+              "Guides"
+            </a>
+
+            <a href="/reference/">
+              TablerIcons.BOOKMARKS
+              "Reference"
+            </a>
+
+            /*
             <a href="/api">
               TablerIcons.TablerIcons.BOOKS
               "Core Library"
@@ -126,6 +141,11 @@ async component Footer {
               TablerIcons.BOX_SEAM
               "Packages"
             </a>
+            */
+          </div>
+
+          <div::column>
+            <strong>"Source"</strong>
 
             <a
               href="https://github.com/mint-lang/mint"

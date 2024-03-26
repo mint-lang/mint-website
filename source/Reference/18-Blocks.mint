@@ -54,7 +54,7 @@ module References {
         }
 
       whatsThis(Maybe.Just("cat")) // It's a cat!
-      whatsThis(Maybe.Nothing)     // It's a nothing!
+      whatsThis(Maybe.Nothing)     // It's nothing!
     }
     ```
 
