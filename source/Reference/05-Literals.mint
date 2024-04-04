@@ -79,7 +79,5 @@ module References {
     ```mint
     /ab+c/
     ```
-
     MARKDOWN
-
 }

@@ -4,22 +4,26 @@ module References {
     # Program
 
     The program is the entirety of the source code worked by the compiler. The
-    source gets parsed, type checked and compiled to an HTML file, a CSS file
-    and one or more JavaScript files which eventually gets executed in a web
-    browser.
+    source gets **parsed**, **type checked** and **compiled** to **an HTML
+    file**, **a CSS file** and one or more **JavaScript files** which
+    eventually gets executed in a web browser.
 
     The program’s source code must be encoded in UTF-8.
 
     ## Top Level Scope
 
-    Only [modules](/reference/modules),
-         [custom types](/reference/types/custom-types),
-         [components](/reference/components/introduction),
-         [providers](/reference/providers),
-         [locale definitions](/reference/locale),
-         [routes](/reference/routes),
-         [stores](/reference/stores) and
-         [comments](/reference/comments) can be defined in the top-level scope.
+    Only [modules], [custom types], [components], [providers], [locale
+    definitions], [routes], [stores] and [comments] can be defined in the
+    top-level scope.
+
+    [components]: /reference/components/introduction
+    [custom types]: /reference/types/custom-types
+    [locale definitions]: /reference/locale
+    [providers]: /reference/providers
+    [comments]: /reference/comments
+    [modules]: /reference/modules
+    [routes]: /reference/routes
+    [stores]: /reference/stores
 
     ```mint
     // This is a comment in the top level scope describing the module below.
@@ -35,7 +39,7 @@ module References {
     ## Main Code
 
     The `Main` component is the one which gets executed and drawn to the page
-    when the program is executed.
+    when the program is run.
 
     ```mint
     component Main {
@@ -44,6 +48,5 @@ module References {
       }
     }
     ```
-
     MARKDOWN
 }

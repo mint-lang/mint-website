@@ -83,6 +83,7 @@ async component Documents {
     }
   }
 
+  /* Styles for an item in the table of contents. */
   style table-of-contents-item (type : String) {
     case type {
       "h1" =>
@@ -145,7 +146,7 @@ async component Documents {
       <div::divider/>
 
       <div key={document.path}>
-        <Content>
+        <Content fontSize={16}>
           ContentInstrumenter.instrument(contents)
         </Content>
       </div>

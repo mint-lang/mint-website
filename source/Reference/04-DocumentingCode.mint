@@ -31,7 +31,5 @@ module References {
 
     Documentation comments support [Markdown](https://daringfireball.net/projects/markdown/)
     formatting.
-
     MARKDOWN
-
 }

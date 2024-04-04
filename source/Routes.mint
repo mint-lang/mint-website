@@ -43,21 +43,33 @@ routes {
         Array.indexOf(lessons, item) or -1
 
       let previousLessonPath =
-        Maybe.map(lessons[index - 1], (item : Lesson) { item.path })
+        Maybe.map(lessons[index - 1], .path(Lesson))
 
       let nextLessonPath =
-        Maybe.map(lessons[index + 1], (item : Lesson) { item.path })
+        Maybe.map(lessons[index + 1], .path(Lesson))
 
       let data =
         await item.data
 
+      let activeFile =
+        (data.files
+        |> Array.map(.path(LessonFile))
+        |> Array.first) or ""
+
+      Stores.Lesson.reset(
+        {
+          activeFile: activeFile,
+          files: data.files
+        })
+
       Application.setPage(
-        Page.Learn(
+        Page.Tutorial(
           previousLessonPath: previousLessonPath,
+          title: [item.category, item.title],
           nextLessonPath: nextLessonPath,
-          lesson: data,
+          path: normalizedPath,
           lessons: lessons,
-          path: normalizedPath))
+          lesson: data))
     } else {
       Application.setNotFoundPage()
     }

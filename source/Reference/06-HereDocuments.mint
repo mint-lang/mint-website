@@ -8,8 +8,8 @@ module References {
     denoted by `<<-`, `<<~` or `<<#` followed by a here document identifier
     which is an **uppercase alphanumeric sequence** starting with a letter (and
     may include underscores). The here document starts in the following line and
-    ends with the next line that contains only the here document, optionally
-    preceeded by whitespace.
+    ends with the next line that contains only the here document identifier,
+    optionally preceeded by whitespace.
 
     ```mint
     <<-XML
@@ -29,7 +29,7 @@ module References {
       This is some content in the document.
       TEXT
 
-    // String equvivalent is
+    // String equvivalent is (notice the two spaces at the fornt)
     "  This is some content in the document."
     ```
 
@@ -49,7 +49,7 @@ module References {
       TEXT
 
     // String equvivalent is
-    "This is some content in the document.\\n  This is indented by two spaces."
+    "This is some content in the document.\n  This is indented by two spaces."
     ```
 
     Type type of this here document is `String`
@@ -107,6 +107,5 @@ module References {
       }
     </span>
     ```
-
     MARKDOWN
 }

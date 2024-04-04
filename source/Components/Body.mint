@@ -1,5 +1,5 @@
 component Body {
-  connect Application exposing { page }
+  connect Application exposing { isWide }
 
   /* The snippet to display. */
   property children : Array(Html) = []
@@ -9,15 +9,15 @@ component Body {
     font-family: 'Noto Sans';
     font-weight: 300;
 
-    background-image: url(#{@asset(../../assets/bottom0.jpg)}),
-                      url(#{@asset(../../assets/bottom1.jpg)}),
-                      url(#{@asset(../../assets/bottom2.jpg)}),
-                      url(#{@asset(../../assets/top0.jpg)}),
-                      url(#{@asset(../../assets/top1.jpg)}),
-                      url(#{@asset(../../assets/top2.jpg)});
+    background-image: url(#{@asset(../../assets/bottom-center.jpg)}),
+                      url(#{@asset(../../assets/bottom-right.jpg)}),
+                      url(#{@asset(../../assets/bottom-left.jpg)}),
+                      url(#{@asset(../../assets/top-center.jpg)}),
+                      url(#{@asset(../../assets/top-right.jpg)}),
+                      url(#{@asset(../../assets/top-left.jpg)});
 
-    background-position: calc(100% + 15px) 100%, -20px 100%, 50% 100%,
-                         -20px 0, calc(100% + 15px) 0, 50% 0;
+    background-position: 50% 100%, calc(100% + 15px) 100%, -20px 100%,
+                         50% 0, calc(100% + 15px) 0, -20px 0;
 
     background-repeat: no-repeat;
     background-color: white;
@@ -28,9 +28,17 @@ component Body {
     padding: 0;
     margin: 0;
 
-    *:focus-visible {
+    *:not(iframe):focus-visible {
       outline: 2px solid #333;
       outline-offset: 4px;
+    }
+
+    if isWide {
+      grid-template-rows: auto 1fr;
+      display: grid;
+      height: 100vh;
+    } else {
+      display: block;
     }
   }
 
@@ -38,17 +46,17 @@ component Body {
   style wrapper {
     background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(3px);
-    margin: 0 auto;
 
-    flex-direction: column;
-    display: flex;
+    if isWide {
+      min-height: 0;
+      display: grid;
+    } else {
+      flex-direction: column;
+      display: flex;
 
-    case page {
-      Page.Learn =>
-
-      =>
-        max-width: 1280px;
-        padding-top: 5vh;
+      max-width: 1280px;
+      padding-top: 5vh;
+      margin: 0 auto;
     }
   }
 
@@ -61,12 +69,7 @@ component Body {
         children
       </div>
 
-      case page {
-        Page.Learn => <></>
-
-        =>
-          <Footer/>
-      }
+      <Footer/>
     </div>
   }
 }

@@ -34,7 +34,7 @@ module References {
       fun render : Html {
         <div::root>
           <a>
-            <{ "Hello world!" }>
+            "Hello world!"
           </a>
         </div>
       }
@@ -43,7 +43,8 @@ module References {
 
     ## Nesting
 
-    Selectors, **@media** and **@supports** can be nested in each other infinitely:
+    Selectors, **@media** and **@supports** can be nested in each other
+    infinitely:
 
     ```mint
     style base {

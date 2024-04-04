@@ -1,8 +1,15 @@
 async component Pages.Install {
+  connect Application exposing { mobile }
+
   style root {
     grid-template-columns: 1fr 1fr;
     grid-gap: 100px;
     display: grid;
+
+    if mobile {
+      grid-template-columns: 1fr;
+      padding: 0 20px;
+    }
   }
 
   fun render : Html {

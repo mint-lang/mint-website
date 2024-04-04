@@ -24,7 +24,6 @@ module References {
     some point with the `await` keyword:
 
     ```mint
-
     component CountrySelector {
       state countries : Array(String) = []
 

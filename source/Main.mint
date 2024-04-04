@@ -7,10 +7,11 @@ type Page {
     contents : Html,
     title : String)
 
-  Learn(
+  Tutorial(
     previousLessonPath : Maybe(String),
     nextLessonPath : Maybe(String),
     lessons : Array(Lesson),
+    title : Array(String),
     lesson : LessonData,
     path : String)
 
@@ -49,12 +50,11 @@ component Main {
             basePath={basePath}
             title={title}/>
 
-        Learn(previousLessonPath, nextLessonPath, path, lesson, lessons) =>
+        Tutorial(previousLessonPath, nextLessonPath, path, lesson, lessons) =>
           <Lesson
             previousLessonPath={previousLessonPath}
             nextLessonPath={nextLessonPath}
             instructions={lesson.contents}
-            files={lesson.files}
             lessons={lessons}
             path={path}/>
 

@@ -1,14 +1,14 @@
 module References {
   const JAVASCRIPT_ENCODE =
     <<#MARKDOWN(highlight)
-    # Encode Expression
+    # Encode
 
     Since we can decode objects we need to have a way to encode them into
     JavaScript objects as well. The encode expression is the way to do that:
 
     ```mint
-    encode { name: "Bob" } /* Object */
-    encode variable /* Object */
+    encode { name: "Bob" } // Object
+    encode variable // Object
     ```
 
     The `encode` expression tries to encode a typed object into a JavaScript
@@ -19,8 +19,8 @@ module References {
     Encoding data is useful when you want to convert it to JSON:
 
     ```mint
+    // { "name": "Bob"}
     Json.stringify(encode { name: "Bob" })
-    /* { "name": "Bob"} */
     ```
 
     MARKDOWN

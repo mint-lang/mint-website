@@ -97,6 +97,11 @@ module Data {
             contents: defer References.LOCALE,
             name: "Locale",
             path: "locale"
+          },
+          {
+            contents: defer References.ENVIRONMENT_VARIABLES,
+            name: "Environment Variables",
+            path: "environment-variables"
           }
         ],
       categories:
@@ -277,8 +282,8 @@ module Data {
               ]
           },
           {
-            name: "JavaScript Interopability",
-            path: "javascript-interopbility",
+            name: "JavaScript",
+            path: "javascript",
             pages:
               [
                 {
@@ -288,12 +293,12 @@ module Data {
                 },
                 {
                   contents: defer References.JAVASCRIPT_DECODE,
-                  name: "Decode Expression",
+                  name: "Decode",
                   path: "decode"
                 },
                 {
                   contents: defer References.JAVASCRIPT_ENCODE,
-                  name: "Encode Expression",
+                  name: "Encode",
                   path: "encode"
                 },
                 {

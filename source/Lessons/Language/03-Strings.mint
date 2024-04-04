@@ -1,7 +1,27 @@
 module Lessons {
   const LANGUAGE_STRINGS =
     {
-      files: [],
+      files:
+        [
+          {
+            path: "Main.mint",
+            solution: "",
+            contents:
+              <<~MINT
+              component Main {
+                fun render : Html {
+                  <pre>
+                    "\u{1F469}\u{200D}\u{1F4BB} こんにちは Mint \u{1F343}\n"
+                    "\u{1F600}\n"
+                    "\"X\" marks the spot\n"
+                    "Hello" + " World" + "!\n"
+                    String.reverse("1 2 3 4 5")
+                  </pre>
+                }
+              }
+              MINT
+          }
+        ],
       contents:
         <<#MARKDOWN(highlight)
         A `String` represents a sequence of characters.
@@ -18,8 +38,8 @@ module Lessons {
         Strings can be broken apart with the `\\` operator:
 
         ```mint
-        "First line" \\
-        "Second line" \\
+        "First line" \
+        "Second line" \
         "Third line" == "First lineSecond lineThird line"
         ```
 

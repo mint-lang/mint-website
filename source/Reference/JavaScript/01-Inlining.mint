@@ -7,7 +7,9 @@ module References {
     is pretty straightforward. Simply wrap the JavaScript in backticks anywhere
     you would write an expression. Mint assumes that the type of the value
     returned by this expression matches whatever is needed by the surrounding
-    Mint code (but see decoding for a way to safely convert it).
+    Mint code (but see [decoding] for a way to safely convert it).
+
+    [decoding]: /reference/javascript/decode
 
     > Inlining allows you to invoke arbitrary JavaScript code. This can cause
     unexpected runtime errors. You can bypass the Mint type system, storing

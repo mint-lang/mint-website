@@ -1,7 +1,33 @@
 module Lessons {
   const LANGUAGE_LITERALS =
     {
-      files: [],
+      files:
+        [
+          {
+            path: "Main.mint",
+            solution: "",
+            contents:
+              <<~MINT
+              component Main {
+                fun render : Html {
+                  <pre>
+                    String.join([
+                      Bool.toString(true && false),
+                      Bool.toString(true && true),
+                      Bool.toString(false || false),
+                      Bool.toString(false || true),
+                      Number.toString(3.14),
+                      Number.toString(42),
+                      Number.toString(-10),
+                      Regexp.toString(/foo|bar/),
+                      Regexp.toString(/h(e+)llo/)
+                    ], "\n")
+                  </pre>
+                }
+              }
+              MINT
+          }
+        ],
       contents:
         <<#MARKDOWN(highlight)
         ## Boolean

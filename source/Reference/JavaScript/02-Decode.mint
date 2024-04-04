@@ -1,7 +1,7 @@
 module References {
   const JAVASCRIPT_DECODE =
     <<#MARKDOWN(highlight)
-    # Decode Expression
+    # Decode
 
     In order to process data from JavaScript, you must convert them to a Mint
     values. The `decode` expression helps you to do just that.
@@ -75,5 +75,4 @@ module References {
     }
     ```
     MARKDOWN
-
 }

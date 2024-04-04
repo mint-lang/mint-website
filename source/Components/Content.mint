@@ -105,8 +105,7 @@ component Content {
       border-left: 3px solid #EEE;
       padding-left: 20px;
 
-      .line::before,
-      .line::after {
+      .line::before {
         display: none;
       }
     }
@@ -128,21 +127,13 @@ component Content {
 
           &::before {
             content: counter(snippet);
+            border-right: 1px solid #AAA;
             display: inline-block;
-            margin-right: 20px;
+            padding-right: 10px;
+            margin-right: 10px;
             text-align: right;
             opacity: 0.3;
             width: 20px;
-          }
-
-          &::after {
-            position: absolute;
-            background: #EEE;
-            content: "";
-            width: 1px;
-            left: 30px;
-            bottom: 0;
-            top: 0;
           }
         }
 
@@ -178,7 +169,6 @@ component Content {
     }
 
     a:not([name]) {
-      display: inline-block;
       color: seagreen;
 
       svg {

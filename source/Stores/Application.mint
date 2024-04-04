@@ -1,9 +1,18 @@
 store Application {
   state page : Page = Page.Initial
 
+  /* Whether or not to show dark mode. */
+  state mobile : Bool = Window.matchesMediaQuery("(max-width: 1000px)")
+
+  /* A media query listener for to set mobile property. */
+  state mediaQueryListener =
+    Window.addMediaQueryListener(
+      "(max-width: 1000px)",
+      (active : Bool) { next { mobile: active } })
+
   get isWide : Bool {
     case page {
-      Page.Learn => true
+      Tutorial => true
       => false
     }
   }
@@ -50,7 +59,7 @@ store Application {
       let contents =
         await item.contents
 
-      Application.setPage(
+      setPage(
         Page.Documents(
           documents: documents,
           category: category,
@@ -64,7 +73,7 @@ store Application {
   }
 
   fun setNotFoundPage {
-    Application.setPage(Page.Page("404", <Pages.NotFound/>))
+    setPage(Page.Page("404", <Pages.NotFound/>))
   }
 
   fun setPage (page : Page) {
@@ -75,13 +84,13 @@ store Application {
             [title]
           }
 
-        Learn =>
-          ["Tutorial"]
+        Tutorial(title) =>
+          Array.unshift(title, "Tutorial")
 
         Documents(category, document, title) =>
           [
             title,
-            Maybe.map(category, (category : DocumentCategory) { category.name }) or "",
+            Maybe.map(category, .name(DocumentCategory)) or "",
             document.name
           ]
 
@@ -102,6 +111,8 @@ store Application {
 
     Window.setTitle(final)
     Dom.blurActiveElement()
-    next { page: page }
+    await next { page: page }
+    await Timer.nextFrame()
+    Window.triggerJump()
   }
 }

@@ -32,12 +32,11 @@ module References {
 
       fun greetUpperCase (name : String) : String {
         name
-        |> String.toUpperCase()
+        |> String.toUpperCase
         |> greet
       }
     }
     ```
 
     MARKDOWN
-
 }

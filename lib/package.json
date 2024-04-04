@@ -1,0 +1,11 @@
+{
+  "name": "mint-codemirror6",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@codemirror/language": "^6.10.1",
+    "codemirror": "^6.0.1",
+    "esbuild": "^0.20.2"
+  }
+}

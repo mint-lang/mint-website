@@ -1,5 +1,5 @@
 module Lessons {
-  const CONTROL_EXPRESSIONS_CASE =
+  const CONTROL_FLOW_CASE =
     {
       files:
         [

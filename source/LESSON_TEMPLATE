@@ -1,0 +1,23 @@
+module Lessons {
+  const =
+    {
+      files:
+        [
+          {
+            path: "Main.mint",
+            solution: "",
+            contents:
+              <<~MINT
+              component Main {
+                fun render : Html {
+                  <div></div>
+                }
+              }
+              MINT
+          }
+        ],
+      contents:
+        <<#MARKDOWN(highlight)
+        MARKDOWN
+    }
+}

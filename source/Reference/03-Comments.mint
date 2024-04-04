@@ -25,6 +25,5 @@ module References {
     */
     String.toUpperCase(name)
     ```
-
     MARKDOWN
 }

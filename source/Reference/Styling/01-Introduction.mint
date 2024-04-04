@@ -3,10 +3,10 @@ module References {
     <<#MARKDOWN(highlight)
     # Styling
 
-    CSS is used to style HTML elements with some differences, they are more
-    dynamic. We support nested selectors, [control flow] (with [if expressions]
-    and [case expressions]), [interpolation] and [arguments] (like in a
-    function).
+    CSS is used to style HTML elements with some differences mainly that they
+    are more dynamic. We support nested selectors, [control flow] (with [if
+    expressions] and [case expressions]), [interpolation] and [arguments] (like
+    in a function).
 
     [case expressions]: /reference/control-flow/case
     [if expressions]: /reference/control-flow/if
@@ -21,7 +21,7 @@ module References {
     characters and dash `-`):
 
     ```mint
-    component Test {
+    component Main {
       style root {
         font-family: sans;
         font-weight: bold;
@@ -30,7 +30,7 @@ module References {
 
       fun render : Html {
         <div::root>
-          Hello
+          "Hello"
         </div>
       }
     }
@@ -53,9 +53,12 @@ module References {
       }
 
       fun render : Html {
-        <div::style-a::style-b/>
+        <div::style-a::style-b>
+          "Hello"
+        </div>
       }
     }
     ```
+
     MARKDOWN
 }

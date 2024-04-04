@@ -34,10 +34,13 @@ component Pages.Home {
   }
 
   style button {
-    background-image: radial-gradient(farthest-corner at center top, rgba(255,255,255,0.25), rgba(255,255,255,0));
+    background-image: radial-gradient(farthest-corner at center top,
+                      rgba(255,255,255,0.25),
+                      rgba(255,255,255,0));
+
+    outline: 1px solid #32975459;
     background-color: #329754;
     outline-offset: 2px;
-    outline: 1px solid #32975459;
 
     border-radius: 4px;
     padding: 12px 18px;

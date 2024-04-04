@@ -1,5 +1,5 @@
 module Lessons {
-  const CONTROL_EXPRESSIONS_FOR =
+  const CONTROL_FLOW_FOR =
     {
       files:
         [

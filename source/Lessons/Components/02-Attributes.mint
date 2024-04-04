@@ -1,5 +1,5 @@
 module Lessons {
-  const COMPONENTS_DYNAMIC_ATTRIBUTES =
+  const COMPONENTS_ATTRIBUTES =
     {
       files:
         [

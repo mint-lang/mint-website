@@ -12,6 +12,5 @@ module References {
 
     If you would like to learn Mint you should start with the [interactive
     tutorial](/tutorial/) we have.
-
     MARKDOWN
 }

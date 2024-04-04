@@ -59,7 +59,7 @@ module Lessons {
 
         Mint is strongly typed, and compiles to JavaScript. This means, your
         code is less prone to errors, easier to maintain, and benefits from
-        optimizations done by the Mint compiler.
+        optimizations done by the compiler.
 
         ### How to use this tutorial
 

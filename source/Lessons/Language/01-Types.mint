@@ -1,7 +1,23 @@
 module Lessons {
   const LANGUAGE_TYPES =
     {
-      files: [],
+      files:
+        [
+          {
+            path: "Main.mint",
+            solution: "",
+            contents:
+              <<~MINT
+              component Main {
+                state name : String = "Mint"
+
+                fun render : String {
+                  name
+                }
+              }
+              MINT
+          }
+        ],
       contents:
         <<#MARKDOWN(highlight)
         Mint is a strongly typed programming language, which means that you will
@@ -9,6 +25,13 @@ module Lessons {
 
         Syntax wise, a type definition consists of an identifier starting with a
         capital letter, and followed by letters and numbers.
+
+        Types appear in Mint code in multiple places, usually preceded by a
+        colon:
+
+        ```mint
+        state name : String
+        ```
 
         A type gives a name to a value conforming to a specific data structure.
 
@@ -33,13 +56,6 @@ module Lessons {
 
         These kinds of types are called [composite types] because the data
         structure they describe are composed of multiple types.
-
-        Types appear in Mint code in multiple places, usually preceded by a
-        colon:
-
-        ```mint
-        property name : String
-        ```
 
         [polymorphic]: https://en.wikipedia.org/wiki/Polymorphism_(computer_science)
         [composite types]: https://en.wikipedia.org/wiki/Composite_data_type

@@ -15,7 +15,7 @@ module References {
 
       fun render : Html {
         <div::root>
-          Hello
+          "Hello"
         </div>
       }
     }

@@ -14,6 +14,11 @@ type LessonResponse {
   url : String
 }
 
+type Project {
+  files : Array(LessonFile),
+  activeFile : String
+}
+
 type LessonFile {
   solution : String,
   contents : String,
@@ -145,22 +150,28 @@ module Data {
         title: "Modules"
       },
       {
-        data: defer Lessons.CONTROL_EXPRESSIONS_IF,
-        path: "/control-expressions/if",
-        category: "Control Expressions",
+        data: defer Lessons.CONTROL_FLOW_IF,
+        path: "/control-flow/if",
+        category: "Control Flow",
         title: "if"
       },
       {
-        data: defer Lessons.CONTROL_EXPRESSIONS_FOR,
-        path: "/control-expressions/for",
-        category: "Control Expressions",
+        data: defer Lessons.CONTROL_FLOW_FOR,
+        path: "/control-flow/for",
+        category: "Control Flow",
         title: "for"
       },
       {
-        data: defer Lessons.CONTROL_EXPRESSIONS_CASE,
-        path: "/control-expressions/case",
-        category: "Control Expressions",
+        data: defer Lessons.CONTROL_FLOW_CASE,
+        path: "/control-flow/case",
+        category: "Control Flow",
         title: "case"
+      },
+      {
+        data: defer Lessons.CONTROL_FLOW_DEFER,
+        path: "/control-flow/defer",
+        category: "Control Flow",
+        title: "defer"
       },
       {
         data: defer Lessons.PATTERN_MATCHING_CASE,
@@ -223,10 +234,10 @@ module Data {
         title: "Basics"
       },
       {
-        data: defer Lessons.Lessons.COMPONENTS_DYNAMIC_ATTRIBUTES,
-        path: "/components/dynamic-attributes",
-        title: "Dynamic Attributes",
-        category: "Components"
+        data: defer Lessons.Lessons.COMPONENTS_ATTRIBUTES,
+        path: "/components/attributes",
+        category: "Components",
+        title: "Attributes"
       },
       {
         data: defer Lessons.COMPONENTS_STYLING,
@@ -239,6 +250,36 @@ module Data {
         path: "/components/composition",
         category: "Components",
         title: "Composition"
+      },
+      {
+        data: defer Lessons.COMPONENTS_CONNECTING_TO_STORES,
+        path: "/components/connecting-to-stores",
+        title: "Connecting To Stores",
+        category: "Components"
+      },
+      {
+        data: defer Lessons.STYLING_BASICS,
+        path: "/styling/basics",
+        category: "Styling",
+        title: "Basics"
+      },
+      {
+        data: defer Lessons.STYLING_INTERPOLATION,
+        path: "/styling/interpolation",
+        title: "Interpolation",
+        category: "Styling"
+      },
+      {
+        data: defer Lessons.STYLING_SELECTORS_AND_NESTING,
+        path: "/styling/selectors-and-nesting",
+        title: "Selectors and Nesting",
+        category: "Styling"
+      },
+      {
+        data: defer Lessons.STYLING_AT_RULES,
+        path: "/styling/at-rules",
+        category: "Styling",
+        title: "At-Rules"
       },
       {
         data: defer Lessons.DIRECTIVES_ASSET,
@@ -275,6 +316,18 @@ module Data {
         path: "/directives/highlight-file",
         category: "Directives",
         title: "@highlight-file"
+      },
+      {
+        data: defer Lessons.JAVASCRIPT_DECODE,
+        path: "/javascript/decode",
+        category: "JavaScript",
+        title: "Decode"
+      },
+      {
+        data: defer Lessons.JAVASCRIPT_ENCODE,
+        path: "/javascript/encode",
+        category: "JavaScript",
+        title: "Encode"
       }
     ]
 }
