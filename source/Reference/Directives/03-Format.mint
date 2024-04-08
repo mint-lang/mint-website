@@ -18,16 +18,15 @@ module References {
       }
 
     <div>
-      <{ result }>
+      result
 
       <pre>
         <code>
-          <{ code }>
+          code
         </code>
       </pre>
     </div>
     ```
 
     MARKDOWN
-
 }

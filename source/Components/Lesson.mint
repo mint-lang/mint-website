@@ -146,7 +146,7 @@ async component Lesson {
   /* Renders the component. */
   fun render : Html {
     if mobile {
-      <{ "Not available on mobile" }>
+      <> "Not available on mobile" </>
     } else {
       let solutionLessons =
         Array.select(
@@ -239,8 +239,6 @@ async component Lesson {
 
           <div::scroll-panel>
             <div::instructions key={path}>
-              `console.log("asd")`
-
               <Content fontSize={16}>
                 ContentInstrumenter.instrument(
                   skipAnchors: true,

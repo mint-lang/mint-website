@@ -1,5 +1,5 @@
 module Lessons {
-  const COMPONENTS_ATTRIBUTES =
+  const HTML_PROPERTIES =
     {
       files:
         [
@@ -34,7 +34,8 @@ module Lessons {
         ],
       contents:
         <<#MARKDOWN(highlight)
-        You can use curly braces to control element or component attributes.
+        You can use curly braces to control element attributes and component
+        properties.
 
         Our image is missing a `src` attribute — let's add one:
 

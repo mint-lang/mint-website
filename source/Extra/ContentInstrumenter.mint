@@ -56,6 +56,11 @@ module ContentInstrumenter {
               TablerIcons.TablerIcons.EXTERNAL_LINK
             </span>
 
+          let internal =
+            <span>
+              TablerIcons.LINK
+            </span>
+
           case decode VNode.type(vnode) as String {
             Ok("h2") =>
               {
@@ -85,7 +90,7 @@ module ContentInstrumenter {
                   |> VNode.setProp("target", encode "_blank")
                   |> VNode.prependChild(external)
                 } else {
-                  VNode.prependChild(vnode, TablerIcons.LINK)
+                  VNode.prependChild(vnode, internal)
                 }
               }
 

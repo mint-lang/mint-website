@@ -15,8 +15,7 @@ module Lessons {
                     <strong>"Some bold text!"</strong>
                     <br/>
 
-                    <a href="https://mint-lang.com"
-                       target="_blank">
+                    <a href="https://mint-lang.com" target="_blank">
                       "Mint Website"
                     </a>
 
@@ -50,9 +49,7 @@ module Lessons {
         * Text needs to be specified as strings, because it allows you to
           control whitespace explicitly.
 
-        * You can use some expressions inside the HTML tags, like `if` and
-          `for`.
-
+        * You can use expressions inside the HTML tags, like `if` and `for`.
         * Attributes cannot be naked, so they must have a value.
 
         Attributes are usually strings, but there are some exceptions:

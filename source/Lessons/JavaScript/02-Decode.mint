@@ -21,16 +21,14 @@ module Lessons {
                   }
                   JSON
 
-                fun render : Html {
+                fun render : String {
                   let Ok(object) =
-                    Json.parse(JSON) or return <{ "Cannot parse JSON!" }>
+                    Json.parse(JSON) or return "Cannot parse JSON!"
 
                   let Ok(user) =
-                    decode object as User or return <{ "Cannot decode object!" }>
+                    decode object as User or return "Cannot decode object!"
 
-                  <div>
-                    "\#{user.name} - age: \#{user.age}"
-                  </div>
+                  "\#{user.name} - age: \#{user.age}"
                 }
               }
               MINT,
@@ -50,16 +48,14 @@ module Lessons {
                   }
                   JSON
 
-                fun render : Html {
+                fun render : String {
                   let Ok(object) =
-                    Json.parse(JSON) or return <{ "Cannot parse JSON!" }>
+                    Json.parse(JSON) or return "Cannot parse JSON!"
 
                   let Ok(user) =
-                    decode object as User or return <{ "Cannot decode object!" }>
+                    decode object as User or return "Cannot decode object!"
 
-                  <div>
-                    "\#{user.name} - age: \#{user.age}"
-                  </div>
+                  "\#{user.name} - age: \#{user.age}"
                 }
               }
               MINT

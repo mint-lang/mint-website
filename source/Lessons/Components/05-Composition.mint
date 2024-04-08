@@ -46,7 +46,7 @@ module Lessons {
           },
           {
             path: "Nested.mint",
-            contents:
+            solution:
               <<~MINT
               component Nested {
                 fun render : Html {
@@ -54,7 +54,14 @@ module Lessons {
                 }
               }
               MINT,
-            solution: ""
+            contents:
+              <<~MINT
+              component Nested {
+                fun render : Html {
+                  <p>"This is another paragraph."</p>
+                }
+              }
+              MINT
           }
         ],
       contents:

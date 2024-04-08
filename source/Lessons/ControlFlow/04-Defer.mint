@@ -9,24 +9,30 @@ module Lessons {
             contents:
               <<~MINT
               component Main {
+                style ol {
+                  li + li {
+                    margin-top: 10px;
+                  }
+                }
+
                 const TEXT =
                   defer <<~PLAIN
-                  This will be loaded later...
+                  This was loaded on demand!
                   PLAIN
 
                 const DEFERRED_ALERT =
                   defer (value : String) { Window.alert(value) }
 
                 fun render : Html {
-                  <ol>
+                  <ol::ol>
                     <li>"Open the developer tools tab"</li>
                     <li>"Open the network tab"</li>
                     <li>
                       "Click the button to load the deferred things."
                       <br/>
                       <button onClick={() {
-                        let text = await TEXT
                         let alert = await DEFERRED_ALERT
+                        let text = await TEXT
 
                         alert(text)
                       }}>

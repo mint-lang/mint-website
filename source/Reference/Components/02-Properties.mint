@@ -12,8 +12,8 @@ module References {
 
       fun render : Html {
         <div>
-          <{ color }>
-          <{ size }>
+          color
+          size
         </div>
       }
     }
@@ -124,7 +124,7 @@ module References {
 
       fun render {
         <div>
-          <{ children }>
+          children
         </div>
       }
     }
@@ -141,5 +141,4 @@ module References {
     > Currently the property must be defined, but in a future release it will
       be optional.
     MARKDOWN
-
 }

@@ -27,7 +27,7 @@ module References {
 
       fun render : Html {
         <div onClick={handleClick}>
-          <{ "Click to alert!" }>
+          "Click to alert!"
         </div>
       }
     }

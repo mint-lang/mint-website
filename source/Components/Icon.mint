@@ -51,7 +51,7 @@ component Icon {
         }
       }>
 
-      <{ icon }>
+      icon
 
     </div>
   }

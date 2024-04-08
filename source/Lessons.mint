@@ -204,6 +204,12 @@ module Data {
         title: "Tags"
       },
       {
+        data: defer Lessons.HTML_PROPERTIES,
+        path: "/Html/properties",
+        title: "Properties",
+        category: "Html"
+      },
+      {
         data: defer Lessons.HTML_EVENTS,
         path: "/html/events",
         category: "Html",
@@ -229,15 +235,21 @@ module Data {
       },
       {
         data: defer Lessons.COMPONENTS_BASICS,
-        path: "/components/components",
+        path: "/components/basics",
         category: "Components",
         title: "Basics"
       },
       {
-        data: defer Lessons.Lessons.COMPONENTS_ATTRIBUTES,
-        path: "/components/attributes",
+        data: defer Lessons.COMPONENTS_PROPERTIES,
+        path: "/components/properties",
         category: "Components",
-        title: "Attributes"
+        title: "Properties"
+      },
+      {
+        data: defer Lessons.COMPONENTS_COMPUTED_PROPERTIES,
+        path: "/components/computed-properties",
+        title: "Computed Properties",
+        category: "Components",
       },
       {
         data: defer Lessons.COMPONENTS_STYLING,

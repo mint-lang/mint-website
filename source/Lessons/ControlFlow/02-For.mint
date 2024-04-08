@@ -25,7 +25,7 @@ module Lessons {
                           <a
                             href="https://www.youtube.com/watch?v=\#{cat[1]}"
                             target="_blank">
-                            <{cat[0]}>
+                            cat[0]
                           </a>
                         </li>
                       }
@@ -56,7 +56,7 @@ module Lessons {
                         <a
                           href="https://www.youtube.com/watch?v=\#{cat[1]}"
                           target="_blank">
-                          <{cat[0]}>
+                          cat[0]
                         </a>
                       </li>
                       */

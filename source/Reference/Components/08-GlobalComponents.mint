@@ -55,7 +55,7 @@ module References {
       fun render : Html {
         if open {
           <div::base>
-            <{ message }>
+            message
 
             <button onClick={handleClick}>
               "OK"
@@ -79,5 +79,4 @@ module References {
       }
     }
     MARKDOWN
-
 }

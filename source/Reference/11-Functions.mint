@@ -16,7 +16,7 @@ module References {
     ```mint
     fun greet (name : String) : Html {
       <div>
-        <{ "Hello " + name + "!" }>
+        "Hello " + name + "!"
       </div>
     }
     ```
@@ -42,7 +42,7 @@ module References {
     ```mint
     fun greet (name : String) : Html {
       <div>
-        <{ "Hello " + name + "!" }>
+        "Hello " + name + "!"
       </div>
     }
 
@@ -56,7 +56,7 @@ module References {
     module Greeter {
       fun greet (name : String) : Html {
         <div>
-          <{ "Hello " + name + "!" }>
+          "Hello " + name + "!"
         </div>
       }
     }
@@ -71,7 +71,7 @@ module References {
     ```mint
     fun greet (name : String = "Joe") : Html {
       <div>
-        <{ "Hello " + name + "!" }>
+        "Hello " + name + "!"
       </div>
     }
 
@@ -87,7 +87,7 @@ module References {
     ```mint
     fun greet (name : String, suffix : String = "!") : Html {
       <div>
-        <{ "Hello " + name + suffix }>
+        "Hello " + name + suffix
       </div>
     }
 
@@ -114,7 +114,7 @@ module References {
     ```mint
     fun greet (name : String) : Html {
       <div>
-        <{ "Hello " + name + "!" }>
+        "Hello " + name + "!"
       </div>
     }
 
@@ -138,7 +138,7 @@ module References {
     ```mint
     fun greet (name : String) : Html {
       <div>
-        <{ "Hello " + name + "!" }>
+        "Hello " + name + "!"
       </div>
     }
     ```
@@ -190,7 +190,7 @@ module References {
       }
     }
 
-    <{ fibonacci(10) }>
+    fibonacci(10)
     ```
 
     > #{TablerIcons.ALERT_CIRCLE} Be careful when using recursive
@@ -215,5 +215,4 @@ module References {
     Using this operator makes the code more readable.
 
     MARKDOWN
-
 }

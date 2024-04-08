@@ -31,9 +31,7 @@ module References {
       }
 
       fun greetUpperCase (name : String) : String {
-        name
-        |> String.toUpperCase
-        |> greet
+        greet(String.toUpperCase(name))
       }
     }
     ```

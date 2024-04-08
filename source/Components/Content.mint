@@ -171,13 +171,18 @@ component Content {
     a:not([name]) {
       color: seagreen;
 
-      svg {
-        --tabler-stroke-width: 1.5;
-        vertical-align: middle;
-        margin-right: 0.1em;
-        position: relative;
-        height: 1em;
-        width: 1em;
+      &:has(> span:first-child > svg) {
+        // This is for not breaking the icon before the link.
+        display: inline-block;
+
+        svg {
+          --tabler-stroke-width: 1.5;
+          vertical-align: middle;
+          margin-right: 0.1em;
+          position: relative;
+          height: 1em;
+          width: 1em;
+        }
       }
     }
 

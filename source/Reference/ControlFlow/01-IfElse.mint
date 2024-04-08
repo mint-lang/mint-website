@@ -14,16 +14,17 @@ module References {
     }
     ```
 
-    There are some rules that will be enforced:
+    You will get nice error messages if the following is not met:
 
     * The condition must evaluate to type `Bool`
     * The values of both branches must evaluate to the same type
-    * In most cases the else branch must be present, if it's missing you will
-      get a syntax error, this ensures you handle all possibilities.
+    * In most cases the else branch must be present, this ensures you handle
+      all possibilities.
 
     ## else if ...
 
-    Multiple `if...else` statements can be written in sequence:
+    Multiple `if...else` statements can be written in sequence (the brackets
+    for the `else` branch can be omitted):
 
     ```mint
     if number > 5 {
@@ -59,7 +60,7 @@ module References {
 
     // If it returns `Maybe(a)`
     if condition {
-      Maybe::Just("Hello")
+      Maybe.Just("Hello")
     }
 
     // If it returns `Void`

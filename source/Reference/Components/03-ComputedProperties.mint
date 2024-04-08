@@ -21,11 +21,10 @@ module References {
 
       fun render : Html {
         <div>
-          <{ text }>
+          text
         </div>
       }
     }
     ```
     MARKDOWN
-
 }

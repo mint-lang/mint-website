@@ -102,6 +102,11 @@ module Data {
             contents: defer References.ENVIRONMENT_VARIABLES,
             name: "Environment Variables",
             path: "environment-variables"
+          },
+          {
+            contents: defer References.FIELD_ACCESS,
+            name: "Field Access",
+            path: "field-access"
           }
         ],
       categories:
