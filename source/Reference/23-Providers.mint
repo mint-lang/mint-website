@@ -4,10 +4,10 @@ module References {
     # Providers
 
     > Providers are an advanced topic, they can be tricky to implement
-      correctly. If you are unsure reach out on Discord.
+      correctly. If you are unsure, reach out on Discord.
 
     Providers are entities which components can use as sources of effects (and
-    data). By effect we mean events that happen outside of the component, for
+    data). By effect, we mean events that happen outside components, for
     example when the size of the window changes or when a key is pressed.
 
     A provider can have [states], [functions], [computed properties] and
@@ -78,17 +78,17 @@ module References {
     ## Update
 
     Providers **should have** an `update` function which is called whenever a
-    component subscribes to or unsubscries from the provider.
+    component subscribes to or unsubscribes from the provider.
 
     This should be used to attach / detach event listeners based on the
-    subscribers (for example there is no need to listen on the resize event
+    subscribers (for example, there is no need to listen on the resize event
     on the window if nothing uses the provider).
 
     ### Caveats
 
     **Don't call functions of subscribers** in the update function because
     it can lead to infinite recursion (a subscription triggers an update which
-    in turn calls the subscriber which triggers an other update and so on...).
+    in turn calls the subscriber which triggers another update and so on...).
 
     ## Subscriptions
 

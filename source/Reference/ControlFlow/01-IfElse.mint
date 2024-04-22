@@ -18,7 +18,7 @@ module References {
 
     * The condition must evaluate to type `Bool`
     * The values of both branches must evaluate to the same type
-    * In most cases the else branch must be present, this ensures you handle
+    * In most cases, the else branch must be present, this ensures you handle
       all possibilities.
 
     ## else if ...
@@ -79,7 +79,7 @@ module References {
     }
     ```
 
-    When that happens and the condition is `false` an empty version of the type
+    When that happens and the condition is `false`, an empty version of the type
     is returned instead:
 
     * `Html` - An empty fragment is returned `<></>`
@@ -91,7 +91,7 @@ module References {
 
     ## Destructuring
 
-    You can destrcuture a value instead of providing a condition using the
+    You can destructure a value instead of providing a condition using the
     `if let ... else` syntax:
 
     ```mint
@@ -102,9 +102,9 @@ module References {
     }
     ```
 
-    If the destrcuturing is successfull then the main branch will be returned
-    (and all variables of the destructuring is available), if it cannot be
-    destrcutured then the `else` branch will be returned.
+    If the destructuring is successful then the main branch will be returned
+    (and all variables of the destructuring are available), if it cannot be
+    destuctured then the `else` branch will be returned.
 
     ### Awaiting Promises
 

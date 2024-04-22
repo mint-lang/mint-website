@@ -29,7 +29,7 @@ module References {
     }
     ```
 
-    Interpolations will be substituted into the string value of the property so
+    Interpolations will be substituted into the string value of the property, so
     the type of the interpolation must be `String` or `Number`.
     MARKDOWN
 }

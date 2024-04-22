@@ -15,9 +15,9 @@ module References {
 
     ## Type
 
-    The type of an array is inferred from it's content, however you can define
+    The type of arrays is inferred from their content, however you can define
     the type directly with the `of` keyword. It is useful for defining the type
-    of an empty array:
+    of empty arrays:
 
     ```mint
     []           // Array(a)
@@ -36,7 +36,7 @@ module References {
     array[0] // Maybe(Number)
     ```
 
-    When accessing an item this way the type of the item will be `Maybe(a)`
+    When accessing an item this way, the type of the item will be `Maybe(a)`
     where `a` is the type of item in the array. This is so because there might
     not be an item at that index.
 

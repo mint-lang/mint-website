@@ -15,7 +15,7 @@ module References {
     (user : User) : String { user.name }
     ```
 
-    Writing a function like this every time is not ideal, so we has a syntax
+    Writing a function like this every time is not ideal, so we have a syntax
     sugar for this:
 
     ```mint

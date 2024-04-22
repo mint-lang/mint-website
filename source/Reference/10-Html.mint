@@ -9,7 +9,7 @@ module References {
     ## Tags
 
     Tags work a look like HTML tags, with the difference that self-closing tags
-    have the slash `/` after the tagname and not before.
+    have the slash `/` after the tag name and not before.
 
     ```mint
     <div>"Hello There"</div>
@@ -39,13 +39,13 @@ module References {
 
     The following uses are **not supported**:
 
-    * Unqouted attributes `type=checkbox`
+    * Unquoted attributes `type=checkbox`
     * Naked attributes `disabled`
 
     ## Children
 
     Any tag or component can have child items. Unlike in HTML where the contents
-    are only text or other tags, in Mint child items can be **expressions**
+    are only text or other tags, in Mint child items can be **expressions**,
     but they must evaluate to `Html`, `String` or an array of those.
 
     Here are some examples:
@@ -92,7 +92,7 @@ module References {
     </div>
     ```
 
-    Will render as `<div>HelloWorld!</div>` without any whitespace. To fix it
+    Will render as `<div>HelloWorld!</div>` without any whitespace. To fix it,
     you need to add a space in either the end of the first string or the start
     of the second string:
 
@@ -105,8 +105,8 @@ module References {
 
     ## Fragments
 
-    If you need to group together some content but you don't want to use an
-    element then you can use a **fragment** (will be the type `Html`):
+    If you need to group together some content, but you don't want to use an
+    element, then you can use a **fragment** (will be the type `Html`):
 
     ```mint
     <>

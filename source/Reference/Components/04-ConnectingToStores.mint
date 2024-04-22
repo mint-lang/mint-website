@@ -4,7 +4,7 @@ module References {
     # Connecting Stores
 
     Components refer to stores in order to use functions and properties from
-    them which can be done with `connect` keyword:
+    them, which can be done with `connect` keyword:
 
     ```mint
     store Counter {

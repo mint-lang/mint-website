@@ -32,7 +32,7 @@ module References {
 
     ## Early Return
 
-    You can return early in block using the `return` keyword:
+    You can return early in a block using the `return` keyword:
 
     ```mint
     {
@@ -45,7 +45,7 @@ module References {
     }
     ```
 
-    Additionally you can return early from a `let` destruction:
+    Additionally, you can return early from a `let` destruction:
 
     ```mint
     {

@@ -22,7 +22,7 @@ module References {
     using the top level `locale` statement. The language is identified by
     [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) code.
 
-    The keys are alphanumeric and the values can be any Mint expression.
+    The keys are alphanumeric, and the values can be any Mint expression.
 
     ```mint
     locale en {
@@ -72,7 +72,7 @@ module References {
 
     ## Displaying translations
 
-    To display an already defined token you can use the following syntax:
+    To display an already defined token, you can use the following syntax:
 
     ```mint
     component Main {
@@ -105,8 +105,7 @@ module References {
     Locale.get() // Maybe.Just("en")
     ```
 
-    After setting a new locale the application will show the new translations
+    After setting a new locale, the application will show the new translations
     automatically.
     MARKDOWN
-
 }

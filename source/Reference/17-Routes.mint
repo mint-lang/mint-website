@@ -3,7 +3,7 @@ module References {
     <<#MARKDOWN(highlight)
     # Routes
 
-    In Mint, each route of an application are defined at the top level with the
+    In Mint, each route of an application is defined at the top level with the
     `routes` block. Here is an example of an application where you can list
     users on one route and show a single user on another:
 
@@ -21,7 +21,7 @@ module References {
     ```
 
     Keep in mind that routes are matched in the order they are defined from
-    **top to bottom** and they are used to set state, not render things.
+    **top to bottom**, and they are used to set state, not render things.
 
     ## Matching Parameters
 
@@ -38,7 +38,7 @@ module References {
       string
 
     - `()` - Optional group that doesn't have to be part of the query. Can
-      contain nested optional groups, params, and splats anything else
+      contain nested optional groups, parameters, and splats anything else
 
     - free form literals
 

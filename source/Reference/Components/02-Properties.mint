@@ -32,7 +32,7 @@ module References {
     ```
 
     The name of the property must start with a lowercase letter and can only
-    contain letters and numbers and they are referenced by name within the
+    contain letters and numbers, and they are referenced by name within the
     component.
 
     > Properties must be fully defined (meaning types in it cannot have any
@@ -138,7 +138,7 @@ module References {
     }
     ```
 
-    > Currently the property must be defined, but in a future release it will
+    > Currently, the property must be defined, but in a future release it will
       be optional.
     MARKDOWN
 }

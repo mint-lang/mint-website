@@ -19,9 +19,8 @@ module References {
     equality: `SearchParams`, `FormData`, `Result`, `String`, `Number`, `Array`,
     `Maybe`, `Bool`, `Date`, `Map` and `Set`.
 
-    > Types that does not implement the structural
-    equality operation fall back to using the JavaScript strict equality
-    operator `===`
+    > Types that dp not implement the structural equality operation fall back
+      to using the JavaScript strict equality operator `===`
 
     MARKDOWN
 }

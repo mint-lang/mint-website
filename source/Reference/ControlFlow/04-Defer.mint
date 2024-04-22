@@ -6,7 +6,7 @@ module References {
     The `defer` expression marks a piece of code to be loaded at a later time.
     It is used to split the compiled code into different files.
 
-    Lets say that there is a part of the application which needs to be loaded
+    Let's say that there is a part of the application which needs to be loaded
     later because it's not used right away so loading it upfront does not make
     sense, for example the list of all countries:
 
@@ -20,7 +20,7 @@ module References {
     array into a different file. The type of `COUNTRIES` will be
     `Deferred(Array(String))`.
 
-    To use the list in a `<select>` tag for example you need to load it at
+    To use the list in a `<select>` tag for example, you need to load it at
     some point with the `await` keyword:
 
     ```mint
@@ -43,7 +43,7 @@ module References {
     ```
 
     An alternative for the above would be to have the list of countries in a
-    JSON file and then load it in with a HTTP request, then parse and decode
-    it manually but this way is easier because the compiler handles everything.
+    JSON file and then load it in with an HTTP request, then parse and decode
+    it manually, but this way is easier because the compiler handles everything.
     MARKDOWN
 }

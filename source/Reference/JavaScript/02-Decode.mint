@@ -10,12 +10,12 @@ module References {
     decode object as String
     ```
 
-    It try to convert the untyped value (`Object`) to a typed value. It returns
-    a `Result(Object.Error, value)` with the result.
+    It tries to convert the untyped value (`Object`) to a typed value. It
+    returns a `Result(Object.Error, value)` with the result.
 
     You can decode JavaScript values into Mint **primitive values**, (`String`,
     `Bool`, `Number`, `Time`) **simple structures** (`Maybe(a)`, `Set(a)`,
-    `Map(a,b)`, `Array(a)`) and [composite types] which only have the
+    `Map(a,b)`, `Array(a)`) and [composite types], which only have the
     previously mentioned values.
 
     [composite types]: /reference/types/custom-types#composite-type

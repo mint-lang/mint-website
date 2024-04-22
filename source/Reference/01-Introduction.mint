@@ -10,7 +10,7 @@ module References {
     sections because some concepts are interrelated and can’t be explained in
     isolation.
 
-    If you would like to learn Mint you should start with the [interactive
+    If you would like to learn Mint, you should start with the [interactive
     tutorial](/tutorial/) we have.
     MARKDOWN
 }

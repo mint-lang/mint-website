@@ -4,7 +4,7 @@ module References {
     # Components
 
     Components are the building blocks of any application. They define what and
-    how to display on the screen and they can be composed inside each other.
+    how to display on the screen, and they can be composed inside each other.
 
     ```mint
     component Greeter {

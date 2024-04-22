@@ -3,7 +3,7 @@ module References {
     <<#MARKDOWN(highlight)
     # State Management
 
-    Before we cover **stores** and **components** you need to learn how Mint
+    Before we cover **stores** and **components**, you need to learn how Mint
     manages state.
 
     In Mint everything is **immutable**, which has the benefit of knowing that
@@ -37,10 +37,10 @@ module References {
     }
     ```
 
-    The return type of a next expression is `Promise(Void)` because it's an
-    asynchronous operation and it does not return any value.
+    The return type of next expressions is `Promise(Void)` because it's an
+    asynchronous operation, and it does not return any value.
 
-    Because it's asynchronous next expressions needs to be **awaited** if you
+    Because it's asynchronous, next expressions needs to be **awaited** if you
     want to use the updated value:
 
     ```mint

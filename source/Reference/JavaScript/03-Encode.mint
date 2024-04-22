@@ -3,7 +3,7 @@ module References {
     <<#MARKDOWN(highlight)
     # Encode
 
-    Since we can decode objects we need to have a way to encode them into
+    Since we can decode objects, we need to have a way to encode them into
     JavaScript objects as well. The encode expression is the way to do that:
 
     ```mint

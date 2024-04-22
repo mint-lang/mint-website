@@ -3,7 +3,7 @@ module References {
     <<#MARKDOWN(highlight)
     # Arguments
 
-    A style block can take many arguments just like a function can:
+    A style block can take many arguments, just like a function can:
 
     ```mint
     style root (color : String) {
@@ -23,7 +23,7 @@ module References {
     </div>
     ```
 
-    The arguments work exactly like they do on [functions] so default arguments
+    The arguments work exactly like they do on [functions], so default arguments
     and named arguments are supported.
 
     [functions]: /reference/functions

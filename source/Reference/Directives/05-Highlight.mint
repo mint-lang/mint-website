@@ -3,7 +3,7 @@ module References {
     <<#MARKDOWN(highlight)
     # Highlight Directive
 
-    The `@highlight` directive returns the value of the block and it's syntax
+    The `@highlight` directive returns the value of the block, and it's syntax
     highlighted version as `Tuple(a, Html)`. It is mainly used to display Mint
     source code of examples in documentation.
 

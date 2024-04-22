@@ -3,7 +3,7 @@ module References {
     <<#MARKDOWN(highlight)
     # Type System
 
-    In Mint the types and type definitions are only for the type checker and
+    In Mint, the types and type definitions are only for the type checker and
     compiler, they are not available or used by the runtime.
 
     Because of that types can be defined in any type definition (except for
@@ -18,14 +18,13 @@ module References {
     }
     ```
 
-    Since only this function defines this as a return type we can safely use
-    the same type in type signatures of other functions:
+    Since only this function defines this as a return type, we can safely use
+    the same type in type signatures of other functions, because the
+    `Time.now()` is the only place values of `Time` can come from.
 
     ```mint
     fun month (time : Time) : Number { `\#{time}.getMonth()` }
     fun day (time : Time) : Number { `\#{time}.getDay()` }
     ```
-
-    because the `Time.now()` is the only place values of `Time` can come from.
     MARKDOWN
 }

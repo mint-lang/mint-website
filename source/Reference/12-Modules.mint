@@ -3,8 +3,8 @@ module References {
     <<#MARKDOWN(highlight)
     # Modules
 
-    In Mint modules are kind of containers for a set of relatable functions and
-    constants. They are usually used to gather functions that relate to a
+    In Mint, modules are kind of containers for a set of relatable functions
+    and constants. They are usually used to gather functions that relate to a
     specific type (like `String` or `Number`).
 
     ```mint
@@ -15,7 +15,7 @@ module References {
     }
     ```
 
-    You can call the functions of a module by using the modules name:
+    You can call the functions of a module by using the module's name:
 
     ```mint
     Greeter.greet("Joe") /* "Hello Joe" */

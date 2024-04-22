@@ -3,7 +3,7 @@ module References {
     <<#MARKDOWN(highlight)
     # case
 
-    The case expression allows us to say "if the data has this shape then do
+    The case expression allows us to say "if the data has this shape, then do
     that", which we call _pattern matching_.
 
     Here we match on a `Number` and return a specific string for the values `0`,
@@ -35,7 +35,7 @@ module References {
 
     ## Custom Types
 
-    When given a custom type record we can pattern match on it to determine
+    When given a custom type record, we can pattern match on it to determine
     which record constructor matches, and to assign names to any contained
     values.
 

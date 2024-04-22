@@ -9,7 +9,7 @@ module References {
     ## Maybe
 
     The maybe type represents a value which may or may not exist. It's defined
-    as an such:
+    as such:
 
     ```mint
     type Maybe(value) {
@@ -18,7 +18,7 @@ module References {
     }
     ```
 
-    For example here is a user who may or may not have a car:
+    For example, here is a user who may or may not have a car:
 
     ```mint
     type Car {
@@ -51,14 +51,14 @@ module References {
 
     For example, converting a `String` to a `Number`:
 
-    - If the conversion fails we get an error:
+    - If the conversion fails, we get an error:
 
       ```mint
       let Result.Err(error) =
         Number.fromString("blah")
       ```
 
-    - If the conversion succeeds we get a value:
+    - If the conversion succeeds, we get a value:
 
       ```mint
       let Result.Ok(number) =
@@ -68,11 +68,11 @@ module References {
 
     ## Promise
 
-    The promise type represents an **asynchronous** computational task. In Mint
-    promises have only one parameter **result** - which is the type the result
-    of the computation.
+    The promise type represents an **asynchronous** computational task. In
+    Mint, promises have only one parameter **result** - which is the type of
+    the result of the computation.
 
-    A good example is a HTTP request which in Mint looks like this:
+    A good example is the HTTP request, which in Mint looks like this:
 
     ```mint
     Promise(Result(Http.ErrorResponse, Http.Response))
@@ -84,8 +84,8 @@ module References {
 
     ## Deferred
 
-    This type represents a piece of code which is loaded asyncronhously from a
-    different file. To learn more about it check out the [defer expression].
+    This type represents a piece of code which is loaded asynchronously from a
+    different file. To learn more about it, check out the [defer expression].
 
     [defer expression]: /reference/control-flow/defer
 

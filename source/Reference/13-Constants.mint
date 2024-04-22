@@ -7,9 +7,9 @@ module References {
     permitting them to be named and to ensure there are no differences in the
     definition between each use.
 
-    Constants can be added to **stores**, **modules**, **providers**,
+    They can be added to **stores**, **modules**, **providers**,
     **suites**, and **components**. The name of a constant must be in
-    all-uppercase characters and their type is inferred from their value.
+    all-uppercase characters, and their type is inferred from their value.
 
     ```mint
     module Math {
@@ -17,8 +17,8 @@ module References {
     }
     ```
 
-    Constants can be accessed like variables inside the scope of the entity
-    which defined them and from outside they can be accessed with the
+    They can be accessed like variables inside the scope of the entity
+    which defined them, and from outside they can be accessed with the
     following syntax:
 
     ```mint
@@ -27,5 +27,4 @@ module References {
 
 
     MARKDOWN
-
 }

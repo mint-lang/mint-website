@@ -35,7 +35,7 @@ module References {
     }
     ```
 
-    Records are **immutable** so instead of mutating you can create a new
+    Records are **immutable**, so instead of mutating you can create a new
     record with updated fields like this:
 
     ```mint
@@ -58,10 +58,10 @@ module References {
 
     ## Algebraic Data Type
 
-    They are used to describe data which contains **different types of values**
-    (called variants).
+    They are used to describing data which contains **different types of
+    values** (called variants).
 
-    For example a type for a logged in state can be written as two variants:
+    For example, a type for a logged in state can be written as two variants:
 
     ```mint
     type UserState {
@@ -70,7 +70,7 @@ module References {
     }
     ```
 
-    Since this is a type it can be used in type signatures:
+    Since this is a type, it can be used in type signatures:
 
     ```mint
     fun isLoggedIn (userState : UserState) : Bool {
@@ -84,15 +84,15 @@ module References {
     isLoggedIn(UserState.Visitor) // false
     ```
 
-    As you can see from the code above you can create instances of the type by
+    As you can see from the code above, you can create instances of the type by
     using its name then a dot then its variant and then any arguments it takes
     `UserState.LoggedIn(user)`, you can also match the variants in a
     [case expression](/reference/control-flow/case).
 
     ### Type Variables
 
-    You can define **type variables** for a type so it can become **generic**
-    meaning that a type of a value of a variant can be any other type.
+    You can define **type variables** for a type so it can become **generic**,
+    meaning that a type of values of a variant can be any other type.
 
     The best example for this is the `Result(error, value)` type:
 

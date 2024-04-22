@@ -22,7 +22,7 @@ module References {
     ```
 
     The contents of the file is not checked and won't show any errors if it's
-    not valid (snytax or type checking wise).
+    not valid (syntax or type checking wise).
 
     MARKDOWN
 }

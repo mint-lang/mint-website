@@ -49,7 +49,7 @@ module References {
     greet("Bob")
     ```
 
-    If the function belongs to a **store** or a **module** you can call it
+    If the function belongs to a **store** or a **module**, you can call it
     like this:
 
     ```mint
@@ -126,7 +126,7 @@ module References {
 
     Here we passed the `Greeter.greet` function as an argument.
 
-    ## Type of a function
+    ## Type of functions
 
     Functions have a specific type signature, like everything else in Mint.
     The type for the function includes the types of its arguments (in

@@ -4,7 +4,7 @@ module References {
     ## Referencing Entities
 
     Sometimes it's necessary to access elements or components in a component
-    for a number of reasons. To do that you can use the `as name` notation.
+    for a number of reasons. To do that you, can use the `as name` notation.
 
     The usual example is to focus an element after an event happens:
 
@@ -30,7 +30,7 @@ module References {
     is because there is no guarantee that the element will be in the DOM at the
     time the function runs.
 
-    You can also reference sub components the same way:
+    You can also reference subcomponents the same way:
 
     ```mint
     component Item {

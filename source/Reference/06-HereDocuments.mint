@@ -9,7 +9,7 @@ module References {
     which is an **uppercase alphanumeric sequence** starting with a letter (and
     may include underscores). The here document starts in the following line and
     ends with the next line that contains only the here document identifier,
-    optionally preceeded by whitespace.
+    optionally preceded by whitespace.
 
     ```mint
     <<-XML
@@ -19,7 +19,7 @@ module References {
     XML
     ```
 
-    ## Preseving whitespace
+    ## Preserving whitespace
 
     Leading whitespace is preserved as is.
 
@@ -33,13 +33,13 @@ module References {
     "  This is some content in the document."
     ```
 
-    Type type of this here document is `String`.
+    The type of this here document is `String`.
 
     ## Removing leading whitespace
 
-    Leading whitespace is removed from start of each line of the here document
-    according to the number of leading whitespace in the line with the least
-    amount of leading whitespace.
+    Leading whitespace is removed from the start of each line of the here
+    document according to the number of leading whitespace in the line with
+    the least amount of leading whitespace.
 
     ```mint
     let content =
@@ -56,9 +56,9 @@ module References {
 
     ## Markdown
 
-    Leading whitespace is removed from start of each line of the here document
-    according to the number of leading whitespace in the line with the least
-    amount of leading whitespace. Contents are parsed as
+    Leading whitespace is removed from the start of each line of the here
+    document according to the number of leading whitespace in the line with
+    the least amount of leading whitespace. Contents are parsed as
     [Markdown](https://daringfireball.net/projects/markdown/) and rendered as
     `Html`.
 

@@ -3,7 +3,7 @@ module References {
     <<#MARKDOWN(highlight)
     # Environment Variables
 
-    When building web applications usually the same application needs to work
+    When building web applications, usually the same application needs to work
     in different environments (development, staging, production). There are
     some [variables] like API endpoints that differ depending on the
     environment.
@@ -32,7 +32,7 @@ module References {
 
     ## Specifying .env file
 
-    Solme commands in the CLI has a flag `-e` or `--env` which takes the path
+    Some commands in the CLI has a flag `-e` or `--env` which takes the path
     to the `.env` file:
 
     ```bash

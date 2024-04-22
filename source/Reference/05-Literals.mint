@@ -74,7 +74,7 @@ module References {
     ## Regular Expression
 
     Regular expressions are patterns used to match character combinations
-    in strings. and work mostly the same as it's JavaScript couterpart:
+    in strings, and work mostly the same as its JavaScript counterpart:
 
     ```mint
     /ab+c/

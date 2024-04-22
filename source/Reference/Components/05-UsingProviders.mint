@@ -25,12 +25,11 @@ module References {
     }
     ```
 
-    In the above example we will update counter every second using the
+    In the above example, we will update the counter every second using the
     [tick provider]. You can check other built-in providers [here].
 
     [provider]: /reference/providers
     [tick provider]: https://github.com/mint-lang/mint/blob/master/core/source/Provider/Tick.mint
     [here]: https://github.com/mint-lang/mint/blob/master/core/source/Provider/
     MARKDOWN
-
 }

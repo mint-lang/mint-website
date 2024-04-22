@@ -13,7 +13,7 @@ module References {
 
     > Inlining allows you to invoke arbitrary JavaScript code. This can cause
     unexpected runtime errors. You can bypass the Mint type system, storing
-    invalid data in Mint variables and cause Mint itself to be the source of
+    invalid data in Mint variables, and cause Mint itself to be the source of
     the runtime error. Use it with care!
 
     Here is an example inlining a call to the JavaScript function
@@ -35,7 +35,7 @@ module References {
 
     ## Inlined JavaScript Statements
 
-    Since in Mint everything is an expression, the inlined JavaScript code must
+    Since in Mint, everything is an expression, the inlined JavaScript code must
     also be an expression. If you need to execute multiple JavaScript
     statements, wrap the code in a
     [Immediately Invoked Function Expression](https://developer.mozilla.org/en-US/docs/Glossary/IIFE).
@@ -84,7 +84,7 @@ module References {
 
     ## Specifying the type
 
-    To help the type checker, the type of an inlined JavaScript statement can
+    To help the type checker, the type of inlined JavaScript statements can
     be defined with the `as` keyword:
 
     ```mint

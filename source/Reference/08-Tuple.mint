@@ -3,8 +3,8 @@ module References {
     <<#MARKDOWN(highlight)
     # Tuple
 
-    A tuple is a data structure which contains a fixed set values, where each
-    value can have a different type.
+    A tuple is a data structure which contains a fixed set of values, where
+    each value can have a different type.
 
     - they can contain two or more of items (no empty or single element)
     - they are useful when you don't want to declare a record
@@ -12,7 +12,7 @@ module References {
 
     ## Type
 
-    The type of a tuple is `Tuple(type1, type2, ...)` where each parameter is
+    The type of tuples is `Tuple(type1, type2, ...)` where each parameter is
     an item of a tuple.
 
     For example the type `Tuple(String, Number, Bool)` represents a tuple
@@ -29,7 +29,7 @@ module References {
 
     ## Destructuring
 
-    To get the items of a tuple we need to destructure it (assign each item
+    To get the items of a tuple, we need to destructure it (assign each item
     to a variable) or use brackets `[]`:
 
     ```mint
@@ -61,7 +61,7 @@ module References {
     }
     ```
 
-    When matching tuples in a case expression a destructuring will make it
+    When matching tuples in a case expression, a destructuring will make it
     exhaustive.
 
     MARKDOWN

@@ -7,7 +7,7 @@ module References {
     `Map(a,b)`
 
     The result of the iteration is always an array where the type of its items
-    is from the type of the expression. In this example we iterate over an
+    is from the type of the expression. In this example, we iterate over an
     array of Strings and making them uppercase:
 
     ```mint
@@ -34,7 +34,7 @@ module References {
     ## Selecting items
 
     You can limit the items for which the iteration should take place with an
-    optional `when` block (if the expression is `false` then the item will be
+    optional `when` block (if the expression is `false`, then the item will be
     skipped):
 
     ```mint
@@ -45,7 +45,7 @@ module References {
     } // ["BOB"]
     ```
 
-    In the example we specified that the expression should only run (and return)
+    In the example, we specified that the expression should only run (and return)
     for items which equals "bob".
 
     ## Indexes

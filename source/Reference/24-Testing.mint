@@ -21,7 +21,7 @@ module References {
 
     A `suite` block defines a set of tests and can have helper [functions] and
     [constants]. A `test` blocks defines a test which is basically an assertion
-    which defines the outcome of the test: if `true` the test passes if `false`
+    which defines the outcome of the test: if `true` the test passes, if `false`
     the test fails.
 
     [constants]: /reference/constants
@@ -71,7 +71,7 @@ module References {
     > Above is the result of running the standard library tests.
 
     You will need to have [Chromium] (or [Google Chrome]) or [Firefox]
-    installed to run tests since we run them in a browser to be as close to
+    installed to run tests, since we run them in a browser to be as close to
     the metal as possible.
 
     Check the [test command] for more information on running tests.
@@ -112,7 +112,7 @@ module References {
 
     ## Html Testing
 
-    You can test `Html` with the `Test.Html` module which uses test contexts:
+    You can test `Html` with the `Test.Html` module, which uses test contexts:
 
     ```mint
     test "Html Example" {

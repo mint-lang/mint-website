@@ -157,8 +157,8 @@ module References {
       <<#MARKDOWN(highlight)
       # Operators
 
-      Mint supports a number of fixed operators. Some work on specific types
-      some on all types. Whitespace before and after the operator is required
+      Mint supports a number of fixed operators. Some work on specific types,
+      some on all types. Whitespace before and after the operator is required,
       except for `!` (negation). See the table below for specifics:
 
       #{table}
