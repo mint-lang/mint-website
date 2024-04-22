@@ -57,8 +57,8 @@ module Lessons {
         ],
       contents:
         <<#MARKDOWN(highlight)
-        Records are data structures that have a fixed set of keys. You can
-        define a record type with the `type` keyword:
+        The other kind of custom types are records, which are data structures
+        that have a fixed set of keys:
 
         ```mint
         type User {
@@ -79,7 +79,7 @@ module Lessons {
         }
         ```
 
-        You can access a record's fields using the `.` notation:
+        You can access a record's fields using the dot (`.`) notation:
 
         ```mint
         user.name == "John Doe"

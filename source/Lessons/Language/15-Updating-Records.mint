@@ -66,11 +66,18 @@ module Lessons {
       contents:
         <<#MARKDOWN(highlight)
         Since values are immutable in Mint, you cannot modify a record directly,
-        but only create a new record with the modified fields.
-
-        To achieve that, you can use the record update syntax:
+        but only create a new record. To achieve that, you can use the record
+        update syntax:
 
         ```mint
+        let user =
+          {
+            email: "john@doe.com",
+            name: "John Doe",
+            age: 32,
+            id: 1
+          }
+
         { user | name: "Jane Doe" }
         ```
 

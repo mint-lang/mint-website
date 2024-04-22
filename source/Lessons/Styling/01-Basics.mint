@@ -41,8 +41,9 @@ module Lessons {
         ],
       contents:
         <<#MARKDOWN(highlight)
-        You can style elements with CSS (inside components) almost like you
-        would in plain HTML but instead of classes you create `style` blocks:
+        As we learned before, we can style elements with CSS (inside components)
+        almost like you would in plain HTML but instead of classes we create
+        `style` blocks:
 
         ```mint
         style root {
@@ -50,7 +51,7 @@ module Lessons {
         }
         ```
 
-        To assign that style to an element you need to use the double colon
+        To assign that style to an element, you need to use the double colon
         `::root` notation after the tag name:
 
         ```mint

@@ -38,7 +38,7 @@ module References {
     }
     ```
 
-    When connecting a store, the component must use the exposing keyword to
+    When connecting a store, the component must use the `exposing` keyword to
     list the particular functions or properties it will use.
 
     ## Exposing with a different name
@@ -50,5 +50,4 @@ module References {
     connect Counter exposing { count as myCount }
     ```
     MARKDOWN
-
 }

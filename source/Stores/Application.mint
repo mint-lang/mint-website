@@ -1,14 +1,14 @@
-store Application {
-  state page : Page = Page.Initial
-
+store Breakpoints {
   /* Whether or not to show dark mode. */
-  state mobile : Bool = Window.matchesMediaQuery("(max-width: 1000px)")
+  state isMobile : Bool = Window.matchesMediaQuery("(max-width: 1000px)")
 
-  /* A media query listener for to set mobile property. */
-  state mediaQueryListener =
-    Window.addMediaQueryListener(
-      "(max-width: 1000px)",
-      (active : Bool) { next { mobile: active } })
+  /* A media query listener for to set isMobile property. */
+  state mediaQueryListener = Window.addMediaQueryListener("(max-width: 1000px)", -> isMobile)
+}
+
+store Application {
+  /* The page we are currently displaying. */
+  state page : Page = Page.Initial
 
   get isWide : Bool {
     case page {
@@ -40,22 +40,22 @@ store Application {
           Array.concat(
             for category of documents.categories {
               for page of category.pages {
-                #("/#{category.path}/#{page.path}", page, Maybe.Just(category))
+                {"/#{category.path}/#{page.path}", page, Maybe.Just(category)}
               }
             }),
           for page of documents.pages {
-            #("/#{page.path}", page, Maybe.Nothing)
+            {"/#{page.path}", page, Maybe.Nothing}
           }
         ])
 
     let currentPage =
       for item of pages {
-        #(item[1], item[2])
+        {item[1], item[2]}
       } when {
         item[0] == normalizedPath
       }
 
-    if let [#(item, category)] = currentPage {
+    if let [{item, category}] = currentPage {
       let contents =
         await item.contents
 

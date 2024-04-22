@@ -39,11 +39,6 @@ component Content {
       font-size: 2.25em;
     }
 
-    h3 {
-      margin-top: 1.25em;
-      font-size: 1.5em;
-    }
-
     h2 {
       font-size: 1.75em;
       margin-top: 1em;
@@ -61,6 +56,11 @@ component Content {
         height: auto;
         width: 1em;
       }
+    }
+
+    h3 {
+      margin-top: 1.25em;
+      font-size: 1.25em;
     }
 
     hr {
@@ -92,13 +92,19 @@ component Content {
       }
     }
 
+    code {
+      font-optical-sizing: auto;
+      font-family: "Fira Code";
+      font-weight: 400;
+    }
+
     :not(pre) > code {
       border: 1px solid #EEE;
       border-radius: 2px;
 
-      padding: 3px 5px 2px 5px;
+      padding: 0.214em 0.375em 0.142em 0.375em;
       background: #FEFEFE;
-      font-size: 14px;
+      font-size: 0.7777em;
     }
 
     pre:has(.language-bash) {
@@ -112,7 +118,7 @@ component Content {
 
     pre {
       min-width: #{preMinWidth};
-      font-size: 16px;
+      font-size: 0.8888em;
       overflow: auto;
 
       code {
@@ -166,6 +172,14 @@ component Content {
           color: darkmagenta;
         }
       }
+    }
+
+    img:not([class]) {
+      border-radius: 5px;
+      width: 100%;
+
+      outline: 1px solid #EEE;
+      outline-offset: 3px;
     }
 
     a:not([name]) {
@@ -224,7 +238,7 @@ component Content {
       th,
       td {
         border: 1px solid #EEE;
-        line-height: 1.6;
+        line-height: 1.85;
         padding: 0.5em;
 
         &:first-child {

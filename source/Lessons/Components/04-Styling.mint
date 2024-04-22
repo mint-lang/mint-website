@@ -39,7 +39,7 @@ module Lessons {
         ],
       contents:
         <<#MARKDOWN(highlight)
-        In HTML, you normally put your styles into a `<style>` element. In Mint
+        In HTML, you normally put your styles into a `<style>` element. In Mint,
         you put it into `style` blocks.
 
         ```mint
@@ -53,8 +53,11 @@ module Lessons {
         Style blocks are like CSS classes, they have a name and can be added to
         any element in the component.
 
-        Styling is a topic so big that it has its own chapter, so stick around
+        Styling is a topic so big that it has many chapters, so stick around
         to learn everything about it!
+
+        For now as an exercise, apply the styles above to the text in the
+        component.
         MARKDOWN
     }
 }

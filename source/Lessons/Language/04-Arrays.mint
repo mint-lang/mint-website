@@ -25,24 +25,22 @@ module Lessons {
       contents:
         <<#MARKDOWN(highlight)
         An `Array(a)` is a generic type containing elements of any other type.
-
-        Arrays are typically created with an array literal:
+        They are typically created with an array literal:
 
         ```mint
         [1, 2, 3]        // Array(Number)
         ["A", "B", "C"]  // Array(String)
         ```
 
-        You can define the type of an array using the `of` keyword. It is useful
-        for defining the type of an empty array:
+        You can define the type of arrays using the `of` keyword. It is useful
+        for defining the type of empty arrays:
 
         ```mint
         [] of Number
         [1,2,3] of Number
         ```
 
-        We can access an arrays item at a given index using the bracket
-        notation:
+        We can access an item at the given index using the bracket  notation:
 
         ```mint
         let array =

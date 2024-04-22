@@ -24,9 +24,8 @@ module Lessons {
         ],
       contents:
         <<#MARKDOWN(highlight)
-        A `String` represents a sequence of characters.
-
-        Strings are created with string literals using quotes `""`:
+        A `String` represents a sequence of characters, they are created with
+        string literals using quotes `""`:
 
         ```mint
         "A single line string!"
@@ -35,7 +34,7 @@ module Lessons {
         An other line"
         ```
 
-        Strings can be broken apart with the `\\` operator:
+        Strings can be broken apart with the `\` operator:
 
         ```mint
         "First line" \

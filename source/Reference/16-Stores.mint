@@ -31,11 +31,16 @@ module References {
     - **mutable** - their data can be changed using a `next` call (but only
       inside the store)
 
-    - they can only contain [functions](/reference/functions),
-      [states](/reference/state-management) and [constants](/reference/constants).
+    - they can only contain [functions], [states], [computed properties] and
+      [constants].
 
-    You can read more on mutation in [state management](/reference/state-management)
-    page.
+    You can read more on mutation in [state management] page.
+
+    [computed properties]: /reference/components/computed-properties
+    [state management]: /reference/state-management
+    [states]: /reference/state-management
+    [constants]: /reference/constants
+    [functions]: /reference/functions
 
     ## Connecting to Components
 
@@ -48,5 +53,4 @@ module References {
     }
     ```
     MARKDOWN
-
 }

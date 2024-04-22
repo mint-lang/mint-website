@@ -9,7 +9,7 @@ component Header {
     backdrop-filter: blur(3px);
     position: relative;
     padding: 20px;
-    z-index: 1;
+    z-index: 11;
 
     font-family: 'Noto Sans';
     font-size: 16px;
@@ -174,12 +174,11 @@ component Header {
             TablerIcons.BOX_SEAM
             "Packages"
           </a>
-          */
           <a::item href="/">
             TablerIcons.ARTICLE
             "Blog"
           </a>
-
+          */
           <a::item
             href="https://github.com/mint-lang/mint"
             target="_blank">

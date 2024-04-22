@@ -21,8 +21,8 @@ module Guides {
     ## Package Cache
 
     Mint uses Git repositories as packages and stores them for caching purposes
-    in a temporary directory which depends on the operating system. To remove
-    this directory you can use the `--package-cache` flag.
+    in a temporary directory, which depends on the operating system. To remove
+    this directory, you can use the `--package-cache` flag.
 
     ```bash
     ➔ mint clean --package-cache

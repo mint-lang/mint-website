@@ -3,23 +3,23 @@ module Lessons {
     {
       let rows =
         for operator of [
-          #("|>", "0", "Pipe"),
-          #("or", "0", "Fallback"),
-          #("&&", "6", "Logical AND"),
-          #("||", "5", "Logical OR"),
-          #("!=", "10", "Inequality"),
-          #("==", "10", "Equality"),
-          #("<=", "11", "Less than or equal to"),
-          #("<", "11", "Less than"),
-          #(">=", "11", "More than"),
-          #(">", "11", "More than or equal to"),
-          #("-", "13", "Subtraction"),
-          #("+", "13", "Addition and string concatenation"),
-          #("*", "14", "Multiplication"),
-          #("/", "14", "Division"),
-          #("%", "14", "Remainder"),
-          #("**", "15", "Exponentiation"),
-          #("!", "16", "Negation")
+          {<code>"|>"</code>, "0", "Pipe"},
+          {<code>"or"</code>, "0", "Fallback"},
+          {<code>"&&"</code>, "6", "Logical AND"},
+          {<code>"||"</code>, "5", "Logical OR"},
+          {<code>"!="</code>, "10", "Inequality"},
+          {<code>"=="</code>, "10", "Equality"},
+          {<code>"<="</code>, "11", "Less than or equal to"},
+          {<code>"<"</code>, "11", "Less than"},
+          {<code>">="</code>, "11", "More than"},
+          {<code>">"</code>, "11", "More than or equal to"},
+          {<code>"-"</code>, "13", "Subtraction"},
+          {<code>"+"</code>, "13", "Addition and string concatenation"},
+          {<code>"*"</code>, "14", "Multiplication"},
+          {<code>"/"</code>, "14", "Division"},
+          {<code>"%"</code>, "14", "Remainder"},
+          {<code>"**"</code>, "15", "Exponentiation"},
+          {<code>"!"</code>, "16", "Negation"}
         ] {
           <tr>
             <td>

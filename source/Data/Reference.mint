@@ -107,6 +107,21 @@ module Data {
             contents: defer References.FIELD_ACCESS,
             name: "Field Access",
             path: "field-access"
+          },
+          {
+            contents: defer References.SOURCE_FILES,
+            name: "Source Files",
+            path: "source-files"
+          },
+          {
+            contents: defer References.PROVIDERS,
+            name: "Providers",
+            path: "providers"
+          },
+          {
+            contents: defer References.TESTING,
+            name: "Testing",
+            path: "testing"
           }
         ],
       categories:

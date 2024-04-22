@@ -36,7 +36,7 @@ module Lessons {
       contents:
         <<#MARKDOWN(highlight)
         There are some instances where you want to move a bigger piece of code
-        into a function but it doesn't depend on any arguments. For this you
+        into a function, but it doesn't depend on any arguments. For this, you
         can use a computed property.
 
         ```mint

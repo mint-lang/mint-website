@@ -3,13 +3,13 @@ module Guides {
     <<#MARKDOWN(highlight)
     # Format
 
-    The `format` command formats `*.mint` files. By default it will format all
+    The `format` command formats `*.mint` files. By default, it will format all
     source and test files in the current project.
 
-    ## Specifing files to format
+    ## Specifying files to format
 
     You can specify the file or pattern of files to format by passing it as an
-    argument. For example this only formats one file:
+    argument. For example, this only formats one file:
 
     ```bash
     ➔ mint format source/Main.mint
@@ -21,14 +21,14 @@ module Guides {
     ➔ mint format "**/*.mint"
     ```
 
-    It's importart that you pass the pattern as a string since the command only
-    takes one argument and [globs] that.
+    It's important that you pass the pattern as a string, since the command
+    only takes one argument and [globs] that.
 
     [globs]: https://en.wikipedia.org/wiki/Glob_(programming)
 
     ## Checking for differences
 
-    The command can be used to check the files if they are formatted or not
+    The command can be used to check the files if they are formatted or not,
     instead of formatting them using the `--check` flag.
 
     ```bash
@@ -45,8 +45,8 @@ module Guides {
 
     ## Formatting from standard input
 
-    You can format the value of the [standard input] using the `--stdin` flag
-    which will print the formatted code in the [standard output]. This is allows
+    You can format the value of the [standard input] using the `--stdin` flag,
+    which will print the formatted code in the [standard output]. This allows
     piping into the command.
 
     [standard output]: https://en.wikipedia.org/wiki/Standard_streams

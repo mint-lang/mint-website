@@ -7,6 +7,11 @@ module Data {
             contents: defer Guides.INTRODUCTION,
             name: "Introduction",
             path: ""
+          },
+          {
+            contents: defer Guides.GETTING_STARTED,
+            name: "Getting Started",
+            path: "getting-started"
           }
         ],
       categories:

@@ -102,10 +102,10 @@ module Data {
         category: "Language"
       },
       {
-        data: defer Lessons.LANGUAGE_FUNCTION_CALLS,
-        path: "/language/function-calls",
-        title: "Function Calls",
-        category: "Language"
+        data: defer Lessons.LANGUAGE_CALLS,
+        path: "/language/calls",
+        category: "Language",
+        title: "Calls"
       },
       {
         data: defer Lessons.LANGUAGE_BLOCKS,
@@ -138,6 +138,12 @@ module Data {
         category: "Language"
       },
       {
+        data: defer Lessons.LANGUAGE_FIELD_ACCESS,
+        path: "/language/field-access",
+        title: "Field Access",
+        category: "Language"
+      },
+      {
         data: defer Lessons.LANGUAGE_CONSTANTS,
         path: "/language/constants",
         category: "Language",
@@ -148,6 +154,36 @@ module Data {
         path: "/language/modules",
         category: "Language",
         title: "Modules"
+      },
+      {
+        data: defer Lessons.LANGUAGE_LOCALE,
+        path: "/language/locale",
+        category: "Language",
+        title: "Locale"
+      },
+      {
+        data: defer Lessons.LANGUAGE_HERE_DOCUMENTS,
+        path: "/language/here-documents",
+        title: "Here Documents",
+        category: "Language"
+      },
+      {
+        data: defer Lessons.LANGUAGE_STATE,
+        path: "/language/state",
+        category: "Language",
+        title: "State"
+      },
+      {
+        data: defer Lessons.LANGUAGE_STORES,
+        path: "/language/stores",
+        category: "Language",
+        title: "Stores"
+      },
+      {
+        data: defer Lessons.LANGUAGE_ROUTES,
+        path: "/language/routes",
+        category: "Language",
+        title: "Routes"
       },
       {
         data: defer Lessons.CONTROL_FLOW_IF,
@@ -249,7 +285,7 @@ module Data {
         data: defer Lessons.COMPONENTS_COMPUTED_PROPERTIES,
         path: "/components/computed-properties",
         title: "Computed Properties",
-        category: "Components",
+        category: "Components"
       },
       {
         data: defer Lessons.COMPONENTS_STYLING,
@@ -328,6 +364,12 @@ module Data {
         path: "/directives/highlight-file",
         category: "Directives",
         title: "@highlight-file"
+      },
+      {
+        data: defer Lessons.JAVASCRIPT_INLINING,
+        path: "/javascript/inlining",
+        category: "JavaScript",
+        title: "Inlining"
       },
       {
         data: defer Lessons.JAVASCRIPT_DECODE,

@@ -41,7 +41,7 @@ module Lessons {
       contents:
         <<#MARKDOWN(highlight)
         The `@svg` directive allows you to inline an SVG file as `Html`. This
-        is useful for many reasons for example if you don't want to make extra
+        is useful for many reasons, for example if you don't want to make extra
         HTTP requests to display an SVG or if you want to style the SVG with
         CSS.
 
@@ -57,12 +57,12 @@ module Lessons {
         }
         ```
 
-        In the example above the `icon.svg` is in the same directory as the
+        In the example above, the `icon.svg` is in the same directory as the
         `Main.mint` file.
 
         ------------------------------------------------------------------------
 
-        For more information check out the [reference page].
+        For more information, check out the [reference page].
 
         [reference page]: /reference/directives/svg
         MARKDOWN

@@ -26,15 +26,15 @@ module References {
     [stores]: /reference/stores
 
     ```mint
-    // This is a comment in the top level scope describing the module below.
+    // This is a comment in the top level scope describing the module.
     module Unicorn {
-      // This is for the contents of the module
+      // This is for the contents of the module.
     }
     ```
 
     All top level entities defined in one file are available to all other files
-    in the same project (this includes used packages) so **there is no feature
-    for importing files**.
+    in the same project (this includes used packages) so [there is no feature
+    for importing files](/reference/source-files).
 
     ## Main Code
 

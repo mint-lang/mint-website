@@ -83,6 +83,8 @@ module Lessons {
         Also notice that the component name `Nested` is capitalized. This
         convention has been adopted to allow us to differentiate between
         user-defined components and regular HTML tags.
+
+        Now let's add the `Nested` component after the paragraph!
        MARKDOWN
     }
 }

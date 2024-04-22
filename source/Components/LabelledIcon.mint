@@ -2,6 +2,8 @@ component LabelledIcon {
   /* The click event handler. */
   property onClick : Function(Html.Event, Promise(Void)) = Promise.never1
 
+  property href : String = ""
+
   /* Whether or not the icon is disabled. */
   property disabled : Bool = false
 
@@ -12,11 +14,19 @@ component LabelledIcon {
 
   style root {
     --tabler-stroke-width: 1.5;
+
     grid-template-columns: 1fr auto;
     grid-gap: 0.5em;
     display: grid;
 
+    text-decoration: none;
+    color: inherit;
+
     &:hover {
+      if String.isNotEmpty(href) {
+        text-decoration: underline;
+      }
+
       if !disabled {
         color: seagreen;
       }
@@ -42,16 +52,27 @@ component LabelledIcon {
   }
 
   fun render : Html {
-    <div::root
-      onClick={onClick}
-      tabindex="0">
+    let content =
+      <>
+        <span::label>
+          label
+        </span>
 
-      <span::label>
-        label
-      </span>
+        icon
+      </>
 
-      icon
+    if String.isEmpty(href) {
+      <div::root
+        onClick={onClick}
+        tabindex="0">
 
-    </div>
+        content
+
+      </div>
+    } else {
+      <a::root href={href}>
+        content
+      </a>
+    }
   }
 }

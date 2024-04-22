@@ -6,15 +6,14 @@ module References {
     A tuple is a data structure which contains a fixed set values, where each
     value can have a different type.
 
+    - they can contain two or more of items (no empty or single element)
     - they are useful when you don't want to declare a record
-    - they can contain two or more of items (empty or single element tuples are
-      not possible)
     - their items can be destuctured and matched against
 
     ## Type
 
-    The type of a tuple is `Tuple(...)` where each parameter is an item of a
-    tuple.
+    The type of a tuple is `Tuple(type1, type2, ...)` where each parameter is
+    an item of a tuple.
 
     For example the type `Tuple(String, Number, Bool)` represents a tuple
     where the first element is a `String` the second is a `Number` and the

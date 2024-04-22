@@ -11,18 +11,18 @@ module References {
 
     ```mint
     style root {
-      // Apply these properties when the condition is true
+      // Apply these properties when the condition is true.
       if loading {
         pointer-events: none;
         opacity: 0.5;
       }
 
-      // Apply properties depending on the subject
+      // Apply properties depending on the subject.
       case status {
-        Status::Ok =>
+        Ok =>
           color: #333;
 
-        Status::Err =>
+        Err =>
           border: 1px solid red;
           color: red;
       }

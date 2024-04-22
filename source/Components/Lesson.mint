@@ -1,6 +1,6 @@
 async component Lesson {
   connect Stores.Lesson exposing { project, showSolution, update }
-  connect Application exposing { mobile }
+  connect Breakpoints exposing { isMobile }
 
   /* The path to the previous lesson (if any). */
   property previousLessonPath : Maybe(String)
@@ -47,7 +47,7 @@ async component Lesson {
     min-height: 0;
     display: grid;
 
-    if mobile {
+    if isMobile {
       grid-template-rows: auto 1fr;
 
       border-bottom: 3px double #EEE;
@@ -145,8 +145,8 @@ async component Lesson {
 
   /* Renders the component. */
   fun render : Html {
-    if mobile {
-      <> "Not available on mobile" </>
+    if isMobile {
+      <>"Not available on mobile"</>
     } else {
       let solutionLessons =
         Array.select(
@@ -178,7 +178,7 @@ async component Lesson {
             if !isSolution {
               <LabelledIcon
                 onClick={(event : Html.Event) { showSolution() }}
-                label=<{ "Show Solution" }>
+                label=<>"Show Solution"</>
                 icon={TablerIcons.EYE_BOLT}/>
             }
           }
@@ -186,12 +186,10 @@ async component Lesson {
           <LabelledIcon
             disabled={Maybe.isNothing(nextLessonPath)}
             icon={TablerIcons.ARROW_RIGHT}
-            label=<{ "Next" }>
-            onClick={
-              (event : Html.Event) {
-                if let Maybe.Just(path) = nextLessonPath {
-                  Window.navigate("/tutorial#{path}")
-                }
+            label=<>"Next"</>
+            href={
+              if let Maybe.Just(path) = nextLessonPath {
+                "/tutorial#{path}"
               }
             }/>
         </div>
@@ -202,11 +200,9 @@ async component Lesson {
             <Icon
               disabled={Maybe.isNothing(previousLessonPath)}
               icon={TablerIcons.ARROW_LEFT}
-              onClick={
-                (event : Html.Event) {
-                  if let Maybe.Just(path) = previousLessonPath {
-                    Window.navigate("/tutorial#{path}")
-                  }
+              href={
+                if let Maybe.Just(path) = previousLessonPath {
+                  "/tutorial#{path}"
                 }
               }/>
 
@@ -228,11 +224,9 @@ async component Lesson {
             <Icon
               disabled={Maybe.isNothing(nextLessonPath)}
               icon={TablerIcons.ARROW_RIGHT}
-              onClick={
-                (event : Html.Event) {
-                  if let Maybe.Just(path) = nextLessonPath {
-                    Window.navigate("/tutorial#{path}")
-                  }
+              href={
+                if let Maybe.Just(path) = nextLessonPath {
+                  "/tutorial#{path}"
                 }
               }/>
           </div>
@@ -247,26 +241,20 @@ async component Lesson {
             </div>
           </div>
 
-          if !mobile {
-            toolbar
-          }
+          toolbar
         </div>
 
         if Array.isEmpty(project.files) {
           <div::empty>
             <IllustratedMessage
-              subtitle=<{ "This chapter does not have an interactive example." }>
-              title=<{ "Read and Relax" }>
+              subtitle=<>"This chapter does not have an interactive example."</>
+              title=<>"Read and Relax"</>
               image={TablerIcons.BOOKS}/>
           </div>
         } else {
           <Ide
             onChange={update}
             value={project}/>
-        }
-
-        if mobile {
-          toolbar
         }
       </div>
     }

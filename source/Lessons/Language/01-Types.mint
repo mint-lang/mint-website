@@ -20,17 +20,15 @@ module Lessons {
         ],
       contents:
         <<#MARKDOWN(highlight)
-        Mint is a strongly typed programming language, which means that you will
-        encounter a lot of type definitions.
+        Mint is a strongly typed programming language, which means that you
+        will encounter a lot of type definitions.
 
-        Syntax wise, a type definition consists of an identifier starting with a
-        capital letter, and followed by letters and numbers.
-
-        Types appear in Mint code in multiple places, usually preceded by a
-        colon:
+        Syntax wise, a type definition consists of an identifier starting with
+        a capital letter, and followed by letters and numbers. They appear in
+        code in multiple places, usually preceded by a colon:
 
         ```mint
-        state name : String
+        state name : String = ""
         ```
 
         A type gives a name to a value conforming to a specific data structure.

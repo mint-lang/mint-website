@@ -17,9 +17,9 @@ module ContentInstrumenter {
           VNode.getTextContent(vnode)
 
         case decode VNode.type(vnode) as String {
-          Ok("h1") => Array.push(memo, #("h1", text, String.parameterize(text)))
-          Ok("h2") => Array.push(memo, #("h2", text, String.parameterize(text)))
-          Ok("h3") => Array.push(memo, #("h3", text, String.parameterize(text)))
+          Ok("h1") => Array.push(memo, {"h1", text, String.parameterize(text)})
+          Ok("h2") => Array.push(memo, {"h2", text, String.parameterize(text)})
+          Ok("h3") => Array.push(memo, {"h3", text, String.parameterize(text)})
           => memo
         }
       })
@@ -42,7 +42,6 @@ module ContentInstrumenter {
     `#{anchor}.instrumented = true`
 
     vnode
-    |> VNode.setProp("target", encode "_blank")
     |> VNode.setProp("children", anchor)
   }
 

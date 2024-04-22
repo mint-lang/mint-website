@@ -1,6 +1,6 @@
 module References {
   const HERE_DOCUMENTS =
-    <<#MARKDOWN(highlight)
+    <<#MD(highlight)
     # Here Documents
 
     A [here document](https://en.wikipedia.org/wiki/Here_document) can be
@@ -43,13 +43,13 @@ module References {
 
     ```mint
     let content =
-      <<-TEXT
-      This is some content in the document.
+      <<~TEXT
+      This is some content.
         This is indented by two spaces.
       TEXT
 
     // String equvivalent is
-    "This is some content in the document.\n  This is indented by two spaces."
+    "This is some content.\n  This is indented by two spaces."
     ```
 
     Type type of this here document is `String`
@@ -64,11 +64,11 @@ module References {
 
 
     ```mint
-    <<#MD
+    <<#MARKDOWN
     # This will be a heading
 
     And this will be a paragraph.
-    MD
+    MARKDOWN
     ```
 
     ### Highlighting Mint Code
@@ -77,7 +77,7 @@ module References {
     `highlight` flag to the here document:
 
     ~~~mint
-    <<#MD(highlight)
+    <<#MARKDOWN(highlight)
     This is a paragraph.
 
     ```mint
@@ -85,7 +85,7 @@ module References {
       // This will be syntax highlighted
     }
     ```
-    MD
+    MARKDOWN
     ~~~
 
     All lines are turned into `span` HTML tags with the `className` of `line`
@@ -107,5 +107,5 @@ module References {
       }
     </span>
     ```
-    MARKDOWN
+    MD
 }

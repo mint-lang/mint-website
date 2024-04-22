@@ -8,12 +8,12 @@ module References {
     ```mint
     component Main {
       fun render : Html {
-        /* As a Map(String, String) */
+        // As a Map(String, String)
         let style =
           Map.empty(Map.set("color", "red"))
 
         <div>
-          /* As a String */
+          // As a String
           <div style="color: red;">
             "I am red!"
           </div>

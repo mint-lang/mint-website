@@ -32,7 +32,7 @@ module References {
     <MyComponent
       expression={anyVariableOrValue}
       array=["Item1", "Item2"]
-      html=<{"Hello World!"}>
+      html=<>"Hello World!"</>
       string="Hello World!"
     />
     ```
@@ -52,26 +52,26 @@ module References {
 
     ```mint
     <div>
-      // A variable containing Html (type: Html)
+      // A variable containing Html (Html)
       htmlVariable
 
-      // A normal string (type: String)
+      // A normal string (String)
       "String Value"
 
-      // An array of strings (type: Array(String))
+      // An array of strings (Array(String))
       ["Item 1", "Item 2"]
 
-      // Or an expression... (type: String)
+      // Or an expression... (String)
       if true {
         "True"
       } else {
         "false"
       }
 
-      // Which includes other Html tags (type: Html)
+      // Which includes other Html tags (Html)
       <span>"I'm a span!"</span>
 
-      // Or a block
+      // Or a block (String)
       {
         let name = "Joe"
 
@@ -106,13 +106,22 @@ module References {
     ## Fragments
 
     If you need to group together some content but you don't want to use an
-    element then you can use a **fragment**:
+    element then you can use a **fragment** (will be the type `Html`):
 
     ```mint
     <>
       <span>"I'm a span!"</span>
       <strong>"I'm bold!"</strong>
     </>
+    ```
+
+    or alternatively an array of elements (will be the type `Array(Html)`):
+
+    ```mint
+    [
+      <span>"I'm a span!"</span>,
+      <strong>"I'm bold!"</strong>
+    ]
     ```
     MARKDOWN
 }

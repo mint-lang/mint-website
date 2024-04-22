@@ -68,7 +68,7 @@ module Lessons {
       contents:
         <<#MARKDOWN(highlight)
         The `case` expression allows us to say "if the data has this shape
-        then do that", which we call _pattern matching_.
+        then, do that", which we call _pattern matching_.
 
         Here we match on a `Number` and return a specific string for the
         values `0`, `1`, and `2`. The final branch matches any other value
@@ -83,8 +83,8 @@ module Lessons {
         }
         ```
 
-        The `case` expression is more powerful than this simple example shows
-        and we will be covering it in other lessons.
+        The `case` expression is more powerful than this simple example shows,
+        and we will be covering it in other lessons (pattern matching).
 
         As an exercise, you can add the branches for `3` and `4`.
         MARKDOWN

@@ -13,18 +13,13 @@ module Lessons {
                   animation: animate infinite 1s;
 
                   /* An at-rule for responsive design. */
-                  @media (max-width: 600px) {
+                  @media (max-width: 1000px) {
                     color: orange;
                   }
 
                   @keyframes animate {
-                    from {
-                      opacity: 0;
-                    }
-
-                    to {
-                      opacity: 1;
-                    }
+                    from { opacity: 0; }
+                    to { opacity: 1; }
                   }
                 }
 

@@ -28,13 +28,21 @@ module Lessons {
         `If` expressions can have a `let` statement with a pattern instead of
         the usual boolean condition.
 
-        In that case, the truthy branch is only returned if the pattern matches
-        the given value. All destructured variables are available in the truthy
+        ```mint
+        if let Just(value) = Maybe.Just("Hello") {
+          // The destructuring is successfull...
+        } else {
+          // The destructuring if unsuccessfull...
+        }
+        ```
+
+        In that case, the main branch is only returned if the pattern matches
+        the given value. All destructured variables are available in the main
         branch.
 
         This is basically a syntax sugar for a two branch `case` expression,
         however, there are some cases where it's useful to have less
-        indentation.
+        indentation or to omit the else branch.
         MARKDOWN
     }
 }

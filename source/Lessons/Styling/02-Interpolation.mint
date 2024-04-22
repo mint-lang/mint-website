@@ -51,7 +51,7 @@ module Lessons {
         }
         ```
 
-        In the case above if the `color` entity changes it will reflect in the
+        In the case above, if the `color` entity changes it will reflect in the
         color of the element.
 
         You can have many interpolations in a value:

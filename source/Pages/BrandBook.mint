@@ -28,16 +28,16 @@ component Pages.BrandBook.MeasuredLogo {
     position: relative;
     font-weight: normal;
     font-size: 12px;
+  }
 
-    img {
-      height: #{height}px;
-      width: #{width}px;
+  style image {
+    height: #{height}px;
+    width: #{width}px;
 
-      if dark {
-        border: 1px dashed #333;
-      } else {
-        border: 1px dashed #DDD;
-      }
+    if dark {
+      border: 1px dashed #333;
+    } else {
+      border: 1px dashed #DDD;
     }
   }
 
@@ -132,7 +132,7 @@ component Pages.BrandBook.MeasuredLogo {
         <div::height>"#{height + padding * 2}px"</div>
         <div::width>"#{width + padding * 2}px"</div>
         <div::padding>"#{padding}px"</div>
-        <img src={logo}/>
+        <img::image src={logo}/>
       </div>
     </div>
   }
@@ -184,6 +184,13 @@ async component Pages.BrandBook {
     display: grid;
   }
 
+  style icons {
+    grid-auto-flow: column;
+    justify-content: start;
+    grid-gap: 20px;
+    display: grid;
+  }
+
   fun color (name : String, hsl : String, hex : String) : Html {
     <div::color>
       <div::color-circle(hex)/>
@@ -210,18 +217,19 @@ async component Pages.BrandBook {
 
         ## Logos
 
-        The logo was always inspired by **mint leaves** as a symbol of of
+        The logo was always inspired by **mint leaves** as a symbol of
         **wisdom**, **knowledge**, and **intelligence** also it represents
         **thoughtfulness** and **hospitality**. The vibrant green color of mint
         leaves symbolizes **freshness**, **vitality**, **nature**, and
         **tranquility**.
 
-        The font for the wordmark is Forum, a serif font which gives the logo a
-        more formal, classic, and traditional feel.
+        The font for the word mark is Forum, a serif font which gives the logo
+        a more formal, classic, and traditional feel.
 
-        The logos doesn't contain any padding so you need to add it as
-        you can see it below along with the dimensions.
+        The logos don't contain any padding so you need to add it as you can
+        see it below along with the dimensions.
         MARKDOWN
+        |> ContentInstrumenter.instrument
 
         <p::logos>
           <Pages.BrandBook.MeasuredLogo
@@ -290,7 +298,16 @@ async component Pages.BrandBook {
             width={200}/>
         </p>
 
-        <h2>"Colors"</h2>
+        <h2>
+          <a
+            href="#colors"
+            name="colors">
+
+            "Colors"
+
+          </a>
+        </h2>
+
         <p>"The first 5 colors are the primary colors the others are the secondary colors."</p>
 
         <p::colors>
@@ -309,7 +326,7 @@ async component Pages.BrandBook {
         <<#MARKDOWN
         ## Typography
 
-        See below the font families and their useage.
+        See below the font families and their usage.
 
         ### [Forum] &nbsp;for Headings, Title Case, Dark Charcoal
 
@@ -318,7 +335,32 @@ async component Pages.BrandBook {
 
         [Noto Sans]: https://fonts.google.com/noto/specimen/Noto+Sans
         [Forum]: https://fonts.google.com/specimen/Forum
+
+        ## Iconography
+
+        We use [Tabler Icons] for icons, outline style.
+
+        [Tabler Icons]: https://tabler.io/icons
         MARKDOWN
+        |> ContentInstrumenter.instrument
+
+        <p::icons>
+          <Icon
+            icon={TablerIcons.HOME}
+            size={30}/>
+
+          <Icon
+            icon={TablerIcons.DOWNLOAD}
+            size={30}/>
+
+          <Icon
+            icon={TablerIcons.PALETTE}
+            size={30}/>
+
+          <Icon
+            icon={TablerIcons.CODE}
+            size={30}/>
+        </p>
       </Content>
     </div>
   }

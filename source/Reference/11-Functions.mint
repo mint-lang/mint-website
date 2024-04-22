@@ -101,8 +101,7 @@ module References {
     greet(suffix: "?", name: "Bob")
     ```
 
-    > #{TablerIcons.ALERT_CIRCLE} Normal arguments and named arguments cannot
-    be used together.
+    > Normal arguments and named arguments cannot be used together.
 
     ## Functions as arguments
 
@@ -131,7 +130,7 @@ module References {
 
     Functions have a specific type signature, like everything else in Mint.
     The type for the function includes the types of its arguments (in
-    parentheses) and the return value (as last) in list.
+    parentheses) and the return value (as last) in a list.
 
     For a function like:
 
@@ -149,9 +148,7 @@ module References {
     Function(String, Html)
     ```
 
-    This can be read as:
-
-    > A function which takes a `String` and returns `Html`
+    This can be read as: a function which takes a `String` and returns `Html`.
 
     ## Anonymous functions
 
@@ -193,9 +190,9 @@ module References {
     fibonacci(10)
     ```
 
-    > #{TablerIcons.ALERT_CIRCLE} Be careful when using recursive
-    functions, the type-checker does not check if there is an exit condition,
-    if there is not, it will cause an infinite loop at runtime.
+    > Be careful when using recursive functions, the type-checker does not
+    check if there is an exit condition, if there is not, it will cause an
+    infinite loop at runtime.
 
     ## Pipe operator
 

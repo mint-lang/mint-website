@@ -23,7 +23,7 @@ module Lessons {
       contents:
         <<#MARKDOWN(highlight)
         There are cases where you don't want to wrap multiple `HTML` elements
-        with a `div` (for example). In those cases, you can use a **HTML
+        with a `div` (for example). In those cases, you can use an **HTML
         fragment**.
 
         It's written as an HTML tag without a tag name:
@@ -36,7 +36,7 @@ module Lessons {
         </>
         ```
 
-        HTML fragments can only have one attribute `key` which is used to
+        HTML fragments can only have one attribute `key`, which is used to
         identify the fragment in specific cases, which we will cover later.
         MARKDOWN
     }

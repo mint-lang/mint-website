@@ -1,5 +1,5 @@
 module Lessons {
-  const LANGUAGE_FUNCTION_CALLS =
+  const LANGUAGE_CALLS =
     {
       files:
         [
@@ -26,7 +26,7 @@ module Lessons {
         ],
       contents:
         <<#MARKDOWN(highlight)
-        You can call on any value using parentheses `()` provided that it's type
+        You can call on any value using parentheses `()` provided that its type
         is `Function(...)`. Call arguments go inside the parentheses separated by
         commas.
 

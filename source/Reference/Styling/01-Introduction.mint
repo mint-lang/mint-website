@@ -3,7 +3,7 @@ module References {
     <<#MARKDOWN(highlight)
     # Styling
 
-    CSS is used to style HTML elements with some differences mainly that they
+    CSS is used to style HTML elements with some differences, mainly that they
     are more dynamic. We support nested selectors, [control flow] (with [if
     expressions] and [case expressions]), [interpolation] and [arguments] (like
     in a function).

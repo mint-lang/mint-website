@@ -52,11 +52,11 @@ module Lessons {
         You can pattern match on the structure of an `Array`, basically
         assigning variables to its items based on its content.
 
-        In the example on the right you can see how the items can be matched
+        In the example on the right, you can see how the items can be matched
         and destructured.
 
         You can play around with the array and see if you can make it match
-        each of the branches - the solution will give you one and you might
+        each of the branches - the solution will give you one, and you might
         need to remove some branches to make others work!
         MARKDOWN
     }

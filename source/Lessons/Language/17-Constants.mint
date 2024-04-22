@@ -49,7 +49,7 @@ module Lessons {
         PI * 2 // 6.28318530718
         ```
 
-        To access them outside of the scope they are defined in you can use
+        To access them outside the scope they are defined in, you can use
         the dot `.` syntax:
 
         ```mint
@@ -60,7 +60,7 @@ module Lessons {
         Math.PI * 2 // 6.28318530718
         ```
 
-        As an exercise you can move the `NAME` constant into a module named
+        As an exercise, you can move the `NAME` constant into a module named
         `Greeter`!
         MARKDOWN
     }

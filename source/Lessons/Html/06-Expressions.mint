@@ -27,8 +27,8 @@ module Lessons {
         ],
       contents:
         <<#MARKDOWN(highlight)
-        At some point you will want to display some data in your HTML and the
-        main way to do it by just putting them there 😄
+        At some point you will want to display some data in your HTML, and the
+        main way to do it by just putting them there!
 
         You are allowed to put any expression as a child of any HTML tag:
 
@@ -51,7 +51,7 @@ module Lessons {
         Array(String)
         ```
 
-        You can use a block to gather expressions togather without displaying
+        You can use a block to gather expressions together without displaying
         them:
 
         ```mint

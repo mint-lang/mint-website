@@ -3,9 +3,9 @@ module Guides {
     <<#MARKDOWN(highlight)
     # Init
 
-    The `init` command scaffolds a new project. By default it will scaffold an
-    example project with some helpful content but if can be configured to
-    generate an plain empty project using the `--bare` flag.
+    The `init` command scaffolds a new project. By default, it will scaffold an
+    example project with some helpful content, but it can be configured to
+    generate a plain empty project using the `--bare` flag.
 
     ```bash
     ➔ mint init my-project

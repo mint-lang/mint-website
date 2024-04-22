@@ -5,7 +5,32 @@ module Lessons {
         [
           {
             path: "Main.mint",
-            solution: "",
+            solution:
+              <<~MINT
+              /* Represents the status of a request. */
+              type Status(error, value) {
+                Errored(error)
+                Loaded(value)
+                Loading
+                Idle
+              }
+
+              component Main {
+                fun render : Html {
+                  let user =
+                    Status.Idle
+
+                  <div>
+                    case user {
+                      Errored(error) => "An error happened: \#{error}!"
+                      Loaded(value) => value
+                      Loading => "Loading..."
+                      Idle => ""
+                    }
+                  </div>
+                }
+              }
+              MINT,
             contents:
               <<~MINT
               /* Represents the status of a request. */
@@ -36,8 +61,8 @@ module Lessons {
         ],
       contents:
         <<#MARKDOWN(highlight)
-        Custom types can be generic, meaning that you can specify relationships
-        using type variables.
+        Custom types (like we created in the previous lesson) can be generic,
+        meaning that you can specify relationships using type variables.
 
         An example for this is the `Result` type:
 

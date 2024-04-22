@@ -3,17 +3,24 @@ component Icon {
   /* The click event handler. */
   property onClick : Function(Html.Event, Promise(Void)) = Promise.never1
 
+  property href = ""
+
   /* Whether or not the icon is disabled. */
   property disabled : Bool = false
 
   /* The actual SVG icon. */
   property icon : Html = <></>
 
+  property size : Number = 24
+
   /* The styles for the icon. */
-  style base {
+  style root {
     justify-content: center;
     display: inline-flex;
     align-items: center;
+
+    text-decoration: none;
+    color: inherit;
 
     if disabled {
       cursor: not-allowed;
@@ -29,8 +36,8 @@ component Icon {
 
     svg {
       fill: currentColor;
-      height: 24px;
-      width: 24px;
+      height: #{size}px;
+      width: #{size}px;
 
       if disabled {
         opacity: 0.5;
@@ -41,18 +48,24 @@ component Icon {
   }
 
   fun render : Html {
-    <div::base
-      tabindex="0"
-      onClick={
-        (event : Html.Event) {
-          if !disabled {
-            onClick(event)
+    if String.isEmpty(href) {
+      <div::root
+        tabindex="0"
+        onClick={
+          (event : Html.Event) {
+            if !disabled {
+              onClick(event)
+            }
           }
-        }
-      }>
+        }>
 
-      icon
+        icon
 
-    </div>
+      </div>
+    } else {
+      <a::root href={href}>
+        icon
+      </a>
+    }
   }
 }

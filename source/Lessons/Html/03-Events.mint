@@ -1,7 +1,6 @@
 module Lessons {
   const HTML_EVENTS =
     {
-
       files:
         [
           {
@@ -21,7 +20,7 @@ module Lessons {
         ],
       contents:
         <<#MARKDOWN(highlight)
-        You can set event handlers on HTML elements using the `on*` attributes:
+        You can set event handlers on HTML elements using the `on` attributes:
 
         ```mint
         <div onClick={() { Window.alert("Hello!") }}>

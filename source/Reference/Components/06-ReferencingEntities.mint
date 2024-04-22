@@ -11,14 +11,7 @@ module References {
     ```mint
     component Main {
       fun handleClick : Promise(Void) {
-        case input {
-          Nothing => next { }
-          Just(element) =>
-            {
-              await Dom.focusWhenVisible(element)
-              next {}
-            }
-        }
+        Dom.focus(input)
       }
 
       fun render : Html {
@@ -74,5 +67,4 @@ module References {
     }
     ```
     MARKDOWN
-
 }

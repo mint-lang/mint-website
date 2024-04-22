@@ -34,12 +34,12 @@ module Lessons {
         [at-rules]: https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule
 
         If you are familiar with CSS preprocessors llike [Sass] or [Less] then
-        you propbably know how they work.
+        you probably know how they work.
 
         [Sass]: https://en.wikipedia.org/wiki/Sass_(style_sheet_language)
         [Less]: https://en.wikipedia.org/wiki/Less_(style_sheet_language)
 
-        Basically instead of writing multiple descendant selectors like this:
+        Basically, instead of writing multiple descendant selectors like this:
 
         ```mint
         style root {

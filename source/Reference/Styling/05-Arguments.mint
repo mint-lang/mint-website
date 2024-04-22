@@ -26,6 +26,6 @@ module References {
     The arguments work exactly like they do on [functions] so default arguments
     and named arguments are supported.
 
-    [functions]: /reference/function
+    [functions]: /reference/functions
     MARKDOWN
 }

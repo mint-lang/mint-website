@@ -42,15 +42,15 @@ module Lessons {
         ],
       contents:
         <<#MARKDOWN(highlight)
-        The `@highlight` directive returns the value of the block and it's
+        The `@highlight` directive returns the value of the block, and its
         syntax highlighted version as `Tuple(a, Html)`.
 
-        In the example on the right we render a button a display it's
+        In the example on the right, we render a button a display its
         highlighted source code below it with some styles.
 
         ------------------------------------------------------------------------
 
-        For more information check out the [reference page].
+        For more information, check out the [reference page].
 
         [reference page]: /reference/directives/highlight
         MARKDOWN

@@ -19,10 +19,10 @@ component Pages.Home {
       font-weight: normal;
     }
 
-    div > p {
+    div > p:first-of-type {
       line-height: 1.5;
       font-size: 20px;
-      margin: 0;
+      margin: 30px 0;
     }
 
     div > img {
@@ -30,6 +30,27 @@ component Pages.Home {
       display: block;
       height: auto;
       width: 200px;
+    }
+  }
+
+  style alternative {
+    margin-top: 30px;
+    display: block;
+    opacity: 0.75;
+
+    text-decoration: none;
+    font-size: 16px;
+    color: inherit;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    svg {
+      vertical-align: middle;
+      margin-left: 4px;
+      height: 16px;
+      width: 16px;
     }
   }
 
@@ -43,8 +64,7 @@ component Pages.Home {
     outline-offset: 2px;
 
     border-radius: 4px;
-    padding: 12px 18px;
-    margin-top: 20px;
+    padding: 12px 25px;
     border: 0;
 
     text-shadow: 0 0 2px #329754;
@@ -88,15 +108,20 @@ component Pages.Home {
 
           <h1>"The programming language for writing single page applications"</h1>
 
-          <p>
-            <<#MARKDOWN
-            Mint has all the tools you need to write **error free**, **easily
-            readable** and **maintainable** applications in **record time**.
-            MARKDOWN
-          </p>
+          <<#MARKDOWN
+          Mint has all the tools you need to write **error free**, **easily
+          readable** and **maintainable** applications in **record time**.
+          MARKDOWN
 
-          <a::button href="/guide/getting-started">
-            "Get Started"
+          <a::button href="/tutorial">
+            "Tutorial"
+            TablerIcons.ARROW_BIG_RIGHT_LINES
+          </a>
+
+          <a::alternative href="/guides/getting-started">
+            "or check out the "
+            <b>"getting started"</b>
+            " guide"
             TablerIcons.ARROW_RIGHT
           </a>
         </div>
@@ -314,7 +339,7 @@ component Pages.Home {
       <Divider/>
 
       <Section
-        title="Interopability"
+        title="Interoperability"
         flipped={true}
         snippet={
           snippet(
@@ -347,11 +372,11 @@ component Pages.Home {
 
         - **`encode`** - converts a typed value into a JavaScript object
         - **`decode`** - converts a JavaScript object into a typed value
-        - **\`...\`** - inline JavaScript with interpolations
+        - **\`...\`** - inlines JavaScript with interpolations
         MARKDOWN
 
-        <a href="/reference/javascript-interopbility/inlining">
-          "Interopability Reference"
+        <a href="/reference/javascript/inlining">
+          "Inlining Reference"
         </a>
 
       </Section>

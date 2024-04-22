@@ -16,16 +16,19 @@ module References {
     }
     ```
 
-    There are some entities where their bodies are blocks:
-      [html attributes](/reference/html),
-      [for expressions](/reference/control-flow/for),
-      [functions](/reference/functions),
-      [computed properties](/reference/components/computed-properties),
-      [tests](/reference/tests),
-      [routes](/reference/routes),
-      [if expressions](/reference/control-flow/if),
-      [highlight directives](/reference/directives/highlight) and
-      [format directives](/reference/directives/format).
+    There are some entities where their bodies are blocks: [html attributes],
+    [for expressions], [functions], [computed properties], [tests], [routes],
+    [if expressions], [highlight directives] and [format directives].
+
+    [computed properties]: /reference/components/computed-properties
+    [highlight directives]: /reference/directives/highlight
+    [format directives]: /reference/directives/format
+    [for expressions]: /reference/control-flow/for
+    [html attributes]: /reference/html#attributes
+    [if expressions]: /reference/control-flow/if
+    [functions]: /reference/functions
+    [routes]: /reference/routes
+    [tests]: /reference/testing
 
     ## Early Return
 
@@ -47,7 +50,7 @@ module References {
     ```mint
     {
       let whatsThis =
-        (value : Maybe(String)) {
+        (maybe : Maybe(String)) {
           let Maybe.Just(value) = maybe or return "It's nothing!"
 
           "It's a \#{value}!"

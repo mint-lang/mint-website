@@ -28,11 +28,11 @@ module Lessons {
         ],
       contents:
         <<#MARKDOWN(highlight)
-        Functions play a central role in Mint. For instance, every component
-        **must** have a `render` function. That's why it's crucial you have a
-        good understanding of how they work.
+        Functions play a central role, for instance, every component **must**
+        have a `render` function. That's why it's crucial you have a good
+        understanding of how they work.
 
-        In Mint, every function starts with the `fun` keyword then name (a
+        Every function starts with the `fun` keyword then name (a
         lowercase letter followed by letters and numbers). After the name (or
         arguments) is the definition for the return type of the function.
 
@@ -49,7 +49,7 @@ module Lessons {
         }
         ```
 
-        We can even declare multiple variables at once:
+        We can even declare multiple variables:
 
         ```mint
         component Main {

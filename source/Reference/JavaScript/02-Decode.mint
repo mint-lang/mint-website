@@ -15,8 +15,10 @@ module References {
 
     You can decode JavaScript values into Mint **primitive values**, (`String`,
     `Bool`, `Number`, `Time`) **simple structures** (`Maybe(a)`, `Set(a)`,
-    `Map(a,b)`, `Array(a)`) and [**composite types**](/reference/custom-types#composite_type)
-    which only have the previously mentioned values.
+    `Map(a,b)`, `Array(a)`) and [composite types] which only have the
+    previously mentioned values.
+
+    [composite types]: /reference/types/custom-types#composite-type
 
     > If you try to decode a type which is not supported or try to decode
     something that is not an `Object`, you will get a nice error message.
@@ -30,18 +32,22 @@ module References {
     }
 
     component Main {
-      fun render : Html {
+      fun render : String {
         let jsonString =
-          "{\"name\": \"John\", \"age\": 30 }"
+          <<~JSON
+          {
+            "name": "John",
+            "age": 30
+          }
+          JSON
 
-        case Json.parse(jsonString) {
-          Err => "Could not parse the JSON string!"
-          Ok(object) =>
-            case decode object as User {
-              Err => "Can't decode User"
-              Ok(user) => user.name
-            }
-        }
+        let Ok(object) =
+          Json.parse(jsonString) or return "Could not parse the JSON string!"
+
+        let Ok(user) =
+          decode object as User or return "Can't decode User"
+
+        user.name
       }
     }
     ```

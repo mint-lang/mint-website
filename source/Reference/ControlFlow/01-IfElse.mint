@@ -102,7 +102,7 @@ module References {
     }
     ```
 
-    If the destrcuturing is successfull then the truthy branch will be returned
+    If the destrcuturing is successfull then the main branch will be returned
     (and all variables of the destructuring is available), if it cannot be
     destrcutured then the `else` branch will be returned.
 

@@ -54,12 +54,12 @@ module Lessons {
         }
         ```
 
-        In the example above the `data.txt` is in the same directory as the
+        In the example above, the `data.txt` is in the same directory as the
         `Main.mint` file.
 
         ------------------------------------------------------------------------
 
-        For more information check out the [reference page].
+        For more information, check out the [reference page].
 
         [reference page]: /reference/directives/asset
         MARKDOWN

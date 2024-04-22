@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "dependencies": {
+    "csv": "^6.3.8",
+    "puppeteer": "^22.6.4"
+  }
+}

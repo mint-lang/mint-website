@@ -43,10 +43,10 @@ module Lessons {
         ],
       contents:
         <<#MARKDOWN(highlight)
-        Components can connect to stores in order to subsribe to changes of
+        Components can connect to stores in order to subscribe to changes of
         their data and reference their states and functions.
 
-        In the example on the right you can see a variation of the counter
+        In the example on the right, you can see a variation of the counter
         example where the data is stored in a store.
 
         The `Main` component connects to the `Counter` store with the `connect`

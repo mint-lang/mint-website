@@ -1,16 +1,19 @@
 async component Footer {
-  connect Application exposing { isWide, mobile }
+  connect Breakpoints exposing { isMobile }
+  connect Application exposing { isWide }
 
   /* Styles for the root element. */
   style root {
     border-top: 3px double #EEE;
     padding: 40px 20px;
+    position: relative;
     margin-top: 100px;
+    z-index: 11;
 
     background-clip: padding-box;
     backdrop-filter: blur(3px);
 
-    if mobile {
+    if isMobile {
       background-color: rgba(255, 255, 255, 0.5);
       margin-top: 50px;
       padding: 20px;
@@ -26,7 +29,7 @@ async component Footer {
     max-width: 1280px;
     margin: 0 auto;
 
-    if mobile {
+    if isMobile {
       grid-template-columns: 1fr;
     }
   }
@@ -37,7 +40,7 @@ async component Footer {
     grid-gap: 50px;
     display: grid;
 
-    if mobile {
+    if isMobile {
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       grid-auto-flow: row;
       grid-gap: 20px;

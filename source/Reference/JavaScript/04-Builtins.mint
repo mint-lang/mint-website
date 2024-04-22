@@ -4,7 +4,8 @@ module References {
     # Builtins
 
     > This is an implementation feature, if you need to use this you should
-      get in contact with a maintainer.
+      get in contact with a maintainer. This documentation is for
+      informational purposes only.
 
     Mint has a [runtime] written in JavaScript which is basically a collection
     of functions that cannot be implemented in Mint and are needed for rendering,
@@ -38,6 +39,6 @@ module References {
     These are the currently exposed builtins: `decodeBoolean`, `decodeNumber`,
     `decodeString`, `decodeArray`, `decodeField`, `decodeMaybe`, `decodeTime`,
     `locale`, `normalizeEvent`, `createPortal`, `testContext`, `testRender`,
-    `setLocale`, `navigate`, `compare`, `nothing`, `just`, `err`, `ok`
+    `setLocale`, `navigate`, `compare`, `nothing`, `just`, `err` and `ok`.
     MARKDOWN
 }

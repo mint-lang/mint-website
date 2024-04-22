@@ -9,12 +9,6 @@ module Lessons {
             contents:
               <<~MINT
               component Main {
-                style ol {
-                  li + li {
-                    margin-top: 10px;
-                  }
-                }
-
                 const TEXT =
                   defer <<~PLAIN
                   This was loaded on demand!
@@ -24,7 +18,7 @@ module Lessons {
                   defer (value : String) { Window.alert(value) }
 
                 fun render : Html {
-                  <ol::ol>
+                  <ol>
                     <li>"Open the developer tools tab"</li>
                     <li>"Open the network tab"</li>
                     <li>
@@ -52,8 +46,8 @@ module Lessons {
         There are some scenarios when you don't want to load a piece of code
         up-front. Mint has a built-in feature for this with the `defer` keyword.
 
-        The thing after the `defer` keyword will be bundled into a different
-        file, which can be loaded later on with the `await` keyword:
+        The expression after the `defer` keyword will be bundled into a
+        different file, which can be loaded later on with the `await` keyword:
 
         ```mint
         let deferred =
@@ -66,7 +60,7 @@ module Lessons {
         ```
 
         The deferred things are actually separated at compile time so they
-        don't have any runtime cost. To learn more about it check out its
+        don't have any runtime cost. To learn more about it, check out its
         [reference](/reference/control-flow/defer).
 
         Check the example on the right to see how it works!

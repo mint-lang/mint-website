@@ -54,12 +54,12 @@ module Lessons {
         The `@highlight-file` directive is similar to the `@highlight`
         directive, but it highlights a file instead of a block.
 
-        In the example on the right we display the `Button.mint` file
+        In the example on the right, we display the `Button.mint` file
         highlighted with some styles.
 
         ------------------------------------------------------------------------
 
-        For more information check out the [reference page].
+        For more information, check out the [reference page].
 
         [reference page]: /reference/directives/highlight-file
         MARKDOWN

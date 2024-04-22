@@ -39,7 +39,7 @@ module Lessons {
         }
         ```
 
-        Statements in a block are evaluated sequentially from top to bottom and
+        Statements in a block are evaluated sequentially from top to bottom, and
         the value from the last statement is returned.
         MARKDOWN
     }

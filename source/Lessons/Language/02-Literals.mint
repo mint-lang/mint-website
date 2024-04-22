@@ -30,7 +30,10 @@ module Lessons {
         ],
       contents:
         <<#MARKDOWN(highlight)
-        ## Boolean
+        The usual literal types like on other programming languages are
+        available in Mint as well (strings are in the next chapter).
+
+        ### Boolean
 
         Represents the `Boolean` type. It has two possible values `true` and
         `false`.
@@ -39,7 +42,8 @@ module Lessons {
         false // A Bool that is false
         true  // A Bool that is true
         ```
-        ## Number
+
+        ### Number
 
         Represents a `Number`. In Mint, all numbers are floats.
 
@@ -49,7 +53,7 @@ module Lessons {
         -10
         ```
 
-        ## Regexp
+        ### Regexp
 
         Regular expressions are represented by the `Regexp` type.
 

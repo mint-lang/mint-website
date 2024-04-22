@@ -56,7 +56,7 @@ module Guides {
 
     **Elm**
 
-    In Elm, you assign variables in let-blocks and you cannot re-assign
+    In Elm, you assign variables in let-blocks, and you cannot re-assign
     variables within a let-block. You also cannot create a variable with the
     same name as a variable from a higher scope.
 
@@ -70,7 +70,7 @@ module Guides {
     **Mint**
 
     Mint has the `let` keyword before its variable names. You cannot re-assign
-    variables and you cannot shadow variables from other scopes.
+    variables, and you cannot shadow variables from other scopes.
 
     ```mint
     let size = 50
@@ -93,7 +93,7 @@ module Guides {
 
     **Mint**
 
-    In Mint constants can be created using the `const` keyword, in specific
+    In Mint, constants can be created using the `const` keyword, in specific
     entities (like modules).
 
     ```mint
@@ -144,10 +144,9 @@ module Guides {
 
     **Mint**
 
-    Mint's functions are declared using a syntax similar to Rust or JavaScript.
-
-    Mint's anonymous functions are declared without using the `fun` keyword and
-    the name of course.
+    Mint's functions are declared using a syntax similar to Rust or JavaScript,
+    whereas anonymous functions are declared without using the `fun` keyword
+    and the name, of course.
 
     ```mint
     fun sum(x : Number, y : Number) {
@@ -187,7 +186,7 @@ module Guides {
       x + y
     }
 
-    fun multiply(x: Int, y: Int) : Bool {
+    fun multiply(x: Number, y: Number) : Bool {
       x * y // compile error, type mismatch
     }
     ```
@@ -197,7 +196,7 @@ module Guides {
     **Elm**
 
     Elm has no built-in way to label arguments. Instead, it is standard for a
-    function to expect a record as an argument in which the field names would
+    function to expect a record as an argument, in which the field names would
     serve as the argument labels. This can be combined with providing a
     'defaults' value of the same record type, where callers can override only
     the fields that they want to differ from the default.
@@ -221,7 +220,7 @@ module Guides {
 
     **Mint**
 
-    In Mint functions can be called with the arguments name.
+    In Mint, functions can be called with the arguments name.
 
     ```mint
     fun replace(string: String, pattern: String, replacement: String) {
@@ -233,15 +232,15 @@ module Guides {
     replace(pattern: ",", replacement: " ", string: "A,B,C")
     ```
 
-    There is no performance cost to Mint's labelled arguments as they are
-    optimised to regular function calls at compile time, and all the arguments
+    There is no performance cost to Mint's labelled arguments, as they are
+    optimized to regular function calls at compile time, and all the arguments
     are fully type checked.
 
     ## Modules
 
     **Elm**
 
-    In Elm, the `module` keyword allows to create a module. Each module maps to
+    In Elm, the `module` keyword allows creating a module. Each module maps to
     a single file. The module name must be explicitly stated and must match the
     file name.
 
@@ -256,7 +255,7 @@ module Guides {
     **Mint**
 
     Mint is using the `module` keyword as well, and any entity defined inside
-    it's block belongs to the module. Because of this modules are not tied to
+    its block belongs to the module. Because of this, modules are not tied to
     files.
 
     ```mint
@@ -319,7 +318,7 @@ module Guides {
 
     **Mint**
 
-    In Mint braces `{` `}` are used to group expressions.
+    In Mint, braces `{` `}` are used to group expressions.
 
     ```mint
     fun calculate {
@@ -342,8 +341,8 @@ module Guides {
 
     **Elm**
 
-    Elm has `Int` and `Float` as separate number types and it has a built-in
-    `number` concept that allows it to treat `Int` and `Float` generically so
+    Elm has `Int` and `Float` as separate number types, and it has a built-in
+    `number` concept that allows it to treat `Int` and `Float` generically, so
     operators like `+` can be used for two `Int` values or two `Float` values
     though not for an `Int` and a `Float`
 
@@ -358,7 +357,7 @@ module Guides {
     **Elm**
 
     ```elm
-    "Hellø, world!"
+    "Hello, world!"
     ```
 
     Strings in Elm are combined using the `++` operator.
@@ -371,7 +370,7 @@ module Guides {
     **Mint**
 
     ```mint
-    "Hellø, world!"
+    "Hello, world!"
     ```
 
     Similar to Elm, you can combine strings, for that Mint uses the operator `+`
@@ -423,7 +422,8 @@ module Guides {
       }
     ```
 
-    The type of the record is derived by the compiler. In this case it would be:
+    The type of the record is derived by the compiler. In this case, it
+    would be:
 
     ```elm
     { name : String, age : number }
@@ -479,7 +479,7 @@ module Guides {
 
     ### Lists / Arrays
 
-    Both Elm and Mint support containers of items where all items have to be of
+    Both Elm and Mint support containers of items, where all items have to be of
     the same type.
 
     **Elm**
@@ -539,7 +539,7 @@ module Guides {
 
     ## Operators
 
-    Operators in Mint work the same as in Elm expect for concatenation which
+    Operators in Mint work the same as in Elm, expect for concatenation which
     is `++` in Elm and `+` in Mint.
 
     Check the [operators reference](/reference/operators) for more information.
@@ -568,7 +568,7 @@ module Guides {
     **Mint**
 
     Mint's custom types can be used in much the same way. At runtime, they are
-    plain JavaScript objects so there is little overhead.
+    plain JavaScript objects, so there is little overhead.
 
     ```mint
     type Person {
@@ -706,7 +706,7 @@ module Guides {
 
     **Mint**
 
-    Mint has also has a built-in if-expression syntax.
+    Mint also has a built-in if-expression syntax.
 
     ```mint
     let description =
@@ -719,7 +719,7 @@ module Guides {
 
     ## Case expressions
 
-    Both Mint and Elm support case-expressions for pattern matching on values
+    Both Mint and Elm support case-expressions for pattern matching on values,
     including custom types.
 
     **Elm**
@@ -763,21 +763,21 @@ module Guides {
 
     **Mint**
 
-    Mint has **inlining** for talking to JavaScript is which means that you can
-    write JavaScript code between bacticks:
+    Mint has **inlining** for talking to JavaScript is, which means that you can
+    write JavaScript code between backticks:
 
     ```mint
     let confirmed = `window.confirm("Are you sure")` as Bool
     ```
 
-    This is **unsafe** so when using is make sure you always wrap it in a
+    This is **unsafe**, so when using is make sure you always wrap it in a
     `try` statement and handle any error that might happen.
 
     ## Commands
 
     **Elm**
 
-    Elm is a pure language so all side-effects, eg. making an HTTP request, are
+    Elm is a pure language so all side effects, e.g. making an HTTP request, are
     managed by the command system. This means that functions for making HTTP
     requests return an opaque command value that you return to the runtime,
     normally via the update function, in order to execute the request.
@@ -785,7 +785,7 @@ module Guides {
     **Mint**
 
     Mint is not a pure language and so does not have a command system for
-    managing side-effects. Any function can directly perform side effects and
+    managing side effects. Any function can directly perform side effects and
     where necessary will manage success and failure using the `Result` type or
     other more specific custom types.
 

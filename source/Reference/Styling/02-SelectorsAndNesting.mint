@@ -11,21 +11,21 @@ module References {
     ```mint
     component Main {
       style root {
-        /* A CSS property. */
+        // A CSS property.
         color: cyan;
 
-        /* This is a sub rule which uses the descendant selector. */
+        // This is a sub rule which uses the descendant selector.
         a {
           color: blue;
 
-          // This is a nested selector, the ampersand character references
-          // the rule it resides in.
+          // This is a nested selector, the ampersand character
+          // references the rule it resides in.
           &:focus {
             color: red;
           }
         }
 
-        /* An at-rule for responsive design. */
+        // An at-rule for responsive design.
         @media (max-width: 600px) {
           color: orange;
         }

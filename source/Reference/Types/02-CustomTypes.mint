@@ -80,8 +80,8 @@ module References {
       }
     }
 
-    isLoggedIn(UserState.LoggedIn(user)) /* true */
-    isLoggedIn(UserState.Visitor) /* false */
+    isLoggedIn(UserState.LoggedIn(user)) // true
+    isLoggedIn(UserState.Visitor) // false
     ```
 
     As you can see from the code above you can create instances of the type by
@@ -106,10 +106,10 @@ module References {
     It can be used with any types for error and value:
 
     ```mint
-    /* A result where the error and value is both string */
+    // A result where the error and value is both string
     Result(String, String)
 
-    /* An example result type for HTTP requests. */
+    // An example result type for HTTP requests.
     Result(Http.ErrorResponse, Http.Response)
     ```
 

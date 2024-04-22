@@ -48,23 +48,23 @@ module Lessons {
 
         A property have three parts: **name**, **type** and **default value**.
 
-        * The **name** is always required and it's used to indentify the
+        * The **name** is always required, and it's used to identify the
           property.
 
-        * The **type** is optional if there is a **default value** otherwise
+        * The **type** is optional if there is a **default value**, otherwise
           it's required so we know which type the property is.
 
-        * The **default value** is optional if there is a **type** otherwise
+        * The **default value** is optional if there is a **type**, otherwise
           it's required so we know which type the property is.
 
-        Values for the properties are passed using attributes just like with
+        Values for the properties are passed using attributes, just like with
         HTML tags:
 
         ```mint
         <Greeter name="Joe"/>
         ```
 
-        If the values don't match up with the properties then you will get
+        If the values don't match up with the properties, then you will get
         nice error messages!
 
         You can play around with the example, changing the type or the

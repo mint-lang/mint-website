@@ -68,25 +68,27 @@ module Lessons {
       contents:
         <<#MARKDOWN(highlight)
         `let` statements can destructure a pattern instead of just assigning a
-        value to variable.
-
-        If the pattern is not exhaustive then you need to return early with the
-        `or return` keywords.
+        value to a variable:
 
         ```mint
-        {
-          let Just(value) =
-            Maybe.Just("Hello") or return "It's nothing!"
-
-          "It's just \#{value}!"
-        }
+        let {string, number} = {"A", 0}
         ```
 
-        It's good for handling many results with different errors types as seen
+        If the pattern is not exhaustive, then you need to return early with
+        the `or return` keywords.
+
+        ```mint
+        let Just(value) =
+          Maybe.Just("Hello") or return "It's nothing!"
+
+        "It's just \#{value}!"
+        ```
+
+        It's good for handling many results with different errors types, as seen
         in the example on the right.
 
-        Try changing the return value of any of the functions to an error to
-        see how it works!
+        Try changing the return value of the functions to an error to see how
+        it works!
 
         ```mint
         Result.Err("Something went wrong!")

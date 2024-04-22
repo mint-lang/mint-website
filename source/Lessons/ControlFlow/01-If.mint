@@ -56,9 +56,7 @@ module Lessons {
       contents:
         <<#MARKDOWN(highlight)
         As most other languages, Mint has a construct to return different
-        values based on some condition.
-
-        It looks like this:
+        values based on some condition. It looks like this:
 
         ```mint
         if condition {
@@ -68,7 +66,7 @@ module Lessons {
         }
         ```
 
-        Unlike in some languages, `if` in Mint is an expression and not a
+        Unlike in some languages, here `if` is an expression and not a
         statement, and because of this both branches need to return something
         and those need to be of the same type.
 

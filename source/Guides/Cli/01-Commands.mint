@@ -3,7 +3,7 @@ module Guides {
     <<#MARKDOWN(highlight)
     # Commands
 
-    In this section you can find all the commands for the command line
+    In this section, you can find all the commands for the command line
     interface (CLI).
 
     ## Help

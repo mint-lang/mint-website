@@ -39,7 +39,7 @@ module Lessons {
         ],
       contents:
         <<#MARKDOWN(highlight)
-        Mint mostly supports writing HTML as is and you can use any tags you
+        Mint mostly supports writing HTML as is, and you can use any tags you
         would like. It uses a **virtual DOM** to render the defined tags to
         the document (currently [Preact](https://preactjs.com/), but it might
         change in the future).

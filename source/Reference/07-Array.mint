@@ -20,9 +20,9 @@ module References {
     of an empty array:
 
     ```mint
-    []                // Array(a)
-    [1, 2, 3]         // Array(Number)
-    [] of Number      // Array(Number)
+    []           // Array(a)
+    [1, 2, 3]    // Array(Number)
+    [] of Number // Array(Number)
     ```
 
     ## Accessing Items
@@ -47,14 +47,14 @@ module References {
 
     ```mint
     case ["A", "B", "C"] {
-      [] => ""                /* Empty array  */
-      ["a"] => ""             /* Array with only one specific element */
-      [a] => ""               /* Array with only one element */
-      [a, b] => ""            /* Array with only two elements */
       [a, ...middle, b] => "" /* Array at least with two elements (middle can be empty) */
       [...head, tail] => ""   /* Array at one element (head can be empty) */
       [head, ...tail] => ""   /* Array at one element (tail can be empty) */
       [...items] => ""        /* Items would be the array itself */
+      [a, b] => ""            /* Array with only two elements */
+      ["a"] => ""             /* Array with only one specific element */
+      [a] => ""               /* Array with only one element */
+      [] => ""                /* Empty array  */
       => ""                   /* Fallback as usual */
     }
     ```
