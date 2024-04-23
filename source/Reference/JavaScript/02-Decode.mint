@@ -55,7 +55,7 @@ module References {
     ## Decoding not supported keys
 
     There are times when we want to decode an object containing a key whose
-    name is not a valid key, for example `tag_list`. In this case the `using`
+    name is not a valid key, for example, `tag_list`. In this case, the `using`
     keyword can be used to specify the mapping for the key.
 
     ```mint

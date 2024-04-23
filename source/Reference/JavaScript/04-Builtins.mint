@@ -3,7 +3,7 @@ module References {
     <<#MARKDOWN(highlight)
     # Builtins
 
-    > This is an implementation feature, if you need to use this you should
+    > This is an implementation feature, if you need to use this, you should
       get in contact with a maintainer. This documentation is for
       informational purposes only.
 
@@ -22,9 +22,9 @@ module References {
     `\#{%createPortal%}(\#{content}, document.body)`
     ~~~
 
-    In the example above the `%createPortal%` is a builtin. In the compiled
-    version the function will be imported from the runtime and given a name
-    something like this (pseudo code):
+    In the example above, the `%createPortal%` is a builtin. In the compiled
+    version, the function will be imported from the runtime and given a name
+    something like this (pseudocode):
 
     ```js
     import { createPortal as A } from "runtime.js";
@@ -34,7 +34,7 @@ module References {
     ```
 
     Builtins cannot be used elsewhere just in interpolations in inlined
-    JavaScript and they are untyped (their type is `Void`).
+    JavaScript, and they are untyped (their type is `Void`).
 
     These are the currently exposed builtins: `decodeBoolean`, `decodeNumber`,
     `decodeString`, `decodeArray`, `decodeField`, `decodeMaybe`, `decodeTime`,
