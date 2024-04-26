@@ -35,6 +35,5 @@ module References {
       }
     }
     ```
-
     MARKDOWN
 }

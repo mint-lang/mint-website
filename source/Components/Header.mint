@@ -1,27 +1,23 @@
 component Header {
-  connect Application exposing { isWide }
+  connect Application exposing {
+    showMobileMenu,
+    toggleDarkMode,
+    isDarkMode,
+    isMobile,
+    isWide
+  }
 
-  /* Styles for the root element. */
+  // Styles for the root element.
   style root {
-    background-color: rgba(255,255,255,0.5);
-    border-bottom: 3px double #EEE;
-    background-clip: padding-box;
+    border-bottom: 3px double var(--border-color);
+    background-color: var(--blur-color);
     backdrop-filter: blur(3px);
     position: relative;
     padding: 20px;
-    z-index: 11;
-
-    font-family: 'Noto Sans';
-    font-size: 16px;
-
-    if isWide {
-      background: rgba(255,255,255,0.75);
-    } else {
-      background: rgba(255,255,255,0.5);
-    }
+    z-index: 2;
   }
 
-  /* Styles for the wrapper element. */
+  // Styles for the wrapper element.
   style wrapper {
     justify-content: space-between;
     align-items: center;
@@ -33,7 +29,7 @@ component Header {
     }
   }
 
-  /* Styles for the navigation. */
+  // Styles for the navigation.
   style navigation {
     justify-content: center;
     flex-wrap: wrap;
@@ -41,7 +37,7 @@ component Header {
     gap: 30px;
   }
 
-  /* Styles for a navigation item. */
+  // Styles for a navigation item.
   style item {
     text-decoration: none;
     white-space: nowrap;
@@ -66,20 +62,21 @@ component Header {
     }
   }
 
-  /* Style for a dropdown menu. */
+  // Style for a dropdown menu.
   style menu {
-    outline: 3px double #EEE;
+    outline: 3px double var(--border-color);
+    background: var(--background-color);
     flex-direction: column;
-    border-radius: 4px;
-    background: white;
+    border-radius: 5px;
     gap: 0.5em;
 
     padding: 0.75em 0.5em;
-    padding-right: 1.25em;
+    padding-right: 1.5em;
 
+    transform: translateX(-50%);
     position: absolute;
     display: none;
-    left: -0.5em;
+    left: 50%;
     top: 35px;
 
     &:before {
@@ -92,7 +89,7 @@ component Header {
     }
   }
 
-  /* Styles for the menu wrapper. */
+  // Styles for the menu wrapper.
   style menu-wrapper {
     position: relative;
 
@@ -105,89 +102,103 @@ component Header {
     }
   }
 
-  /* Styles for the brand. */
+  // Styles for the brand.
   style brand {
     display: block;
+    color: inherit;
     height: 18px;
 
-    img {
+    svg {
       height: 18px;
       width: 80px;
     }
   }
 
-  /* Renders the component. */
+  // Styles for the mobile button.
+  style mobile-button {
+    --tabler-stroke-width: 2;
+
+    flex: 0 0 24px;
+    height: 24px;
+  }
+
+  // Styles for a divider.
+  style divider {
+    border-left: 3px double var(--border-color);
+    margin: 0 -10px;
+  }
+
+  // Renders the component.
   fun render : Html {
     <div::root>
       <div::wrapper>
         <a::brand href="/">
-          <img
-            src={@asset(../../assets/brand-book/logo.svg)}
-            alt="Mint Logo"/>
+          @svg(../../assets/brand-book/logo.svg)
         </a>
 
-        <div::navigation>
-          <a::item href="/install">
-            TablerIcons.DOWNLOAD
-            "Install"
-          </a>
-
-          /*
-          <a::item href="/try">
-            TablerIcons.TERMINAL
-            "Sandbox"
-          </a>
-          */
-          <div::menu-wrapper tabindex="0">
-            <a::item>
-              TablerIcons.BOOK
-              "Docs"
+        if isMobile {
+          <div::mobile-button onClick={showMobileMenu}>
+            TablerIcons.MENU_2
+          </div>
+        } else {
+          <div::navigation>
+            <a::item href="/install">
+              TablerIcons.DOWNLOAD
+              "Install"
             </a>
 
-            <div::menu>
-              <a::item href="/tutorial/">
-                TablerIcons.CODE
-                "Tutorial"
+            <div::menu-wrapper tabindex="0">
+              <a::item>
+                TablerIcons.BOOK
+                "Documentation"
               </a>
 
-              <a::item href="/guides/">
-                TablerIcons.NOTEBOOK
-                "Guides"
-              </a>
+              <div::menu>
+                <a::item href="/tutorial/">
+                  TablerIcons.CODE
+                  "Tutorial"
+                </a>
 
-              <a::item href="/reference/">
-                TablerIcons.BOOKMARKS
-                "Reference"
-              </a>
+                <a::item href="/guides/">
+                  TablerIcons.NOTEBOOK
+                  "Guides"
+                </a>
 
-              /*
-              <a::item href="/api/">
-                TablerIcons.TablerIcons.BOOKS
-                "Core Library"
-              </a>
-              */
+                <a::item href="/reference/">
+                  TablerIcons.BOOKMARKS
+                  "Reference"
+                </a>
+              </div>
             </div>
+
+            <div::divider/>
+
+            <a::item
+              href="https://github.com/mint-lang/mint"
+              target="_blank">
+
+              TablerIcons.BRAND_GITHUB
+              "Github"
+
+            </a>
+
+            <div::divider/>
+
+            <a::item onClick={toggleDarkMode}>
+              if isDarkMode {
+                <>
+                  TablerIcons.SUN
+                  "Light Mode"
+                </>
+              } else {
+                <>
+                  TablerIcons.MOON_STARS
+                  "Dark Mode"
+                </>
+              }
+            </a>
           </div>
-
-          /*
-          <a::item href="/">
-            TablerIcons.BOX_SEAM
-            "Packages"
-          </a>
-          <a::item href="/">
-            TablerIcons.ARTICLE
-            "Blog"
-          </a>
-          */
-          <a::item
-            href="https://github.com/mint-lang/mint"
-            target="_blank">
-
-            TablerIcons.BRAND_GITHUB
-            "Github"
-
-          </a>
-        </div>
+        }
       </div>
     </div>
   }

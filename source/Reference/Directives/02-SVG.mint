@@ -36,6 +36,5 @@ module References {
     and if it fails will show a nice error message - and required to have the
     following attributes (in order to be rendered correctly): **viewBox**,
     **height** and **width**.
-
     MARKDOWN
 }

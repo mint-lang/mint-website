@@ -1,60 +1,61 @@
 component Body {
-  connect Application exposing { isWide }
+  connect Application exposing { isMobile, isDarkMode, isWide }
 
-  /* The snippet to display. */
+  // The children to display.
   property children : Array(Html) = []
 
-  /* Styles for the root element. */
+  // Styles for the root element.
   style root {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    position: relative;
+
     font-family: 'Noto Sans';
     font-weight: 300;
 
-    /*
-    background-image: url(#{@asset(../../assets/bottom-center.jpg)}),
-                          url(#{@asset(../../assets/bottom-right.jpg)}),
-                          url(#{@asset(../../assets/bottom-left.jpg)}),
-                          url(#{@asset(../../assets/top-center.jpg)}),
-                          url(#{@asset(../../assets/top-right.jpg)}),
-                          url(#{@asset(../../assets/top-left.jpg)});
-    */
-    background-position: 50% 100%, calc(100% + 15px) 100%, -20px 100%,
-                         50% 0, calc(100% + 15px) 0, -20px 0;
-
-    background-repeat: no-repeat;
-    background-color: white;
-
-    box-sizing: border-box;
-    position: relative;
-    min-height: 100vh;
-    color: #333;
-    padding: 0;
-    margin: 0;
-
-    @keyframes swing {
-      0%,
-      100% {
-        transform: rotate(-5deg);
-      }
-
-      50% {
-        transform: rotate(5deg);
-      }
-    }
-
-    @keyframes swing-reverse {
-      0%,
-      100% {
-        transform: rotate(5deg);
-      }
-
-      50% {
-        transform: rotate(-5deg);
-      }
-    }
-
     *:not(iframe):focus-visible {
-      outline: 2px solid #333;
+      outline: 2px solid var(--text-color);
       outline-offset: 4px;
+    }
+
+    if isDarkMode {
+      --line-number-color: #444444;
+      --background-color: #1E1E1E;
+      --blur-color-2: #1E1E1ECC;
+      --blur-color: #1E1E1E80;
+      --border-color: #333333;
+      --input-color: #222222;
+      --text-color: #DDDDDD;
+
+      --color-royalblue: cornflowerblue;
+      --color-indianred: lightcoral;
+      --color-darkmagenta: orchid;
+      --color-darkorange: orange;
+      --color-mintgreen: #36A65D;
+      --color-crimson: tomato;
+      --color-comment: gray;
+    } else {
+      --line-number-color: #CCCCCC;
+      --background-color: #FFFFFF;
+      --blur-color-2: #FFFFFFCC;
+      --blur-color: #FFFFFF80;
+      --border-color: #EEEEEE;
+      --input-color: #FEFEFE;
+      --text-color: #333333;
+
+      --color-darkmagenta: darkmagenta;
+      --color-darkorange: darkorange;
+      --color-royalblue: royalblue;
+      --color-indianred: indianred;
+      --color-mintgreen: #277944;
+      --color-comment: darkgray;
+      --color-crimson: crimson;
+    }
+
+    if isMobile {
+      min-height: auto;
+    } else {
+      min-height: 100vh;
     }
 
     if isWide {
@@ -66,14 +67,13 @@ component Body {
     }
   }
 
-  /* Styles for the wrapper element. */
+  // Styles for the wrapper element.
   style wrapper {
-    background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(3px);
     position: relative;
-    z-index: 10;
+    z-index: 1;
 
-    if isWide {
+    if isWide && !isMobile {
       min-height: 0;
       display: grid;
     } else {
@@ -81,96 +81,22 @@ component Body {
       display: flex;
 
       max-width: 1280px;
-      padding-top: 5vh;
       margin: 0 auto;
+    }
+
+    if isMobile {
+      padding: 20px;
+      margin: 0;
+    } else if !(isWide && !isMobile) {
+      padding: 5vh 20px 20px 20px;
     }
   }
 
-  style leaves {
-    position: absolute;
-    overflow: hidden;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    top: 0;
-  }
-
-  style leaf {
-    animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
-    animation-iteration-count: infinite;
-    animation-duration: 10s;
-    position: absolute;
-  }
-
-  style top-center {
-    background-image: url(#{@asset(../../assets/top-center.jpg)});
-    left: calc(50% - 200px);
-    height: 66px;
-    width: 400px;
-    top: 0;
-  }
-
-  style top-left {
-    background-image: url(#{@asset(../../assets/top-left.jpg)});
-    transform-origin: 80px 0;
-    animation-name: swing;
-    height: 100px;
-    width: 260px;
-    left: -15px;
-    top: -10px;
-  }
-
-  style top-right {
-    background-image: url(#{@asset(../../assets/top-right.jpg)});
-    animation-name: swing-reverse;
-    transform-origin: 115px 0;
-    height: 159px;
-    width: 200px;
-    right: -15px;
-    top: -10px;
-  }
-
-  style bottom-center {
-    background-image: url(#{@asset(../../assets/bottom-center.jpg)});
-    left: calc(50% - 200px);
-    height: 66px;
-    width: 400px;
-    bottom: 0;
-  }
-
-  style bottom-right {
-    background-image: url(#{@asset(../../assets/bottom-right.jpg)});
-    animation-name: swing-reverse;
-    transform-origin: 140px 100px;
-    height: 100px;
-    bottom: -10px;
-    width: 260px;
-    right: -15px;
-  }
-
-  style bottom-left {
-    background-image: url(#{@asset(../../assets/bottom-left.jpg)});
-    animation-name: swing-reverse;
-    transform-origin: 20px 159px;
-    height: 159px;
-    bottom: -10px;
-    width: 200px;
-    left: -15px;
-  }
-
-  /* Renders the component. */
+  // Renders the component.
   fun render : Html {
     <div::root>
-      <div::leaves>
-        <div::leaf::bottom-center/>
-        <div::leaf::bottom-right/>
-        <div::leaf::bottom-left/>
-
-        <div::leaf::top-center/>
-        <div::leaf::top-right/>
-        <div::leaf::top-left/>
-      </div>
-
+      <MobileMenu/>
+      <Leaves/>
       <Header/>
 
       <div::wrapper>

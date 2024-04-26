@@ -1,8 +1,10 @@
 module VNode {
+  // Returns the VNode as an Object.
   fun asObject (vnode : VNode) : Object {
     `#{vnode}`
   }
 
+  // Deletes a property from a VNode.
   fun deleteProp (vnode : VNode, name : String) : VNode {
     `
     (() => {
@@ -12,10 +14,12 @@ module VNode {
     `
   }
 
+  // Returns a property from a VNode.
   fun getProp (vnode : VNode, name : String) : Object {
     `#{vnode}.props[#{name}]`
   }
 
+  // Returns the text of a VNode (recursively).
   fun getTextContent (vnode : VNode) : String {
     `
     (() => {
@@ -39,15 +43,18 @@ module VNode {
           }
         }
       }
+
       return content;
     })()
     `
   }
 
+  // Returns a VNode from an Html.
   fun ofHtml (html : Html) : VNode {
     `#{html}`
   }
 
+  // Prepends another VNode before the children of the VNode.
   fun prependChild (vnode : VNode, child : Html) : VNode {
     `
     (() => {
@@ -59,6 +66,7 @@ module VNode {
     `
   }
 
+  // Walks the VNode tree and reducing it.
   fun reduce (
     vnode : Html,
     memo : a,
@@ -77,6 +85,7 @@ module VNode {
     `
   }
 
+  // Sets a property of a VNode.
   fun setProp (vnode : VNode, name : String, value : Object) : VNode {
     `
     (() => {
@@ -86,10 +95,12 @@ module VNode {
     `
   }
 
+  // Returns the type of the VNode as an Object.
   fun type (vnode : VNode) : Object {
     `#{vnode}.type`
   }
 
+  // Walks the VNode recursively and calls the given function for each VNode.
   fun walk (vnode : Html, function : Function(VNode, a)) : Html {
     `
     (() => {
@@ -98,11 +109,12 @@ module VNode {
       } else {
         if (typeof #{vnode} !== "string") {
           #{function}(#{vnode})
+
           if (#{vnode}.props.children) {
             if (Array.isArray(#{vnode}.props.children)) {
-              #{vnode}.props.children.forEach((item) => {
-                #{walk}(item, #{function})
-              })
+              #{vnode}.props
+                .children
+                .forEach((item) => #{walk}(item, #{function}))
             } else {
               #{walk}(#{vnode}.props.children, #{function})
             }

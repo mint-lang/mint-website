@@ -1,17 +1,20 @@
 component LabelledIcon {
-  /* The click event handler. */
+  // The click event handler.
   property onClick : Function(Html.Event, Promise(Void)) = Promise.never1
 
-  property href : String = ""
-
-  /* Whether or not the icon is disabled. */
+  // Whether or not the icon is disabled.
   property disabled : Bool = false
 
-  /* The actual SVG icon. */
-  property icon : Html = <></>
-
+  // The label to display.
   property label : Html = <></>
 
+  // The SVG to display.
+  property icon : Html = <></>
+
+  // The URL to link to.
+  property href : String = ""
+
+  // Styles for the root element.
   style root {
     --tabler-stroke-width: 1.5;
 
@@ -28,7 +31,7 @@ component LabelledIcon {
       }
 
       if !disabled {
-        color: seagreen;
+        color: var(--color-mintgreen);
       }
     }
 
@@ -47,10 +50,12 @@ component LabelledIcon {
     }
   }
 
+  // Styles for the label.
   style label {
     font-weight: bold;
   }
 
+  // Renders the component.
   fun render : Html {
     let content =
       <>

@@ -79,6 +79,11 @@ module Data {
             path: "state-management"
           },
           {
+            contents: defer References.STATE_SETTER,
+            name: "State Setter",
+            path: "state-setter"
+          },
+          {
             contents: defer References.STORES,
             name: "Stores",
             path: "stores"

@@ -33,7 +33,6 @@ module Guides {
     Flags:
       --help  # Displays help for the current command.
       --json  # Output errors in a JSON format.
-
     ```
     MARKDOWN
 }

@@ -48,6 +48,5 @@ module Guides {
     Arguments:
       name       # The name of the new project.
     ```
-
     MARKDOWN
 }

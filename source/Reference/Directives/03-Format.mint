@@ -27,6 +27,5 @@ module References {
       </pre>
     </div>
     ```
-
     MARKDOWN
 }

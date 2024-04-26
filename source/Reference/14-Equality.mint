@@ -21,6 +21,5 @@ module References {
 
     > Types that dp not implement the structural equality operation fall back
       to using the JavaScript strict equality operator `===`
-
     MARKDOWN
 }

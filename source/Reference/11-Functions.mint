@@ -210,6 +210,5 @@ module References {
     ```
 
     Using this operator makes the code more readable.
-
     MARKDOWN
 }

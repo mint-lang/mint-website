@@ -95,6 +95,5 @@ module References {
     A provider has a hidden (as in not defined by the user) `subscriptions`
     state which have this type: `Array(a)` where `a` is the type of the
     subscription. This contains all the current subscribers to the provider.
-
     MARKDOWN
 }

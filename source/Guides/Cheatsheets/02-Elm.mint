@@ -835,6 +835,5 @@ module Guides {
     The Mint compiler is written in [Crystal](https://crystal-lang.org/) and
     distributed as [precompiled binaries](/install). The core libraries are
     written in a mix of Mint and JavaScript.
-
     MARKDOWN
 }

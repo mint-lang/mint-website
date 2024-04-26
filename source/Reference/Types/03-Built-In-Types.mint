@@ -93,6 +93,5 @@ module References {
 
     The void type represents an expression that does not have any value. `Void`
     can only be explicitly returned with the `void` keyword.
-
     MARKDOWN
 }

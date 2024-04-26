@@ -58,6 +58,5 @@ module References {
       => ""                   /* Fallback as usual */
     }
     ```
-
     MARKDOWN
 }

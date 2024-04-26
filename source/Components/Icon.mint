@@ -1,19 +1,17 @@
-/* A component to render SVG icons. */
 component Icon {
-  /* The click event handler. */
-  property onClick : Function(Html.Event, Promise(Void)) = Promise.never1
-
-  property href = ""
-
-  /* Whether or not the icon is disabled. */
+  // Whether or not the icon is disabled.
   property disabled : Bool = false
 
-  /* The actual SVG icon. */
+  // The actual SVG icon.
   property icon : Html = <></>
 
+  // The size of the icon.
   property size : Number = 24
 
-  /* The styles for the icon. */
+  // The URL of the target page.
+  property href = ""
+
+  // The styles for the root element. */
   style root {
     justify-content: center;
     display: inline-flex;
@@ -30,7 +28,7 @@ component Icon {
 
     &:hover {
       if !disabled {
-        color: seagreen;
+        color: var(--color-mintgreen);
       }
     }
 
@@ -47,25 +45,10 @@ component Icon {
     }
   }
 
+  // Renders the component.
   fun render : Html {
-    if String.isEmpty(href) {
-      <div::root
-        tabindex="0"
-        onClick={
-          (event : Html.Event) {
-            if !disabled {
-              onClick(event)
-            }
-          }
-        }>
-
-        icon
-
-      </div>
-    } else {
-      <a::root href={href}>
-        icon
-      </a>
-    }
+    <a::root href={href}>
+      icon
+    </a>
   }
 }

@@ -60,6 +60,5 @@ module References {
       whatsThis(Maybe.Nothing)     // It's nothing!
     }
     ```
-
     MARKDOWN
 }

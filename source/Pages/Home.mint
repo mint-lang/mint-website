@@ -1,164 +1,25 @@
 component Pages.Home {
-  style hero {
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    grid-gap: 100px;
-    display: grid;
-
-    h1 {
-      font-family: Forum;
-      font-weight: normal;
-      line-height: 1.25;
-      font-size: 38px;
-
-      margin: 0;
-      margin-top: 0.5em;
-    }
-
-    strong {
-      font-weight: normal;
-    }
-
-    div > p:first-of-type {
-      line-height: 1.5;
-      font-size: 20px;
-      margin: 30px 0;
-    }
-
-    div > img {
-      margin-bottom: 40px;
-      display: block;
-      height: auto;
-      width: 200px;
-    }
-  }
-
-  style alternative {
-    margin-top: 30px;
-    display: block;
-    opacity: 0.75;
-
-    text-decoration: none;
-    font-size: 16px;
-    color: inherit;
-
-    &:hover {
-      text-decoration: underline;
-    }
-
-    svg {
-      vertical-align: middle;
-      margin-left: 4px;
-      height: 16px;
-      width: 16px;
-    }
-  }
-
-  style button {
-    background-image: radial-gradient(farthest-corner at center top,
-                      rgba(255,255,255,0.25),
-                      rgba(255,255,255,0));
-
-    outline: 1px solid #32975459;
-    background-color: #329754;
-    outline-offset: 2px;
-
-    border-radius: 4px;
-    padding: 12px 25px;
-    border: 0;
-
-    text-shadow: 0 0 2px #329754;
-    font-family: 'Noto Sans';
-    text-decoration: none;
-    font-weight: 400;
-    font-size: 18px;
-    color: white;
-
-    display: inline-grid;
-    grid-template-columns: auto 1fr;
-    grid-gap: 8px;
-
-    svg {
-      --tabler-stroke-width: 1.5;
-
-      height: 24px;
-      width: 24px;
-    }
-
-    &:hover {
-      outline-color: #329754;
-      cursor: pointer;
-    }
-  }
+  connect Application exposing { isMobile, isTablet }
 
   fun snippet (content : Html) {
-    <Content preMinWidth="600px">
+    <Content
+      preMinWidth={
+        if isTablet {
+          "300px"
+        } else {
+          "600px"
+        }
+      }>
+
       content
+
     </Content>
   }
 
   /* Renders the component. */
   fun render : Html {
     <div>
-      <div::hero>
-        <div>
-          <img
-            src={@asset(../../assets/brand-book/logo.svg)}
-            alt="Mint Logo"/>
-
-          <h1>"The programming language for writing single page applications"</h1>
-
-          <<#MARKDOWN
-          Mint has all the tools you need to write **error free**, **easily
-          readable** and **maintainable** applications in **record time**.
-          MARKDOWN
-
-          <a::button href="/tutorial">
-            "Tutorial"
-            TablerIcons.ARROW_BIG_RIGHT_LINES
-          </a>
-
-          <a::alternative href="/guides/getting-started">
-            "or check out the "
-            <b>"getting started"</b>
-            " guide"
-            TablerIcons.ARROW_RIGHT
-          </a>
-        </div>
-
-        snippet(
-          <<#MARKDOWN(highlight)
-          ```mint
-          component Counter {
-            state counter = 0
-
-            fun increment {
-              next { counter: counter + 1 }
-            }
-
-            fun decrement {
-              next { counter: counter - 1 }
-            }
-
-            fun render {
-              <div>
-                <button onClick={decrement}>
-                  "Decrement"
-                </button>
-
-                <span>
-                  Number.toString(counter)
-                </span>
-
-                <button onClick={increment}>
-                  "Increment"
-                </button>
-              </div>
-            }
-          }
-          ```
-          MARKDOWN)
-      </div>
+      <Hero/>
 
       <Divider/>
 
@@ -259,13 +120,15 @@ component Pages.Home {
 
         <<#MARKDOWN
         In the JavaScript world you can choose from a plethora of options for
-        state management (~4000 packages on NPM), in Mint there are **stores**
+        state management ([~4000 packages on NPM]), in Mint there are **stores**
         that provide the same functionality out of the box:
 
         - Stores can be **connected to components** to be **re-rendered**
           when data changes
         - Stores are **globally accessible** from anywhere
         - Components have their own state
+
+        [~4000 packages on NPM]: https://www.npmjs.com/search?q=keywords:state
         MARKDOWN
 
         <a href="/reference/stores">

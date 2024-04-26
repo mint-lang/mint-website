@@ -63,6 +63,5 @@ module References {
 
     When matching tuples in a case expression, a destructuring will make it
     exhaustive.
-
     MARKDOWN
 }

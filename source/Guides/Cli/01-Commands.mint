@@ -35,6 +35,5 @@ module Guides {
       test            # Runs the tests defined for the project
       version         # Shows version
     ```
-
     MARKDOWN
 }

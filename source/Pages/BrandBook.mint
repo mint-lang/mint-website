@@ -15,12 +15,7 @@ component Pages.BrandBook.MeasuredLogo {
   }
 
   style container {
-    if dark {
-      background: black;
-    } else {
-      border: 1px solid #DDD;
-    }
-
+    border: 1px solid var(--border-color);
     padding: #{padding}px;
     height: #{height}px;
     width: #{width}px;
@@ -28,6 +23,12 @@ component Pages.BrandBook.MeasuredLogo {
     position: relative;
     font-weight: normal;
     font-size: 12px;
+
+    if dark {
+      background: black;
+    } else {
+      background: white;
+    }
   }
 
   style image {
@@ -59,7 +60,7 @@ component Pages.BrandBook.MeasuredLogo {
       left: 8px;
       top: -1px;
 
-      border: 1px solid #DDD;
+      border: 1px solid var(--line-number-color);
       border-left: 0;
       width: 4px;
     }
@@ -81,7 +82,7 @@ component Pages.BrandBook.MeasuredLogo {
       right: -1px;
       left: -1px;
 
-      border: 1px solid #DDD;
+      border: 1px solid var(--line-number-color);
       border-bottom: 0;
       height: 4px;
     }
@@ -106,7 +107,7 @@ component Pages.BrandBook.MeasuredLogo {
       top: calc(50% - 1px);
       position: absolute;
 
-      border: 1px solid #DDD;
+      border: 1px solid var(--line-number-color);
       border-bottom: 0;
       height: 4px;
     }
@@ -119,7 +120,7 @@ component Pages.BrandBook.MeasuredLogo {
       top: calc(50% - 4px);
       position: absolute;
 
-      border: 1px solid #DDD;
+      border: 1px solid var(--line-number-color);
       border-bottom: 0;
       border-top: 0;
       height: 3px;
@@ -139,6 +140,8 @@ component Pages.BrandBook.MeasuredLogo {
 }
 
 async component Pages.BrandBook {
+  connect Application exposing { isMobile }
+
   style root {
     max-width: 80ch;
     margin: 0 auto;
@@ -159,8 +162,13 @@ async component Pages.BrandBook {
 
   style colors {
     grid-template-columns: repeat(5, 1fr);
+    margin-top: 30px;
     grid-gap: 40px;
     display: grid;
+
+    if isMobile {
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
   }
 
   style color {
@@ -182,6 +190,10 @@ async component Pages.BrandBook {
     place-items: center;
     grid-gap: 30px;
     display: grid;
+
+    if isMobile {
+      grid-template-columns: 1fr;
+    }
   }
 
   style icons {
@@ -208,7 +220,7 @@ async component Pages.BrandBook {
 
   fun render : Html {
     <div::root>
-      <Content fontSize={18}>
+      <Content>
         <<#MARKDOWN
         # Brand Book
 
@@ -284,18 +296,22 @@ async component Pages.BrandBook {
             dark={true}
             width={100}/>
 
-          <Pages.BrandBook.MeasuredLogo
-            logo={@asset(../../assets/brand-book/logo.svg)}
-            padding={32}
-            height={48}
-            width={200}/>
+          if !isMobile {
+            <>
+              <Pages.BrandBook.MeasuredLogo
+                logo={@asset(../../assets/brand-book/logo.svg)}
+                padding={32}
+                height={48}
+                width={200}/>
 
-          <Pages.BrandBook.MeasuredLogo
-            logo={@asset(../../assets/brand-book/logo-dark.svg)}
-            padding={32}
-            height={48}
-            dark={true}
-            width={200}/>
+              <Pages.BrandBook.MeasuredLogo
+                logo={@asset(../../assets/brand-book/logo-dark.svg)}
+                padding={32}
+                height={48}
+                dark={true}
+                width={200}/>
+            </>
+          }
         </p>
 
         <h2>

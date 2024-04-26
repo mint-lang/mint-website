@@ -1,5 +1,5 @@
 async component Pages.Install {
-  connect Breakpoints exposing { isMobile }
+  connect Application exposing { isMobile }
 
   style root {
     grid-template-columns: 1fr 1fr;
@@ -8,7 +8,7 @@ async component Pages.Install {
 
     if isMobile {
       grid-template-columns: 1fr;
-      padding: 0 20px;
+      grid-gap: 1em;
     }
   }
 

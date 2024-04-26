@@ -1,6 +1,6 @@
 async component Lesson {
   connect Stores.Lesson exposing { project, showSolution, update }
-  connect Breakpoints exposing { isMobile }
+  connect Application exposing { isMobile }
 
   /* The path to the previous lesson (if any). */
   property previousLessonPath : Maybe(String)
@@ -20,7 +20,7 @@ async component Lesson {
   /* Styles for the root element. */
   style root {
     grid-template-columns: minmax(33.333%, 32em) auto;
-    background: rgba(255, 255, 255, 0.5);
+    background: var(--blur-color);
     grid-template-rows: 1fr;
     min-height: 0;
     display: grid;
@@ -40,7 +40,7 @@ async component Lesson {
 
   /* The style for the sidebar. */
   style sidebar {
-    border-right: 3px double #EEE;
+    border-right: 3px double var(--border-color);
     grid-row: span 2;
 
     grid-template-rows: auto 1fr auto;
@@ -50,7 +50,7 @@ async component Lesson {
     if isMobile {
       grid-template-rows: auto 1fr;
 
-      border-bottom: 3px double #EEE;
+      border-bottom: 3px double var(--border-color);
       border-right: 0;
     }
   }
@@ -71,7 +71,7 @@ async component Lesson {
 
   /* Styles for the toolbar. */
   style toolbar {
-    border-top: 3px double #EEE;
+    border-top: 3px double var(--border-color);
     padding: 0.75em 1.5em;
 
     grid-auto-flow: column;
@@ -83,7 +83,7 @@ async component Lesson {
 
   /* Styles for the navigation. */
   style navigation {
-    border-bottom: 3px double #EEE;
+    border-bottom: 3px double var(--border-color);
     box-sizing: border-box;
     padding: 0.65em 1.5em;
 
@@ -94,7 +94,7 @@ async component Lesson {
 
   /* Styles for the IDE. */
   style ide {
-    border-bottom: 3px double #EEE;
+    border-bottom: 3px double var(--border-color);
     min-height: 0;
     display: grid;
 
@@ -105,12 +105,12 @@ async component Lesson {
 
   /* Styles for the files. */
   style files {
-    border-right: 3px double #EEE;
+    border-right: 3px double var(--border-color);
   }
 
   /* Styles for a file in the file tree. */
   style file (active : Bool) {
-    border-bottom: 1px solid #EEE;
+    border-bottom: 1px solid var(--border-color);
     font-weight: normal;
     padding: 7px 20px;
     font-size: 14px;
@@ -135,9 +135,10 @@ async component Lesson {
   style select {
     appearance: none;
 
-    border: 1px solid #DDD;
+    border: 1px solid var(--border-color);
+    background: var(--input-color);
+    color: var(--text-color);
     padding: 0.5em 0.75em;
-    background: #FCFCFC;
     border-radius: 3px;
 
     font-family: Noto Sans;
@@ -146,7 +147,23 @@ async component Lesson {
   /* Renders the component. */
   fun render : Html {
     if isMobile {
-      <>"Not available on mobile"</>
+      <Message
+        subtitle=<>"The tutorial is not available on mobile devices."</>
+        title=<>"Hello,"</>
+        actions={
+          <Content mobileFontSize={16}>
+            ContentInstrumenter.instrument(
+              <>
+                "Please check out the "
+
+                <a href="/reference">
+                  "reference"
+                </a>
+
+                " instead."
+              </>)
+          </Content>
+        }/>
     } else {
       let solutionLessons =
         Array.select(
@@ -233,10 +250,10 @@ async component Lesson {
 
           <div::scroll-panel>
             <div::instructions key={path}>
-              <Content fontSize={16}>
+              <Content>
                 ContentInstrumenter.instrument(
-                  skipAnchors: true,
-                  html: instructions)
+                  html: instructions,
+                  skipAnchors: true)
               </Content>
             </div>
           </div>
@@ -244,18 +261,9 @@ async component Lesson {
           toolbar
         </div>
 
-        if Array.isEmpty(project.files) {
-          <div::empty>
-            <IllustratedMessage
-              subtitle=<>"This chapter does not have an interactive example."</>
-              title=<>"Read and Relax"</>
-              image={TablerIcons.BOOKS}/>
-          </div>
-        } else {
-          <Ide
-            onChange={update}
-            value={project}/>
-        }
+        <Ide
+          onChange={update}
+          value={project}/>
       </div>
     }
   }

@@ -40,6 +40,5 @@ module References {
       >
     </span>
     ```
-
     MARKDOWN
 }

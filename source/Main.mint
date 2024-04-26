@@ -1,41 +1,3 @@
-type Page {
-  Documents(
-    category : Maybe(DocumentCategory),
-    documents : Documents,
-    document : Document,
-    basePath : String,
-    contents : Html,
-    title : String)
-
-  Tutorial(
-    previousLessonPath : Maybe(String),
-    nextLessonPath : Maybe(String),
-    lessons : Array(Lesson),
-    title : Array(String),
-    lesson : LessonData,
-    path : String)
-
-  Page(String, Html)
-  Initial
-}
-
-type Documents {
-  categories : Array(DocumentCategory),
-  pages : Array(Document)
-}
-
-type DocumentCategory {
-  pages : Array(Document),
-  path : String,
-  name : String
-}
-
-type Document {
-  contents : Deferred(Html),
-  name : String,
-  path : String
-}
-
 component Main {
   connect Application exposing { page }
 
@@ -59,6 +21,7 @@ component Main {
             path={path}/>
 
         Page(title, page) => page
+        NotFound => <Pages.NotFound/>
         Initial => <></>
       }
     </Body>

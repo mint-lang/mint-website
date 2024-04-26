@@ -46,6 +46,5 @@ module Guides {
       --help           # Displays help for the current command.
       --package-cache  # If specified, cleans the package cache.
     ```
-
     MARKDOWN
 }

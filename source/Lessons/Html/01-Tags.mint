@@ -63,7 +63,6 @@ module Lessons {
         * `style` can be a string or `Map(String, String)`.
         * `className` cannot be used, use `class` instead.
         * `ref` attribute is forbidden.
-
         MARKDOWN
     }
 }

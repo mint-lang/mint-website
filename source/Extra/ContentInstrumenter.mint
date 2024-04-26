@@ -1,11 +1,13 @@
 module ContentInstrumenter {
+  // Instruments multiple contents.
   fun instrumentMany (html : Array(Html)) : Array(Html) {
     for item of html {
       instrument(item)
     }
   }
 
-  fun tableOfContents (html : Html) {
+  // Returns the table of contents for a content.
+  fun tableOfContents (html : Html) : Array(Tuple(String, String, String)) {
     VNode.reduce(
       html,
       [] of Tuple(String, String, String),
@@ -25,6 +27,7 @@ module ContentInstrumenter {
       })
   }
 
+  // Instruments a heading by wrapping it's content to anchor tag.
   fun instrumentHeading (vnode : VNode) : VNode {
     let replaced =
       vnode
@@ -45,51 +48,50 @@ module ContentInstrumenter {
     |> VNode.setProp("children", anchor)
   }
 
+  // The link icon for external links.
+  const EXTERNAL =
+    <span style="position:relative;top:-1px">
+      TablerIcons.TablerIcons.EXTERNAL_LINK
+    </span>
+
+  // The link icon for internal links.
+  const INTERNAL =
+    <span>
+      TablerIcons.LINK
+    </span>
+
+  // Instruments a content (anchors, headings).
   fun instrument (html : Html, skipAnchors : Bool = false) : Html {
     VNode.walk(
       html,
       (vnode : VNode) {
         if `!#{vnode}.instrumented` {
-          let external =
-            <span style="position:relative;top:-1px">
-              TablerIcons.TablerIcons.EXTERNAL_LINK
-            </span>
-
-          let internal =
-            <span>
-              TablerIcons.LINK
-            </span>
-
           case decode VNode.type(vnode) as String {
             Ok("h2") =>
-              {
-                if skipAnchors {
-                  vnode
-                } else {
-                  instrumentHeading(vnode)
-                }
+              if skipAnchors {
+                vnode
+              } else {
+                instrumentHeading(vnode)
               }
 
             Ok("h3") =>
-              {
-                if skipAnchors {
-                  vnode
-                } else {
-                  instrumentHeading(vnode)
-                }
+              if skipAnchors {
+                vnode
+              } else {
+                instrumentHeading(vnode)
               }
 
             Ok("a") =>
               {
                 let Ok(href) =
-                  decode VNode.getProp(vnode, "href") as String or return vnode
+                  (decode VNode.getProp(vnode, "href") as String) or return vnode
 
                 if String.startsWith(href, "http://") || String.startsWith(href, "https://") {
                   vnode
                   |> VNode.setProp("target", encode "_blank")
-                  |> VNode.prependChild(external)
+                  |> VNode.prependChild(EXTERNAL)
                 } else {
-                  VNode.prependChild(vnode, internal)
+                  VNode.prependChild(vnode, INTERNAL)
                 }
               }
 

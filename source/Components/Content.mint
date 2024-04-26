@@ -1,14 +1,36 @@
 component Content {
-  /* The contents. */
+  connect Application exposing { isMobile }
+
+  // The minimum with for <pre> tags.
+  property preMinWidth : String = "auto"
+
+  // The size of the text on mobile.
+  property mobileFontSize : Number = 14
+
+  // The contents to display.
   property children : Array(Html) = []
 
-  property preMinWidth : String = "auto"
-  property fontSize : Number = 18
+  // The size of the text.
+  property fontSize : Number = 16
 
-  /* Styles for the root element. */
+  // Styles for the root element.
   style root {
     font-size: #{fontSize}px;
     line-height: 1.5;
+    min-width: auto;
+
+    if isMobile {
+      font-size: #{mobileFontSize}px;
+      min-width: 0;
+    }
+
+    > *:first-child {
+      margin-top: 0;
+    }
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
 
     h1,
     h2,
@@ -17,16 +39,30 @@ component Content {
       font-family: Forum;
     }
 
+    > h1,
+    > h2,
+    > h3 {
+      > a {
+        text-decoration: none;
+        color: inherit;
+
+        &:hover {
+          color: var(--color-mintgreen);
+          text-decoration: underline;
+        }
+      }
+    }
+
     h2,
     h3 {
       align-items: center;
       position: relative;
+      margin-bottom: 0;
       display: flex;
 
-      margin-bottom: 0;
-
+      // The line after the content.
       &:after {
-        border-top: 1px solid #EEE;
+        border-top: 1px solid var(--border-color);
         margin-top: 0.6em;
         margin-left: 1em;
         content: "";
@@ -35,7 +71,7 @@ component Content {
     }
 
     h1 {
-      border-bottom: 3px double #EEE;
+      border-bottom: 3px double var(--border-color);
       font-size: 2.25em;
     }
 
@@ -47,15 +83,6 @@ component Content {
         font-weight: bold;
         font-size: 0.5em;
       }
-
-      > svg {
-        --tabler-stroke-width: 1.25;
-
-        margin-right: 0.25em;
-        flex: 0 0 auto;
-        height: auto;
-        width: 1em;
-      }
     }
 
     h3 {
@@ -65,7 +92,12 @@ component Content {
 
     hr {
       border: 0;
-      border-bottom: 1px double #EEE;
+      border-bottom: 1px double var(--border-color);
+    }
+
+    ul,
+    ol {
+      padding-left: 1.5em;
     }
 
     li + li {
@@ -77,19 +109,10 @@ component Content {
     }
 
     blockquote {
-      border-left: 4px solid #666;
+      border-left: 3px solid var(--border-color);
       font-style: italic;
       padding-left: 1em;
       margin-left: 0;
-
-      svg:first-child {
-        --tabler-stroke-width: 2;
-        vertical-align: middle;
-        position: relative;
-        height: 1em;
-        width: 1em;
-        top: -1px;
-      }
     }
 
     code {
@@ -99,17 +122,17 @@ component Content {
     }
 
     :not(pre) > code {
-      border: 1px solid #EEE;
-      border-radius: 2px;
+      border: 1px solid var(--border-color);
+      border-radius: 3px;
 
       padding: 0.214em 0.375em 0.142em 0.375em;
-      background: #FEFEFE;
+      background: var(--input-color);
       font-size: 0.7777em;
     }
 
     pre:has(.language-bash) {
-      border-left: 3px solid #EEE;
-      padding-left: 20px;
+      border-left: 3px solid var(--border-color);
+      padding-left: 1.5em;
 
       .line::before {
         display: none;
@@ -120,6 +143,10 @@ component Content {
       min-width: #{preMinWidth};
       font-size: 0.8888em;
       overflow: auto;
+
+      if isMobile {
+        min-width: 0;
+      }
 
       code {
         display: block;
@@ -133,43 +160,48 @@ component Content {
 
           &::before {
             content: counter(snippet);
-            border-right: 1px solid #AAA;
+
+            border-right: 1px solid var(--border-color);
+            color: var(--line-number-color);
             display: inline-block;
-            padding-right: 10px;
-            margin-right: 10px;
+            padding-right: 0.75em;
+            margin-right: 0.75em;
             text-align: right;
-            opacity: 0.3;
-            width: 20px;
+            width: 1.5em;
+
+            if isMobile {
+              content: none;
+            }
           }
         }
 
-        .comment {
-          opacity: 0.5;
+        .keyword {
+          color: var(--color-darkmagenta);
         }
 
         .regexp {
-          color: darkorange;
-        }
-
-        .number {
-          color: crimson;
-        }
-
-        .string {
-          color: seagreen;
+          color: var(--color-darkorange);
         }
 
         .namespace,
         .property {
-          color: indianred;
+          color: var(--color-indianred);
         }
 
         .type {
-          color: royalblue;
+          color: var(--color-royalblue);
         }
 
-        .keyword {
-          color: darkmagenta;
+        .string {
+          color: var(--color-mintgreen);
+        }
+
+        .comment {
+          color: var(--color-comment);
+        }
+
+        .number {
+          color: var(--color-crimson);
         }
       }
     }
@@ -178,12 +210,12 @@ component Content {
       border-radius: 5px;
       width: 100%;
 
-      outline: 1px solid #EEE;
+      outline: 1px solid var(--border-color);
       outline-offset: 3px;
     }
 
     a:not([name]) {
-      color: seagreen;
+      color: var(--color-mintgreen);
 
       &:has(> span:first-child > svg) {
         // This is for not breaking the icon before the link.
@@ -191,33 +223,12 @@ component Content {
 
         svg {
           --tabler-stroke-width: 1.5;
+
           vertical-align: middle;
           margin-right: 0.1em;
           position: relative;
           height: 1em;
           width: 1em;
-        }
-      }
-    }
-
-    > *:first-child {
-      margin-top: 0;
-    }
-
-    > *:last-child {
-      margin-bottom: 0;
-    }
-
-    > h1,
-    > h2,
-    > h3 {
-      > a {
-        text-decoration: none;
-        color: inherit;
-
-        &:hover {
-          text-decoration: underline;
-          color: seagreen;
         }
       }
     }
@@ -228,7 +239,7 @@ component Content {
       width: 100%;
 
       thead {
-        border-bottom: 2px solid #EEE;
+        border-bottom: 2px solid var(--border-color);
       }
 
       tr:last-child td {
@@ -237,7 +248,7 @@ component Content {
 
       th,
       td {
-        border: 1px solid #EEE;
+        border: 1px solid var(--border-color);
         line-height: 1.85;
         padding: 0.5em;
 
@@ -267,6 +278,7 @@ component Content {
     }
   }
 
+  // Renders the component.
   fun render : Html {
     <div::root as root>
       children

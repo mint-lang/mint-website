@@ -39,6 +39,5 @@ module References {
     - [Lifecycle Functions](/reference/components/lifecycle-functions)
     - [Global Components](/reference/components/global-components)
     - [Async Components](/reference/components/async-components)
-
     MARKDOWN
 }

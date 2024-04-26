@@ -24,7 +24,5 @@ module References {
     ```mint
     Math.PI
     ```
-
-
     MARKDOWN
 }

@@ -1,20 +1,22 @@
 async component Documents {
-  /* The documents to display in the sidebar. */
+  connect Application exposing { isTablet }
+
+  // The documents to display in the sidebar.
   property documents : Documents
 
-  /* The document to display. */
+  // The document to display.
   property document : Document
 
-  /* The base path of the documents ("reference", "guides"). */
+  // The base path of the documents ("reference", "guides").
   property basePath : String
 
-  /* The contents to display. */
+  // The contents to display.
   property contents : Html
 
-  /* The title of the documents ("Reference", "Guides"). */
+  // The title of the documents ("Reference", "Guides").
   property title : String
 
-  /* Styles for the root element. */
+  // Styles for the root element.
   style root {
     grid-template-columns: 200px auto 80ch 1fr;
     min-height: calc(100vh - 140px);
@@ -22,16 +24,20 @@ async component Documents {
     font-size: 16px;
     grid-gap: 50px;
     display: grid;
+
+    if isTablet {
+      display: block;
+    }
   }
 
-  /* Styles for the sidebar link. */
+  // Styles for the sidebar link.
   style link (active : Bool) {
     text-decoration: none;
     line-height: 1.5;
     display: block;
 
     if active {
-      color: seagreen;
+      color: var(--color-mintgreen);
     } else {
       color: inherit;
     }
@@ -41,14 +47,14 @@ async component Documents {
     }
   }
 
-  /* Styles for the divider. */
+  // Styles for the divider.
   style divider {
-    border-right: 3px double #EEE;
+    border-right: 3px double var(--border-color);
   }
 
-  /* Styles for the category titles. */
+  // Styles for the category titles.
   style category {
-    border-bottom: 1px solid #EEE;
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 0.25em;
     margin-bottom: 0.25em;
     font-weight: normal;
@@ -56,7 +62,7 @@ async component Documents {
     display: block;
   }
 
-  /* Styles for the table of contents. */
+  // Styles for the table of contents.
   style table-of-contents {
     align-content: start;
     align-self: start;
@@ -83,7 +89,7 @@ async component Documents {
     }
   }
 
-  /* Styles for an item in the table of contents. */
+  // Styles for an item in the table of contents.
   style table-of-contents-item (type : String) {
     case type {
       "h1" =>
@@ -97,7 +103,7 @@ async component Documents {
     }
   }
 
-  /* Renders documents in the sidebar. */
+  // Renders documents in the sidebar.
   fun renderDocuments (
     documents : Array(Document),
     title : String,
@@ -123,52 +129,61 @@ async component Documents {
     </div>
   }
 
-  /* Renders the component. */
+  // Renders the component.
   fun render : Html {
     let tableOfContents =
       ContentInstrumenter.tableOfContents(contents)
 
-    <div::root>
-      <div>
-        renderDocuments(
-          documents: documents.pages,
-          title: title,
-          path: "")
-
-        for category of documents.categories {
-          renderDocuments(
-            documents: category.pages,
-            title: category.name,
-            path: category.path)
-        }
-      </div>
-
-      <div::divider/>
-
+    let contentDiv =
       <div key={document.path}>
-        <Content fontSize={16}>
+        <Content>
           ContentInstrumenter.instrument(contents)
         </Content>
       </div>
 
-      if Array.isEmpty(tableOfContents) {
-        <div/>
+    <div::root>
+      if isTablet {
+        contentDiv
       } else {
-        <div::table-of-contents>
-          <strong>"ON THIS PAGE"</strong>
+        <>
+          <div>
+            renderDocuments(
+              documents: documents.pages,
+              title: title,
+              path: "")
 
-          for item of tableOfContents {
-            let href =
-              case item[0] {
-                "h1" => ""
-                => item[2]
+            for category of documents.categories {
+              renderDocuments(
+                documents: category.pages,
+                title: category.name,
+                path: category.path)
+            }
+          </div>
+
+          <div::divider/>
+
+          contentDiv
+
+          if Array.isEmpty(tableOfContents) {
+            <div/>
+          } else {
+            <div::table-of-contents>
+              <strong>"ON THIS PAGE"</strong>
+
+              for item of tableOfContents {
+                let href =
+                  case item[0] {
+                    "h1" => ""
+                    => item[2]
+                  }
+
+                <a::table-of-contents-item(item[0]) href="##{href}">
+                  item[1]
+                </a>
               }
-
-            <a::table-of-contents-item(item[0]) href="##{href}">
-              item[1]
-            </a>
+            </div>
           }
-        </div>
+        </>
       }
     </div>
   }

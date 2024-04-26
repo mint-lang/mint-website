@@ -1,26 +1,27 @@
 async component Footer {
-  connect Breakpoints exposing { isMobile }
-  connect Application exposing { isWide }
+  connect Application exposing { isTablet, isWide }
 
-  /* Styles for the root element. */
+  // Styles for the root element.
   style root {
-    border-top: 3px double #EEE;
-    padding: 40px 20px;
+    border-top: 3px double var(--border-color);
     position: relative;
     margin-top: 100px;
-    z-index: 11;
+    z-index: 2;
 
     background-clip: padding-box;
     backdrop-filter: blur(3px);
 
-    if isMobile {
-      background-color: rgba(255, 255, 255, 0.5);
-      margin-top: 50px;
-      padding: 20px;
+    if isTablet {
+      background-color: var(--blur-color);
+      padding: 30px 20px 20px 20px;
+      font-size: 14px;
+      margin-top: 0;
+    } else {
+      padding: 40px 20px;
     }
   }
 
-  /* Styles for the wrapper element. */
+  // Styles for the wrapper element.
   style wrapper {
     grid-template-columns: 1fr auto;
     grid-gap: 30px;
@@ -29,25 +30,25 @@ async component Footer {
     max-width: 1280px;
     margin: 0 auto;
 
-    if isMobile {
+    if isTablet {
       grid-template-columns: 1fr;
     }
   }
 
-  /* Styles for the columns. */
+  // Styles for the columns.
   style columns {
     grid-auto-flow: column;
     grid-gap: 50px;
     display: grid;
 
-    if isMobile {
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    if isTablet {
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
       grid-auto-flow: row;
       grid-gap: 20px;
     }
   }
 
-  /* Styles for a column. */
+  // Styles for a column.
   style column {
     align-content: start;
     grid-gap: 10px;
@@ -57,14 +58,13 @@ async component Footer {
       grid-template-columns: auto 1fr;
       text-decoration: none;
       align-items: center;
-      font-size: 18px;
       color: inherit;
       grid-gap: 5px;
       display: grid;
 
       &:hover {
+        color: var(--color-mintgreen);
         text-decoration: underline;
-        color: seagreen;
       }
     }
 
@@ -78,31 +78,30 @@ async component Footer {
     }
   }
 
-  /* Styles for the infos. */
+  // Styles for the infos.
   style infos {
     max-width: 580px;
     line-height: 1.5;
 
-    > img {
+    > svg {
       width: 120px;
+      height: 30px;
     }
   }
 
-  /* Renders the component. */
+  // Renders the component.
   fun render : Html {
     if !isWide {
       <div::root>
         <div::wrapper>
           <div::infos>
-            <img
-              src={@asset(../../assets/brand-book/logo.svg)}
-              alt="Mint Logo"/>
+            @svg(../../assets/brand-book/logo.svg)
 
             <p>
               "Mint delivers developer happiness and productivity by offering "
               "a complete set of tools (bundler, code formatter, documentation "
               "generator, playground, package manager, etc...) for bulding "
-              "single page applications."
+              "single page applications in a singular language."
             </p>
 
             <span>
@@ -129,17 +128,10 @@ async component Footer {
                 TablerIcons.PALETTE
                 "Brand Book"
               </a>
-
-              /*
-              <a href="/sandbox">
-                TablerIcons.TERMINAL
-                "Sandbox"
-              </a>
-              */
             </div>
 
             <div::column>
-              <strong>"Docs"</strong>
+              <strong>"Documentation"</strong>
 
               <a href="/tutorial/">
                 TablerIcons.CODE
@@ -155,18 +147,6 @@ async component Footer {
                 TablerIcons.BOOKMARKS
                 "Reference"
               </a>
-
-              /*
-              <a href="/api">
-                TablerIcons.TablerIcons.BOOKS
-                "Core Library"
-              </a>
-
-              <a href="/packages">
-                TablerIcons.BOX_SEAM
-                "Packages"
-              </a>
-              */
             </div>
 
             <div::column>
@@ -201,11 +181,6 @@ async component Footer {
                 TablerIcons.BRAND_DISCORD
                 "Discord"
 
-              </a>
-
-              <a href="/blog">
-                TablerIcons.ARTICLE
-                "Blog"
               </a>
             </div>
           </div>

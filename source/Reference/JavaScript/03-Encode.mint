@@ -22,6 +22,5 @@ module References {
     // { "name": "Bob"}
     Json.stringify(encode { name: "Bob" })
     ```
-
     MARKDOWN
 }
