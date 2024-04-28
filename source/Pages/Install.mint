@@ -1,17 +1,19 @@
 async component Pages.Install {
-  connect Application exposing { isMobile }
+  connect Application exposing { isMobile, isTablet }
 
+  // Styles for the root element.
   style root {
     grid-template-columns: 1fr 1fr;
     grid-gap: 100px;
     display: grid;
 
-    if isMobile {
+    if isMobile || isTablet {
       grid-template-columns: 1fr;
       grid-gap: 1em;
     }
   }
 
+  // Renders the component.
   fun render : Html {
     <div::root>
       <Content>

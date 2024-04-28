@@ -1,63 +1,44 @@
-component Pages.Home {
-  connect Application exposing { isMobile, isTablet }
-
-  fun snippet (content : Html) {
-    <Content
-      preMinWidth={
-        if isTablet {
-          "300px"
-        } else {
-          "600px"
-        }
-      }>
-
-      content
-
-    </Content>
-  }
-
-  /* Renders the component. */
+async component Pages.Home {
+  // Renders the component.
   fun render : Html {
     <div>
       <Hero/>
-
       <Divider/>
 
       <Section
         title="Styling"
         flipped={true}
         snippet={
-          snippet(
-            <<#MARKDOWN(highlight)
-            ```mint
-            component TodoItem {
-              property color = "#333"
-              property done = false
-              property label = ""
+          <<#MARKDOWN(highlight)
+          ```mint
+          component TodoItem {
+            property color = "#333"
+            property done = false
+            property label = ""
 
-              style label {
-                font-weight: bold;
-                color: \#{color};
-                flex: 1;
+            style label {
+              font-weight: bold;
+              color: \#{color};
+              flex: 1;
 
-                if (done) {
-                  text-decoration: line-through;
-                }
-              }
-
-              fun render {
-                <div>
-                  <span::label>
-                    label
-                  </span>
-
-                  <Icon.Checkmark/>
-                  <Icon.Trash/>
-                </div>
+              if (done) {
+                text-decoration: line-through;
               }
             }
-            ```
-            MARKDOWN)
+
+            fun render {
+              <div>
+                <span::label>
+                  label
+                </span>
+
+                <Icon.Checkmark/>
+                <Icon.Trash/>
+              </div>
+            }
+          }
+          ```
+          MARKDOWN
         }>
 
         <<#MARKDOWN
@@ -83,39 +64,38 @@ component Pages.Home {
       <Section
         title="Stores & State"
         snippet={
-          snippet(
-            <<#MARKDOWN(highlight)
-            ```mint
-            type Todo {
-              label : String,
-              done : Bool
+          <<#MARKDOWN(highlight)
+          ```mint
+          type Todo {
+            label : String,
+            done : Bool
+          }
+
+          store Todos {
+            state items = [] of Todo
+
+            fun add (todo : Todo) {
+              next { items: Array.push(items, todo) }
             }
 
-            store Todos {
-              state items = [] of Todo
-
-              fun add (todo : Todo) {
-                next { items: Array.push(items, todo) }
-              }
-
-              fun delete (todo : Todo) {
-                next { items: Array.delete(items, todo) }
-              }
+            fun delete (todo : Todo) {
+              next { items: Array.delete(items, todo) }
             }
+          }
 
-            component TodoList {
-              connect Todos exposing { add, delete, items }
+          component TodoList {
+            connect Todos exposing { add, delete, items }
 
-              fun render : Html {
-                <div>
-                  for item of items {
-                    "Item rendered here..."
-                  }
-                </div>
-              }
+            fun render : Html {
+              <div>
+                for item of items {
+                  "Item rendered here..."
+                }
+              </div>
             }
-            ```
-            MARKDOWN)
+          }
+          ```
+          MARKDOWN
         }>
 
         <<#MARKDOWN
@@ -160,29 +140,28 @@ component Pages.Home {
       <Section
         title="Routing"
         snippet={
-          snippet(
-            <<#MARKDOWN(highlight)
-            ```mint
-            routes {
-              / {
-                Application.setPage(Page::Home)
-              }
-
-              /blog {
-                Application.setPage(Page::Blog)
-              }
-
-              /blog/:slug (slug : String) {
-                await Posts.load(slug)
-                Application.setPage(Page::Post)
-              }
-
-              * {
-                Application.setPage(Page::NotFound)
-              }
+          <<#MARKDOWN(highlight)
+          ```mint
+          routes {
+            / {
+              Application.setPage(Page::Home)
             }
-            ```
-            MARKDOWN)
+
+            /blog {
+              Application.setPage(Page::Blog)
+            }
+
+            /blog/:slug (slug : String) {
+              await Posts.load(slug)
+              Application.setPage(Page::Post)
+            }
+
+            * {
+              Application.setPage(Page::NotFound)
+            }
+          }
+          ```
+          MARKDOWN
         }>
 
         <<#MARKDOWN
@@ -205,28 +184,27 @@ component Pages.Home {
         title="Interoperability"
         flipped={true}
         snippet={
-          snippet(
-            <<#MARKDOWN(highlight)
-            ```mint
-            module MyFunctions {
-              fun alert(message : String) : Promise(Void) {
-                `
-                (new Promise((resolve) => {
-                  alert(\#{message})
-                  resolve()
-                })()
-                `
-              }
-
-              fun decode : Maybe(TodoItem) {
-                let object =
-                  `{ label: "Check out Mint!", done: false }`
-
-                Result.toMaybe(decode object as TodoItem)
-              }
+          <<#MARKDOWN(highlight)
+          ```mint
+          module MyFunctions {
+            fun alert(message : String) : Promise(Void) {
+              `
+              (new Promise((resolve) => {
+                alert(\#{message})
+                resolve()
+              })()
+              `
             }
-            ```
-            MARKDOWN)
+
+            fun decode : Maybe(TodoItem) {
+              let object =
+                `{ label: "Check out Mint!", done: false }`
+
+              Result.toMaybe(decode object as TodoItem)
+            }
+          }
+          ```
+          MARKDOWN
         }>
 
         <<#MARKDOWN
@@ -263,41 +241,40 @@ component Pages.Home {
       <Section
         title="Batteries Included"
         snippet={
-          snippet(
-            <<#CLI(highlight)
-            ```bash
-            $ mint init my-awesome-project
+          <<#CLI(highlight)
+          ```bash
+          $ mint init my-awesome-project
 
-            Mint - Initializing a new project
-            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-            ⚙ Creating directory structure...
-            ⚙ Writing initial files...
-            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-            All done in 2.231ms!
+          Mint - Initializing a new project
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          ⚙ Creating directory structure...
+          ⚙ Writing initial files...
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          All done in 2.231ms!
 
-            $ mint install
+          $ mint install
 
-            Mint - Installing dependencies
-            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-            ⚙ Constructing dependency tree...
-              ✔ Cloned mint-codemirror (https://github.com/mint...)
+          Mint - Installing dependencies
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          ⚙ Constructing dependency tree...
+            ✔ Cloned mint-codemirror (https://github.com/mint...)
 
-            ⚙ Resolving dependency tree...
-              ◈ mint-codemirror ➔ 6.0.0
+          ⚙ Resolving dependency tree...
+            ◈ mint-codemirror ➔ 6.0.0
 
-            ⚙ Copying packages...
-            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-            All done in 2.75s!
+          ⚙ Copying packages...
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          All done in 2.75s!
 
-            $ mint start --auto-format
+          $ mint start --auto-format
 
-            Mint - Running the development server
-            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-            ⚙ Ensuring dependencies... 181μs
-            ⚙ Parsing files... 2.608ms
-            ⚙ Development server started on http://127.0.0.1:3000/
-            ```
-            CLI)
+          Mint - Running the development server
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          ⚙ Ensuring dependencies... 181μs
+          ⚙ Parsing files... 2.608ms
+          ⚙ Development server started on http://127.0.0.1:3000/
+          ```
+          CLI
         }>
 
         <<#MARKDOWN

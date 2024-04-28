@@ -1,152 +1,32 @@
-component Pages.BrandBook.MeasuredLogo {
-  property dark : Bool = false
-  property padding : Number
-  property height : Number
-  property width : Number
-  property logo : String
-
-  style root {
-    height: #{height + (padding * 2) + 35}px;
-    width: #{width + (padding * 2) + 85}px;
-    box-sizing: border-box;
-    display: grid;
-    padding-left: 35px;
-    align-items: end;
-  }
-
-  style container {
-    border: 1px solid var(--border-color);
-    padding: #{padding}px;
-    height: #{height}px;
-    width: #{width}px;
-
-    position: relative;
-    font-weight: normal;
-    font-size: 12px;
-
-    if dark {
-      background: black;
-    } else {
-      background: white;
-    }
-  }
-
-  style image {
-    height: #{height}px;
-    width: #{width}px;
-
-    if dark {
-      border: 1px dashed #333;
-    } else {
-      border: 1px dashed #DDD;
-    }
-  }
-
-  style height {
-    padding-left: 18px;
-    position: absolute;
-    left: 100%;
-    bottom: 0;
-    top: 0;
-
-    align-items: center;
-    display: grid;
-
-    &::before {
-      content: "";
-
-      position: absolute;
-      bottom: -1px;
-      left: 8px;
-      top: -1px;
-
-      border: 1px solid var(--line-number-color);
-      border-left: 0;
-      width: 4px;
-    }
-  }
-
-  style width {
-    padding-bottom: 14px;
-    text-align: center;
-    position: absolute;
-    bottom: 100%;
-    right: 0;
-    left: 0;
-
-    &::before {
-      content: "";
-
-      position: absolute;
-      bottom: 8px;
-      right: -1px;
-      left: -1px;
-
-      border: 1px solid var(--line-number-color);
-      border-bottom: 0;
-      height: 4px;
-    }
-  }
-
-  style padding {
-    padding-right: 8px;
-
-    align-items: center;
-    display: grid;
-
-    position: absolute;
-    right: 100%;
-    bottom: 0;
-    top: 0;
-
-    &::before {
-      content: "";
-
-      width: calc(#{padding}px - 4px);
-      left: calc(100% + 1px);
-      top: calc(50% - 1px);
-      position: absolute;
-
-      border: 1px solid var(--line-number-color);
-      border-bottom: 0;
-      height: 4px;
-    }
-
-    &::after {
-      content: "";
-
-      width: calc(#{padding}px - 4px);
-      left: calc(100% + 1px);
-      top: calc(50% - 4px);
-      position: absolute;
-
-      border: 1px solid var(--line-number-color);
-      border-bottom: 0;
-      border-top: 0;
-      height: 3px;
-    }
-  }
-
-  fun render : Html {
-    <div::root>
-      <div::container>
-        <div::height>"#{height + padding * 2}px"</div>
-        <div::width>"#{width + padding * 2}px"</div>
-        <div::padding>"#{padding}px"</div>
-        <img::image src={logo}/>
-      </div>
-    </div>
-  }
-}
-
 async component Pages.BrandBook {
   connect Application exposing { isMobile }
 
+  // Styles for the root element.
   style root {
     max-width: 80ch;
     margin: 0 auto;
   }
 
+  // Styles for the colors container.
+  style colors {
+    grid-template-columns: repeat(5, 1fr);
+    margin-top: 30px;
+    grid-gap: 40px;
+    display: grid;
+
+    if isMobile {
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+  }
+
+  // Styles for a color.
+  style color {
+    align-content: center;
+    grid-gap: 10px;
+    display: grid;
+  }
+
+  // Styles for a color circle.
   style color-circle (background : String) {
     background: #{background};
     box-sizing: border-box;
@@ -160,30 +40,14 @@ async component Pages.BrandBook {
     }
   }
 
-  style colors {
-    grid-template-columns: repeat(5, 1fr);
-    margin-top: 30px;
-    grid-gap: 40px;
-    display: grid;
-
-    if isMobile {
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    }
-  }
-
-  style color {
-    align-content: center;
-    grid-gap: 10px;
-    display: grid;
-  }
-
+  // Styles for color items.
   style color-items {
     text-align: center;
     font-size: 14px;
-
     display: grid;
   }
 
+  // Styles for the logos container.
   style logos {
     grid-template-columns: 1fr 1fr;
     margin-bottom: 60px;
@@ -196,13 +60,15 @@ async component Pages.BrandBook {
     }
   }
 
+  // Styles for the icons container.
   style icons {
-    grid-auto-flow: column;
     justify-content: start;
+    grid-auto-flow: column;
     grid-gap: 20px;
     display: grid;
   }
 
+  // Renders a color.
   fun color (name : String, hsl : String, hex : String) : Html {
     <div::color>
       <div::color-circle(hex)/>
@@ -218,6 +84,7 @@ async component Pages.BrandBook {
     </div>
   }
 
+  // Renders the component.
   fun render : Html {
     <div::root>
       <Content>
@@ -244,53 +111,53 @@ async component Pages.BrandBook {
         |> ContentInstrumenter.instrument
 
         <p::logos>
-          <Pages.BrandBook.MeasuredLogo
-            logo={@asset(../../assets/brand-book/logomark-16.svg)}
+          <MeasuredLogo
+            logo={@svg(../../assets/brand-book/logomark-16.svg)}
             padding={6}
             height={16}
             width={16}/>
 
-          <Pages.BrandBook.MeasuredLogo
-            logo={@asset(../../assets/brand-book/logomark-16-dark.svg)}
+          <MeasuredLogo
+            logo={@svg(../../assets/brand-book/logomark-16.svg)}
             padding={6}
             height={16}
             dark={true}
             width={16}/>
 
-          <Pages.BrandBook.MeasuredLogo
-            logo={@asset(../../assets/brand-book/logomark.svg)}
+          <MeasuredLogo
+            logo={@svg(../../assets/brand-book/logomark.svg)}
             padding={12}
             height={24}
             width={24}/>
 
-          <Pages.BrandBook.MeasuredLogo
-            logo={@asset(../../assets/brand-book/logomark-dark.svg)}
+          <MeasuredLogo
+            logo={@svg(../../assets/brand-book/logomark.svg)}
             padding={12}
             height={24}
             dark={true}
             width={24}/>
 
-          <Pages.BrandBook.MeasuredLogo
-            logo={@asset(../../assets/brand-book/logomark.svg)}
+          <MeasuredLogo
+            logo={@svg(../../assets/brand-book/logomark.svg)}
             padding={24}
             height={48}
             width={48}/>
 
-          <Pages.BrandBook.MeasuredLogo
-            logo={@asset(../../assets/brand-book/logomark-dark.svg)}
+          <MeasuredLogo
+            logo={@svg(../../assets/brand-book/logomark.svg)}
             padding={24}
             height={48}
             dark={true}
             width={48}/>
 
-          <Pages.BrandBook.MeasuredLogo
-            logo={@asset(../../assets/brand-book/logo.svg)}
+          <MeasuredLogo
+            logo={@svg(../../assets/brand-book/logo.svg)}
             padding={16}
             height={24}
             width={100}/>
 
-          <Pages.BrandBook.MeasuredLogo
-            logo={@asset(../../assets/brand-book/logo-dark.svg)}
+          <MeasuredLogo
+            logo={@svg(../../assets/brand-book/logo.svg)}
             padding={16}
             height={24}
             dark={true}
@@ -298,14 +165,14 @@ async component Pages.BrandBook {
 
           if !isMobile {
             <>
-              <Pages.BrandBook.MeasuredLogo
-                logo={@asset(../../assets/brand-book/logo.svg)}
+              <MeasuredLogo
+                logo={@svg(../../assets/brand-book/logo.svg)}
                 padding={32}
                 height={48}
                 width={200}/>
 
-              <Pages.BrandBook.MeasuredLogo
-                logo={@asset(../../assets/brand-book/logo-dark.svg)}
+              <MeasuredLogo
+                logo={@svg(../../assets/brand-book/logo.svg)}
                 padding={32}
                 height={48}
                 dark={true}

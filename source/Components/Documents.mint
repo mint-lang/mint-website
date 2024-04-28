@@ -1,6 +1,9 @@
 async component Documents {
   connect Application exposing { isTablet }
 
+  // The category of the document.
+  property category : Maybe(DocumentCategory)
+
   // The documents to display in the sidebar.
   property documents : Documents
 
@@ -26,7 +29,10 @@ async component Documents {
     display: grid;
 
     if isTablet {
-      display: block;
+      grid-template-rows: auto 1fr;
+      grid-template-columns: 1fr;
+      grid-gap: 15px;
+      min-width: 0;
     }
   }
 
@@ -103,6 +109,26 @@ async component Documents {
     }
   }
 
+  // Styles for the content.
+  style content {
+    min-width: 0;
+  }
+
+  // Styles for the mobile navigation.
+  style mobile-navigation {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    grid-gap: 10px;
+    display: grid;
+
+    label {
+      font-weight: normal;
+    }
+  }
+
   // Renders documents in the sidebar.
   fun renderDocuments (
     documents : Array(Document),
@@ -114,16 +140,16 @@ async component Documents {
         title
       </strong>
 
-      for reference of documents {
+      for document of documents {
         let documentPath =
           if String.isBlank(path) {
-            "/#{basePath}/#{reference.path}"
+            "/#{basePath}/#{document.path}"
           } else {
-            "/#{basePath}/#{path}/#{reference.path}"
+            "/#{basePath}/#{path}/#{document.path}"
           }
 
         <a::link(Window.isActiveURL(documentPath)) href={documentPath}>
-          reference.name
+          document.name
         </a>
       }
     </div>
@@ -135,7 +161,7 @@ async component Documents {
       ContentInstrumenter.tableOfContents(contents)
 
     let contentDiv =
-      <div key={document.path}>
+      <div::content key={document.path}>
         <Content>
           ContentInstrumenter.instrument(contents)
         </Content>
@@ -143,7 +169,45 @@ async component Documents {
 
     <div::root>
       if isTablet {
-        contentDiv
+        <>
+          <div::mobile-navigation>
+            <label>"Pages:"</label>
+
+            <Select
+              onChange={
+                (value : String) {
+                  Window.navigate("/#{basePath}/#{value}")
+                }
+              }
+              value={
+                let Just(item) =
+                  category or return document.path
+
+                "#{item.path}/#{document.path}"
+              }
+              options={
+                Array.concat(
+                  [
+                    for page of documents.pages {
+                      <option value="#{page.path}">
+                        page.name
+                      </option>
+                    },
+                    for category of documents.categories {
+                      <optgroup label={category.name}>
+                        for page of category.pages {
+                          <option value="#{category.path}/#{page.path}">
+                            page.name
+                          </option>
+                        }
+                      </optgroup>
+                    }
+                  ])
+              }/>
+          </div>
+
+          contentDiv
+        </>
       } else {
         <>
           <div>
@@ -164,25 +228,21 @@ async component Documents {
 
           contentDiv
 
-          if Array.isEmpty(tableOfContents) {
-            <div/>
-          } else {
-            <div::table-of-contents>
-              <strong>"ON THIS PAGE"</strong>
+          <div::table-of-contents>
+            <strong>"ON THIS PAGE"</strong>
 
-              for item of tableOfContents {
-                let href =
-                  case item[0] {
-                    "h1" => ""
-                    => item[2]
-                  }
+            for item of tableOfContents {
+              let href =
+                case item[0] {
+                  "h1" => ""
+                  => item[2]
+                }
 
-                <a::table-of-contents-item(item[0]) href="##{href}">
-                  item[1]
-                </a>
-              }
-            </div>
-          }
+              <a::table-of-contents-item(item[0]) href="##{href}">
+                item[1]
+              </a>
+            }
+          </div>
         </>
       }
     </div>

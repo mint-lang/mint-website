@@ -1,5 +1,5 @@
 async component Footer {
-  connect Application exposing { isTablet, isWide }
+  connect Application exposing { isTablet, isWide, isMobile }
 
   // Styles for the root element.
   style root {
@@ -15,6 +15,8 @@ async component Footer {
       background-color: var(--blur-color);
       padding: 30px 20px 20px 20px;
       font-size: 14px;
+      margin-top: 20px;
+    } else if isMobile {
       margin-top: 0;
     } else {
       padding: 40px 20px;

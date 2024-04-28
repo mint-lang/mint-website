@@ -11,11 +11,11 @@ routes {
     Application.setPage(Page.Page("", <Pages.Home/>))
   }
 
-  /tutorial*path (path : String) {
+  /tutorial*path (path : String) await {
     Application.loadTutorial(path)
   }
 
-  /reference*path (path : String) {
+  /reference*path (path : String) await {
     Application.loadDocuments(
       deferredDocuments: Data.REFERENCE,
       basePath: "reference",
@@ -23,7 +23,7 @@ routes {
       path: path)
   }
 
-  /guides*path (path : String) {
+  /guides*path (path : String) await {
     Application.loadDocuments(
       deferredDocuments: Data.GUIDES,
       basePath: "guides",

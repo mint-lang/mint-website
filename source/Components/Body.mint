@@ -1,5 +1,5 @@
 component Body {
-  connect Application exposing { isMobile, isDarkMode, isWide }
+  connect Application exposing { isMobile, isDarkMode, isWide, isTablet }
 
   // The children to display.
   property children : Array(Html) = []
@@ -84,11 +84,12 @@ component Body {
       margin: 0 auto;
     }
 
-    if isMobile {
+    if isMobile || (isTablet && !isWide) {
       padding: 20px;
       margin: 0;
     } else if !(isWide && !isMobile) {
       padding: 5vh 20px 20px 20px;
+      min-height: 60vh;
     }
   }
 

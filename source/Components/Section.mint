@@ -41,6 +41,20 @@ component Section {
 
   // Renders the component.
   fun render : Html {
+    let snippetDiv =
+      <Content
+        preMinWidth={
+          if isTablet {
+            "300px"
+          } else {
+            "600px"
+          }
+        }>
+
+        snippet
+
+      </Content>
+
     let content =
       <Content fontSize={18}>
         ContentInstrumenter.instrument(
@@ -54,13 +68,13 @@ component Section {
     <div::root>
       if flipped && !isMobile {
         <>
-          snippet
+          snippetDiv
           content
         </>
       } else {
         <>
           content
-          snippet
+          snippetDiv
         </>
       }
     </div>

@@ -4,12 +4,13 @@ component Main {
   fun render : Html {
     <Body>
       case page {
-        Documents(contents, documents, document, title, basePath) =>
+        Documents(contents, documents, document, title, basePath, category) =>
           <Documents
             documents={documents}
             document={document}
             contents={contents}
             basePath={basePath}
+            category={category}
             title={title}/>
 
         Tutorial(previousLessonPath, nextLessonPath, path, lesson, lessons) =>
@@ -20,8 +21,8 @@ component Main {
             lessons={lessons}
             path={path}/>
 
-        Page(title, page) => page
         NotFound => <Pages.NotFound/>
+        Page(title, page) => page
         Initial => <></>
       }
     </Body>

@@ -1,23 +1,23 @@
 async component Lesson {
-  connect Stores.Lesson exposing { project, showSolution, update }
+  connect Stores.Lesson exposing { showSolution, project }
   connect Application exposing { isMobile }
 
-  /* The path to the previous lesson (if any). */
+  // The path to the previous lesson (if any).
   property previousLessonPath : Maybe(String)
 
-  /* The path to the next lesson (if any). */
+  // The path to the next lesson (if any).
   property nextLessonPath : Maybe(String)
 
-  /* The list of lessons for the select. */
+  // The list of lessons for the select.
   property lessons : Array(Lesson)
 
-  /* The instructions to show. */
+  // The instructions to show.
   property instructions : Html
 
-  /* The path of the lesson. */
+  // The path of the lesson.
   property path : String
 
-  /* Styles for the root element. */
+  // Styles for the root element.
   style root {
     grid-template-columns: minmax(33.333%, 32em) auto;
     background: var(--blur-color);
@@ -26,19 +26,12 @@ async component Lesson {
     display: grid;
   }
 
-  /* Styles for the instructions. */
+  // Styles for the instructions.
   style instructions {
     padding: 1.5em;
   }
 
-  /* Styles fot the empty message. */
-  style empty {
-    grid-row: span 2;
-    grid-column: 2;
-    display: grid;
-  }
-
-  /* The style for the sidebar. */
+  // The style for the sidebar.
   style sidebar {
     border-right: 3px double var(--border-color);
     grid-row: span 2;
@@ -55,21 +48,7 @@ async component Lesson {
     }
   }
 
-  /* Styles for the editor. */
-  style editor {
-    min-height: 0;
-    display: grid;
-
-    textarea {
-      border: 0;
-    }
-
-    .CodeMirror {
-      height: auto;
-    }
-  }
-
-  /* Styles for the toolbar. */
+  // Styles for the toolbar.
   style toolbar {
     border-top: 3px double var(--border-color);
     padding: 0.75em 1.5em;
@@ -81,7 +60,7 @@ async component Lesson {
     display: grid;
   }
 
-  /* Styles for the navigation. */
+  // Styles for the navigation.
   style navigation {
     border-bottom: 3px double var(--border-color);
     box-sizing: border-box;
@@ -92,7 +71,7 @@ async component Lesson {
     display: grid;
   }
 
-  /* Styles for the IDE. */
+  // Styles for the IDE.
   style ide {
     border-bottom: 3px double var(--border-color);
     min-height: 0;
@@ -103,48 +82,12 @@ async component Lesson {
     }
   }
 
-  /* Styles for the files. */
-  style files {
-    border-right: 3px double var(--border-color);
-  }
-
-  /* Styles for a file in the file tree. */
-  style file (active : Bool) {
-    border-bottom: 1px solid var(--border-color);
-    font-weight: normal;
-    padding: 7px 20px;
-    font-size: 14px;
-    cursor: pointer;
-
-    &:hover {
-      color: #277944;
-    }
-
-    if active {
-      background: #F6F6F6;
-      color: #277944;
-    }
-  }
-
-  /* Styles for the scrollable panel. */
+  // Styles for the scrollable panel.
   style scroll-panel {
     overflow: auto;
   }
 
-  /* Styles for the select. */
-  style select {
-    appearance: none;
-
-    border: 1px solid var(--border-color);
-    background: var(--input-color);
-    color: var(--text-color);
-    padding: 0.5em 0.75em;
-    border-radius: 3px;
-
-    font-family: Noto Sans;
-  }
-
-  /* Renders the component. */
+  // Renders the component.
   fun render : Html {
     if isMobile {
       <Message
@@ -223,20 +166,14 @@ async component Lesson {
                 }
               }/>
 
-            <select::select
+            <Select
+              options={options}
               value={path}
               onChange={
-                (event : Html.Event) {
-                  let path =
-                    Dom.getValue(event.target)
-
-                  Window.navigate("/tutorial#{path}")
+                (value : String) {
+                  Window.navigate("/tutorial#{value}")
                 }
-              }>
-
-              options
-
-            </select>
+              }/>
 
             <Icon
               disabled={Maybe.isNothing(nextLessonPath)}
@@ -262,7 +199,7 @@ async component Lesson {
         </div>
 
         <Ide
-          onChange={update}
+          onChange={-> project}
           value={project}/>
       </div>
     }

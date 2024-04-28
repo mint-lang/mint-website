@@ -72,15 +72,15 @@ store Application {
     let pages =
       Array.concat(
         [
+          for page of documents.pages {
+            {"/#{page.path}", page, Maybe.Nothing}
+          },
           Array.concat(
             for category of documents.categories {
               for page of category.pages {
                 {"/#{category.path}/#{page.path}", page, Maybe.Just(category)}
               }
-            }),
-          for page of documents.pages {
-            {"/#{page.path}", page, Maybe.Nothing}
-          }
+            })
         ])
 
     let currentPage =
@@ -200,19 +200,14 @@ store Application {
         "#{head} - Mint Programming Language"
       }
 
+    // Hides the header dropdown menu.
+    Dom.blurActiveElement()
     Window.setTitle(final)
 
-    // Hides the menu.
-    Dom.blurActiveElement()
-
-    await next
+    next
       {
         isMobileMenuOpen: false,
         page: page
       }
-
-    // Jump to the active section since we loading the stuff takes time.
-    await Timer.nextFrame()
-    Window.triggerJump()
   }
 }
