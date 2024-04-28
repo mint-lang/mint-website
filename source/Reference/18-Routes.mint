@@ -73,5 +73,42 @@ module References {
       }
     }
     ```
+
+    ## Awaiting
+
+    In content pages (like documentation) you want to jump to the target anchor
+    (from the hash of the location) and Mint honors that under normal
+    circumstances, but when content is loaded asynchronously you need to tell
+    the runtime to wait for it.
+
+    You can do that by adding the `await` keyword at the end of the route (
+    before the block):
+
+    ```mint
+    module Content {
+      const INSTALL =
+        defer <>
+          "This is the istall page:"
+
+          <a name="anchor" style="margin-top: 1000px;">
+            "I'm waaaaaay down."
+          </a>
+        </>
+    }
+
+    routes {
+      /install await {
+        let content =
+          await Content.INSTALL
+
+        Application.setContent(content)
+      }
+    }
+    ```
+
+    Without the `await`, navigating to `/install#anchor` the page would be
+    scrolled to the top (because the anchor is not there), but with `await`
+    it will wait for the content to be displayed, and the page will be scrolled
+    to the anchor.
     MARKDOWN
 }
