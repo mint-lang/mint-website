@@ -44,6 +44,11 @@ module Data {
             path: "tuple"
           },
           {
+            contents: defer References.MAP,
+            name: "Map",
+            path: "map"
+          },
+          {
             contents: defer References.OPERATORS,
             name: "Operators",
             path: "operators"

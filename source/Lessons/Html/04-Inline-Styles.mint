@@ -10,11 +10,8 @@ module Lessons {
               <<~MINT
               component Main {
                 fun render : Html {
-                  let styleMap =
-                    Map.set(Map.empty(), "color", "red")
-
                   <div>
-                    <div style={styleMap}>
+                    <div style={{"color" => "red"}}>
                       "I am red!"
                     </div>
 
@@ -35,11 +32,8 @@ module Lessons {
         either CSS string or a `Map(String, String)` of CSS values:
 
         ```mint
-        let styleMap =
-          Map.set(Map.empty(), "color", "red")
-
         <div>
-          <div style={styleMap}>
+          <div style={{"color" => "red"}}>
             "I am red!"
           </div>
 

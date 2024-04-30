@@ -20,9 +20,10 @@ module References {
 
     ```mint
     let map =
-      Map.empty()
-      |> Map.set("name", "bob")
-      |> Map.set("age", "33")
+      {
+        "name" => "bob",
+        "age" => "33"
+      }
 
     for key, value of map {
       String.toUpperCase(key + ": " + value)
