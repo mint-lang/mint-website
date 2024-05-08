@@ -33,5 +33,4 @@ module References {
     }
     ```
     MARKDOWN
-
 }

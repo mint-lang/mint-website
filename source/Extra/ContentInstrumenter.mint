@@ -51,7 +51,7 @@ module ContentInstrumenter {
   // The link icon for external links.
   const EXTERNAL =
     <span style="position:relative;top:-1px">
-      TablerIcons.TablerIcons.EXTERNAL_LINK
+      TablerIcons.EXTERNAL_LINK
     </span>
 
   // The link icon for internal links.

@@ -22,9 +22,21 @@ module Data {
             pages:
               [
                 {
-                  contents: defer Guides.Guides.CHEATSHEETS_ELM,
+                  contents: defer Guides.CHEATSHEETS_ELM,
                   name: "Mint for Elm users",
                   path: "elm"
+                }
+              ]
+          },
+          {
+            name: "Migration Guides",
+            path: "migration-guides",
+            pages:
+              [
+                {
+                  contents: defer Guides.MIGRATION_GUIDES_0_20_0,
+                  name: "0.19.0 ⇢ 0.20.0",
+                  path: "0.19.0⇢0.20.0"
                 }
               ]
           },
