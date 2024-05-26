@@ -132,6 +132,11 @@ module Data {
             contents: defer References.TESTING,
             name: "Testing",
             path: "testing"
+          },
+          {
+            contents: defer References.SIGNALS,
+            name: "Signals",
+            path: "siganls"
           }
         ],
       categories:
