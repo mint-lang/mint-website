@@ -32,10 +32,9 @@ component Hero {
 
   // Styles for the logo.
   style logo {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     display: block;
     height: auto;
-    width: 220px;
 
     svg:first-child {
       margin-right: 15px;
@@ -44,16 +43,26 @@ component Hero {
 
       position: relative;
       top: 6px;
+
+      if isMobile {
+        margin-right: 10px;
+        height: 50px;
+        width: 50px;
+      }
     }
 
     svg:last-child {
       width: 140px;
       height: 55px;
+
+      if isMobile {
+        width: 125px;
+        height: 40px;
+      }
     }
 
     if isMobile {
       margin-bottom: 20px;
-      width: 140px;
     }
   }
 
