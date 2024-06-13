@@ -212,8 +212,8 @@ component DocumentLayout {
         <>
           <div::mobile-navigation>
             <Select
+              onChange={(url : String) { Window.navigate(url) }}
               options={Array.concat([headOptions, options])}
-              onChange={(value : String) { next { } }}
               value={value}/>
           </div>
 
