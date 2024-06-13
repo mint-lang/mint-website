@@ -43,6 +43,7 @@ type Page {
     lesson : LessonData,
     path : String)
 
+  ApiDocs(Array(TopLevelEntity), TopLevelEntity)
   Page(String, Html)
   NotFound
   Initial
@@ -66,4 +67,34 @@ type Document {
   contents : Deferred(Html),
   name : String,
   path : String
+}
+
+// Data structure for a top-level entity in the API Docs.
+type TopLevelEntity {
+  entities : Maybe(Array(Entity)) using "e",
+  sources : Maybe(Array(String)) using "s",
+  flags : Maybe(Array(Number)) using "f",
+  description : Maybe(String) using "d",
+  link : Maybe(String) using "l",
+  kind : Number using "k",
+  name : String using "n"
+}
+
+// Data structure for an entity in the API Docs.
+type Entity {
+  arguments : Maybe(Array(Argument)) using "a",
+  description : Maybe(String) using "d",
+  source : Maybe(String) using "s",
+  value : Maybe(String) using "v",
+  type : Maybe(String) using "t",
+  broken : Bool using "b",
+  kind : Number using "k",
+  name : String using "n"
+}
+
+// Data structure for an argument in the API Docs.
+type Argument {
+  value : Maybe(String) using "v",
+  type : Maybe(String) using "t",
+  name : String using "n"
 }

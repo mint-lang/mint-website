@@ -1,9 +1,13 @@
 store Application {
   // A state to track tablet breakpoint
-  state isTablet : Bool = Window.mediaQueryState("(max-width: 1200px)", -> isTablet)
+  signal isTablet : Bool {
+    Window.mediaQueryState("(max-width: 1200px)", (value : Bool) { emit value })
+  }
 
   // A state to track mobile breakpoint
-  state isMobile : Bool = Window.mediaQueryState("(max-width: 768px)", -> isMobile)
+  signal isMobile : Bool {
+    Window.mediaQueryState("(max-width: 768px)", (value : Bool) { emit value })
+  }
 
   // A state to track mobile menu.
   state isMobileMenuOpen : Bool = false

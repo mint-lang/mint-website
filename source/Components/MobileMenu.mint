@@ -89,13 +89,18 @@ async component MobileMenu {
       </a>
 
       <a::item href="/guides/">
-        TablerIcons.NOTEBOOK
+        TablerIcons.BOOKS
         "Guides"
       </a>
 
       <a::item::divider href="/reference/">
         TablerIcons.BOOKMARKS
         "Reference"
+      </a>
+
+      <a::item href="/api/">
+        TablerIcons.NOTEBOOK
+        "API Docs"
       </a>
 
       <a::item::divider

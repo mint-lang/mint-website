@@ -1,4 +1,6 @@
 component Leaves {
+  connect Application exposing { isMobile }
+
   // Styles for the root element.
   style root {
     position: absolute;
@@ -53,23 +55,33 @@ component Leaves {
   style top-left {
     background-image: url(#{@asset(../../assets/top-left.png)});
     transform-origin: 80px 0;
-    animation-name: swing;
     animation-delay: 3s;
     height: 100px;
     width: 260px;
     left: -15px;
     top: -10px;
+
+    if isMobile {
+      animation-name: initial;
+    } else {
+      animation-name: swing;
+    }
   }
 
   // Styles for the top-right leaf.
   style top-right {
     background-image: url(#{@asset(../../assets/top-right.png)});
-    animation-name: swing-reverse;
     transform-origin: 115px 0;
     height: 159px;
     width: 200px;
     right: -15px;
     top: -10px;
+
+    if isMobile {
+      animation-name: initial;
+    } else {
+      animation-name: swing-reverse;
+    }
   }
 
   // Styles for the bottom-center leaf.
@@ -84,24 +96,34 @@ component Leaves {
   // Styles for the bottom-right leaf.
   style bottom-right {
     background-image: url(#{@asset(../../assets/bottom-right.png)});
-    animation-name: swing-reverse;
     transform-origin: 140px 100px;
     animation-delay: 3s;
     height: 100px;
     bottom: -10px;
     width: 260px;
     right: -15px;
+
+    if isMobile {
+      animation-name: initial;
+    } else {
+      animation-name: swing-reverse;
+    }
   }
 
   // Styles for the bottom-left leaf.
   style bottom-left {
     background-image: url(#{@asset(../../assets/bottom-left.png)});
-    animation-name: swing-reverse;
     transform-origin: 20px 159px;
     height: 159px;
     bottom: -10px;
     width: 200px;
     left: -15px;
+
+    if isMobile {
+      animation-name: initial;
+    } else {
+      animation-name: swing;
+    }
   }
 
   // Renders the component.

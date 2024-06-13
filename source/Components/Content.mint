@@ -13,6 +13,9 @@ component Content {
   // The size of the text.
   property fontSize : Number = 16
 
+  // The raw HTML to render instead of the children.
+  property raw : String = ""
+
   // Styles for the root element.
   style root {
     font-size: #{fontSize}px;
@@ -280,8 +283,12 @@ component Content {
 
   // Renders the component.
   fun render : Html {
-    <div::root as root>
-      children
-    </div>
+    if String.isNotEmpty(raw) {
+      <div::root dangerouslySetInnerHTML={`{__html: #{raw}}`}/>
+    } else {
+      <div::root as root>
+        children
+      </div>
+    }
   }
 }

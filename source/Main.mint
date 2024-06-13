@@ -21,6 +21,11 @@ component Main {
             lessons={lessons}
             path={path}/>
 
+        ApiDocs(entities, entity) =>
+          <Pages.ApiDocs
+            entities={entities}
+            entity={entity}/>
+
         NotFound => <Pages.NotFound/>
         Page(title, page) => page
         Initial => <></>

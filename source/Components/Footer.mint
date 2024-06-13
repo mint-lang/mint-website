@@ -141,13 +141,18 @@ async component Footer {
               </a>
 
               <a href="/guides/">
-                TablerIcons.NOTEBOOK
+                TablerIcons.BOOKS
                 "Guides"
               </a>
 
               <a href="/reference/">
                 TablerIcons.BOOKMARKS
                 "Reference"
+              </a>
+
+              <a href="/api/">
+                TablerIcons.NOTEBOOK
+                "API Docs"
               </a>
             </div>
 

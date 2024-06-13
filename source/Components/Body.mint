@@ -39,7 +39,7 @@ component Body {
       --background-color: #FFFFFF;
       --blur-color-2: #FFFFFFCC;
       --blur-color: #FFFFFF80;
-      --border-color: #EEEEEE;
+      --border-color: #EAEAEA;
       --input-color: #FEFEFE;
       --text-color: #333333;
 
