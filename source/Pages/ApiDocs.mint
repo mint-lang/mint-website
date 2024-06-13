@@ -69,6 +69,9 @@ async component Pages.ApiDocs {
 
   // Renders the component.
   fun render : Html {
+    let url =
+      entity.link or entity.name
+
     let categories =
       {
         name: "Top Level Entities",
@@ -76,7 +79,7 @@ async component Pages.ApiDocs {
           for item of entities {
             {
               mobilePrefix: "[#{ApiDocs.kindToBadge(item.kind)[0]}] ",
-              href: "/api/#{Maybe.withDefault(item.link, item.name)}",
+              href: "/api/#{item.link or item.name}",
               icon: renderBadge(item.kind),
               searchValue: item.name,
               content:
@@ -138,8 +141,8 @@ async component Pages.ApiDocs {
             <a name={item.name}/>
 
             <EntitySignature
-              parent={entity.name}
-              entity={item}/>
+              entity={item}
+              parent={url}/>
 
             if let Just(description) = item.description {
               <Content
