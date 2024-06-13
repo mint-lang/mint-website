@@ -75,6 +75,7 @@ async component Pages.ApiDocs {
         items:
           for item of entities {
             {
+              mobilePrefix: "[#{ApiDocs.kindToBadge(item.kind)[0]}] ",
               href: "/api/#{Maybe.withDefault(item.link, item.name)}",
               icon: renderBadge(item.kind),
               searchValue: item.name,

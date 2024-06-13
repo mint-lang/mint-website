@@ -40,6 +40,7 @@ async component Documents {
             content: <>document.name</>,
             searchValue: document.name,
             href: documentPath,
+            mobilePrefix: "",
             icon: <></>
           }
         }

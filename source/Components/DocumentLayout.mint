@@ -6,6 +6,7 @@ type DocumentLayoutCategory {
 
 // Type for a navigation item.
 type DocumentLayoutItem {
+  mobilePrefix : String,
   searchValue : String,
   content : Html,
   href : String,
@@ -185,6 +186,7 @@ component DocumentLayout {
         let headOptions =
           for item of Maybe.map(items[0], .items(DocumentLayoutCategory)) or [] {
             <option value={item.href}>
+              item.mobilePrefix
               item.content
             </option>
           }
@@ -194,6 +196,7 @@ component DocumentLayout {
             <optgroup label={category.name}>
               for item of category.items {
                 <option value={item.href}>
+                  item.mobilePrefix
                   item.content
                 </option>
               }
