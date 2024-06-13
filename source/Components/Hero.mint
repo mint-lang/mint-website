@@ -35,11 +35,20 @@ component Hero {
     margin-bottom: 40px;
     display: block;
     height: auto;
-    width: 200px;
+    width: 220px;
 
-    svg {
-      width: inherit;
-      height: 100%;
+    svg:first-child {
+      margin-right: 15px;
+      height: 65px;
+      width: 65px;
+
+      position: relative;
+      top: 6px;
+    }
+
+    svg:last-child {
+      width: 140px;
+      height: 55px;
     }
 
     if isMobile {
@@ -146,7 +155,8 @@ component Hero {
     <div::root>
       <div>
         <div::logo>
-          @svg(../../assets/brand-book/logo.svg)
+          @svg(../../assets/brand-book/logomark-animated.svg)
+          @svg(../../assets/brand-book/logotype.svg)
         </div>
 
         <h1::title>"The programming language for writing single page applications"</h1>
