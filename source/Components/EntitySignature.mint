@@ -1,4 +1,6 @@
 component EntitySignature {
+  connect Application exposing { isMobile }
+
   // The entity to use for the signature.
   property entity : Entity
 
@@ -23,7 +25,11 @@ component EntitySignature {
       display: flex;
     }
 
-    white-space: pre;
+    if isMobile {
+      white-space: pre-wrap;
+    } else {
+      white-space: pre;
+    }
 
     a {
       text-decoration: none;
