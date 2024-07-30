@@ -189,6 +189,15 @@ async component Footer {
                 "Discord"
 
               </a>
+
+              <a
+                href="https://github.com/mint-lang/mint/discussions"
+                target="_blank">
+
+                TablerIcons.MESSAGES
+                "Discussions"
+
+              </a>
             </div>
           </div>
         </div>

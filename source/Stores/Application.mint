@@ -173,7 +173,7 @@ store Application {
   fun setPage (page : Page) : Promise(Void) {
     let title =
       case page {
-        Tutorial(title) => Array.unshift(title, "Tutorial")
+        Tutorial(_, _, _, title) => Array.unshift(title, "Tutorial")
         NotFound => ["404"]
 
         Page(title) =>
@@ -182,7 +182,7 @@ store Application {
           }
 
         // Reference / Language / Literals
-        Documents(category, document, title) =>
+        Documents(category, _, document, _, _, title) =>
           [
             title,
             Maybe.map(category, .name(DocumentCategory)) or "",

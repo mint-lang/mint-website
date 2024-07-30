@@ -39,7 +39,8 @@ module References {
     {"First Value", 10, true}[0] /* "First Value" */
     ```
 
-    Destructuring can be used in **statements** and **case expressions**:
+    Destructuring can be used in **statements**, **case expressions** and
+    **for expressions**:
 
     ```mint
     case {"First Value", 10, true} {
@@ -53,11 +54,11 @@ module References {
       {a, b, c} => a
     }
 
-    fun tuples : String {
-      let {first, second, third} =
-        {"First Value", 10, true}
+    let {first, second, third} =
+      {"First Value", 10, true}
 
-      first
+    for ({x, y} of [{0, 0}]) {
+      x + y
     }
     ```
 

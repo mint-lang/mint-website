@@ -4,7 +4,7 @@ component Main {
   fun render : Html {
     <Body>
       case page {
-        Documents(contents, documents, document, title, basePath, category) =>
+        Documents(category, documents, document, basePath, contents, title) =>
           <Documents
             documents={documents}
             document={document}
@@ -13,7 +13,7 @@ component Main {
             category={category}
             title={title}/>
 
-        Tutorial(previousLessonPath, nextLessonPath, path, lesson, lessons) =>
+        Tutorial(previousLessonPath, nextLessonPath, lessons, _, lesson, path) =>
           <Lesson
             previousLessonPath={previousLessonPath}
             nextLessonPath={nextLessonPath}

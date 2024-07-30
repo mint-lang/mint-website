@@ -46,7 +46,7 @@ module References {
 
     Any tag or component can have child items. Unlike in HTML where the contents
     are only text or other tags, in Mint child items can be **expressions**,
-    but they must evaluate to `Html`, `String` or an array of those.
+    but they must evaluate to `Html`, `String`, `Number` or an array of those.
 
     Here are some examples:
 
@@ -57,6 +57,9 @@ module References {
 
       // A normal string (String)
       "String Value"
+
+      // A number
+      42
 
       // An array of strings (Array(String))
       ["Item 1", "Item 2"]

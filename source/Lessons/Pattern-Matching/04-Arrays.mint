@@ -17,10 +17,8 @@ module Lessons {
                     ["Joe"] => "2"         /* Array with only one specific element */
                     [a] => "3"             /* Array with only one element */
                     [a, b] => "4"          /* Array with only two elements */
-                    [a, ...rest, b] => "5" /* Array at least with two elements (middle can be empty) */
-                    [...head, tail] => "6" /* Array at one element (head can be empty) */
-                    [head, ...tail] => "7" /* Array at one element (tail can be empty) */
-                    [...items] => "8"      /* Items would be the array itself */
+                    [head, ...tail] => "5" /* Array at one element (tail can be empty) */
+                    [...items] => "6"      /* Items would be the array itself */
                   }
                 }
               }
@@ -37,10 +35,8 @@ module Lessons {
                     ["Joe"] => "2"         /* Array with only one specific element */
                     [a] => "3"             /* Array with only one element */
                     [a, b] => "4"          /* Array with only two elements */
-                    [a, ...rest, b] => "5" /* Array at least with two elements (middle can be empty) */
-                    [...head, tail] => "6" /* Array at one element (head can be empty) */
-                    [head, ...tail] => "7" /* Array at one element (tail can be empty) */
-                    [...items] => "8"      /* Items would be the array itself */
+                    [head, ...tail] => "5" /* Array at one element (tail can be empty) */
+                    [...items] => "6"      /* Items would be the array itself */
                   }
                 }
               }
