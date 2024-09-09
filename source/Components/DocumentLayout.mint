@@ -148,8 +148,7 @@ component DocumentLayout {
         padding-left: 0.75em;
         font-size: 14px;
 
-      0 =>
-        font-weight: 500;
+      0 => font-weight: 500;
 
       =>
     }
@@ -177,9 +176,7 @@ component DocumentLayout {
   // Renders the component.
   fun render : Html {
     let contentDiv =
-      <div::content key={contentKey}>
-        content
-      </div>
+      <div::content key={contentKey}>content</div>
 
     <div::root>
       if isTablet {
@@ -217,15 +214,15 @@ component DocumentLayout {
             <Select
               onChange={(url : String) { Window.navigate(url) }}
               options={Array.concat([headOptions, options])}
-              value={value}/>
+              value={value}
+            />
           </div>
 
           contentDiv
         </>
       } else {
         let regexp =
-          Regexp.createWithOptions(
-            search,
+          Regexp.createWithOptions(search,
             {
               caseInsensitive: true,
               multiline: false,
@@ -246,32 +243,31 @@ component DocumentLayout {
             { category | items: selected }
           }
           |> Array.reject(
-            (item : DocumentLayoutCategory) {
-              Array.isEmpty(item.items)
-            })
+            (item : DocumentLayoutCategory) { Array.isEmpty(item.items) })
 
         <>
           <div>
             <strong::sidebar-category>"Search..."</strong>
 
             <input::input
-              onInput={(event : Html.Event) { next { search: Dom.getValue(event.target) } }}
+              onInput={
+                (event : Html.Event) {
+                  next { search: Dom.getValue(event.target) }
+                }
+              }
               value={search}
-              type="search"/>
+              type="search"
+            />
 
             for category of searched {
               <>
-                <strong::sidebar-category>
-                  category.name
-                </strong>
+                <strong::sidebar-category>category.name</strong>
 
                 for item of category.items {
                   <div::sidebar-item(Window.isActiveURL(item.href))>
                     item.icon
 
-                    <a href={item.href}>
-                      item.content
-                    </a>
+                    <a href={item.href}>item.content</a>
                   </div>
                 }
               </>
@@ -291,13 +287,9 @@ component DocumentLayout {
                     item.icon
 
                     if String.isBlank(item.href) {
-                      <span>
-                        item.content
-                      </span>
+                      <span>item.content</span>
                     } else {
-                      <a href={item.href}>
-                        item.content
-                      </a>
+                      <a href={item.href}>item.content</a>
                     }
                   </div>
                 }

@@ -49,18 +49,12 @@ component Section {
           } else {
             "600px"
           }
-        }>
-
-        snippet
-
-      </Content>
+        }
+      >snippet</Content>
 
     let content =
       <Content fontSize={18}>
-        ContentInstrumenter.instrument(
-          <h2>
-            title
-          </h2>)
+        ContentInstrumenter.instrument(<h2>title</h2>)
 
         ContentInstrumenter.instrumentMany(children)
       </Content>

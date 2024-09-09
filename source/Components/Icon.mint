@@ -47,8 +47,6 @@ component Icon {
 
   // Renders the component.
   fun render : Html {
-    <a::root href={href}>
-      icon
-    </a>
+    <a::root href={href}>icon</a>
   }
 }

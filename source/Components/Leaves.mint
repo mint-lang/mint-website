@@ -11,8 +11,7 @@ component Leaves {
     top: 0;
 
     @keyframes swing {
-      0%,
-      100% {
+      0%, 100% {
         transform: rotate(-5deg);
       }
 
@@ -22,8 +21,7 @@ component Leaves {
     }
 
     @keyframes swing-reverse {
-      0%,
-      100% {
+      0%, 100% {
         transform: rotate(5deg);
       }
 

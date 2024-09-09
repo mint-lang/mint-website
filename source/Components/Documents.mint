@@ -50,19 +50,12 @@ async component Documents {
   // Renders the component.
   fun render : Html {
     let content =
-      <Content>
-        ContentInstrumenter.instrument(contents)
-      </Content>
+      <Content>ContentInstrumenter.instrument(contents)</Content>
 
     let items =
       Array.concat(
         [
-          [
-            categorize(
-              documents: documents.pages,
-              title: title,
-              path: "")
-          ],
+          [categorize(documents: documents.pages, title: title, path: "")],
           for category of documents.categories {
             categorize(
               documents: category.pages,
@@ -95,6 +88,7 @@ async component Documents {
       tableOfContents={tableOfContents}
       contentKey={document.path}
       content={content}
-      items={items}/>
+      items={items}
+    />
   }
 }

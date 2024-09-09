@@ -18,7 +18,7 @@ module Guides {
     All done in 20.226ms!
     ```
 
-    ## Package Cache
+    ## Package cache
 
     Mint uses Git repositories as packages and stores them for caching purposes
     in a temporary directory, which depends on the operating system. To remove

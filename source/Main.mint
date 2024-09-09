@@ -11,7 +11,8 @@ component Main {
             contents={contents}
             basePath={basePath}
             category={category}
-            title={title}/>
+            title={title}
+          />
 
         Tutorial(previousLessonPath, nextLessonPath, lessons, _, lesson, path) =>
           <Lesson
@@ -19,12 +20,11 @@ component Main {
             nextLessonPath={nextLessonPath}
             instructions={lesson.contents}
             lessons={lessons}
-            path={path}/>
+            path={path}
+          />
 
         ApiDocs(entities, entity) =>
-          <Pages.ApiDocs
-            entities={entities}
-            entity={entity}/>
+          <Pages.ApiDocs entities={entities} entity={entity}/>
 
         NotFound => <Pages.NotFound/>
         Page(title, page) => page

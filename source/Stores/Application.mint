@@ -145,11 +145,7 @@ store Application {
         |> Array.map(.path(LessonFile))
         |> Array.first) or ""
 
-      Stores.Lesson.reset(
-        {
-          activeFile: activeFile,
-          files: data.files
-        })
+      Stores.Lesson.reset({ activeFile: activeFile, files: data.files })
 
       setPage(
         Page.Tutorial(
@@ -208,10 +204,6 @@ store Application {
     Dom.blurActiveElement()
     Window.setTitle(final)
 
-    next
-      {
-        isMobileMenuOpen: false,
-        page: page
-      }
+    next { isMobileMenuOpen: false, page: page }
   }
 }

@@ -74,11 +74,10 @@ async component Pages.BrandBook {
       <div::color-circle(hex)/>
 
       <div::color-items>
-        <strong>
-          name
-        </strong>
+        <strong>name</strong>
 
         <span>"HSL: #{hsl}"</span>
+
         <span>"HEX: #{hex}"</span>
       </div>
     </div>
@@ -115,53 +114,61 @@ async component Pages.BrandBook {
             logo={@svg(../../assets/brand-book/logomark-16.svg)}
             padding={6}
             height={16}
-            width={16}/>
+            width={16}
+          />
 
           <MeasuredLogo
             logo={@svg(../../assets/brand-book/logomark-16.svg)}
             padding={6}
             height={16}
             dark={true}
-            width={16}/>
+            width={16}
+          />
 
           <MeasuredLogo
             logo={@svg(../../assets/brand-book/logomark.svg)}
             padding={12}
             height={24}
-            width={24}/>
+            width={24}
+          />
 
           <MeasuredLogo
             logo={@svg(../../assets/brand-book/logomark.svg)}
             padding={12}
             height={24}
             dark={true}
-            width={24}/>
+            width={24}
+          />
 
           <MeasuredLogo
             logo={@svg(../../assets/brand-book/logomark.svg)}
             padding={24}
             height={48}
-            width={48}/>
+            width={48}
+          />
 
           <MeasuredLogo
             logo={@svg(../../assets/brand-book/logomark.svg)}
             padding={24}
             height={48}
             dark={true}
-            width={48}/>
+            width={48}
+          />
 
           <MeasuredLogo
             logo={@svg(../../assets/brand-book/logo.svg)}
             padding={16}
             height={24}
-            width={100}/>
+            width={100}
+          />
 
           <MeasuredLogo
             logo={@svg(../../assets/brand-book/logo.svg)}
             padding={16}
             height={24}
             dark={true}
-            width={100}/>
+            width={100}
+          />
 
           if !isMobile {
             <>
@@ -169,29 +176,25 @@ async component Pages.BrandBook {
                 logo={@svg(../../assets/brand-book/logo.svg)}
                 padding={32}
                 height={48}
-                width={200}/>
+                width={200}
+              />
 
               <MeasuredLogo
                 logo={@svg(../../assets/brand-book/logo.svg)}
                 padding={32}
                 height={48}
                 dark={true}
-                width={200}/>
+                width={200}
+              />
             </>
           }
         </p>
 
-        <h2>
-          <a
-            href="#colors"
-            name="colors">
+        <h2><a href="#colors" name="colors">"Colors"</a></h2>
 
-            "Colors"
-
-          </a>
-        </h2>
-
-        <p>"The first 5 colors are the primary colors the others are the secondary colors."</p>
+        <p>
+          "The first 5 colors are the primary colors the others are the secondary colors."
+        </p>
 
         <p::colors>
           color("White", "0/0/100", "#FFFFFF")
@@ -228,21 +231,13 @@ async component Pages.BrandBook {
         |> ContentInstrumenter.instrument
 
         <p::icons>
-          <Icon
-            icon={TablerIcons.HOME}
-            size={30}/>
+          <Icon icon={TablerIcons.HOME} size={30}/>
 
-          <Icon
-            icon={TablerIcons.DOWNLOAD}
-            size={30}/>
+          <Icon icon={TablerIcons.DOWNLOAD} size={30}/>
 
-          <Icon
-            icon={TablerIcons.PALETTE}
-            size={30}/>
+          <Icon icon={TablerIcons.PALETTE} size={30}/>
 
-          <Icon
-            icon={TablerIcons.CODE}
-            size={30}/>
+          <Icon icon={TablerIcons.CODE} size={30}/>
         </p>
       </Content>
     </div>

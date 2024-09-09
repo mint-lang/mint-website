@@ -41,15 +41,8 @@ component Select {
     <div::root>
       <select::select
         value={value}
-        onChange={
-          (event : Html.Event) {
-            onChange(Dom.getValue(event.target))
-          }
-        }>
-
-        options
-
-      </select>
+        onChange={(event : Html.Event) { onChange(Dom.getValue(event.target)) }}
+      >options</select>
 
       TablerIcons.CHEVRON_DOWN
     </div>

@@ -35,16 +35,12 @@ component Content {
       margin-bottom: 0;
     }
 
-    h1,
-    h2,
-    h3 {
+    h1, h2, h3 {
       font-weight: normal;
       font-family: Forum;
     }
 
-    > h1,
-    > h2,
-    > h3 {
+    > h1, > h2, > h3 {
       > a {
         text-decoration: none;
         color: inherit;
@@ -56,8 +52,7 @@ component Content {
       }
     }
 
-    h2,
-    h3 {
+    h2, h3 {
       align-items: center;
       position: relative;
       margin-bottom: 0;
@@ -98,8 +93,7 @@ component Content {
       border-bottom: 1px double var(--border-color);
     }
 
-    ul,
-    ol {
+    ul, ol {
       padding-left: 1.5em;
     }
 
@@ -186,8 +180,7 @@ component Content {
           color: var(--color-darkorange);
         }
 
-        .namespace,
-        .property {
+        .namespace, .property {
           color: var(--color-indianred);
         }
 
@@ -249,8 +242,7 @@ component Content {
         border-bottom: 0;
       }
 
-      th,
-      td {
+      th, td {
         border: 1px solid var(--border-color);
         line-height: 1.85;
         padding: 0.5em;
@@ -275,8 +267,7 @@ component Content {
       }
     }
 
-    strong,
-    b {
+    strong, b {
       font-weight: normal;
     }
   }
@@ -286,9 +277,7 @@ component Content {
     if String.isNotEmpty(raw) {
       <div::root dangerouslySetInnerHTML={`{__html: #{raw}}`}/>
     } else {
-      <div::root as root>
-        children
-      </div>
+      <div::root as root>children</div>
     }
   }
 }

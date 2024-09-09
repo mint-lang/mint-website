@@ -32,20 +32,7 @@ module References {
 
     ## Early Return
 
-    You can return early in a block using the `return` keyword:
-
-    ```mint
-    {
-      let name = "Joe"
-
-      return "Hello \#{name}"
-
-      // Unreachable code...
-      "Bye \#{name}"
-    }
-    ```
-
-    Additionally, you can return early from a `let` destruction:
+    You can return early from a `let` destruction:
 
     ```mint
     {

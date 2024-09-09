@@ -40,8 +40,8 @@ module Guides {
     All done in 138.628ms!
     ```
 
-    If there are not formatted files the command exists with exit code **1**
-    otherwise it will exit with exit code **0**.
+    If there are not formatted files the command exists with exit code `1`
+    otherwise it will exit with exit code `0`.
 
     ## Formatting from standard input
 

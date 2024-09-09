@@ -67,11 +67,7 @@ module VNode {
   }
 
   // Walks the VNode tree and reducing it.
-  fun reduce (
-    vnode : Html,
-    memo : a,
-    function : Function(VNode, a, a)
-  ) : a {
+  fun reduce (vnode : Html, memo : a, function : Function(VNode, a, a)) : a {
     `
     (() => {
       let memo = #{memo};

@@ -8,11 +8,7 @@ module Data {
             name: "Introduction",
             path: ""
           },
-          {
-            contents: defer References.PROGRAM,
-            name: "Program",
-            path: "program"
-          },
+          { contents: defer References.PROGRAM, name: "Program", path: "program" },
           {
             contents: defer References.COMMENTS,
             name: "Comments",
@@ -33,41 +29,21 @@ module Data {
             name: "Here Documents",
             path: "here-documents"
           },
-          {
-            contents: defer References.ARRAY,
-            name: "Array",
-            path: "array"
-          },
-          {
-            contents: defer References.TUPLE,
-            name: "Tuple",
-            path: "tuple"
-          },
-          {
-            contents: defer References.MAP,
-            name: "Map",
-            path: "map"
-          },
+          { contents: defer References.ARRAY, name: "Array", path: "array" },
+          { contents: defer References.TUPLE, name: "Tuple", path: "tuple" },
+          { contents: defer References.MAP, name: "Map", path: "map" },
           {
             contents: defer References.OPERATORS,
             name: "Operators",
             path: "operators"
           },
-          {
-            contents: defer References.HTML,
-            name: "Html",
-            path: "html"
-          },
+          { contents: defer References.HTML, name: "Html", path: "html" },
           {
             contents: defer References.FUNCTIONS,
             name: "Functions",
             path: "functions"
           },
-          {
-            contents: defer References.MODULES,
-            name: "Modules",
-            path: "modules"
-          },
+          { contents: defer References.MODULES, name: "Modules", path: "modules" },
           {
             contents: defer References.CONSTANTS,
             name: "Constants",
@@ -88,26 +64,10 @@ module Data {
             name: "State Setter",
             path: "state-setter"
           },
-          {
-            contents: defer References.STORES,
-            name: "Stores",
-            path: "stores"
-          },
-          {
-            contents: defer References.ROUTES,
-            name: "Routes",
-            path: "routes"
-          },
-          {
-            contents: defer References.BLOCKS,
-            name: "Blocks",
-            path: "blocks"
-          },
-          {
-            contents: defer References.LOCALE,
-            name: "Locale",
-            path: "locale"
-          },
+          { contents: defer References.STORES, name: "Stores", path: "stores" },
+          { contents: defer References.ROUTES, name: "Routes", path: "routes" },
+          { contents: defer References.BLOCKS, name: "Blocks", path: "blocks" },
+          { contents: defer References.LOCALE, name: "Locale", path: "locale" },
           {
             contents: defer References.ENVIRONMENT_VARIABLES,
             name: "Environment Variables",
@@ -128,16 +88,8 @@ module Data {
             name: "Providers",
             path: "providers"
           },
-          {
-            contents: defer References.TESTING,
-            name: "Testing",
-            path: "testing"
-          },
-          {
-            contents: defer References.SIGNALS,
-            name: "Signals",
-            path: "siganls"
-          }
+          { contents: defer References.TESTING, name: "Testing", path: "testing" },
+          { contents: defer References.SIGNALS, name: "Signals", path: "siganls" }
         ],
       categories:
         [

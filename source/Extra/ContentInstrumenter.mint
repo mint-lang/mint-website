@@ -8,13 +8,8 @@ module ContentInstrumenter {
 
   // Returns the table of contents for a content.
   fun tableOfContents (html : Html) : Array(Tuple(String, String, String)) {
-    VNode.reduce(
-      html,
-      [] of Tuple(String, String, String),
-      (
-        vnode : VNode,
-        memo : Array(Tuple(String, String, String))
-      ) {
+    VNode.reduce(html, [] of Tuple(String, String, String),
+      (vnode : VNode, memo : Array(Tuple(String, String, String))) {
         let text =
           VNode.getTextContent(vnode)
 
@@ -35,9 +30,7 @@ module ContentInstrumenter {
       |> String.parameterize()
 
     let anchor =
-      <a
-        href={"##{replaced}"}
-        name={replaced}/>
+      <a href={"##{replaced}"} name={replaced}/>
       |> VNode.ofHtml
       |> VNode.setProp("children", VNode.getProp(vnode, "children"))
       |> VNode.asObject
@@ -50,20 +43,14 @@ module ContentInstrumenter {
 
   // The link icon for external links.
   const EXTERNAL =
-    <span style="position:relative;top:-1px">
-      TablerIcons.EXTERNAL_LINK
-    </span>
+    <span style="position:relative;top:-1px">TablerIcons.EXTERNAL_LINK</span>
 
   // The link icon for internal links.
-  const INTERNAL =
-    <span>
-      TablerIcons.LINK
-    </span>
+  const INTERNAL = <span>TablerIcons.LINK</span>
 
   // Instruments a content (anchors, headings).
   fun instrument (html : Html, skipAnchors : Bool = false) : Html {
-    VNode.walk(
-      html,
+    VNode.walk(html,
       (vnode : VNode) {
         if `!#{vnode}.instrumented` {
           case decode VNode.type(vnode) as String {
@@ -86,7 +73,8 @@ module ContentInstrumenter {
                 let Ok(href) =
                   (decode VNode.getProp(vnode, "href") as String) or return vnode
 
-                if String.startsWith(href, "http://") || String.startsWith(href, "https://") {
+                if String.startsWith(href, "http://") || String.startsWith(
+                  href, "https://") {
                   vnode
                   |> VNode.setProp("target", encode "_blank")
                   |> VNode.prependChild(EXTERNAL)

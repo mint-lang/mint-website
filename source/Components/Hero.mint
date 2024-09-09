@@ -168,7 +168,9 @@ component Hero {
           @svg(../../assets/brand-book/logotype.svg)
         </div>
 
-        <h1::title>"The programming language for writing single page applications"</h1>
+        <h1::title>
+          "The programming language for writing single page applications"
+        </h1>
 
         <<#MARKDOWN
         Mint has all the tools you need to write **error free**, **easily
@@ -182,7 +184,9 @@ component Hero {
 
         <a::alternative href="/guides/getting-started">
           "or check out the "
+
           <b>"getting started"</b>
+
           " guide"
           TablerIcons.ARROW_RIGHT
         </a>
@@ -199,8 +203,8 @@ component Hero {
           } else {
             "600px"
           }
-        }>
-
+        }
+      >
         <<#MARKDOWN(highlight)
         ```mint
         component Counter {
@@ -232,7 +236,6 @@ component Hero {
         }
         ```
         MARKDOWN
-
       </Content>
     </div>
   }

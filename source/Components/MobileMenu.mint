@@ -43,8 +43,7 @@ async component MobileMenu {
     text-decoration: none;
     font-weight: normal;
 
-    svg,
-    div {
+    svg, div {
       --tabler-stroke-width: 1.25;
       height: 24px;
       width: 24px;
@@ -68,9 +67,7 @@ async component MobileMenu {
         TablerIcons.MENU_2
         "Navigation"
 
-        <div onClick={hideMobileMenu}>
-          TablerIcons.X
-        </div>
+        <div onClick={hideMobileMenu}>TablerIcons.X</div>
       </a>
 
       <a::item href="/">
@@ -103,13 +100,9 @@ async component MobileMenu {
         "API Docs"
       </a>
 
-      <a::item::divider
-        href="https://github.com/mint-lang/mint"
-        target="_blank">
-
+      <a::item::divider href="https://github.com/mint-lang/mint" target="_blank">
         TablerIcons.BRAND_GITHUB
         "Github"
-
       </a>
 
       <a::item onClick={toggleDarkMode}>

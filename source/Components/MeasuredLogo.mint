@@ -160,12 +160,12 @@ component MeasuredLogo {
     <div::root>
       <div::container>
         <div::height>"#{height + padding * 2}px"</div>
+
         <div::width>"#{width + padding * 2}px"</div>
+
         <div::padding>"#{padding}px"</div>
 
-        <div::image>
-          logo
-        </div>
+        <div::image>logo</div>
       </div>
     </div>
   }

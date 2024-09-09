@@ -39,8 +39,8 @@ async component Pages.Home {
           }
           ```
           MARKDOWN
-        }>
-
+        }
+      >
         <<#MARKDOWN
         Styling elements in traditional single page applications is done through
         a library which restricts what is possible, so in Mint styling is a
@@ -53,10 +53,7 @@ async component Pages.Home {
         - Interpolate values with **`\#{...}`**
         MARKDOWN
 
-        <a href="/reference/styling/introduction">
-          "Full Styling Reference"
-        </a>
-
+        <a href="/reference/styling/introduction">"Full Styling Reference"</a>
       </Section>
 
       <Divider/>
@@ -96,8 +93,8 @@ async component Pages.Home {
           }
           ```
           MARKDOWN
-        }>
-
+        }
+      >
         <<#MARKDOWN
         In the JavaScript world you can choose from a plethora of options for
         state management ([~4000 packages on NPM]), in Mint there are **stores**
@@ -111,10 +108,7 @@ async component Pages.Home {
         [~4000 packages on NPM]: https://www.npmjs.com/search?q=keywords:state
         MARKDOWN
 
-        <a href="/reference/stores">
-          "Stores Reference"
-        </a>
-
+        <a href="/reference/stores">"Stores Reference"</a>
       </Section>
 
       <Divider/>
@@ -122,15 +116,11 @@ async component Pages.Home {
       <Trivia>
         "It takes "
 
-        <b>
-          <u>"2 seconds"</u>
-        </b>
+        <b><u>"2 seconds"</u></b>
 
         " to build a Mint application with "
 
-        <b>
-          <u>"~80,000"</u>
-        </b>
+        <b><u>"~80,000"</u></b>
 
         " lines of code."
       </Trivia>
@@ -162,8 +152,8 @@ async component Pages.Home {
           }
           ```
           MARKDOWN
-        }>
-
+        }
+      >
         <<#MARKDOWN
         Mint makes routing simple by offering language features to define
         routes and handle their parameters easily.
@@ -172,10 +162,7 @@ async component Pages.Home {
         - Links and navigation handled automatically
         MARKDOWN
 
-        <a href="/reference/routes">
-          "Routing Reference"
-        </a>
-
+        <a href="/reference/routes">"Routing Reference"</a>
       </Section>
 
       <Divider/>
@@ -205,21 +192,18 @@ async component Pages.Home {
           }
           ```
           MARKDOWN
-        }>
-
+        }
+      >
         <<#MARKDOWN
         Interfacing with JavaScript is super easy using the built-in language
         features:
 
-        - **`encode`** - converts a typed value into a JavaScript object
-        - **`decode`** - converts a JavaScript object into a typed value
-        - **\`...\`** - inlines JavaScript with interpolations
+        - `encode` - converts a typed value into a JavaScript object
+        - `decode` - converts a JavaScript object into a typed value
+        - #{<code>"`...`"</code>} - inlines JavaScript with interpolations
         MARKDOWN
 
-        <a href="/reference/javascript/inlining">
-          "Inlining Reference"
-        </a>
-
+        <a href="/reference/javascript/inlining">"Inlining Reference"</a>
       </Section>
 
       <Divider/>
@@ -227,11 +211,7 @@ async component Pages.Home {
       <Trivia>
         "Mint is written in the "
 
-        <b>
-          <a href="https://crystal-lang.org/">
-            "Crystal"
-          </a>
-        </b>
+        <b><a href="https://crystal-lang.org/">"Crystal"</a></b>
 
         " programming language."
       </Trivia>
@@ -275,8 +255,8 @@ async component Pages.Home {
           ⚙ Development server started on http://127.0.0.1:3000/
           ```
           CLI
-        }>
-
+        }
+      >
         <<#MARKDOWN
           All the tooling required to make single page applications are packed
           in a single binary:
@@ -290,10 +270,7 @@ async component Pages.Home {
           - Build Tool
         MARKDOWN
 
-        <a href="/guides/cli">
-          "CLI Reference"
-        </a>
-
+        <a href="/guides/cli/commands">"CLI Reference"</a>
       </Section>
     </div>
   }

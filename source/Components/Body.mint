@@ -100,9 +100,7 @@ component Body {
       <Leaves/>
       <Header/>
 
-      <div::wrapper>
-        children
-      </div>
+      <div::wrapper>children</div>
 
       <Footer/>
     </div>

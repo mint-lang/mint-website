@@ -27,10 +27,14 @@ routes {
       }
     } else {
       let entity =
-        if let Just(item) = Array.find(entities, (item : TopLevelEntity) { item.link == Maybe.Just(normalized) }) {
+        if let Just(item) = Array.find(entities,
+          (item : TopLevelEntity) { item.link == Maybe.Just(normalized) }) {
           Maybe.Just(item)
         } else {
-          Array.find(entities, (item : TopLevelEntity) { item.link == Maybe.Nothing && item.name == normalized })
+          Array.find(entities,
+            (item : TopLevelEntity) {
+              item.link == Maybe.Nothing && item.name == normalized
+            })
         }
 
       if let Just(item) = entity {

@@ -49,8 +49,7 @@ component EntitySignature {
       color: var(--color-darkorange);
     }
 
-    .namespace,
-    .property {
+    .namespace, .property {
       color: var(--color-indianred);
     }
 
@@ -85,19 +84,16 @@ component EntitySignature {
 
     let head =
       <>
-        <span class="keyword">
-          ApiDocs.kindToKeyword(entity.kind)
-        </span>
+        <span class="keyword">ApiDocs.kindToKeyword(entity.kind)</span>
 
-        <a href="/api/#{parent}##{entity.name}">
-          entity.name
-        </a>
+        <a href="/api/#{parent}##{entity.name}">entity.name</a>
       </>
 
     let type =
       if let Just(type) = entity.type {
         <>
           <span>" : "</span>
+
           <RawSpan html={type}/>
         </>
       }
@@ -105,9 +101,7 @@ component EntitySignature {
     let arguments =
       for argument, index of args {
         <div::argument(entity.broken)>
-          <span>
-            argument.name
-          </span>
+          <span>argument.name</span>
 
           if let Just(type) = argument.type {
             <>

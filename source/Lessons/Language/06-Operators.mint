@@ -22,17 +22,11 @@ module Lessons {
           {<code>"!"</code>, "16", "Negation"}
         ] {
           <tr>
-            <td>
-              operator[0]
-            </td>
+            <td>operator[0]</td>
 
-            <td>
-              operator[1]
-            </td>
+            <td>operator[1]</td>
 
-            <td>
-              operator[2]
-            </td>
+            <td>operator[2]</td>
           </tr>
         }
 
@@ -41,14 +35,14 @@ module Lessons {
           <thead>
             <tr>
               <th>"Operator"</th>
+
               <th>"Precedence"</th>
+
               <th>"Description"</th>
             </tr>
           </thead>
 
-          <tbody>
-            rows
-          </tbody>
+          <tbody>rows</tbody>
         </table>
 
       {

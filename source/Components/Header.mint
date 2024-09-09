@@ -93,9 +93,7 @@ component Header {
   style menu-wrapper {
     position: relative;
 
-    &:hover,
-    &:focus-visible,
-    &:focus-within {
+    &:hover, &:focus-visible, &:focus-within {
       > div {
         display: flex;
       }
@@ -132,14 +130,10 @@ component Header {
   fun render : Html {
     <div::root>
       <div::wrapper>
-        <a::brand href="/">
-          @svg(../../assets/brand-book/logo.svg)
-        </a>
+        <a::brand href="/">@svg(../../assets/brand-book/logo.svg)</a>
 
         if isMobile {
-          <div::mobile-button onClick={showMobileMenu}>
-            TablerIcons.MENU_2
-          </div>
+          <div::mobile-button onClick={showMobileMenu}>TablerIcons.MENU_2</div>
         } else {
           <div::navigation>
             <a::item href="/install">
@@ -178,13 +172,9 @@ component Header {
 
             <div::divider/>
 
-            <a::item
-              href="https://github.com/mint-lang/mint"
-              target="_blank">
-
+            <a::item href="https://github.com/mint-lang/mint" target="_blank">
               TablerIcons.BRAND_GITHUB
               "Github"
-
             </a>
 
             <div::divider/>

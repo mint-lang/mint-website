@@ -51,21 +51,15 @@ component Message {
   fun render : Html {
     <div::base>
       if Html.isNotEmpty(title) {
-        <div::title>
-          title
-        </div>
+        <div::title>title</div>
       }
 
       if Html.isNotEmpty(subtitle) {
-        <div::subtitle>
-          subtitle
-        </div>
+        <div::subtitle>subtitle</div>
       }
 
       if Html.isNotEmpty(actions) {
-        <div::actions>
-          actions
-        </div>
+        <div::actions>actions</div>
       }
     </div>
   }

@@ -99,21 +99,17 @@ async component Lesson {
               <>
                 "Please check out the "
 
-                <a href="/reference">
-                  "reference"
-                </a>
+                <a href="/reference">"reference"</a>
 
                 " instead."
               </>)
           </Content>
-        }/>
+        }
+      />
     } else {
       let solutionLessons =
-        Array.select(
-          project.files,
-          (file : LessonFile) {
-            String.isNotBlank(file.solution)
-          })
+        Array.select(project.files,
+          (file : LessonFile) { String.isNotBlank(file.solution) })
 
       let hasSolution =
         !Array.isEmpty(solutionLessons)
@@ -139,7 +135,8 @@ async component Lesson {
               <LabelledIcon
                 onClick={(event : Html.Event) { showSolution() }}
                 label=<>"Show Solution"</>
-                icon={TablerIcons.EYE_BOLT}/>
+                icon={TablerIcons.EYE_BOLT}
+              />
             }
           }
 
@@ -151,7 +148,8 @@ async component Lesson {
               if let Maybe.Just(path) = nextLessonPath {
                 "/tutorial#{path}"
               }
-            }/>
+            }
+          />
         </div>
 
       <div::root>
@@ -164,16 +162,16 @@ async component Lesson {
                 if let Maybe.Just(path) = previousLessonPath {
                   "/tutorial#{path}"
                 }
-              }/>
+              }
+            />
 
             <Select
               options={options}
               value={path}
               onChange={
-                (value : String) {
-                  Window.navigate("/tutorial#{value}")
-                }
-              }/>
+                (value : String) { Window.navigate("/tutorial#{value}") }
+              }
+            />
 
             <Icon
               disabled={Maybe.isNothing(nextLessonPath)}
@@ -182,7 +180,8 @@ async component Lesson {
                 if let Maybe.Just(path) = nextLessonPath {
                   "/tutorial#{path}"
                 }
-              }/>
+              }
+            />
           </div>
 
           <div::scroll-panel>
@@ -198,9 +197,7 @@ async component Lesson {
           toolbar
         </div>
 
-        <Ide
-          onChange={-> project}
-          value={project}/>
+        <Ide onChange={-> project} value={project}/>
       </div>
     }
   }

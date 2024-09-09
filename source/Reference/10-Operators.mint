@@ -34,20 +34,8 @@ module References {
             ["Bool"],
             <>"Logical OR (short circuiting)"</>
           },
-          {
-            "!=",
-            10,
-            ["a != a"],
-            ["Bool"],
-            <>"Inequality"</>
-          },
-          {
-            "==",
-            10,
-            ["a == a"],
-            ["Bool"],
-            <>"Equality"</>
-          },
+          {"!=", 10, ["a != a"], ["Bool"], <>"Inequality"</>},
+          {"==", 10, ["a == a"], ["Bool"], <>"Equality"</>},
           {
             "<=",
             11,
@@ -62,27 +50,9 @@ module References {
             ["Bool"],
             <>"More than or equal to"</>
           },
-          {
-            "<",
-            11,
-            ["Number < Number"],
-            ["Bool"],
-            <>"Less than"</>
-          },
-          {
-            ">",
-            11,
-            ["Number > Number"],
-            ["Bool"],
-            <>"More than"</>
-          },
-          {
-            "-",
-            13,
-            ["Number - Number"],
-            ["Number"],
-            <>"Substraction"</>
-          },
+          {"<", 11, ["Number < Number"], ["Bool"], <>"Less than"</>},
+          {">", 11, ["Number > Number"], ["Bool"], <>"More than"</>},
+          {"-", 13, ["Number - Number"], ["Number"], <>"Substraction"</>},
           {
             "+",
             13,
@@ -102,12 +72,12 @@ module References {
           <thead>
             <tr>
               <th>"Operator"</th>
+
               <th>"Precedence"</th>
+
               <th>"Type Restriction"</th>
 
-              <th style="white-space: nowrap">
-                "Result Type"
-              </th>
+              <th style="white-space: nowrap">"Result Type"</th>
 
               <th>"Description"</th>
             </tr>
@@ -116,39 +86,25 @@ module References {
           <tbody>
             for item of operators {
               <tr>
-                <td>
-                  <code>
-                    item[0]
-                  </code>
-                </td>
+                <td><code>item[0]</code></td>
 
-                <td>
-                  <code>"#{item[1]}"</code>
-                </td>
+                <td><code>"#{item[1]}"</code></td>
 
                 <td>
                   Array.intersperse(
                     for example of item[2] {
-                      <code style="white-space: nowrap;">
-                        example
-                      </code>
-                    },
-                    <br/>)
+                      <code style="white-space: nowrap;">example</code>
+                    }, <br/>)
                 </td>
 
                 <td>
                   Array.intersperse(
                     for example of item[3] {
-                      <code>
-                        example
-                      </code>
-                    },
-                    <br/>)
+                      <code>example</code>
+                    }, <br/>)
                 </td>
 
-                <td>
-                  item[4]
-                </td>
+                <td>item[4]</td>
               </tr>
             }
           </tbody>

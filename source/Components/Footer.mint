@@ -159,44 +159,34 @@ async component Footer {
             <div::column>
               <strong>"Source"</strong>
 
-              <a
-                href="https://github.com/mint-lang/mint"
-                target="_blank">
-
+              <a href="https://github.com/mint-lang/mint" target="_blank">
                 TablerIcons.BRAND_GITHUB
                 "GitHub"
-
               </a>
 
               <a
                 href="https://github.com/mint-lang/mint/releases"
-                target="_blank">
-
+                target="_blank"
+              >
                 TablerIcons.GIT_PULL_REQUEST
                 "Releases"
-
               </a>
             </div>
 
             <div::column>
               <strong>"Community & Social"</strong>
 
-              <a
-                href="https://discord.gg/NXFUJs2"
-                target="_blank">
-
+              <a href="https://discord.gg/NXFUJs2" target="_blank">
                 TablerIcons.BRAND_DISCORD
                 "Discord"
-
               </a>
 
               <a
                 href="https://github.com/mint-lang/mint/discussions"
-                target="_blank">
-
+                target="_blank"
+              >
                 TablerIcons.MESSAGES
                 "Discussions"
-
               </a>
             </div>
           </div>

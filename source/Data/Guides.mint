@@ -3,11 +3,7 @@ module Data {
     defer {
       pages:
         [
-          {
-            contents: defer Guides.INTRODUCTION,
-            name: "Introduction",
-            path: ""
-          },
+          { contents: defer Guides.INTRODUCTION, name: "Introduction", path: "" },
           {
             contents: defer Guides.GETTING_STARTED,
             name: "Getting Started",
@@ -50,25 +46,19 @@ module Data {
                   name: "Commands",
                   path: "commands"
                 },
-                {
-                  contents: defer Guides.CLI_INIT,
-                  name: "Init",
-                  path: "init"
-                },
-                {
-                  contents: defer Guides.CLI_CLEAN,
-                  name: "Clean",
-                  path: "clean"
-                },
+                { contents: defer Guides.CLI_BUILD, name: "build", path: "build" },
+                { contents: defer Guides.CLI_DOCS, name: "docs", path: "docs" },
                 {
                   contents: defer Guides.CLI_FORMAT,
-                  name: "Format",
+                  name: "format",
                   path: "format"
                 },
+                { contents: defer Guides.CLI_INIT, name: "init", path: "init" },
+                { contents: defer Guides.CLI_LINT, name: "lint", path: "lint" },
                 {
-                  contents: defer Guides.CLI_LINT,
-                  name: "Lint",
-                  path: "lint"
+                  contents: defer Guides.CLI_CLEAN,
+                  name: "tool clean",
+                  path: "clean"
                 }
               ]
           }

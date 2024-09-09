@@ -24,14 +24,13 @@ async component Pages.NotFound {
               <>
                 "Go back to our "
 
-                <a href="/">
-                  "Home page"
-                </a>
+                <a href="/">"Home page"</a>
 
                 "."
               </>)
           </Content>
-        }/>
+        }
+      />
     </div>
   }
 }

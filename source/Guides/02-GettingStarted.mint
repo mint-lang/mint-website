@@ -105,7 +105,8 @@ module Guides {
 
     #{<img
       src={@asset(../../assets/init-screenshot.jpg)}
-      alt="Initial Project Screenshot"/>}
+      alt="Initial Project Screenshot"
+    />}
 
     That's it! Now you are ready to start looking around and making changes to
     the code.

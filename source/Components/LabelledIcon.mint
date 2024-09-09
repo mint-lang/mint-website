@@ -59,25 +59,15 @@ component LabelledIcon {
   fun render : Html {
     let content =
       <>
-        <span::label>
-          label
-        </span>
+        <span::label>label</span>
 
         icon
       </>
 
     if String.isEmpty(href) {
-      <div::root
-        onClick={onClick}
-        tabindex="0">
-
-        content
-
-      </div>
+      <div::root onClick={onClick} tabindex="0">content</div>
     } else {
-      <a::root href={href}>
-        content
-      </a>
+      <a::root href={href}>content</a>
     }
   }
 }

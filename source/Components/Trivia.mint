@@ -36,11 +36,7 @@ component Trivia {
     <div::root>
       <p::title>"Did you know?"</p>
 
-      <p::fact>
-        <Content>
-          ContentInstrumenter.instrumentMany(children)
-        </Content>
-      </p>
+      <p::fact><Content>ContentInstrumenter.instrumentMany(children)</Content></p>
     </div>
   }
 }

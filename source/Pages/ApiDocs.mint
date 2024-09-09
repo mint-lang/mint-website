@@ -62,9 +62,7 @@ async component Pages.ApiDocs {
     let {char, color} =
       ApiDocs.kindToBadge(kind)
 
-    <span::badge(color)>
-      char
-    </span>
+    <span::badge(color)>char</span>
   }
 
   // Renders the component.
@@ -82,10 +80,7 @@ async component Pages.ApiDocs {
               href: "/api/#{item.link or item.name}",
               icon: renderBadge(item.kind),
               searchValue: item.name,
-              content:
-                <>
-                  item.name
-                </>
+              content: <>item.name</>
             }
           }
       }
@@ -125,10 +120,7 @@ async component Pages.ApiDocs {
             }
           }
 
-          <span>
-            ApiDocs.kindToKeyword(entity.kind)
-          </span>
-
+          <span>ApiDocs.kindToKeyword(entity.kind)</span>
           entity.name
         </h1>
 
@@ -139,15 +131,10 @@ async component Pages.ApiDocs {
         for item of entities {
           <div::entity(hash == "##{item.name}")>
             <a name={item.name}/>
-
-            <EntitySignature
-              entity={item}
-              parent={url}/>
+            <EntitySignature entity={item} parent={url}/>
 
             if let Just(description) = item.description {
-              <Content
-                raw={description}
-                fontSize={16}/>
+              <Content raw={description} fontSize={16}/>
             } else {
               <div style="margin-bottom: -20px;"/>
             }
@@ -159,6 +146,7 @@ async component Pages.ApiDocs {
       tableOfContents={tableOfContents}
       contentKey={entity.name}
       items=[categories]
-      content={content}/>
+      content={content}
+    />
   }
 }
