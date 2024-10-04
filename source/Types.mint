@@ -46,6 +46,7 @@ type Page {
   ApiDocs(Array(TopLevelEntity), TopLevelEntity)
   Page(String, Html)
   NotFound
+  Sandbox
   Initial
 }
 

@@ -232,11 +232,8 @@ async component Pages.BrandBook {
 
         <p::icons>
           <Icon icon={TablerIcons.HOME} size={30}/>
-
           <Icon icon={TablerIcons.DOWNLOAD} size={30}/>
-
           <Icon icon={TablerIcons.PALETTE} size={30}/>
-
           <Icon icon={TablerIcons.CODE} size={30}/>
         </p>
       </Content>

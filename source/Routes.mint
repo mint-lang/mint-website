@@ -7,8 +7,17 @@ routes {
     Application.setPage(Page.Page("Install", <Pages.Install/>))
   }
 
+  /checklist {
+    Application.setPage(Page.Page("Checklist", <Pages.Checklist/>))
+  }
+
   / {
     Application.setPage(Page.Page("", <Pages.Home/>))
+  }
+
+  /sandbox await {
+    await Sandbox.recent()
+    Application.setPage(Page.Sandbox)
   }
 
   /api*path (path : String) await {

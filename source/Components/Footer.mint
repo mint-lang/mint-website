@@ -130,6 +130,11 @@ async component Footer {
                 TablerIcons.PALETTE
                 "Brand Book"
               </a>
+
+              <a href="/checklist">
+                TablerIcons.CHECKUP_LIST
+                "Checklist"
+              </a>
             </div>
 
             <div::column>

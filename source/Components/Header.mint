@@ -141,6 +141,11 @@ component Header {
               "Install"
             </a>
 
+            <a::item href="/sandbox">
+              TablerIcons.TERMINAL
+              "Sandbox"
+            </a>
+
             <div::menu-wrapper tabindex="0">
               <a::item>
                 TablerIcons.BOOK

@@ -27,6 +27,7 @@ component Main {
           <Pages.ApiDocs entities={entities} entity={entity}/>
 
         NotFound => <Pages.NotFound/>
+        Sandbox => <Sandbox.Index/>
         Page(title, page) => page
         Initial => <></>
       }
