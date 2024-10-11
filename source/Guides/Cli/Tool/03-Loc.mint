@@ -1,38 +1,31 @@
 module Guides {
-  const CLI_LINT =
+  const CLI_TOOL_LOC =
     <<#MARKDOWN(highlight)
-    # Lint
+    # Loc
 
-    The `lint` command reports syntax and type checking errors for the projects
-    files. The exit code is **1** if there are errors or **0** if there are no
-    errors.
+    The `loc` tool counts the lines of code in the project.
 
     ```bash
-    ➔ mint lint
-    Mint - Linting
+    ➔ mint tool loc
+    Mint - Counting lines of code
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    No errors were detected!
+    ⚙ Files: 2
+    ⚙ Lines of code: 136
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    All done in 169.133ms!
+    All done in 20.226ms!
     ```
-
-    ## JSON output
-
-    It's possible to generate an array of errors as JSON using the `--json`
-    flag.
 
     ## Help
 
     ```bash
-    ➔ mint lint --help
+    ➔ mint tool loc --help
     Usage:
-      mint lint [flags...] [arg...]
+      mint tool loc [flags...] [arg...]
 
-    Lints the project for syntax and type errors.
+    Counts LOC (lines of code).
 
     Flags:
       --help  # Displays help for the current command.
-      --json  # Output errors in a JSON format.
     ```
     MARKDOWN
 }

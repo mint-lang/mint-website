@@ -41,11 +41,6 @@ module Data {
             path: "cli",
             pages:
               [
-                {
-                  contents: defer Guides.CLI_COMMANDS,
-                  name: "Commands",
-                  path: "commands"
-                },
                 { contents: defer Guides.CLI_BUILD, name: "build", path: "build" },
                 { contents: defer Guides.CLI_DOCS, name: "docs", path: "docs" },
                 {
@@ -54,11 +49,43 @@ module Data {
                   path: "format"
                 },
                 { contents: defer Guides.CLI_INIT, name: "init", path: "init" },
-                { contents: defer Guides.CLI_LINT, name: "lint", path: "lint" },
                 {
-                  contents: defer Guides.CLI_CLEAN,
+                  contents: defer Guides.CLI_INSTALL,
+                  name: "install",
+                  path: "install"
+                },
+                { contents: defer Guides.CLI_LINT, name: "lint", path: "lint" },
+                { contents: defer Guides.CLI_START, name: "start", path: "start" },
+                { contents: defer Guides.CLI_TEST, name: "test", path: "test" },
+                {
+                  contents: defer Guides.CLI_VERSION,
+                  name: "version",
+                  path: "version"
+                },
+                {
+                  contents: defer Guides.CLI_TOOL_CLEAN,
                   name: "tool clean",
-                  path: "clean"
+                  path: "tool-clean"
+                },
+                {
+                  contents: defer Guides.CLI_TOOL_LOC,
+                  name: "tool loc",
+                  path: "tool-loc"
+                },
+                {
+                  contents: defer Guides.CLI_TOOL_HIGHLIGHT,
+                  name: "tool highlight",
+                  path: "tool-highlight"
+                },
+                {
+                  contents: defer Guides.CLI_TOOL_LS,
+                  name: "tool ls",
+                  path: "tool-ls"
+                },
+                {
+                  contents: defer Guides.CLI_TOOL_LS_WEBSOCKET,
+                  name: "tool ls-websocket",
+                  path: "tool-ls-websocket"
                 }
               ]
           }

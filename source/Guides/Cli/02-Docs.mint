@@ -8,7 +8,7 @@ module Guides {
     every top-level entity) that can be hosted anywhere.
 
     ```bash
-    ➔ mint-dev docs
+    ➔ mint docs
     Mint - Generating documentation
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     ⚙ Clearing the "docs" directory... 138μs
@@ -31,7 +31,7 @@ module Guides {
     ```bash
     ➔ mint docs --help
     Usage:
-      mint-dev docs [flags...] <directory> [arg...]
+      mint docs [flags...] <directory> [arg...]
 
     Generates API Documentation.
 

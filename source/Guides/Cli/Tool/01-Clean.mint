@@ -1,15 +1,15 @@
 module Guides {
-  const CLI_CLEAN =
+  const CLI_TOOL_CLEAN =
     <<#MARKDOWN(highlight)
     # Clean
 
-    The `clean` command removes generated artifacts:
+    The `clean` tool removes generated artifacts:
 
     * `.mint` directory - this contains the installed packages
     * `dist` directory - this contains the built application
 
     ```bash
-    ➔ mint clean
+    ➔ mint tool clean
     Mint - Removing directories
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     Deleting: .mint
@@ -25,7 +25,7 @@ module Guides {
     this directory, you can use the `--package-cache` flag.
 
     ```bash
-    ➔ mint clean --package-cache
+    ➔ mint tool clean --package-cache
     Mint - Removing directories
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     Deleting: /tmp/mint-packages
@@ -36,9 +36,9 @@ module Guides {
     ## Help
 
     ```bash
-    ➔ mint clean --help
+    ➔ mint tool clean --help
     Usage:
-      mint clean [flags...] [arg...]
+      mint tool clean [flags...] [arg...]
 
     Removes artifacts (directories) created by Mint.
 

@@ -96,7 +96,7 @@ module Guides {
     ```bash
     ➔ mint build --help
     Usage:
-      mint-dev build [flags...] [arg...]
+      mint build [flags...] [arg...]
 
     Builds the project for production.
 
