@@ -73,6 +73,11 @@ module Data {
                   path: "tool-docs-json"
                 },
                 {
+                  contents: defer Guides.CLI_TOOL_DOCS_SERVER,
+                  name: "tool docs-server",
+                  path: "tool-docs-server"
+                },
+                {
                   contents: defer Guides.CLI_TOOL_LOC,
                   name: "tool loc",
                   path: "tool-loc"
