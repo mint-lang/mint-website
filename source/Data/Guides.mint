@@ -68,6 +68,11 @@ module Data {
                   path: "tool-clean"
                 },
                 {
+                  contents: defer Guides.CLI_TOOL_DOCS_JSON,
+                  name: "tool docs-json",
+                  path: "tool-docs-json"
+                },
+                {
                   contents: defer Guides.CLI_TOOL_LOC,
                   name: "tool loc",
                   path: "tool-loc"

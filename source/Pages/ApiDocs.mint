@@ -122,6 +122,14 @@ async component Pages.ApiDocs {
 
           <span>ApiDocs.kindToKeyword(entity.kind)</span>
           entity.name
+
+          if let Just(parameters) = entity.parameters {
+            <>
+              "("
+              String.join(parameters, ", ")
+              ")"
+            </>
+          }
         </h1>
 
         if let Just(description) = entity.description {

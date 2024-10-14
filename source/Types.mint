@@ -71,8 +71,8 @@ type Document {
 
 // Data structure for a top-level entity in the API Docs.
 type TopLevelEntity {
+  parameters : Maybe(Array(String)) using "p",
   entities : Maybe(Array(Entity)) using "e",
-  sources : Maybe(Array(String)) using "s",
   flags : Maybe(Array(Number)) using "f",
   description : Maybe(String) using "d",
   link : Maybe(String) using "l",
