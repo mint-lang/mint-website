@@ -44,9 +44,9 @@ type Page {
     path : String)
 
   ApiDocs(Array(TopLevelEntity), TopLevelEntity)
+  Sandbox(Sandbox.Page, UserStatus)
   Page(String, Html)
   NotFound
-  Sandbox
   Initial
 }
 
@@ -98,4 +98,55 @@ type Argument {
   value : Maybe(String) using "v",
   type : Maybe(String) using "t",
   name : String using "n"
+}
+
+// Sandbox pages.
+type Sandbox.Page {
+  Recent(Array(Sandbox))
+  Mine(Array(Sandbox))
+  Editor(Sandbox)
+  Initial
+  Error
+}
+
+// Data structure for a sandbox project.
+type Sandbox {
+  mintVersion : String using "mint_version",
+  createdAt : Time using "created_at",
+  updatedAt : Time using "updated_at",
+  userId : Number using "user_id",
+  content : String,
+  title : String,
+  id : String,
+  user : User
+}
+
+// Data structure for the user.
+type User {
+  nickname : String,
+  image : String,
+  id : Number
+}
+
+// Data structure for the state of the user.
+type UserStatus {
+  LoggedIn(User)
+  LoggedOut
+  Initial
+}
+
+// Type for a menu item.
+type MenuItem {
+  Action(
+    action : Function(Promise(Void)),
+    disabled : Bool,
+    label : String,
+    icon : Html)
+
+  Group(icon : Html, label : String, items : Array(MenuItem))
+
+  Link(icon : Html, label : String, href : String, disabled : Bool, target :
+    String)
+
+  Divider
 }

@@ -9,10 +9,12 @@ module Lessons {
             contents:
               <<~MINT
               locale en {
+                label: "Click to change the locale!",
                 greeting: "Hello World!"
               }
 
               locale hu {
+                label: "Kattintson a nyelv megváltoztatásához!",
                 greeting: "Hello Világ!"
               }
 
@@ -29,7 +31,7 @@ module Lessons {
                     :greeting
 
                     <button onClick={changeLocale}>
-                      "Click to change the locale!"
+                      :label
                     </button>
                   </div>
                 }

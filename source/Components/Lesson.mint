@@ -197,7 +197,7 @@ async component Lesson {
           toolbar
         </div>
 
-        <Ide onChange={-> project} value={project}/>
+        <Ide onChange={-> project} value={project} orientation="vertical"/>
       </div>
     }
   }

@@ -1,24 +1,44 @@
 routes {
+  // Standalone pages.
+  // ---------------------------------------------------------------------------
+
   /brand-book {
     Application.setPage(Page.Page("Brand Book", <Pages.BrandBook/>))
-  }
-
-  /install {
-    Application.setPage(Page.Page("Install", <Pages.Install/>))
   }
 
   /checklist {
     Application.setPage(Page.Page("Checklist", <Pages.Checklist/>))
   }
 
+  /install {
+    Application.setPage(Page.Page("Install", <Pages.Install/>))
+  }
+
   / {
     Application.setPage(Page.Page("", <Pages.Home/>))
   }
 
-  /sandbox await {
-    await Sandbox.recent()
-    Application.setPage(Page.Sandbox)
+  // Sandbox pages.
+  // ---------------------------------------------------------------------------
+
+  /sandbox/try await {
+    Sandbox.initialize(Sandbox.Page.Editor(Sandbox.EMPTY_SANDBOX))
   }
+
+  /sandbox/mine await {
+    Sandbox.initialize(await Sandbox.mine())
+  }
+
+  /sandbox/:id (id : String) await {
+    Sandbox.initialize(await Sandbox.load(id))
+  }
+
+  /sandbox await {
+    Sandbox.initialize(await Sandbox.recent())
+  }
+
+  // API documentation.
+  // ---------------------------------------------------------------------------
 
   /api*path (path : String) await {
     let normalized =
@@ -54,9 +74,15 @@ routes {
     }
   }
 
+  // Tutorial.
+  // ---------------------------------------------------------------------------
+
   /tutorial*path (path : String) await {
     Application.loadTutorial(path)
   }
+
+  // Reference and guides.
+  // ---------------------------------------------------------------------------
 
   /reference*path (path : String) await {
     Application.loadDocuments(

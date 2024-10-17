@@ -162,6 +162,20 @@ async component Footer {
             </div>
 
             <div::column>
+              <strong>"Interactive"</strong>
+
+              <a href="/sandbox/try">
+                TablerIcons.TERMINAL
+                "Try"
+              </a>
+
+              <a href="/sandbox">
+                TablerIcons.SANDBOX
+                "Sandbox"
+              </a>
+            </div>
+
+            <div::column>
               <strong>"Source"</strong>
 
               <a href="https://github.com/mint-lang/mint" target="_blank">

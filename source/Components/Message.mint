@@ -17,6 +17,8 @@ component Message {
     align-items: center;
     display: flex;
     flex: 1;
+
+    padding: 20px;
   }
 
   // The styles for the title.

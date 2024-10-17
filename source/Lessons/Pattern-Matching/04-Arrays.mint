@@ -18,7 +18,6 @@ module Lessons {
                     [a] => "3"             /* Array with only one element */
                     [a, b] => "4"          /* Array with only two elements */
                     [head, ...tail] => "5" /* Array at one element (tail can be empty) */
-                    [...items] => "6"      /* Items would be the array itself */
                   }
                 }
               }
@@ -36,7 +35,6 @@ module Lessons {
                     [a] => "3"             /* Array with only one element */
                     [a, b] => "4"          /* Array with only two elements */
                     [head, ...tail] => "5" /* Array at one element (tail can be empty) */
-                    [...items] => "6"      /* Items would be the array itself */
                   }
                 }
               }

@@ -225,7 +225,7 @@ component Hero {
               </button>
 
               <span>
-                Number.toString(counter)
+                counter
               </span>
 
               <button onClick={increment}>

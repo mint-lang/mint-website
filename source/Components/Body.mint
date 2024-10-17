@@ -22,8 +22,8 @@ component Body {
       --line-number-color: #444444;
       --background-color: #1E1E1E;
       --blur-color-2: #1E1E1ECC;
-      --blur-color: #1E1E1E80;
-      --border-color: #333333;
+      --border-color: #FFFFFF10;
+      --blur-color: #1E1E1E90;
       --input-color: #222222;
       --text-color: #DDDDDD;
 
@@ -37,10 +37,10 @@ component Body {
     } else {
       --line-number-color: #CCCCCC;
       --background-color: #FFFFFF;
+      --border-color: #00000015;
       --blur-color-2: #FFFFFFCC;
       --blur-color: #FFFFFF80;
-      --border-color: #EAEAEA;
-      --input-color: #FEFEFE;
+      --input-color: #F9F9F9;
       --text-color: #333333;
 
       --color-darkmagenta: darkmagenta;
@@ -73,7 +73,7 @@ component Body {
     position: relative;
     z-index: 1;
 
-    if isWide && !isMobile {
+    if isWide {
       min-height: 0;
       display: grid;
     } else {
@@ -84,10 +84,13 @@ component Body {
       margin: 0 auto;
     }
 
-    if isMobile || (isTablet && !isWide) {
+    if isWide {
+      padding: 0;
+      margin: 0;
+    } else if isMobile || isTablet {
       padding: 20px;
       margin: 0;
-    } else if !(isWide && !isMobile) {
+    } else {
       padding: 5vh 20px 20px 20px;
       min-height: 60vh;
     }
@@ -99,9 +102,7 @@ component Body {
       <MobileMenu/>
       <Leaves/>
       <Header/>
-
       <div::wrapper>children</div>
-
       <Footer/>
     </div>
   }

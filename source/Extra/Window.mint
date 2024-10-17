@@ -4,4 +4,8 @@ module Window {
     Window.addMediaQueryListener(query, listener)
     matchesMediaQuery(query)
   }
+
+  fun reload : Promise(Void) {
+    `window.location.reload()`
+  }
 }

@@ -26,8 +26,22 @@ component Main {
         ApiDocs(entities, entity) =>
           <Pages.ApiDocs entities={entities} entity={entity}/>
 
+        Sandbox(page, user) =>
+          case page {
+            Editor(sandbox) =>
+              <Sandbox.Editor defaultSandbox={sandbox} userStatus={user}/>
+
+            Recent(sandboxes) =>
+              <Sandbox.Recent sandboxes={sandboxes} userStatus={user}/>
+
+            Mine(sandboxes) =>
+              <Sandbox.Mine sandboxes={sandboxes} userStatus={user}/>
+
+            Error => <Pages.Error/>
+            Initial => <></>
+          }
+
         NotFound => <Pages.NotFound/>
-        Sandbox => <Sandbox.Index/>
         Page(title, page) => page
         Initial => <></>
       }

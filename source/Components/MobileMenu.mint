@@ -1,10 +1,7 @@
 async component MobileMenu {
-  connect Application exposing {
-    isMobileMenuOpen,
-    hideMobileMenu,
-    toggleDarkMode,
-    isDarkMode
-  }
+  connect Stores.MobileMenu exposing { open, hide, items }
+
+  use Provider.Url { changes: (url : Url) { hide() } }
 
   // Styles for the root element.
   style root {
@@ -20,7 +17,7 @@ async component MobileMenu {
     left: 0;
     top: 0;
 
-    if isMobileMenuOpen {
+    if open {
       pointer-events: auto;
       opacity: 1;
     } else {
@@ -36,12 +33,31 @@ async component MobileMenu {
     grid-gap: 10px;
     display: grid;
 
-    border-bottom: 1px solid var(--border-color);
+    box-sizing: border-box;
     padding: 15px 20px;
+    width: 100%;
+
+    border: 0;
+    border-bottom: 1px solid var(--border-color);
 
     color: var(--text-color);
     text-decoration: none;
     font-weight: normal;
+
+    font-family: unset;
+    background: unset;
+    text-align: unset;
+    font-size: unset;
+
+    &:hover:not([disabled]) {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    &[disabled] {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
 
     svg, div {
       --tabler-stroke-width: 1.25;
@@ -52,7 +68,8 @@ async component MobileMenu {
 
   // Styles for an divider.
   style divider {
-    border-bottom: 3px double var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    height: 1px;
   }
 
   // Styles for the title menu item.
@@ -60,64 +77,56 @@ async component MobileMenu {
     grid-template-columns: auto 1fr auto;
   }
 
+  fun renderItem (item : MenuItem) {
+    case item {
+      Divider => <div::divider/>
+
+      Action(action, disabled, label, icon) =>
+        <button::item onClick={action} disabled={disabled}>
+          icon
+          label
+        </button>
+
+      Link(icon, label, href, disabled, target) =>
+        <a::item href={href} target={target} disabled={disabled}>
+          icon
+          label
+        </a>
+
+      Group(icon, label) =>
+        <a::item>
+          icon
+          label
+        </a>
+    }
+  }
+
   // Renders a component.
   fun render : Html {
     <div::root>
-      <a::item::divider::title>
+      <a::item::title>
         TablerIcons.MENU_2
         "Navigation"
 
-        <div onClick={hideMobileMenu}>TablerIcons.X</div>
+        <div onClick={hide}>TablerIcons.X</div>
       </a>
 
-      <a::item href="/">
-        TablerIcons.HOME
-        "Home"
-      </a>
+      <div::divider/>
 
-      <a::item href="/install">
-        TablerIcons.DOWNLOAD
-        "Install"
-      </a>
+      for item of items {
+        case item {
+          Divider => renderItem(item)
+          Action => renderItem(item)
+          Link => renderItem(item)
 
-      <a::item href="/tutorial/">
-        TablerIcons.CODE
-        "Tutorial"
-      </a>
-
-      <a::item href="/guides/">
-        TablerIcons.BOOKS
-        "Guides"
-      </a>
-
-      <a::item::divider href="/reference/">
-        TablerIcons.BOOKMARKS
-        "Reference"
-      </a>
-
-      <a::item href="/api/">
-        TablerIcons.NOTEBOOK
-        "API Docs"
-      </a>
-
-      <a::item::divider href="https://github.com/mint-lang/mint" target="_blank">
-        TablerIcons.BRAND_GITHUB
-        "Github"
-      </a>
-
-      <a::item onClick={toggleDarkMode}>
-        if isDarkMode {
-          <>
-            TablerIcons.SUN
-            "Light Mode"
-          </>
-        } else {
-          <>
-            TablerIcons.MOON_STARS
-            "Dark Mode"
-          </>
+          Group(icon, label, items) =>
+            <>
+              for item of items {
+                renderItem(item)
+              }
+            </>
         }
-      </a>
+      }
     </div>
   }
 }

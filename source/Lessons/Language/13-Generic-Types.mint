@@ -18,7 +18,7 @@ module Lessons {
               component Main {
                 fun render : Html {
                   let user =
-                    Status.Idle
+                    Status.Errored("YO!")
 
                   <div>
                     case user {

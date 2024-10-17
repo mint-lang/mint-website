@@ -9,9 +9,6 @@ store Application {
     Window.mediaQueryState("(max-width: 768px)", (value : Bool) { emit value })
   }
 
-  // A state to track mobile menu.
-  state isMobileMenuOpen : Bool = false
-
   // The page we are currently displaying.
   state page : Page = Page.Initial
 
@@ -26,6 +23,7 @@ store Application {
   get isWide : Bool {
     case page {
       Tutorial => true
+      Sandbox => true
       => false
     }
   }
@@ -43,16 +41,6 @@ store Application {
   // Toggles the dark mode.
   fun toggleDarkMode : Promise(Void) {
     setDarkMode(!isDarkMode)
-  }
-
-  // Shows the mobile menu.
-  fun showMobileMenu : Promise(Void) {
-    next { isMobileMenuOpen: true }
-  }
-
-  // Hides the mobile menu.
-  fun hideMobileMenu : Promise(Void) {
-    next { isMobileMenuOpen: false }
   }
 
   // Loads the given documents.
@@ -170,6 +158,13 @@ store Application {
     let title =
       case page {
         Tutorial(_, _, _, title) => Array.unshift(title, "Tutorial")
+
+        Sandbox(page) =>
+          case page {
+            Editor(project) => ["Sandbox", project.title]
+            => ["Sandboxes"]
+          }
+
         NotFound => ["404"]
 
         Page(title) =>
@@ -204,6 +199,6 @@ store Application {
     Dom.blurActiveElement()
     Window.setTitle(final)
 
-    next { isMobileMenuOpen: false, page: page }
+    next { page: page }
   }
 }
