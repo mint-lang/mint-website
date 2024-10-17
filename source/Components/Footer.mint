@@ -140,11 +140,6 @@ async component Footer {
             <div::column>
               <strong>"Documentation"</strong>
 
-              <a href="/tutorial/">
-                TablerIcons.CODE
-                "Tutorial"
-              </a>
-
               <a href="/guides/">
                 TablerIcons.BOOKS
                 "Guides"
@@ -163,6 +158,11 @@ async component Footer {
 
             <div::column>
               <strong>"Interactive"</strong>
+
+              <a href="/tutorial/">
+                TablerIcons.CODE
+                "Tutorial"
+              </a>
 
               <a href="/sandbox/try">
                 TablerIcons.TERMINAL
