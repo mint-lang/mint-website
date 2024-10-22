@@ -72,17 +72,21 @@ component Hero {
     display: block;
     opacity: 0.75;
 
-    text-decoration: none;
     font-size: 16px;
-    color: inherit;
 
     if isMobile {
       margin-top: 20px;
       font-size: 14px;
     }
 
-    &:hover {
-      text-decoration: underline;
+    a {
+      text-decoration: none;
+      font-weight: 400;
+      color: inherit;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
     svg {
@@ -182,14 +186,13 @@ component Hero {
           TablerIcons.ARROW_BIG_RIGHT_LINES
         </a>
 
-        <a::alternative href="/guides/getting-started">
-          "or check out the "
-
-          <b>"getting started"</b>
-
-          " guide"
-          TablerIcons.ARROW_RIGHT
-        </a>
+        <div::alternative>
+          "Alternatively "
+          <a href="/sandbox/try">"try in the browser"</a>
+          " or check out the "
+          <a href="/guides/getting-started">"getting started"</a>
+          " guide."
+        </div>
       </div>
 
       if isMobile {

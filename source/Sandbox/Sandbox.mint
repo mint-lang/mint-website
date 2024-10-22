@@ -13,7 +13,23 @@ module Sandbox {
     }
 
   // Initializes a sandbox page.
-  fun initialize (page : Sandbox.Page) : Promise(Void) {
+  fun initialize (path : String) : Promise(Void) {
+    let normalizedPath =
+      if String.isBlank(path) {
+        Window.setUrl("/sandbox/")
+        "/"
+      } else {
+        path
+      }
+
+    let page =
+      await case normalizedPath {
+        "/try" => Promise.resolve(Sandbox.Page.Editor(Sandbox.EMPTY_SANDBOX))
+        "/mine" => Sandbox.mine()
+        "/" => Sandbox.recent()
+        => Sandbox.load(String.dropStart(normalizedPath, 1))
+      }
+
     let response =
       "#{@ENDPOINT}/sandbox/user"
       |> Http.get()

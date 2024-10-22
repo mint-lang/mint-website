@@ -10,7 +10,7 @@ component Menu {
     justify-content: center;
     flex-wrap: wrap;
     display: flex;
-    gap: 30px;
+    gap: 25px;
   }
 
   // Styles for a navigation item.

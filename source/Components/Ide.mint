@@ -5,6 +5,12 @@ component Ide {
   // The orientation of the ide (either "horizontal" or "vertical")
   property orientation : String = "vertical"
 
+  // The height of the preview.
+  property previewHeight : String = "1fr"
+
+  // Whether or not the component is bordered.
+  property bordered : Bool = false
+
   // The project to edit.
   property value : Project
 
@@ -22,6 +28,7 @@ component Ide {
         await import(#{@asset(../../assets/ide.js)});
 
       #{this}.ide = new Ide({
+        previewHeight: #{previewHeight},
         endpoint: #{@SANDBOX_ENDPOINT},
         orientation: #{orientation},
         onChange: #{onChange},
@@ -43,6 +50,10 @@ component Ide {
   style root {
     min-height: 0;
     display: grid;
+
+    if bordered {
+      border: 1px solid var(--border-color);
+    }
   }
 
   // Renders the component.

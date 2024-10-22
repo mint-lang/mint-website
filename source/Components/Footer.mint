@@ -102,7 +102,7 @@ async component Footer {
             <p>
               "Mint delivers developer happiness and productivity by offering "
               "a complete set of tools (bundler, code formatter, documentation "
-              "generator, playground, package manager, etc...) for bulding "
+              "generator, playground, package manager, etc...) for building "
               "single page applications in a singular language."
             </p>
 
@@ -119,6 +119,11 @@ async component Footer {
               <a href="/">
                 TablerIcons.HOME
                 "Home"
+              </a>
+
+              <a href="/news">
+                TablerIcons.NEWS
+                "News"
               </a>
 
               <a href="/install">

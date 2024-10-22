@@ -150,3 +150,11 @@ type MenuItem {
 
   Divider
 }
+
+type News {
+  contents : Deferred(Html),
+  subtitle : String,
+  author : String,
+  title : String,
+  time : Time
+}

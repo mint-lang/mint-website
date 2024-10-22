@@ -46,6 +46,13 @@ component Header {
           disabled: false,
           target: ""),
         MenuItem.Link(
+          icon: TablerIcons.NEWS,
+          href: "/news",
+          label: "News",
+          disabled: false,
+          target: ""),
+        MenuItem.Divider,
+        MenuItem.Link(
           icon: TablerIcons.TERMINAL,
           href: "/sandbox/try",
           disabled: false,
@@ -57,6 +64,7 @@ component Header {
           label: "Sandbox",
           disabled: false,
           target: ""),
+        MenuItem.Divider,
         MenuItem.Group(
           icon: TablerIcons.BOOK,
           label: "Documentation",

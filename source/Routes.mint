@@ -1,7 +1,6 @@
 routes {
   // Standalone pages.
   // ---------------------------------------------------------------------------
-
   /brand-book {
     Application.setPage(Page.Page("Brand Book", <Pages.BrandBook/>))
   }
@@ -18,28 +17,14 @@ routes {
     Application.setPage(Page.Page("", <Pages.Home/>))
   }
 
-  // Sandbox pages.
+  // Sandbox.
   // ---------------------------------------------------------------------------
-
-  /sandbox/try await {
-    Sandbox.initialize(Sandbox.Page.Editor(Sandbox.EMPTY_SANDBOX))
-  }
-
-  /sandbox/mine await {
-    Sandbox.initialize(await Sandbox.mine())
-  }
-
-  /sandbox/:id (id : String) await {
-    Sandbox.initialize(await Sandbox.load(id))
-  }
-
-  /sandbox await {
-    Sandbox.initialize(await Sandbox.recent())
+  /sandbox*path (path : String) await {
+    Sandbox.initialize(path)
   }
 
   // API documentation.
   // ---------------------------------------------------------------------------
-
   /api*path (path : String) await {
     let normalized =
       String.chopStart(path, "/")
@@ -74,16 +59,37 @@ routes {
     }
   }
 
+  // News
+  // ---------------------------------------------------------------------------
+  /news*path (path : String) await {
+    let data =
+      await Data.NEWS
+
+    let normalized =
+      String.chopStart(path, "/")
+
+    if String.isBlank(normalized) {
+      Application.setPage(Page.Page("News", <Pages.News.Index news={data}/>))
+    } else if let Just(news) = Map.get(data, normalized) {
+      let contents =
+        await news.contents
+
+      Application.setPage(
+        Page.Page(news.title,
+          <Pages.News.Page news={news} contents={contents}/>))
+    } else {
+      Application.setNotFoundPage()
+    }
+  }
+
   // Tutorial.
   // ---------------------------------------------------------------------------
-
   /tutorial*path (path : String) await {
     Application.loadTutorial(path)
   }
 
   // Reference and guides.
   // ---------------------------------------------------------------------------
-
   /reference*path (path : String) await {
     Application.loadDocuments(
       deferredDocuments: Data.REFERENCE,
