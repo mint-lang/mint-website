@@ -9,28 +9,6 @@ async component Pages.News.Index {
     max-width: 80ch;
     margin: 0 auto;
     width: 100%;
-
-    h1 {
-      font-weight: normal;
-      font-family: Forum;
-      font-size: 2.25em;
-      margin: 0 auto;
-    }
-
-    span {
-      margin-top: 5px;
-      font-size: 18px;
-      display: block;
-      opacity: 0.75;
-    }
-
-    hr {
-      border: 0;
-      border-bottom: 3px double var(--border-color);
-
-      margin-top: 15px;
-      margin-bottom: 30px;
-    }
   }
 
   // Styles for a news item.
@@ -39,10 +17,14 @@ async component Pages.News.Index {
     padding-left: 15px;
 
     a:not([name]) {
-      font-size: 22px;
       text-decoration: none;
       color: currentColor;
       font-weight: 400;
+      font-size: 22px;
+
+      &:hover {
+        color: var(--color-mintgreen);
+      }
     }
 
     p {
@@ -54,24 +36,30 @@ async component Pages.News.Index {
     }
   }
 
+  style items {
+    margin-top: 30px;
+  }
+
   // Renders the component.
   fun render : Html {
     <div::root>
-      <h1>"News"</h1>
-      <span>"What's happening in the Mint world?"</span>
-      <hr/>
+      <Content>
+        <PageHeader subtitle="What's happening in the Mint world?" title="News"/>
+      </Content>
 
-      for path, item of news {
-        <div::item>
-          <a href="/news/#{path}">item.title</a>
-          <p>item.subtitle</p>
+      <div::items>
+        for path, item of news {
+          <div::item>
+            <a href="/news/#{path}">item.title</a>
+            <p>item.subtitle</p>
 
-          <span>
-            Time.format(item.time, Time.Format.ENGLISH,
-              "Published %d %B, %Y by #{item.author}")
-          </span>
-        </div>
-      }
+            <span>
+              Time.format(item.time, Time.Format.ENGLISH,
+                "Published %d %B, %Y by #{item.author}")
+            </span>
+          </div>
+        }
+      </div>
     </div>
   }
 }

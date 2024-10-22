@@ -89,6 +89,8 @@ component Content {
     }
 
     hr {
+      margin: 1.5em 0;
+
       border: 0;
       border-bottom: 1px double var(--border-color);
     }

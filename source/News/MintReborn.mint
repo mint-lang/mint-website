@@ -1,10 +1,10 @@
 module News {
-  const MENTHA_CANADENSIS =
+  const MINT_REBORN =
     {
       subtitle: "Mint 0.20.0 Released",
-      author: "Gusztáv Szikszai",
-      title: "Mentha Canadensis",
       time: Time.utc(2024, 11, 1),
+      author: "Gusztáv Szikszai",
+      title: "Mint Reborn",
       contents:
         defer {
           let deferredExample =
@@ -105,11 +105,14 @@ module News {
             />
 
           <<#MARKDOWN(highlight)
-      # Mentha Canadensis
-
       Mint is a type-safe programming language for writing single page
       applications. Today Mint `0.20.0` has been published, so let's go
       over all that's new.
+
+      The last proper release was more than a year ago. As one of my new years
+      resolutions was to release `1.0` (which didn't happend) or at least make
+      substantial progress on it (which I did). So this release is a big step
+      towards `1.0`.
 
       ## Rewrites, rewrites everywhere!
 
@@ -180,8 +183,20 @@ module News {
       previously separate [tutorial] and [sandbox] is now in the same code
       base thanks to deferred code and async components.
 
+      Mint also has new logo and new branding (as you can see), it even has a
+      [brand book] of sorts.
+
+      [brand book]: /brand-book
       [tutorial]: /tutorial/
       [sandbox]: /sandbox/
+
+      ---
+
+      These were just the highlights of the release, there are a lot more
+      changes which we will detail in several other posts, until then make sure
+      to read the full [release notes].
+
+      [release notes]: TODO
         MARKDOWN
         }
     }

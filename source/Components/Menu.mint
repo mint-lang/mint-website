@@ -14,16 +14,21 @@ component Menu {
   }
 
   // Styles for a navigation item.
-  style item {
+  style item (label : String) {
     text-decoration: none;
     white-space: nowrap;
     color: inherit;
 
     grid-template-columns: auto 1fr;
     align-items: center;
-    grid-gap: 10px;
     display: grid;
     height: 24px;
+
+    if String.isBlank(label) {
+      grid-gap: 0;
+    } else {
+      grid-gap: 10px;
+    }
 
     font-family: unset;
     font-weight: unset;
@@ -112,19 +117,19 @@ component Menu {
       Divider => <div::divider/>
 
       Action(action, disabled, label, icon) =>
-        <button::item onClick={action} disabled={disabled}>
+        <button::item(label) onClick={action} disabled={disabled}>
           icon
           label
         </button>
 
       Link(icon, label, href, disabled, target) =>
-        <a::item href={href} target={target} disabled={disabled}>
+        <a::item(label) href={href} target={target} disabled={disabled}>
           icon
           label
         </a>
 
       Group(icon, label) =>
-        <a::item>
+        <a::item(label)>
           icon
           label
         </a>

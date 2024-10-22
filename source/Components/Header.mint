@@ -65,6 +65,13 @@ component Header {
           disabled: false,
           target: ""),
         MenuItem.Divider,
+        MenuItem.Link(
+          icon: TablerIcons.PACKAGES,
+          href: "/packages",
+          label: "Packages",
+          disabled: false,
+          target: ""),
+        MenuItem.Divider,
         MenuItem.Group(
           icon: TablerIcons.BOOK,
           label: "Documentation",
@@ -100,18 +107,13 @@ component Header {
           href: "https://github.com/mint-lang/mint",
           icon: TablerIcons.BRAND_GITHUB,
           target: "_blank",
-          label: "Github",
+          label: "",
           disabled: false),
         MenuItem.Divider,
         MenuItem.Action(
           action: toggleDarkMode,
           disabled: false,
-          label:
-            if isDarkMode {
-              "Light Mode"
-            } else {
-              "Dark Mode"
-            },
+          label: "",
           icon:
             if isDarkMode {
               TablerIcons.SUN

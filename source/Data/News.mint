@@ -1,3 +1,3 @@
 module Data {
-  const NEWS = defer { "mentha-canadensis" => News.MENTHA_CANADENSIS }
+  const NEWS = defer { "mint-reborn" => News.MINT_REBORN }
 }
