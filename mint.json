@@ -14,7 +14,7 @@
   "dependencies": {
     "mint-tabler-icons": {
       "repository": "https://github.com/mint-lang/mint-tabler-icons",
-      "constraint": "master:1.0.0"
+      "constraint": "3.20.0 <= v < 4.0.0"
     }
   }
 }

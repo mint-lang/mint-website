@@ -2,7 +2,7 @@
 
 This is the repository for the website of the Mint programming language (https://mint-lang.com). 
 
-## Hacking
+## Local Development
 
 The website is built with Mint. Follow these steps to get up and running:
 
