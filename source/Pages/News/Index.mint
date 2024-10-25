@@ -15,6 +15,7 @@ async component Pages.News.Index {
   style item {
     border-left: 3px solid var(--border-color);
     padding-left: 15px;
+    margin-top: 30px;
 
     a:not([name]) {
       text-decoration: none;
@@ -36,10 +37,6 @@ async component Pages.News.Index {
     }
   }
 
-  style items {
-    margin-top: 30px;
-  }
-
   // Renders the component.
   fun render : Html {
     <div::root>
@@ -47,19 +44,17 @@ async component Pages.News.Index {
         <PageHeader subtitle="What's happening in the Mint world?" title="News"/>
       </Content>
 
-      <div::items>
-        for path, item of news {
-          <div::item>
-            <a href="/news/#{path}">item.title</a>
-            <p>item.subtitle</p>
+      for path, item of news {
+        <div::item>
+          <a href="/news/#{path}">item.title</a>
+          <p>item.subtitle</p>
 
-            <span>
-              Time.format(item.time, Time.Format.ENGLISH,
-                "Published %d %B, %Y by #{item.author}")
-            </span>
-          </div>
-        }
-      </div>
+          <span>
+            Time.format(item.time, Time.Format.ENGLISH,
+              "Published %B %*d, %Y by #{item.author}")
+          </span>
+        </div>
+      }
     </div>
   }
 }

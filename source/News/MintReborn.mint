@@ -106,35 +106,36 @@ module News {
 
           <<#MARKDOWN(highlight)
       Mint is a type-safe programming language for writing single page
-      applications. Today Mint `0.20.0` has been published, so let's go
+      applications. Today, Mint `0.20.0` has been published, so let's go
       over all that's new.
 
-      The last proper release was more than a year ago. As one of my new years
-      resolutions was to release `1.0` (which didn't happend) or at least make
+      The last proper release was more than a year ago. As one of my New Year's
+      resolutions was to release `1.0` (which didn't happen) or at least make
       substantial progress on it (which I did). So this release is a big step
       towards `1.0`.
+
+      Most of the work went into rewrites and refactorings, but there are some
+      new language features and changes too.
 
       ## Rewrites, rewrites everywhere!
 
       Since `0.19.0` all but one part (type checker) of the source was
-      rewritten or refactored, here is a non exhaustive list:
+      rewritten or refactored, here is a non-exhaustive list:
 
-      * **Error Messages** - They were simplified internally, unified
-        and reviewed across the board.
       * **Runtime** - Changed from [class components] to [functional
         components] and [signals], this allows a two level structure (
-        components have internal entities otherwise is everything is one
-        level)
+        components have internal entities, otherwise is everything is one
+        level).
       * **Compiler** - It was rewritten to emit ES5 modules and to support
         code-splitting.
-      * **CLI** - Commands were reviewed and changed to better convey their
-        functions. Some commands moved under the `tool` group.
+      * **CLI** - Commands were reviewed and their flags or arguments
+        changed to better convey their functions. Some commands moved under
+        the `tool` group.
       * **Formatter** - It was rewritten to support line-length aware
         formatting.
+      * **Error Messages** - They were simplified internally, unified
+        and reviewed across the board.
       * **Documentation Generator** - It was rewritten to be HTML by default.
-
-      With these changes we are bringing you a modern and performant
-      language for writing web applications.
 
       [functional components]: https://preactjs.com/guide/v10/components/#functional-components
       [class components]: https://preactjs.com/guide/v10/components/#class-components
@@ -142,10 +143,10 @@ module News {
 
       ## Deferred Code
 
-      With the compiler refactor it's now possbile to asynchronously load
+      With the compiler refactor, it's now possible to asynchronously load
       code with the `defer` keyword.
 
-      Any expression marked with `defer` are compiled into it's own file
+      Any expression marked with `defer` is compiled into its own file
       and can be loaded later with the `await` keyword.
 
       #{deferredExample}
@@ -156,7 +157,7 @@ module News {
 
       ## Async Components
 
-      Components can now be marked `async` which means they will be compiled
+      Components can now be marked `async`, which means they will be compiled
       to their own file and will be loaded on demand when the component is
       rendered on the screen.
 
@@ -164,7 +165,7 @@ module News {
 
       ## Fully Exhaustive Pattern Matching
 
-      Patterns previously were only matched for exhaustivess at the top-level,
+      Patterns previously were only matched for exhaustiveness at the top-level,
       now missing patterns are reported at any nesting level.
 
       #{exhaustivenessExample}
@@ -172,16 +173,19 @@ module News {
       ## Easier HTML
 
       Expressions now can be directly used in HTML tags (HTML expressions
-      `<{...}>` are removed from the language), and in addition to `String`,
-      `Number` can be used as well.
+      `<{...}>` are deprecated and will be removed from the language in the
+      next release), and in addition to `String`, `Number` can be used as well.
 
       #{htmlExample}
 
       ## New Website
 
-      The website (which you are on now) was also rewitten from scratch. The
+      The website (which you are on now) was also rewritten from scratch. The
       previously separate [tutorial] and [sandbox] is now in the same code
       base thanks to deferred code and async components.
+
+      The documentation of the language was improved considerably. Every
+      language feature is now documented and has a corresponding tutorial page.
 
       Mint also has new logo and new branding (as you can see), it even has a
       [brand book] of sorts.
@@ -189,6 +193,12 @@ module News {
       [brand book]: /brand-book
       [tutorial]: /tutorial/
       [sandbox]: /sandbox/
+
+      ## Call to Action
+
+      If you were looking at Mint but never tried it before, I think it is a
+      great time to give it a shot! It's more stable, faster and more
+      approachable than ever.
 
       ---
 

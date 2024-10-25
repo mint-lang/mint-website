@@ -43,7 +43,9 @@ type Page {
     lesson : LessonData,
     path : String)
 
-  ApiDocs(Array(TopLevelEntity), TopLevelEntity)
+  ApiDocs(String, Array(TopLevelEntity), TopLevelEntity,
+    Maybe(DocumentLayoutSidebarInfo))
+
   Sandbox(Sandbox.Page, UserStatus)
   Page(String, Html)
   NotFound
@@ -76,7 +78,7 @@ type TopLevelEntity {
   entities : Maybe(Array(Entity)) using "e",
   flags : Maybe(Array(Number)) using "f",
   description : Maybe(String) using "d",
-  link : Maybe(String) using "l",
+  link : String using "l",
   kind : Number using "k",
   name : String using "n"
 }
@@ -151,10 +153,49 @@ type MenuItem {
   Divider
 }
 
+// Type for a category of navigation items.
+type DocumentLayoutCategory {
+  items : Array(DocumentLayoutItem),
+  name : String
+}
+
+// Type for a navigation item.
+type DocumentLayoutItem {
+  mobilePrefix : String,
+  searchValue : String,
+  content : Html,
+  href : String,
+  icon : Html
+}
+
+// Type for the documentation table of contents item.
+type DocumentLayoutTocItem {
+  content : Html,
+  level : Number,
+  href : String,
+  icon : Html
+}
+
+// Data structure for the extra information for the sidebar.
+type DocumentLayoutSidebarInfo {
+  items : Array(Tuple(String, Html, String)),
+  title : String
+}
+
+// Data structure for a news post.
 type News {
   contents : Deferred(Html),
   subtitle : String,
   author : String,
   title : String,
   time : Time
+}
+
+// Data structure for a package.
+type Package {
+  documentation : Deferred(Array(TopLevelEntity)),
+  version : String,
+  readme : String,
+  name : String,
+  url : String
 }

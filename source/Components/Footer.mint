@@ -159,6 +159,11 @@ async component Footer {
                 TablerIcons.NOTEBOOK
                 "API Docs"
               </a>
+
+              <a href="/packages/">
+                TablerIcons.PACKAGES
+                "Packages"
+              </a>
             </div>
 
             <div::column>

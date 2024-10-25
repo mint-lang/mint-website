@@ -1,26 +1,3 @@
-// Type for a category of navigation items.
-type DocumentLayoutCategory {
-  items : Array(DocumentLayoutItem),
-  name : String
-}
-
-// Type for a navigation item.
-type DocumentLayoutItem {
-  mobilePrefix : String,
-  searchValue : String,
-  content : Html,
-  href : String,
-  icon : Html
-}
-
-// Type for the documentation table of contents item.
-type DocumentLayoutTocItem {
-  content : Html,
-  level : Number,
-  href : String,
-  icon : Html
-}
-
 component DocumentLayout {
   connect Application exposing { isTablet }
 
@@ -29,6 +6,9 @@ component DocumentLayout {
 
   // The search string.
   state search : String = ""
+
+  // The extra information for the top of the sidebar.
+  property sidebarInfo : Maybe(DocumentLayoutSidebarInfo) = Maybe.Nothing
 
   // The table of contents to display.
   property tableOfContents : Array(DocumentLayoutTocItem)
@@ -71,6 +51,8 @@ component DocumentLayout {
 
   // Styles for the sidebar link.
   style sidebar-item (active : Bool) {
+    --tabler-stroke-width: 1.25;
+
     grid-template-columns: auto 1fr;
     align-items: center;
     grid-gap: 0.33em;
@@ -86,15 +68,19 @@ component DocumentLayout {
         grid-column: span 2;
       }
 
+      &[href=""] {
+        cursor: initial;
+      }
+
+      &:hover:not([href=""]) {
+        text-decoration: underline;
+      }
+
       if active {
         color: var(--color-mintgreen);
       } else {
         color: inherit;
       }
-    }
-
-    &:hover a {
-      text-decoration: underline;
     }
   }
 
@@ -247,6 +233,27 @@ component DocumentLayout {
 
         <>
           <div>
+            if let Just(info) = dbg sidebarInfo {
+              <>
+                <strong::sidebar-category>info.title</strong>
+
+                for item of info.items {
+                  let {label, icon, href} =
+                    item
+
+                  let target =
+                    if Regexp.match(/https?/, href) {
+                      "_blank"
+                    }
+
+                  <div::sidebar-item(false)>
+                    <Icon icon={icon} size={20}/>
+                    <a href={href} target={target}>label</a>
+                  </div>
+                }
+              </>
+            }
+
             <strong::sidebar-category>"Search..."</strong>
 
             <input::input

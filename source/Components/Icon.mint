@@ -26,7 +26,7 @@ component Icon {
       cursor: pointer;
     }
 
-    &:hover {
+    &:hover:not([href=""]) {
       if !disabled {
         color: var(--color-mintgreen);
       }

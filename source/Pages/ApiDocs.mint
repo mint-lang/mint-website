@@ -1,11 +1,17 @@
 async component Pages.ApiDocs {
   connect Application exposing { isTablet }
 
+  // The extra information for the top of the sidebar.
+  property sidebarInfo : Maybe(DocumentLayoutSidebarInfo)
+
   // The top level entities to display in the sidebar.
   property entities : Array(TopLevelEntity)
 
   // The top level entity to display.
   property entity : TopLevelEntity
+
+  // The prefix for the URLs.
+  property prefix : String
 
   // Style for the title.
   style title {
@@ -68,7 +74,7 @@ async component Pages.ApiDocs {
   // Renders the component.
   fun render : Html {
     let url =
-      entity.link or entity.name
+      entity.link
 
     let categories =
       {
@@ -77,8 +83,8 @@ async component Pages.ApiDocs {
           for item of entities {
             {
               mobilePrefix: "[#{ApiDocs.kindToBadge(item.kind)[0]}] ",
-              href: "/api/#{item.link or item.name}",
               icon: renderBadge(item.kind),
+              href: "#{prefix}/#{item.link}",
               searchValue: item.name,
               content: <>item.name</>
             }
@@ -152,6 +158,7 @@ async component Pages.ApiDocs {
 
     <DocumentLayout
       tableOfContents={tableOfContents}
+      sidebarInfo={sidebarInfo}
       contentKey={entity.name}
       items=[categories]
       content={content}

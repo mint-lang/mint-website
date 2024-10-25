@@ -23,8 +23,13 @@ component Main {
             path={path}
           />
 
-        ApiDocs(entities, entity) =>
-          <Pages.ApiDocs entities={entities} entity={entity}/>
+        ApiDocs(prefix, entities, entity, sidebarInfo) =>
+          <Pages.ApiDocs
+            sidebarInfo={sidebarInfo}
+            entities={entities}
+            entity={entity}
+            prefix={prefix}
+          />
 
         Sandbox(page, user) =>
           case page {

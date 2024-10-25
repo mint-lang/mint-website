@@ -23,6 +23,12 @@ routes {
     Sandbox.initialize(path)
   }
 
+  // Packages
+  // ---------------------------------------------------------------------------
+  /packages*path (path : String) await {
+    Packages.load(path)
+  }
+
   // API documentation.
   // ---------------------------------------------------------------------------
   /api*path (path : String) await {
@@ -34,25 +40,20 @@ routes {
 
     if String.isBlank(normalized) {
       if let Just(item) = entities[0] {
-        Window.setUrl("/api/#{item.name}")
-        Application.setPage(Page.ApiDocs(entities, item))
+        Window.setUrl("/api/#{item.link}")
+        Application.setPage(Page.ApiDocs("/api", entities, item, Maybe.Nothing))
       } else {
         Application.setNotFoundPage()
       }
     } else {
       let entity =
         if let Just(item) = Array.find(entities,
-          (item : TopLevelEntity) { item.link == Maybe.Just(normalized) }) {
+          (item : TopLevelEntity) { item.link == normalized }) {
           Maybe.Just(item)
-        } else {
-          Array.find(entities,
-            (item : TopLevelEntity) {
-              item.link == Maybe.Nothing && item.name == normalized
-            })
         }
 
       if let Just(item) = entity {
-        Application.setPage(Page.ApiDocs(entities, item))
+        Application.setPage(Page.ApiDocs("/api", entities, item, Maybe.Nothing))
       } else {
         Application.setNotFoundPage()
       }
