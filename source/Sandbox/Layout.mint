@@ -26,6 +26,7 @@ component Sandbox.Layout {
     align-items: center;
     padding: 0 20px;
     display: grid;
+    gap: 20px;
   }
 
   // Renders the component.

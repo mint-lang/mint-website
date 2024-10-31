@@ -1,4 +1,6 @@
 component PageHeader {
+  connect Application exposing { isMobile }
+
   // The subtitle to display.
   property subtitle : String
 
@@ -16,6 +18,11 @@ component PageHeader {
       font-size: 18px;
       display: block;
       opacity: 0.85;
+
+      if isMobile {
+        line-height: 1.25;
+        font-size: 14px;
+      }
     }
   }
 

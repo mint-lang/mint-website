@@ -27,6 +27,7 @@ component EntitySignature {
 
     if isMobile {
       white-space: pre-wrap;
+      font-size: 14px;
     } else {
       white-space: pre;
     }

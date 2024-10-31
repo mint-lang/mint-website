@@ -1,4 +1,6 @@
 component PageHero {
+  connect Application exposing { isMobile }
+
   // The children to display.
   property children : Array(Html) = []
 
@@ -9,6 +11,10 @@ component PageHero {
   style root {
     margin-bottom: 30px;
 
+    if isMobile {
+      margin-bottom: 0;
+    }
+
     h1 {
       font-weight: normal;
       font-family: Forum;
@@ -17,6 +23,10 @@ component PageHero {
 
       margin-bottom: 20px;
       margin-top: 0;
+
+      if isMobile {
+        font-size: 2em;
+      }
     }
 
     hr {
@@ -25,6 +35,10 @@ component PageHero {
       margin: 0;
       margin-top: 40px;
 
+      if isMobile {
+        margin-top: 20px;
+      }
+
       border: 0;
       border-bottom: 3px double var(--border-color);
     }
@@ -32,6 +46,10 @@ component PageHero {
     p {
       text-align: center;
       font-size: 18px;
+
+      if isMobile {
+        font-size: 16px;
+      }
     }
   }
 

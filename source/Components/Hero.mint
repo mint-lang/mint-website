@@ -181,10 +181,17 @@ component Hero {
         readable** and **maintainable** applications in **record time**.
         MARKDOWN
 
-        <a::button href="/tutorial">
-          "Tutorial"
-          TablerIcons.ARROW_BIG_RIGHT_LINES
-        </a>
+        if isMobile {
+          <a::button href="/reference">
+            "Reference"
+            TablerIcons.ARROW_BIG_RIGHT_LINES
+          </a>
+        } else {
+          <a::button href="/tutorial">
+            "Tutorial"
+            TablerIcons.ARROW_BIG_RIGHT_LINES
+          </a>
+        }
 
         <div::alternative>
           "Alternatively "

@@ -1,4 +1,6 @@
 component Pages.Packages {
+  connect Application exposing { isMobile }
+
   // The packages to display.
   property packages : Array(Package)
 
@@ -8,6 +10,10 @@ component Pages.Packages {
     align-content: start;
     grid-gap: 2em;
     display: grid;
+
+    if isMobile {
+      margin-top: 20px;
+    }
   }
 
   // Styles for the root element.
@@ -49,7 +55,13 @@ component Pages.Packages {
     <div>
       <PageHero title="Packages">
         "Here are some curated packages for your next project!"
-        <br/>
+
+        if isMobile {
+          <></>
+        } else {
+          <br/>
+        }
+
         "To add your package here reach out on "
 
         ContentInstrumenter.instrument(

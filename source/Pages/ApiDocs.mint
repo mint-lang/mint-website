@@ -1,5 +1,5 @@
 async component Pages.ApiDocs {
-  connect Application exposing { isTablet }
+  connect Application exposing { isTablet, isMobile }
 
   // The extra information for the top of the sidebar.
   property sidebarInfo : Maybe(DocumentLayoutSidebarInfo)
@@ -16,12 +16,17 @@ async component Pages.ApiDocs {
   // Style for the title.
   style title {
     border-bottom: 3px double var(--border-color);
+    padding-bottom: 10px;
     margin-bottom: 15px;
 
     font-optical-sizing: auto;
     font-family: "Fira Code";
     font-weight: 400;
     font-size: 26px;
+
+    if isMobile {
+      font-size: 20px;
+    }
 
     > span {
       color: var(--color-darkmagenta);
@@ -34,6 +39,10 @@ async component Pages.ApiDocs {
 
     + * {
       margin-top: 45px;
+
+      if isMobile {
+        margin-top: 30px;
+      }
     }
 
     if active {

@@ -46,6 +46,7 @@ component Message {
 
   // The styles for the actions.
   style actions {
+    text-align: center;
     font-size: 1.25em;
   }
 

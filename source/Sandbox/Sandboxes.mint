@@ -1,4 +1,6 @@
 component Sandbox.Grid {
+  connect Application exposing { isMobile }
+
   // The empty actions to show.
   property emptyActions : Array(MenuItem)
 
@@ -7,10 +9,18 @@ component Sandbox.Grid {
 
   // Styles for the root element.
   style root {
-    grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(#{cellWidth}, 1fr));
     align-content: start;
     grid-gap: 2em;
     display: grid;
+  }
+
+  get cellWidth {
+    if isMobile {
+      "260px"
+    } else {
+      "20em"
+    }
   }
 
   // Renders the comonent.

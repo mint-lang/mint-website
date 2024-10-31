@@ -107,13 +107,23 @@ component Header {
           href: "https://github.com/mint-lang/mint",
           icon: TablerIcons.BRAND_GITHUB,
           target: "_blank",
-          label: "",
+          label:
+            if isMobile {
+              "Source"
+            } else {
+              ""
+            },
           disabled: false),
         MenuItem.Divider,
         MenuItem.Action(
           action: toggleDarkMode,
           disabled: false,
-          label: "",
+          label:
+            if isMobile {
+              "Toggle Mode"
+            } else {
+              ""
+            },
           icon:
             if isDarkMode {
               TablerIcons.SUN

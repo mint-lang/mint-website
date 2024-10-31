@@ -42,7 +42,7 @@ async component Sandbox.Editor {
     font-family: inherit;
     border-radius: 3px;
     padding: 5px 10px;
-    width: 300px;
+    max-width: 300px;
   }
 
   // Saves the sandbox.
@@ -141,7 +141,13 @@ async component Sandbox.Editor {
     >
       <Ide
         onChange={(value : Project) { next { value: Maybe.Just(value) } }}
-        orientation="horizontal"
+        orientation={
+          if isMobile {
+            "vertical"
+          } else {
+            "horizontal"
+          }
+        }
         value={actual}
       />
     </Sandbox.Layout>
