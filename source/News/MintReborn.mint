@@ -206,7 +206,7 @@ module News {
       changes which we will detail in several other posts, until then make sure
       to read the full [release notes].
 
-      [release notes]: TODO
+      [release notes]: https://github.com/mint-lang/mint/releases/tag/0.20.0
         MARKDOWN
         }
     }
