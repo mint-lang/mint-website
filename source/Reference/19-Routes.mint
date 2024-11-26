@@ -23,7 +23,7 @@ module References {
     Keep in mind that routes are matched in the order they are defined from
     **top to bottom**, and they are used to set state, not render things.
 
-    ## Matching Parameters
+    ## Matching parameters
 
     You can match parts of the path as parameters. Parameters are typed checked
     and if it can't convert the `String` into the desired type it means that

@@ -81,7 +81,7 @@ module References {
     [Firefox]: https://en.wikipedia.org/wiki/Firefox
     [test command]: /guides/cli/test
 
-    ## Async Tests
+    ## Async tests
 
     Tests can be asynchronous, so you can `await` things in them:
 
@@ -94,7 +94,7 @@ module References {
     }
     ```
 
-    ## Test Context
+    ## Test context
 
     A `Test.Context(a)` is a way to have multiple steps and assertions in a
     test:
@@ -124,5 +124,18 @@ module References {
 
     See the [Test.Html](/api/modules/Test.Html) module for more
     information.
+
+    ## Referencing entities
+
+    You can reference HTML elements and Components in tests just like in
+    [Components](/reference/components/referencing-entities).
+
+    ```mint
+    test "Html Example" {
+      <div as div>"Hello World!"</div>
+      |> Test.Html.start()
+      |> Test.Html.map((element : Dom.Element) { div != Maybe.Nothing })
+    }
+    ```
     MARKDOWN
 }

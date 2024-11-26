@@ -23,6 +23,7 @@ module References {
       fun render : Html {
         <div>
           @svg(../svgs/icon.svg)
+          @svg(/svgs/icon.svg)
         </div>
       }
     }

@@ -22,6 +22,7 @@ module References {
       fun render : Html {
         <div>
           @inline(../assets/data.txt)
+          @inline(/assets/data.txt)
         </div>
       }
     }

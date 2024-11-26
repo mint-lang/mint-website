@@ -4,9 +4,10 @@ module References {
     # Asset Directive
 
     The `@asset` directive allows you to **reference** a file relative to the
-    current file. Basically, it returns the path to the file, but more
-    importantly it tells the compiler that an asset is used. During the build
-    process, the assets are bundled along with the generated files.
+    current file (or from the root of the project). Basically, it returns the
+    path to the file, but more importantly it tells the compiler that an asset
+    is used. During the build process, the assets are bundled along with the
+    generated files.
 
     For example, given this file structure:
 
@@ -24,7 +25,10 @@ module References {
     ```mint
     component Main {
       fun render : Html {
-        <img src={@asset(../images/some-image.jpg)}/>
+        <div>
+          <img src={@asset(../images/some-image.jpg)}/>
+          <img src={@asset(/images/some-image.jpg)}/>
+        </div>
       }
     }
     ```

@@ -89,7 +89,12 @@ module Data {
             path: "providers"
           },
           { contents: defer References.TESTING, name: "Testing", path: "testing" },
-          { contents: defer References.SIGNALS, name: "Signals", path: "siganls" }
+          { contents: defer References.SIGNALS, name: "Signals", path: "signals" },
+          {
+            contents: defer References.DEBUGGING,
+            name: "Debugging",
+            path: "debugging"
+          }
         ],
       categories:
         [

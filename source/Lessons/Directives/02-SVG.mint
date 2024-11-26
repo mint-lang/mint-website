@@ -46,7 +46,7 @@ module Lessons {
         CSS.
 
         The referenced file is **relative to the file the directive is defined
-        in**.
+        in** or **relative to the root of the project**.
 
         ```mint
         // Main.mint

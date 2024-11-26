@@ -72,13 +72,9 @@ module References {
           <thead>
             <tr>
               <th>"Operator"</th>
-
               <th>"Precedence"</th>
-
               <th>"Type Restriction"</th>
-
               <th style="white-space: nowrap">"Result Type"</th>
-
               <th>"Description"</th>
             </tr>
           </thead>
@@ -87,7 +83,6 @@ module References {
             for item of operators {
               <tr>
                 <td><code>item[0]</code></td>
-
                 <td><code>"#{item[1]}"</code></td>
 
                 <td>
@@ -114,8 +109,7 @@ module References {
       # Operators
 
       Mint supports a number of fixed operators. Some work on specific types,
-      some on all types. Whitespace before and after the operator is required,
-      except for `!` (negation). See the table below for specifics:
+      some on all types, see the table below for specifics:
 
       #{table}
 
