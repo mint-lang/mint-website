@@ -12,8 +12,8 @@ module News {
       over all that's new.
 
       In this release we focused on improving debugging and testing and there
-      are also some nice quality of life changes. In this release [11 issues]
-      have been closed (all of them older than a year) by [11 pull requests].
+      are also some nice quality of life changes. In this release [12 issues]
+      have been closed (all of them older than a year) by [15 pull requests].
 
       [12 issues]: https://github.com/mint-lang/mint/issues?q=sort%3Aupdated-desc%20is%3Aissue%20state%3Aclosed%20milestone%3A0.21.0
       [15 pull requests]: https://github.com/mint-lang/mint/pulls?q=sort%3Aupdated-desc+is%3Apr+is%3Aclosed+milestone%3A0.21.0
