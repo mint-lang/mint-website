@@ -15,8 +15,8 @@ module News {
       are also some nice quality of life changes. In this release [11 issues]
       have been closed (all of them older than a year) by [11 pull requests].
 
-      [11 issues]: https://github.com/mint-lang/mint/issues?q=sort%3Aupdated-desc%20is%3Aissue%20state%3Aclosed%20milestone%3A0.21.0
-      [11 pull requests]: https://github.com/mint-lang/mint/pulls?q=sort%3Aupdated-desc+is%3Apr+is%3Aclosed+milestone%3A0.21.0
+      [12 issues]: https://github.com/mint-lang/mint/issues?q=sort%3Aupdated-desc%20is%3Aissue%20state%3Aclosed%20milestone%3A0.21.0
+      [15 pull requests]: https://github.com/mint-lang/mint/pulls?q=sort%3Aupdated-desc+is%3Apr+is%3Aclosed+milestone%3A0.21.0
 
       ## Debugging improvements
 
@@ -35,7 +35,7 @@ module News {
 
       The [PR] to add source maps to the language was opened more than 3 years
       ago, so it was a relief to finally ship it. The refactor of the compiler
-      made it easier to implement them.
+      made it easier to implement.
 
       [PR]: https://github.com/mint-lang/mint/pull/356
 
