@@ -44,7 +44,7 @@ async component Pages.Home {
         <<#MARKDOWN
         Styling elements in traditional single page applications is done through
         a library which restricts what is possible, so in Mint styling is a
-        feature of the language and much more powerful than any library cloud
+        feature of the language and much more powerful than any library could
         ever be.
 
         - Style elements directly with **CSS** using **style blocks**
