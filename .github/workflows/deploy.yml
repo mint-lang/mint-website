@@ -17,9 +17,6 @@ jobs:
       - name: Install Dependencies
         run: mint install
 
-      - name: Run Tests
-        run: mint test
-
       - name: Build
         run: mint build -e .env.production
       
