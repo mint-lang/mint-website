@@ -27,7 +27,7 @@ module News {
 
       For those who don't know, source maps create a mapping between the
       original source code (Mint code) and the generated code (JavaScript).
-      The browser developer tools can use those mappings among other thigns
+      The browser developer tools can use those mappings among other things
       to display the actual source code and allow you to put debugging
       breakpoints in it.
 
