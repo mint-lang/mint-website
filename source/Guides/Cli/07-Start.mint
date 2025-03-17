@@ -28,12 +28,14 @@ module Guides {
     Starts the development server.
 
     Flags:
-    --env, -e                                            # Loads the given .env file.
-    --format                                             # Formats the source files when they change.
-    --help                                               # Displays help for the current command.
-    --host, -h (default: ENV["HOST"]? || "0.0.0.0")      # The host to serve the application on.
-    --no-reload                                          # Do not reload the browser when something changes.
-    --port, -p (default: (ENV["PORT"]? || "3000").to_i)  # The port to serve the application on.
+      --env, -e                                            # Loads the given .env file.
+      --format                                             # Formats the source files when they change.
+      --generate-source-maps                               # If specified, source maps will be generated.
+      --help                                               # Displays help for the current command.
+      --host, -h (default: ENV["HOST"]? || "0.0.0.0")      # The host to serve the application on.
+      --no-reload                                          # Do not reload the browser when something changes.
+      --port, -p (default: (ENV["PORT"]? || "3000").to_i)  # The port to serve the application on.
+      --runtime                                            # If specified, the supplied runtime will be used instead of the default.
     ```
     MARKDOWN
 }
