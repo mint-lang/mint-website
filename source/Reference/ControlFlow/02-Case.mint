@@ -79,6 +79,19 @@ module References {
     }
     ```
 
+    ### Discard
+
+    You can use `_` to discard values that you don't need:
+
+    ```mint
+    case ["a", "b", "c"] {
+      [] => "This list is empty"
+      [_] => "This list has 1 element"
+      [_, _] => "This list has 2 elements"
+      _ => "This list has more than 2 elements"
+    }
+    ```
+
     ### Let Destructuring
 
     Pattern matching also works in `let` bindings. Patterns that do not match
