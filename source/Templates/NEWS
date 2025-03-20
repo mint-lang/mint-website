@@ -1,0 +1,12 @@
+module News {
+  const  =
+    {
+      subtitle: "",
+      time: Time.utc(2024, 12, 1),
+      author: "",
+      title: "",
+      contents:
+        defer <<#MARKDOWN(highlight)
+        MARKDOWN
+    }
+}

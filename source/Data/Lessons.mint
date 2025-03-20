@@ -68,6 +68,12 @@ module Data {
         title: "Calls"
       },
       {
+        data: defer Lessons.LANGUAGE_FUNCTION_CAPTURES,
+        path: "/language/function-captures",
+        title: "Function Captures",
+        category: "Language"
+      },
+      {
         data: defer Lessons.LANGUAGE_BLOCKS,
         path: "/language/blocks",
         category: "Language",
