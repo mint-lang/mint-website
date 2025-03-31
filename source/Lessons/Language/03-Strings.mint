@@ -54,7 +54,7 @@ module Lessons {
         let name =
           "World"
 
-        "Hello \#{world}!" == "Hello World!"
+        "Hello \#{name}!" == "Hello World!"
         ```
 
         Since Mint is a strongly typed language, you can only interpolate other
