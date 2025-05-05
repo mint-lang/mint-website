@@ -15,10 +15,10 @@ module References {
 
     You can decode JavaScript values into Mint **primitive values**, (`String`,
     `Bool`, `Number`, `Time`) **simple structures** (`Maybe(a)`, `Set(a)`,
-    `Map(a,b)`, `Array(a)`) and [composite types], which only have the
+    `Map(a,b)`, `Array(a)`) and [custom types], which only have the
     previously mentioned values.
 
-    [composite types]: /reference/types/custom-types#composite-type
+    [custom types]: /reference/types/custom-types
 
     > If you try to decode a type which is not supported or try to decode
     something that is not an `Object`, you will get a nice error message.
@@ -51,6 +51,36 @@ module References {
       }
     }
     ```
+
+    ## Algebraic Data Types
+
+    ADTs can be decoded as well but they must be in a specific format:
+
+    ```mint
+    type User {
+      LoggedIn(name : String, age : Number)
+      Guest
+    }
+
+    User.LoggedIn(name: "Joe", age: 42)
+    User.Guest
+    ```
+
+    Values of these should be in this format:
+
+    ```plain
+    {
+      type: "User.LoggedIn",
+      value: ["Joe", 42]
+    }
+
+    {
+      type: "User.Guest"
+    }
+    ```
+
+    The `type` field tells us which variant the value is and the `value` field
+    contains the values in order they are defined in.
 
     ## Decoding not supported keys
 

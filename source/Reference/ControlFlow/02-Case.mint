@@ -51,6 +51,22 @@ module References {
     }
     ```
 
+    ## Alternative Patterns
+
+    Alternative patterns can be given for a case clause using the `|` operator.
+    If any of the patterns match then the clause matches.
+
+    If a pattern defines a variable then all of the alternative patterns for
+    that clause must also define a variable with the same name and same type.
+
+    ```mint
+    case number {
+      2 | 4 | 6 | 8 => "This is an even number"
+      1 | 3 | 5 | 7 => "This is an odd number"
+      _ => "I'm not sure"
+    }
+    ```
+
     ## Destructuring
 
     A case expression can be used to destructure values that contain other
