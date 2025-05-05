@@ -8,7 +8,7 @@ module References {
 
     ## Tags
 
-    Tags work a look like HTML tags, with the difference that self-closing tags
+    Tags work a lot like HTML tags, with the difference that self-closing tags
     have the slash `/` after the tag name and not before.
 
     ```mint
