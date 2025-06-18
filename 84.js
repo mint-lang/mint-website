@@ -1,0 +1,1 @@
+export const a=(b)=>{return (b.getUTCFullYear())};

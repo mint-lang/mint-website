@@ -1,0 +1,21 @@
+import {createElement as A,fragment as B} from "./runtime.js";export const a=A(B,{},[A('h1',{},[`Array`]),A('p',{},[`An `,A('code',{},[`Array(a)`]),` is an ordered and integer-indexed generic collection of`,`
+`,`elements of a specific type `,A('code',{},[`a`]),`.`]),A('p',{},[`Arrays are typically created with an array literal denoted by square`,`
+`,`brackets (`,A('code',{},[`[]`]),`) and individual elements separated by a comma (`,A('code',{},[`,`]),`).`]),A('pre',{},[A('code',{class:"language-mint"},[A('span',{class:"line"},[`[`,A('span',{class:"string"},[`"a"`]),`, `,A('span',{class:"string"},[`"b"`]),`, `,A('span',{class:"string"},[`"c"`]),`]`])])]),A('h2',{},[`Type`]),A('p',{},[`The type of arrays is inferred from their content, however you can define`,`
+`,`the type directly with the `,A('code',{},[`of`]),` keyword. It is useful for defining the type`,`
+`,`of empty arrays:`]),A('pre',{},[A('code',{class:"language-mint"},[A('span',{class:"line"},[`[]           `,A('span',{class:"comment"},[`// Array(a)`]),`
+`]),A('span',{class:"line"},[`[`,A('span',{class:"number"},[`1`]),`, `,A('span',{class:"number"},[`2`]),`, `,A('span',{class:"number"},[`3`]),`]    `,A('span',{class:"comment"},[`// Array(Number)`]),`
+`]),A('span',{class:"line"},[`[] `,A('span',{class:"keyword"},[`of`]),` `,A('span',{class:"type"},[`Number`]),` `,A('span',{class:"comment"},[`// Array(Number)`])])])]),A('h2',{},[`Accessing Items`]),A('p',{},[`We can access an arrays item at a given index using the following syntax:`]),A('pre',{},[A('code',{class:"language-mint"},[A('span',{class:"line"},[A('span',{class:"keyword"},[`let`]),` `,A('span',{class:"variable"},[`array`]),` =
+`]),A('span',{class:"line"},[`  [`,A('span',{class:"number"},[`1`]),`, `,A('span',{class:"number"},[`2`]),`, `,A('span',{class:"number"},[`3`]),`]
+`]),A('span',{class:"line"},[`
+`]),A('span',{class:"line"},[``,A('span',{class:"variable"},[`array`]),`[`,A('span',{class:"number"},[`0`]),`] `,A('span',{class:"comment"},[`// Maybe(Number)`])])])]),A('p',{},[`When accessing an item this way, the type of the item will be `,A('code',{},[`Maybe(a)`]),`
+`,`where `,A('code',{},[`a`]),` is the type of item in the array. This is so because there might`,`
+`,`not be an item at that index.`]),A('h2',{},[`Pattern Matching`]),A('p',{},[`We can use pattern matching in some places in order to match certain`,`
+`,`values or get items of the array:`]),A('pre',{},[A('code',{class:"language-mint"},[A('span',{class:"line"},[A('span',{class:"keyword"},[`case`]),` [`,A('span',{class:"string"},[`"A"`]),`, `,A('span',{class:"string"},[`"B"`]),`, `,A('span',{class:"string"},[`"C"`]),`] {
+`]),A('span',{class:"line"},[`  [`,A('span',{class:"variable"},[`head`]),`, ...`,A('span',{class:"variable"},[`tail`]),`] => `,A('span',{class:"string"},[`""`]),`   `,A('span',{class:"comment"},[`/* Array at one element (tail can be empty) */`]),`
+`]),A('span',{class:"line"},[`  [...`,A('span',{class:"variable"},[`items`]),`] => `,A('span',{class:"string"},[`""`]),`        `,A('span',{class:"comment"},[`/* Items would be the array itself */`]),`
+`]),A('span',{class:"line"},[`  [`,A('span',{class:"variable"},[`a`]),`, `,A('span',{class:"variable"},[`b`]),`] => `,A('span',{class:"string"},[`""`]),`            `,A('span',{class:"comment"},[`/* Array with only two elements */`]),`
+`]),A('span',{class:"line"},[`  [`,A('span',{class:"string"},[`"a"`]),`] => `,A('span',{class:"string"},[`""`]),`             `,A('span',{class:"comment"},[`/* Array with only one specific element */`]),`
+`]),A('span',{class:"line"},[`  [`,A('span',{class:"variable"},[`a`]),`] => `,A('span',{class:"string"},[`""`]),`               `,A('span',{class:"comment"},[`/* Array with only one element */`]),`
+`]),A('span',{class:"line"},[`  [] => `,A('span',{class:"string"},[`""`]),`                `,A('span',{class:"comment"},[`/* Empty array  */`]),`
+`]),A('span',{class:"line"},[`  => `,A('span',{class:"string"},[`""`]),`                   `,A('span',{class:"comment"},[`/* Fallback as usual */`]),`
+`]),A('span',{class:"line"},[`}`])])])]),b=a;export default b;

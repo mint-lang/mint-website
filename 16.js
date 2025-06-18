@@ -1,0 +1,1 @@
+import {t as a} from "./index.js";export const b=[a({readme:`https://github.com/mint-lang/mint-color/blob/master/README.md`,url:`https://github.com/mint-lang/mint-color`,name:`mint-color`,version:`0.10.0`,documentation:`./96.js`})];export default b;

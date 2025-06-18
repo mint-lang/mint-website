@@ -1,0 +1,5 @@
+import {createElement as J,newVariant as G,pattern as I,style as K,match as H} from "./runtime.js";import {BQ as F,lt as m,lq as l,ln as k,AJ as E,AI as D,lu as j,jy as i,ky as h,BK as C,BM as B} from "./index.js";export const b=(n)=>{return (new Promise((resolve, reject) => {
+      window.alert(n)
+
+      resolve()
+    }))},a=(o,p,q,r=false,s=``)=>{return G(B)(q,o,p,r,s)},d=(t,u,v,w=false)=>{return G(C)(t,w,u,v)},x=()=>{return (window.location.reload())},y=async ()=>{const z=h(i(j(`${`https://api.mint-lang.com`}/sandbox/logout`),true));return H(await z,[[I(D,[]),()=>{return b(`Could not log you out!`)}],[I(E,[]),()=>{return x()}]])},aa=J(`svg`,{"viewBox":`0 0 24 24`},[J(`g`,{"stroke-linejoin":`round`,"stroke-linecap":`round`,"stroke":`currentColor`,"fill":`none`,style:K([`stroke-width: var(--tabler-stroke-width);`])},[J(`path`,{"d":`M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2`}),J(`path`,{"d":`M9 12h12l-3 -3`}),J(`path`,{"d":`M18 15l3 -3`})])]),e=d(y,`Logout`,aa),c=(ab)=>{return k(l(m(),`POST`),ab)},A=({g=[],children: ac=[],f})=>{return J(`div`,{className:`cl`},[J(`div`,{className:`cm`},[f,J(F,{gl:g})]),ac])};

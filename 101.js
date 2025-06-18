@@ -1,0 +1,1 @@
+import {createElement as C} from "./runtime.js";import {a as f,b as e} from "./index.js";import {a as d} from "./91.js";import {A as B} from "./92.js";export const A=({a=`vertical`,b=`1fr`,c})=>{return C(B,{d:b,a:d,c:a,e:true,b:e({files:[f({contents:c,path:`Main.mint`,solution:``})],activeFile:`Main.mint`})})};

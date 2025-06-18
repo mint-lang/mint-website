@@ -1,0 +1,5 @@
+import {createElement as A,fragment as B} from "./runtime.js";export const a=A(B,{},[A('h1',{},[`Source Files`]),A('p',{},[`In Mint there is no feature to import from one file to another, everything`,`
+`,`in every file is available to all other files. This is mainly to `,A('strong',{},[`reduce`,`
+`,`cognitive load`]),` when trying to use something from another file.`]),A('p',{},[`The files that are part of the project are defined in the `,A('code',{},[`mint.json`]),` file:`]),A('pre',{},[A('code',{class:"language-json"},[A('span',{class:"line"},[`{`]),A('span',{class:"line"},[`  "source-directories": [`]),A('span',{class:"line"},[`    "source"`]),A('span',{class:"line"},[`  ],`]),A('span',{class:"line"},[`  "test-directories": [`]),A('span',{class:"line"},[`    "tests"`]),A('span',{class:"line"},[`  ]`]),A('span',{class:"line"},[`}`])])]),A('p',{},[`The files in the `,A('code',{},[`source-directories`]),` field are loaded in all cases (`,`
+`,`development server, production build, tests) where the files in the`,`
+`,A('code',{},[`test-directories`]),` field are loaded only for tests.`])]),b=a;export default b;

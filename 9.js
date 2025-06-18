@@ -1,0 +1,1 @@
+import {createElement as C,toArray as D} from "./runtime.js";import {A} from "./94.js";import {A as B,a as c} from "./95.js";export const E=({a,b})=>{const [d,e]=c(b);return C(A,{f:C(`strong`,{},[`My Sandboxes`]),g:d},D(C(`div`,{className:`cn`},[C(B,{b:a,c:e})])))};export default E;

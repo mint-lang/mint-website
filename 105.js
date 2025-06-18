@@ -1,0 +1,8 @@
+import {createElement as A,fragment as B} from "./runtime.js";export const a=A(B,{},[A('h1',{},[`Comments`]),A('p',{},[`Comments are used to add hints, notes, suggestions, or warnings to your`,`
+`,`code. This can make it easier to read and understand. They can also be used`,`
+`,`to disable code to prevent it from being executed; this can be a valuable`,`
+`,`debugging tool. Mint supports single-line and multi-line comments.`]),A('p',{},[`Single line comments start with `,A('code',{},[`//`]),`; this makes all text following it on`,`
+`,`the same line into a comment. For example:`]),A('pre',{},[A('code',{class:"language-mint"},[A('span',{class:"line"},[A('span',{class:"comment"},[`// Set a variable.`]),`
+`]),A('span',{class:"line"},[``,A('span',{class:"keyword"},[`let`]),` `,A('span',{class:"variable"},[`name`]),` =
+`]),A('span',{class:"line"},[`  `,A('span',{class:"string"},[`"Joe"`])])])]),A('p',{},[`Multi-line comments start with `,A('code',{},[`/*`]),` and ends with `,A('code',{},[`*/`]),`:`]),A('pre',{},[A('code',{class:"language-mint"},[A('span',{class:"line"},[A('span',{class:"comment"},[`/*`])]),A('span',{class:"line"},[A('span',{class:"comment"},[`Converts "Joe" it to upper case variant: "JOE".`])]),A('span',{class:"line"},[A('span',{class:"comment"},[`*/`]),`
+`]),A('span',{class:"line"},[``,A('span',{class:"type"},[`String`]),`.`,A('span',{class:"variable"},[`toUpperCase`]),`(`,A('span',{class:"variable"},[`name`]),`)`])])])]),b=a;export default b;

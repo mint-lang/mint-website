@@ -1,0 +1,17 @@
+import {createElement as A,fragment as B} from "./runtime.js";export const a=A(B,{},[A('h1',{},[`Debugging`]),A('p',{},[`Mint offers some handy tools for debugging purposes.`]),A('h2',{},[`dbg`]),A('p',{},[`The `,A('code',{},[`dbg`]),` keyword logs the given value to the console using a pretty`,`
+`,`printing algorithm. This will show Mint values similarly as to how`,`
+`,`they are written in source code.`]),A('pre',{},[A('code',{class:"language-mint"},[A('span',{class:"line"},[A('span',{class:"keyword"},[`type`]),` `,A('span',{class:"type"},[`User`]),` {
+`]),A('span',{class:"line"},[`  `,A('span',{class:"variable"},[`name`]),` :  `,A('span',{class:"type"},[`String`]),`,
+`]),A('span',{class:"line"},[`  `,A('span',{class:"variable"},[`age`]),` : `,A('span',{class:"type"},[`Number`]),`
+`]),A('span',{class:"line"},[`}
+`]),A('span',{class:"line"},[`
+`]),A('span',{class:"line"},[``,A('span',{class:"keyword"},[`dbg`]),` `,A('span',{class:"type"},[`Maybe`]),`.`,A('span',{class:"type"},[`Nothing`]),` `,A('span',{class:"comment"},[`// Maybe.Nothing`]),`
+`]),A('span',{class:"line"},[``,A('span',{class:"keyword"},[`dbg`]),` { `,A('span',{class:"variable"},[`name`]),`: `,A('span',{class:"string"},[`"Joe"`]),`, `,A('span',{class:"variable"},[`age`]),`: `,A('span',{class:"number"},[`37`]),` } `,A('span',{class:"comment"},[`// User { name: "Joe", age: 37 }`])])])]),A('p',{},[`This will also print the location of the value you are printing in a`,`
+`,`separate line so it can be find easily.`]),A('pre',{},[A('code',{},[A('span',{class:"line"},[`Main.mint:3:10`]),A('span',{class:"line"},[`User { name: "Joe", age: 37 }`])])]),A('p',{},[`The location line will not be printed if source maps are enabled because`,`
+`,`the browsers developer tools will point to the proper location so it`,`'`,`s not`,`
+`,`needed.`]),A('h2',{},[`dbg`,`!`]),A('p',{},[`The `,A('code',{},[`dbg!`]),` keyword is similar to the `,A('code',{},[`dbg`]),` but instead of pretty printed`,`
+`,`version it prints the raw value.`]),A('pre',{},[A('code',{class:"language-mint"},[A('span',{class:"line"},[A('span',{class:"keyword"},[`dbg`]),`! `,A('span',{class:"type"},[`Maybe`]),`.`,A('span',{class:"type"},[`Just`]),`(`,A('span',{class:"string"},[`"Hello World"`]),`)
+`]),A('span',{class:"line"},[``,A('span',{class:"comment"},[`// Object { length: 1, _0: "Hello World" }`])])])]),A('h2',{},[`Debug and Console modules`]),A('p',{},[`The `,A('a',{href:"/api/Debug"},[`Debug`]),` module offers two functions which helps debugging:`]),A('ul',{},[A('li',{},[A('code',{},[`Debug.inspect`]),` - prints pretty printed version of the value.`]),A('li',{},[A('code',{},[`Debug.log`]),` - prints the raw value.`])]),A('p',{},[`The `,A('a',{href:"/api/Console"},[`Console`]),` module wraps native JavaScript console functions.`]),A('h2',{},[`Source Maps`]),A('p',{},[`Source maps are mappings between Mint source and the generated JavaScript.`,`
+`,`It helps you find the source for generated code in the browsers developer`,`
+`,`tool.`]),A('p',{},[`Source map generation can be enabled using the `,A('code',{},[`--generate-source-maps`]),`
+`,`flag for the `,A('code',{},[`build`]),`, `,A('code',{},[`start`]),` and `,A('code',{},[`test`]),` commands.`])]),b=a;export default b;

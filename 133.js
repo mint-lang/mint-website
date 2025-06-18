@@ -1,0 +1,26 @@
+import {createElement as A,fragment as B} from "./runtime.js";export const a=A(B,{},[A('h1',{},[`Built-in Types`]),A('p',{},[`Mint comes with several built-in types. These are used in control`,`
+`,`expressions: `,A('code',{},[`Maybe`]),`, `,A('code',{},[`Result`]),`, `,A('code',{},[`Promise`]),`, `,A('code',{},[`Deferred`]),` and `,A('code',{},[`Void`]),`.`]),A('h2',{},[`Maybe`]),A('p',{},[`The maybe type represents a value which may or may not exist. It`,`'`,`s defined`,`
+`,`as such:`]),A('pre',{},[A('code',{class:"language-mint"},[A('span',{class:"line"},[A('span',{class:"keyword"},[`type`]),` `,A('span',{class:"type"},[`Maybe`]),`(`,A('span',{class:"type_parameter"},[`value`]),`) {
+`]),A('span',{class:"line"},[`  `,A('span',{class:"type"},[`Just`]),`(`,A('span',{class:"type_parameter"},[`value`]),`)
+`]),A('span',{class:"line"},[`  `,A('span',{class:"type"},[`Nothing`]),`()
+`]),A('span',{class:"line"},[`}`])])]),A('p',{},[`For example, here is a user who may or may not have a car:`]),A('pre',{},[A('code',{class:"language-mint"},[A('span',{class:"line"},[A('span',{class:"keyword"},[`type`]),` `,A('span',{class:"type"},[`Car`]),` {
+`]),A('span',{class:"line"},[`  `,A('span',{class:"variable"},[`engine`]),` : `,A('span',{class:"type"},[`String`]),`,
+`]),A('span',{class:"line"},[`  `,A('span',{class:"variable"},[`type`]),` : `,A('span',{class:"type"},[`String`]),`
+`]),A('span',{class:"line"},[`}
+`]),A('span',{class:"line"},[`
+`]),A('span',{class:"line"},[``,A('span',{class:"keyword"},[`type`]),` `,A('span',{class:"type"},[`User`]),` {
+`]),A('span',{class:"line"},[`  `,A('span',{class:"variable"},[`car`]),` : `,A('span',{class:"type"},[`Maybe`]),`(`,A('span',{class:"type"},[`Car`]),`),
+`]),A('span',{class:"line"},[`  `,A('span',{class:"variable"},[`name`]),` : `,A('span',{class:"type"},[`String`]),`
+`]),A('span',{class:"line"},[`}`])])]),A('h2',{},[`Result`]),A('p',{},[`The result type, represents a `,A('strong',{},[`synchronous`]),` task that might fail. It is`,`
+`,`defined as such:`]),A('pre',{},[A('code',{class:"language-mint"},[A('span',{class:"line"},[A('span',{class:"keyword"},[`type`]),` `,A('span',{class:"type"},[`Result`]),`(`,A('span',{class:"type_parameter"},[`error`]),`, `,A('span',{class:"type_parameter"},[`value`]),`) {
+`]),A('span',{class:"line"},[`  `,A('span',{class:"type"},[`Err`]),`(`,A('span',{class:"type_parameter"},[`error`]),`)
+`]),A('span',{class:"line"},[`  `,A('span',{class:"type"},[`Ok`]),`(`,A('span',{class:"type_parameter"},[`value`]),`)
+`]),A('span',{class:"line"},[`}`])])]),A('p',{},[`In Mint, results have two parameters `,A('code',{},[`Result(error, value)`]),`:`]),A('ul',{},[A('li',{},[A('strong',{},[`error`]),` - the type of the error`]),A('li',{},[A('strong',{},[`value`]),` - the type of the value`])]),A('p',{},[`For example, converting a `,A('code',{},[`String`]),` to a `,A('code',{},[`Number`]),`:`]),A('ul',{},[A('li',{},[A('p',{},[`If the conversion fails, we get an error:`]),A('pre',{},[A('code',{class:"language-mint"},[A('span',{class:"line"},[A('span',{class:"keyword"},[`let`]),` `,A('span',{class:"type"},[`Result`]),A('span',{class:"type"},[`.Err`]),`(`,A('span',{class:"variable"},[`error`]),`) =
+`]),A('span',{class:"line"},[`  `,A('span',{class:"type"},[`Number`]),`.`,A('span',{class:"variable"},[`fromString`]),`(`,A('span',{class:"string"},[`"blah"`]),`)`])])])]),A('li',{},[A('p',{},[`If the conversion succeeds, we get a value:`]),A('pre',{},[A('code',{class:"language-mint"},[A('span',{class:"line"},[A('span',{class:"keyword"},[`let`]),` `,A('span',{class:"type"},[`Result`]),A('span',{class:"type"},[`.Ok`]),`(`,A('span',{class:"variable"},[`number`]),`) =
+`]),A('span',{class:"line"},[`  `,A('span',{class:"type"},[`Number`]),`.`,A('span',{class:"variable"},[`fromString`]),`(`,A('span',{class:"string"},[`"10"`]),`)`])])])])]),A('h2',{},[`Promise`]),A('p',{},[`The promise type represents an `,A('strong',{},[`asynchronous`]),` computational task. In`,`
+`,`Mint, promises have only one parameter `,A('strong',{},[`result`]),` - which is the type of`,`
+`,`the result of the computation.`]),A('p',{},[`A good example is the HTTP request, which in Mint looks like this:`]),A('pre',{},[A('code',{class:"language-mint"},[A('span',{class:"line"},[A('span',{class:"type"},[`Promise`]),`(`,A('span',{class:"type"},[`Result`]),`(`,A('span',{class:"type"},[`Http`]),`.`,A('span',{class:"type"},[`ErrorResponse`]),`, `,A('span',{class:"type"},[`Http`]),`.`,A('span',{class:"type"},[`Response`]),`))`])])]),A('p',{},[`The `,A('code',{},[`Http.ErrorResponse`]),` is a record containing information about the error`,`
+`,`that happened while `,A('code',{},[`Http.Response`]),` is a record containing the response of`,`
+`,`the request.`]),A('h2',{},[`Deferred`]),A('p',{},[`This type represents a piece of code which is loaded asynchronously from a`,`
+`,`different file. To learn more about it, check out the `,A('a',{href:"/reference/control-flow/defer"},[`defer expression`]),`.`]),A('h2',{},[`Void`]),A('p',{},[`The void type represents an expression that does not have any value. `,A('code',{},[`Void`]),`
+`,`can only be explicitly returned with the `,A('code',{},[`void`]),` keyword.`])]),b=a;export default b;

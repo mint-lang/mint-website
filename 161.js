@@ -1,0 +1,7 @@
+import {createElement as A,fragment as B} from "./runtime.js";export const a=A(B,{},[A('h1',{},[`Encode`]),A('p',{},[`Since we can decode objects, we need to have a way to encode them into`,`
+`,`JavaScript objects as well. The encode expression is the way to do that:`]),A('pre',{},[A('code',{class:"language-mint"},[A('span',{class:"line"},[A('span',{class:"keyword"},[`encode`]),` { `,A('span',{class:"variable"},[`name`]),`: `,A('span',{class:"string"},[`"Bob"`]),` } `,A('span',{class:"comment"},[`// Object`]),`
+`]),A('span',{class:"line"},[``,A('span',{class:"keyword"},[`encode`]),` `,A('span',{class:"variable"},[`variable`]),` `,A('span',{class:"comment"},[`// Object`])])])]),A('p',{},[`The `,A('code',{},[`encode`]),` expression tries to encode a typed object into a JavaScript`,`
+`,`object (`,A('code',{},[`Object`]),` type in Mint), in case that it`,`'`,`s impossible to do that you`,`
+`,`will get a nice error message.`]),A('p',{},[`The general rule is that you can encode anything that you can decode.`,`
+`,`Encoding data is useful when you want to convert it to JSON:`]),A('pre',{},[A('code',{class:"language-mint"},[A('span',{class:"line"},[A('span',{class:"comment"},[`// { "name": "Bob"}`]),`
+`]),A('span',{class:"line"},[``,A('span',{class:"type"},[`Json`]),`.`,A('span',{class:"variable"},[`stringify`]),`(`,A('span',{class:"keyword"},[`encode`]),` { `,A('span',{class:"variable"},[`name`]),`: `,A('span',{class:"string"},[`"Bob"`]),` })`])])])]),b=a;export default b;

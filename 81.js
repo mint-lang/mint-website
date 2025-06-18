@@ -1,0 +1,1 @@
+import {compare as A} from "./runtime.js";export const b=(c)=>{return (c.length)},a=(d)=>{return A(b(d),0)};

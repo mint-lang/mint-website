@@ -1,0 +1,1 @@
+import {createElement as C,toArray as D} from "./runtime.js";import {jn as e,BW as A} from "./index.js";import {A as B,b as d,a as c} from "./102.js";export const E=({b,a})=>{const f=c(a.time,d,`Published %B %*d, %Y by ${a.author}`);return C(`div`,{className:`cr`},[C(A,{},D(C(B,{c:`${a.subtitle} | ${f}`,d:a.title}),e(b)))])};export default E;

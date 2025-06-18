@@ -1,0 +1,1 @@
+import {jw as b} from "./index.js";export const a=(c)=>{return b(null)};
