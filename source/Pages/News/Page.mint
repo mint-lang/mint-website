@@ -1,4 +1,4 @@
-component Pages.News.Page {
+async component Pages.News.Page {
   // The contents to display.
   property contents : Html
 

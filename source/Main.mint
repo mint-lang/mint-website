@@ -12,7 +12,7 @@ component Main {
             basePath={basePath}
             category={category}
             title={title}
-          />
+          /> or <Loader/>
 
         Tutorial(previousLessonPath, nextLessonPath, lessons, _, lesson, path) =>
           <Lesson
@@ -21,7 +21,7 @@ component Main {
             instructions={lesson.contents}
             lessons={lessons}
             path={path}
-          />
+          /> or <Loader/>
 
         ApiDocs(prefix, entities, entity, sidebarInfo) =>
           <Pages.ApiDocs
@@ -29,24 +29,28 @@ component Main {
             entities={entities}
             entity={entity}
             prefix={prefix}
-          />
+          /> or <Loader/>
 
         Sandbox(page, user) =>
           case page {
             Editor(sandbox) =>
-              <Sandbox.Editor defaultSandbox={sandbox} userStatus={user}/>
+              <Sandbox.Editor defaultSandbox={sandbox} userStatus={user}/> or <Loader
+
+              />
 
             Recent(sandboxes) =>
-              <Sandbox.Recent sandboxes={sandboxes} userStatus={user}/>
+              <Sandbox.Recent sandboxes={sandboxes} userStatus={user}/> or <Loader
+
+              />
 
             Mine(sandboxes) =>
-              <Sandbox.Mine sandboxes={sandboxes} userStatus={user}/>
+              <Sandbox.Mine sandboxes={sandboxes} userStatus={user}/> or <Loader/>
 
-            Error => <Pages.Error/>
+            Error => <Pages.Error/> or <Loader/>
             Initial => <></>
           }
 
-        NotFound => <Pages.NotFound/>
+        NotFound => <Pages.NotFound/> or <Loader/>
         Page(title, page) => page
         Initial => <></>
       }

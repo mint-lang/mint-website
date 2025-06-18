@@ -34,7 +34,7 @@ module Packages {
       await Data.PACKAGES
 
     let page =
-      await case dbg String.split(String.chopStart(path, "/"), "/") {
+      await case String.split(String.chopStart(path, "/"), "/") {
         [""] =>
           Promise.resolve(
             Maybe.Just(

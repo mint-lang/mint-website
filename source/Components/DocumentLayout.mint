@@ -233,7 +233,7 @@ component DocumentLayout {
 
         <>
           <div>
-            if let Just(info) = dbg sidebarInfo {
+            if let Just(info) = sidebarInfo {
               <>
                 <strong::sidebar-category>info.title</strong>
 

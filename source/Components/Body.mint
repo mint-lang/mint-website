@@ -99,6 +99,7 @@ component Body {
   // Renders the component.
   fun render : Html {
     <div::root>
+      <Fonts/>
       <MobileMenu/>
       <Leaves/>
       <Header/>

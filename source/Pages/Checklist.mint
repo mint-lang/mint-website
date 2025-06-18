@@ -1,4 +1,4 @@
-component Pages.Checklist {
+async component Pages.Checklist {
   // Styles for the items grid.
   style items {
     grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));

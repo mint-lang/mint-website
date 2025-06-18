@@ -2,19 +2,19 @@ routes {
   // Standalone pages.
   // ---------------------------------------------------------------------------
   /brand-book {
-    Application.setPage(Page.Page("Brand Book", <Pages.BrandBook/>))
+    Application.setPage(Page.Page("Brand Book", <Pages.BrandBook/> or <Loader/>))
   }
 
   /checklist {
-    Application.setPage(Page.Page("Checklist", <Pages.Checklist/>))
+    Application.setPage(Page.Page("Checklist", <Pages.Checklist/> or <Loader/>))
   }
 
   /install {
-    Application.setPage(Page.Page("Install", <Pages.Install/>))
+    Application.setPage(Page.Page("Install", <Pages.Install/> or <Loader/>))
   }
 
   / {
-    Application.setPage(Page.Page("", <Pages.Home/>))
+    Application.setPage(Page.Page("", <Pages.Home/> or <Loader/>))
   }
 
   // Sandbox.
@@ -70,14 +70,15 @@ routes {
       String.chopStart(path, "/")
 
     if String.isBlank(normalized) {
-      Application.setPage(Page.Page("News", <Pages.News.Index news={data}/>))
+      Application.setPage(
+        Page.Page("News", <Pages.News.Index news={data}/> or <Loader/>))
     } else if let Just(news) = Map.get(data, normalized) {
       let contents =
         await news.contents
 
       Application.setPage(
         Page.Page(news.title,
-          <Pages.News.Page news={news} contents={contents}/>))
+          <Pages.News.Page news={news} contents={contents}/> or <Loader/>))
     } else {
       Application.setNotFoundPage()
     }
