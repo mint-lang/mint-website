@@ -9,34 +9,10 @@ component Leaves {
     right: 0;
     left: 0;
     top: 0;
-
-    @keyframes swing {
-      0%, 100% {
-        transform: rotate(-5deg);
-      }
-
-      50% {
-        transform: rotate(5deg);
-      }
-    }
-
-    @keyframes swing-reverse {
-      0%, 100% {
-        transform: rotate(5deg);
-      }
-
-      50% {
-        transform: rotate(-5deg);
-      }
-    }
   }
 
   // Styles for a leaf.
   style leaf {
-    animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
-    animation-iteration-count: infinite;
-    animation-fill-mode: both;
-    animation-duration: 10s;
     position: absolute;
   }
 
@@ -74,12 +50,6 @@ component Leaves {
     width: 200px;
     right: -15px;
     top: -10px;
-
-    if isMobile {
-      animation-name: initial;
-    } else {
-      animation-name: swing-reverse;
-    }
   }
 
   // Styles for the bottom-center leaf.
@@ -100,12 +70,6 @@ component Leaves {
     bottom: -10px;
     width: 260px;
     right: -15px;
-
-    if isMobile {
-      animation-name: initial;
-    } else {
-      animation-name: swing-reverse;
-    }
   }
 
   // Styles for the bottom-left leaf.
@@ -116,12 +80,6 @@ component Leaves {
     bottom: -10px;
     width: 200px;
     left: -15px;
-
-    if isMobile {
-      animation-name: initial;
-    } else {
-      animation-name: swing;
-    }
   }
 
   // Renders the component.

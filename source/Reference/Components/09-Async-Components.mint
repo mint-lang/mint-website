@@ -36,5 +36,16 @@ module References {
     In the example above, clicking the button changes the `shown` state and the
     component is re-rendered which triggers the loading of the `Greeter`
     component which once loaded shows the greeting.
+
+    ## Fallbacks
+
+    You might want to show a loading indicator when an async component is
+    loading and you can do that using the `or` operator:
+
+    ```mint
+    if shown {
+      <Greeter/> or "Loading..."
+    }
+    ```
     MARKDOWN
 }

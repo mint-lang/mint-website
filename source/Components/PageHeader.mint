@@ -9,12 +9,13 @@ component PageHeader {
 
   // Styles for the root element.
   style root {
-    line-height: 1;
+    line-height: 1.25;
 
     span {
       margin-bottom: 15px;
       margin-top: 7px;
 
+      font-family: Noto Sans;
       font-size: 18px;
       display: block;
       opacity: 0.85;
