@@ -169,6 +169,11 @@ async component Footer {
                 TablerIcons.TRANSFORM
                 "From … ?"
               </a>
+
+              <a href="/feature-matrix">
+                TablerIcons.TABLE_SPARK
+                "Feature Matrix"
+              </a>
             </div>
 
             <div::column>

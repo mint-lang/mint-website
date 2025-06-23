@@ -53,6 +53,7 @@ component Main {
         From(base, from, data) =>
           <Pages.From.Language base={base} from={from} data={data}/> or <Loader/>
 
+        FeatureMatrix => <Pages.FeatureMatrix/> or <Loader/>
         FromIndex(data) => <Pages.From.Index data={data}/>
         NotFound => <Pages.NotFound/> or <Loader/>
         Page(title, page) => page

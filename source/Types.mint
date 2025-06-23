@@ -51,6 +51,7 @@ type Page {
 
   Sandbox(Sandbox.Page, UserStatus)
   Page(String, Html)
+  FeatureMatrix
   NotFound
   Initial
 }

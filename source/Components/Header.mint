@@ -106,6 +106,12 @@ component Header {
                 icon: TablerIcons.TRANSFORM,
                 label: "From … ?",
                 disabled: false,
+                target: ""),
+              MenuItem.Link(
+                href: "/feature-matrix",
+                icon: TablerIcons.TABLE_SPARK,
+                label: "Feature Matrix",
+                disabled: false,
                 target: "")
             ]),
         MenuItem.Divider,

@@ -22,6 +22,7 @@ store Application {
   // Whether or not to use all the width of the screen.
   get isWide : Bool {
     case page {
+      FeatureMatrix => true
       Tutorial => true
       Sandbox => true
       => false
@@ -158,11 +159,11 @@ store Application {
         Window.setUrl("/from/")
         "/"
       } else {
-        path
+        String.dropStart(path, 1)
       }
 
     case path {
-      "/" => setPage(Page.FromIndex(data))
+      "" => setPage(Page.FromIndex(data))
 
       =>
         if let Just(data) = Map.get(data, path) {
@@ -182,15 +183,11 @@ store Application {
   fun setPage (page : Page) : Promise(Void) {
     let title =
       case page {
-        Tutorial(_, _, _, title) => Array.unshift(title, "Tutorial")
-
         Sandbox(page) =>
           case page {
             Editor(project) => ["Sandbox", project.title]
             => ["Sandboxes"]
           }
-
-        NotFound => ["404"]
 
         Page(title) =>
           if String.isNotBlank(title) {
@@ -205,7 +202,13 @@ store Application {
             document.name
           ]
 
-        => []
+        Tutorial(_, _, _, title) => Array.unshift(title, "Tutorial")
+        ApiDocs(_, _, entity, _) => ["API", entity.name]
+        FeatureMatrix => ["Langauge Feature Matrix"]
+        From(_, from, _) => ["From #{from.title}?"]
+        FromIndex(_) => ["From … ?"]
+        NotFound => ["404"]
+        Initial => []
       }
 
     let head =

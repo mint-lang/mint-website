@@ -1,6 +1,10 @@
 routes {
   // Standalone pages.
   // ---------------------------------------------------------------------------
+  /feature-matrix {
+    Application.setPage(Page.FeatureMatrix)
+  }
+
   /brand-book {
     Application.setPage(Page.Page("Brand Book", <Pages.BrandBook/> or <Loader/>))
   }
@@ -110,7 +114,7 @@ routes {
 
   // From
   // ---------------------------------------------------------------------------
-  /from/*path (path : String) await {
+  /from*path (path : String) await {
     Application.loadFrom(deferred: Data.FROM, path: path)
   }
 
