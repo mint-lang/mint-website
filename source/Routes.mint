@@ -108,6 +108,12 @@ routes {
       path: path)
   }
 
+  // From
+  // ---------------------------------------------------------------------------
+  /from/*path (path : String) await {
+    Application.loadFrom(deferred: Data.FROM, path: path)
+  }
+
   * {
     Application.setNotFoundPage()
   }

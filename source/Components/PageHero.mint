@@ -10,6 +10,7 @@ component PageHero {
   // Styles for the root element.
   style root {
     margin-bottom: 30px;
+    padding-top: 30px;
 
     if isMobile {
       margin-bottom: 0;
@@ -33,10 +34,10 @@ component PageHero {
       width: 100%;
 
       margin: 0;
-      margin-top: 40px;
+      margin-top: 70px;
 
       if isMobile {
-        margin-top: 20px;
+        margin-top: 50px;
       }
 
       border: 0;

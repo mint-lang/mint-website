@@ -13,6 +13,7 @@ component Pages.Packages {
 
     if isMobile {
       margin-top: 20px;
+      grid-gap: 15px;
     }
   }
 

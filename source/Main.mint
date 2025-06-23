@@ -50,6 +50,10 @@ component Main {
             Initial => <></>
           }
 
+        From(base, from, data) =>
+          <Pages.From.Language base={base} from={from} data={data}/> or <Loader/>
+
+        FromIndex(data) => <Pages.From.Index data={data}/>
         NotFound => <Pages.NotFound/> or <Loader/>
         Page(title, page) => page
         Initial => <></>

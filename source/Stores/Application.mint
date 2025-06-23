@@ -148,6 +148,31 @@ store Application {
     }
   }
 
+  // Loads the comparison pages.
+  fun loadFrom (deferred : Deferred(Map(String, From)), path : String) {
+    let data =
+      await deferred
+
+    let path =
+      if String.isBlank(path) {
+        Window.setUrl("/from/")
+        "/"
+      } else {
+        path
+      }
+
+    case path {
+      "/" => setPage(Page.FromIndex(data))
+
+      =>
+        if let Just(data) = Map.get(data, path) {
+          setPage(Page.From(await From.MINT, data, await data.data))
+        } else {
+          setNotFoundPage()
+        }
+    }
+  }
+
   // Sets the page to the not found one.
   fun setNotFoundPage : Promise(Void) {
     setPage(Page.NotFound)

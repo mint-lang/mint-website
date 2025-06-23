@@ -46,6 +46,9 @@ type Page {
   ApiDocs(String, Array(TopLevelEntity), TopLevelEntity,
     Maybe(DocumentLayoutSidebarInfo))
 
+  From(Map(String, FromItem), From, FromData)
+  FromIndex(Map(String, From))
+
   Sandbox(Sandbox.Page, UserStatus)
   Page(String, Html)
   NotFound
@@ -198,4 +201,22 @@ type Package {
   readme : String,
   name : String,
   url : String
+}
+
+type FromItem {
+  String(String)
+  NotAvailable
+  Code(Html)
+  Html(Html)
+  Text(Html)
+}
+
+type FromData {
+  items : Map(String, FromItem),
+  description : Html
+}
+
+type From {
+  data : Deferred(FromData),
+  title : String
 }

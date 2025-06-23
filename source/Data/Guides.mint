@@ -13,18 +13,6 @@ module Data {
       categories:
         [
           {
-            name: "Cheatsheets",
-            path: "cheatsheets",
-            pages:
-              [
-                {
-                  contents: defer Guides.CHEATSHEETS_ELM,
-                  name: "Mint for Elm users",
-                  path: "elm"
-                }
-              ]
-          },
-          {
             name: "Migration Guides",
             path: "migration-guides",
             pages:
