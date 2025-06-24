@@ -209,6 +209,17 @@ module From {
           }
           ```
           MARKDOWN),
+      "If (Different Types)" =>
+        FromItem.Html(
+          <<#MARKDOWN(highlight)
+          ```mint
+          if age > 21 {
+            Result.Ok(true)
+          } else {
+            Result.Error("Age must be over 21")
+          }
+          ```
+          MARKDOWN),
       "Case" =>
         FromItem.Html(
           <<#MARKDOWN(highlight)

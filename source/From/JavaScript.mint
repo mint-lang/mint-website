@@ -71,6 +71,18 @@ module From {
                     "It's not true."
                   }
                   JAVASCRIPT),
+              "If (Different Types)" =>
+                FromItem.String(
+                  <<~JAVASCRIPT
+                  if (age > 21) {
+                    return true
+                  } else {
+                    return {
+                      msg: "Age must be over 21",
+                      result: "error"
+                    }
+                  }
+                  JAVASCRIPT),
               "Export / Import" =>
                 FromItem.String(
                   <<~JAVASCRIPT

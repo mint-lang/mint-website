@@ -73,6 +73,15 @@ module From {
                   else
                     "It's not true."
                   ELM),
+              "If (Different Types)" =>
+                FromItem.String(
+                  <<~ELM
+                  if age > 21 then
+                    Ok true
+                  } else {
+                    Err "Age must be over 21"
+                  }
+                  ELM),
               "Export / Import" =>
                 FromItem.String(
                   <<~ELM

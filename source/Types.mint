@@ -204,6 +204,7 @@ type Package {
   url : String
 }
 
+// Type for an item for a language comparison.
 type FromItem {
   String(String)
   NotAvailable
@@ -212,12 +213,34 @@ type FromItem {
   Text(Html)
 }
 
+// Type for a language comparison.
 type FromData {
   items : Map(String, FromItem),
   description : Html
 }
 
+// Type for the language comparison.
 type From {
   data : Deferred(FromData),
   title : String
+}
+
+// Type for a feature.
+type Feature {
+  SupportedBut(explanation : String)
+  Partial(explanation : String)
+  NotApplicable
+  NotSupported
+  ViaPackage
+  Supported
+  Unkown
+}
+
+// Type for a feature in the feature matrix.
+type FeatureSupport {
+  javaScript : Feature,
+  reScript : Feature,
+  gleam : Feature,
+  mint : Feature,
+  elm : Feature
 }

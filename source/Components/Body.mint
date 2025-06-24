@@ -31,6 +31,7 @@ component Body {
       --color-indianred: lightcoral;
       --color-darkmagenta: orchid;
       --color-darkorange: orange;
+      --color-mintgreen-2: #1F773D;
       --color-mintgreen: #36A65D;
       --color-crimson: tomato;
       --color-comment: gray;
@@ -47,6 +48,7 @@ component Body {
       --color-darkorange: darkorange;
       --color-royalblue: royalblue;
       --color-indianred: indianred;
+      --color-mintgreen-2: #36A65D;
       --color-mintgreen: #277944;
       --color-comment: darkgray;
       --color-crimson: crimson;

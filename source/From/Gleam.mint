@@ -45,7 +45,22 @@ module From {
               "String concatenation" =>
                 FromItem.String("\"Hello\" <> \"World!\""),
               "Modules" => FromItem.String("pub fn identity (a) { a }"),
-              "If" => FromItem.NotAvailable,
+              "If" =>
+                FromItem.String(
+                  <<~GLEAM
+                  case value {
+                    True -> "It's true!"
+                    False -> "It's not true."
+                  }
+                  GLEAM),
+              "If (Different Types)" =>
+                FromItem.String(
+                  <<~GLEAM
+                  case age > 21 {
+                    True -> Ok(true)
+                    False -> Error("Age must be over 21")
+                  }
+                  GLEAM),
               "ADTs" =>
                 FromItem.String(
                   <<~GLEAM
