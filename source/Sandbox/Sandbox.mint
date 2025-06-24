@@ -76,7 +76,7 @@ module Sandbox {
 
     case await response {
       Err => Window.alert("Could not log you out!")
-      Ok => Window.reload()
+      Ok => Window.navigate("/sandbox")
     }
   }
 
