@@ -80,7 +80,6 @@ component Hero {
     }
 
     a {
-      text-decoration: none;
       font-weight: 400;
       color: inherit;
 
@@ -199,6 +198,11 @@ component Hero {
           " or check out the "
           <a href="/guides/getting-started">"getting started"</a>
           " guide."
+          <br/>
+          "Coming from another language? "
+          "Then check out the "
+          <a href="/from">"snytax comparisons"</a>
+          "."
         </div>
       </div>
 

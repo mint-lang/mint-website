@@ -157,7 +157,7 @@ store Application {
     let path =
       if String.isBlank(path) {
         Window.setUrl("/from/")
-        "/"
+        ""
       } else {
         String.dropStart(path, 1)
       }
