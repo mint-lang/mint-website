@@ -81,7 +81,8 @@ async component Pages.FeatureMatrix {
 
   // Styles for a language label.
   style language {
-    writing-mode: sideways-lr;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
   }
 
   // Styles for a feature label.
