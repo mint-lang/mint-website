@@ -77,7 +77,9 @@ async component Pages.From.Index {
         for key, value of data {
           <a::card href="/from/#{key}">
             case key {
+              "typescript" => @svg(/assets/icons/typescript.svg)
               "javascript" => @svg(/assets/icons/javascript.svg)
+              "rescript" => @svg(/assets/icons/rescript.svg)
               "gleam" => @svg(/assets/icons/gleam.svg)
               "elm" => @svg(/assets/icons/elm.svg)
               => <></>
