@@ -86,7 +86,21 @@ async component Sandbox.Editor {
 
     let {actions, title} =
       if current.id == "" {
-        {[Sandbox.MenuItems.TUTORIAL], Maybe.Nothing}
+        case userStatus {
+          // This means it's an example.
+          Initial =>
+            {
+              [
+                MenuItem.link(
+                  href: "/examples/",
+                  icon: TablerIcons.FILES,
+                  label: "Examples")
+              ],
+              Maybe.Nothing
+            }
+
+          => {[Sandbox.MenuItems.TUTORIAL], Maybe.Nothing}
+        }
       } else {
         case userStatus {
           LoggedOut =>

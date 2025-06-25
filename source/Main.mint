@@ -53,6 +53,13 @@ component Main {
         From(base, from, data) =>
           <Pages.From.Language base={base} from={from} data={data}/> or <Loader/>
 
+        Example({title, _}, _, contents) =>
+          <Sandbox.Editor
+            defaultSandbox={Sandbox.fromExample(title, contents)}
+            userStatus={UserStatus.Initial}
+          /> or <Loader/>
+
+        ExampleIndex(data) => <Pages.Examples.Index data={data}/> or <Loader/>
         FeatureMatrix => <Pages.FeatureMatrix/> or <Loader/>
         FromIndex(data) => <Pages.From.Index data={data}/>
         NotFound => <Pages.NotFound/> or <Loader/>

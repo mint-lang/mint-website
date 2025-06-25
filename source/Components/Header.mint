@@ -64,6 +64,12 @@ component Header {
           label: "Sandbox",
           disabled: false,
           target: ""),
+        MenuItem.Link(
+          href: "/examples",
+          icon: TablerIcons.FILES,
+          label: "Examples",
+          disabled: false,
+          target: ""),
         MenuItem.Divider,
         MenuItem.Link(
           icon: TablerIcons.PACKAGES,

@@ -49,6 +49,9 @@ type Page {
   From(Map(String, FromItem), From, FromData)
   FromIndex(Map(String, From))
 
+  ExampleIndex(Map(String, Tuple(String, Map(String, Tuple(String, String)))))
+  Example(Tuple(String, String), String, String)
+
   Sandbox(Sandbox.Page, UserStatus)
   Page(String, Html)
   FeatureMatrix

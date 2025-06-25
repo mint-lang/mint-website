@@ -193,6 +193,11 @@ async component Footer {
                 TablerIcons.SANDBOX
                 "Sandbox"
               </a>
+
+              <a href="/examples">
+                TablerIcons.FILES
+                "Examples"
+              </a>
             </div>
 
             <div::column>

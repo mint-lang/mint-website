@@ -3,7 +3,7 @@ module Sandbox {
   const EMPTY_SANDBOX =
     {
       user: { nickname: "Unknown", image: @asset(../../assets/user.png), id: 0 },
-      content: @inline(../../assets/Try.mint),
+      content: @inline(../../assets/examples/UserInput/Buttons.mint),
       createdAt: Time.now(),
       updatedAt: Time.now(),
       title: "Mint Sandbox",
@@ -11,6 +11,19 @@ module Sandbox {
       userId: 0,
       id: ""
     }
+
+  fun fromExample (title : String, content : String) {
+    {
+      user: { nickname: "Unknown", image: @asset(../../assets/user.png), id: 0 },
+      createdAt: Time.now(),
+      updatedAt: Time.now(),
+      content: content,
+      mintVersion: "",
+      title: title,
+      userId: 0,
+      id: ""
+    }
+  }
 
   // Initializes a sandbox page.
   fun initialize (path : String) : Promise(Void) {

@@ -22,9 +22,7 @@ store Application {
   // Whether or not to use all the width of the screen.
   get isWide : Bool {
     case page {
-      FeatureMatrix => true
-      Tutorial => true
-      Sandbox => true
+      FeatureMatrix | Tutorial | Sandbox | Example => true
       => false
     }
   }
@@ -150,9 +148,9 @@ store Application {
   }
 
   // Loads the comparison pages.
-  fun loadFrom (deferred : Deferred(Map(String, From)), path : String) {
+  fun loadFrom (path : String) {
     let data =
-      await deferred
+      await Data.FROM
 
     let path =
       if String.isBlank(path) {
@@ -171,6 +169,43 @@ store Application {
         } else {
           setNotFoundPage()
         }
+    }
+  }
+
+  fun loadExample (path : String) {
+    let data =
+      await Data.EXAMPLES
+
+    if String.isBlank(path) {
+      Window.setUrl("/examples/")
+    }
+
+    case String.split(String.dropStart(path, 1), "/") {
+      [slug, example] =>
+        {
+          let result =
+            await {
+              let Just(category) =
+                data[slug] or return Maybe.Nothing
+
+              let Just(example) =
+                category[1][example] or return Maybe.Nothing
+
+              let Ok({ status: 200, bodyString: contents }) =
+                await Http.send(Http.get(example[1])) or return Maybe.Nothing
+
+              Maybe.Just({category[0], example, contents})
+            }
+
+          if let Just({title, example, contents}) = result {
+            setPage(Page.Example(example, title, contents))
+          } else {
+            setNotFoundPage()
+          }
+        }
+
+      [""] | [] => setPage(Page.ExampleIndex(data))
+      => setNotFoundPage()
     }
   }
 
@@ -202,11 +237,15 @@ store Application {
             document.name
           ]
 
+        From(_, from, _) => ["From #{from.title}?"]
+        FromIndex(_) => ["From … ?"]
+
+        Example({title, _}, category) => ["Examples", category, title]
+        ExampleIndex(data) => ["Examples"]
+
         Tutorial(_, _, _, title) => Array.unshift(title, "Tutorial")
         ApiDocs(_, _, entity, _) => ["API", entity.name]
         FeatureMatrix => ["Langauge Feature Matrix"]
-        From(_, from, _) => ["From #{from.title}?"]
-        FromIndex(_) => ["From … ?"]
         NotFound => ["404"]
         Initial => []
       }

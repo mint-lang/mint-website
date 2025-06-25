@@ -115,7 +115,13 @@ routes {
   // From
   // ---------------------------------------------------------------------------
   /from*path (path : String) await {
-    Application.loadFrom(deferred: Data.FROM, path: path)
+    Application.loadFrom(path: path)
+  }
+
+  // Examples
+  // ---------------------------------------------------------------------------
+  /examples*path (path : String) await {
+    Application.loadExample(path: path)
   }
 
   * {
