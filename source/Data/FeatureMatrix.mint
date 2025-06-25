@@ -5,6 +5,7 @@ module Data {
         {
           clojureScript: Feature.NotSupported,
           javaScript: Feature.NotSupported,
+          pureScript: Feature.Supported,
           typeScript: Feature.Supported,
           reScript: Feature.Supported,
           gleam: Feature.Supported,
@@ -16,6 +17,7 @@ module Data {
           clojureScript: Feature.Supported,
           javaScript: Feature.NotSupported,
           typeScript: Feature.NotSupported,
+          pureScript: Feature.Supported,
           reScript: Feature.Supported,
           gleam: Feature.Supported,
           mint: Feature.Supported,
@@ -24,6 +26,7 @@ module Data {
       "Exceptions" =>
         {
           clojureScript: Feature.Supported,
+          pureScript: Feature.NotSupported,
           javaScript: Feature.Supported,
           typeScript: Feature.Supported,
           reScript: Feature.Supported,
@@ -36,6 +39,7 @@ module Data {
           clojureScript: Feature.NotSupported,
           javaScript: Feature.NotSupported,
           typeScript: Feature.NotSupported,
+          pureScript: Feature.Supported,
           reScript: Feature.Supported,
           gleam: Feature.Supported,
           mint: Feature.Supported,
@@ -46,6 +50,7 @@ module Data {
           clojureScript: Feature.Supported,
           javaScript: Feature.Supported,
           typeScript: Feature.Supported,
+          pureScript: Feature.Supported,
           reScript: Feature.Supported,
           gleam: Feature.Supported,
           mint: Feature.Supported,
@@ -56,6 +61,7 @@ module Data {
           clojureScript: Feature.NotSupported,
           javaScript: Feature.Supported,
           typeScript: Feature.Supported,
+          pureScript: Feature.Supported,
           reScript: Feature.Supported,
           gleam: Feature.NotSupported,
           mint: Feature.Supported,
@@ -67,6 +73,7 @@ module Data {
           javaScript: Feature.SupportedBut("As number type."),
           typeScript: Feature.SupportedBut("As number type."),
           mint: Feature.SupportedBut("As Number type."),
+          pureScript: Feature.Supported,
           reScript: Feature.Supported,
           gleam: Feature.Supported,
           elm: Feature.Supported
@@ -77,6 +84,7 @@ module Data {
           javaScript: Feature.SupportedBut("As number type."),
           typeScript: Feature.SupportedBut("As number type."),
           mint: Feature.SupportedBut("As Number type."),
+          pureScript: Feature.Supported,
           reScript: Feature.Supported,
           gleam: Feature.Supported,
           elm: Feature.Supported
@@ -86,6 +94,7 @@ module Data {
           clojureScript: Feature.Supported,
           javaScript: Feature.Supported,
           typeScript: Feature.Supported,
+          pureScript: Feature.Supported,
           reScript: Feature.Supported,
           gleam: Feature.Supported,
           mint: Feature.Supported,
@@ -94,6 +103,7 @@ module Data {
       "-> Interpolation" =>
         {
           clojureScript: Feature.NotSupported,
+          pureScript: Feature.NotSupported,
           javaScript: Feature.Supported,
           typeScript: Feature.Supported,
           reScript: Feature.Supported,
@@ -106,6 +116,7 @@ module Data {
           gleam: Feature.SupportedBut("As a separate cutom type."),
           elm: Feature.SupportedBut("As a separate cutom type."),
           clojureScript: Feature.Supported,
+          pureScript: Feature.Supported,
           typeScript: Feature.Supported,
           javaScript: Feature.Supported,
           reScript: Feature.Supported,
@@ -116,6 +127,7 @@ module Data {
           typeScript: Feature.SupportedBut("Using arrays."),
           clojureScript: Feature.Supported,
           javaScript: Feature.NotSupported,
+          pureScript: Feature.ViaPackage,
           reScript: Feature.Supported,
           gleam: Feature.Supported,
           mint: Feature.Supported,
@@ -126,6 +138,7 @@ module Data {
           clojureScript: Feature.Supported,
           typeScript: Feature.Supported,
           javaScript: Feature.Supported,
+          pureScript: Feature.Supported,
           reScript: Feature.Supported,
           gleam: Feature.Supported,
           mint: Feature.Supported,
@@ -139,11 +152,13 @@ module Data {
           gleam: Feature.SupportedBut("No custom syntax."),
           elm: Feature.SupportedBut("No custom syntax."),
           clojureScript: Feature.Supported,
+          pureScript: Feature.ViaPackage,
           mint: Feature.Supported
         },
       "Regular Expressions (Syntax)" =>
         {
           clojureScript: Feature.Supported,
+          pureScript: Feature.NotSupported,
           typeScript: Feature.Supported,
           javaScript: Feature.Supported,
           reScript: Feature.Supported,
@@ -154,6 +169,7 @@ module Data {
       "Index Access" =>
         {
           clojureScript: Feature.NotSupported,
+          pureScript: Feature.NotSupported,
           typeScript: Feature.Supported,
           javaScript: Feature.Supported,
           reScript: Feature.Supported,
@@ -164,6 +180,7 @@ module Data {
       "Field Access" =>
         {
           clojureScript: Feature.Supported,
+          pureScript: Feature.Supported,
           typeScript: Feature.Supported,
           javaScript: Feature.Supported,
           reScript: Feature.Supported,
@@ -174,6 +191,7 @@ module Data {
       "Constants" =>
         {
           clojureScript: Feature.Supported,
+          pureScript: Feature.Supported,
           typeScript: Feature.Supported,
           javaScript: Feature.Supported,
           reScript: Feature.Supported,
@@ -184,6 +202,7 @@ module Data {
       "Modules" =>
         {
           clojureScript: Feature.Supported,
+          pureScript: Feature.Supported,
           typeScript: Feature.Supported,
           javaScript: Feature.Supported,
           reScript: Feature.Supported,
@@ -194,6 +213,7 @@ module Data {
       "Functions" =>
         {
           clojureScript: Feature.Supported,
+          pureScript: Feature.Supported,
           typeScript: Feature.Supported,
           javaScript: Feature.Supported,
           reScript: Feature.Supported,
@@ -204,6 +224,7 @@ module Data {
       "-> Default Arguments" =>
         {
           clojureScript: Feature.Supported,
+          pureScript: Feature.NotSupported,
           typeScript: Feature.Supported,
           javaScript: Feature.Supported,
           reScript: Feature.Supported,
@@ -216,6 +237,7 @@ module Data {
           clojureScript: Feature.NotSupported,
           javaScript: Feature.NotSupported,
           typeScript: Feature.NotSupported,
+          pureScript: Feature.NotSupported,
           reScript: Feature.Supported,
           elm: Feature.NotSupported,
           gleam: Feature.Supported,
@@ -223,7 +245,8 @@ module Data {
         },
       "-> Function Captures" =>
         {
-          clojureScript: Feature.SupportedBut("Using partial function"),
+          clojureScript: Feature.SupportedBut("Using partial function."),
+          pureScript: Feature.Partial("Functions can be curried."),
           javaScript: Feature.NotSupported,
           typeScript: Feature.NotSupported,
           reScript: Feature.Supported,
@@ -234,6 +257,7 @@ module Data {
       "-> Anonymous Functions" =>
         {
           clojureScript: Feature.Supported,
+          pureScript: Feature.Supported,
           typeScript: Feature.Supported,
           javaScript: Feature.Supported,
           reScript: Feature.Supported,
@@ -246,6 +270,7 @@ module Data {
           clojureScript: Feature.NotSupported,
           typeScript: Feature.NotSupported,
           javaScript: Feature.NotSupported,
+          pureScript: Feature.Supported,
           reScript: Feature.Supported,
           gleam: Feature.Supported,
           mint: Feature.Supported,
@@ -256,6 +281,7 @@ module Data {
           clojureScript: Feature.Supported,
           javaScript: Feature.Supported,
           typeScript: Feature.Supported,
+          pureScript: Feature.Supported,
           reScript: Feature.Supported,
           gleam: Feature.Supported,
           mint: Feature.Supported,
@@ -266,6 +292,7 @@ module Data {
           clojureScript: Feature.Supported,
           javaScript: Feature.Supported,
           typeScript: Feature.Supported,
+          pureScript: Feature.Supported,
           reScript: Feature.Supported,
           gleam: Feature.NotSupported,
           mint: Feature.Supported,
@@ -274,6 +301,7 @@ module Data {
       "For" =>
         {
           clojureScript: Feature.Supported,
+          pureScript: Feature.NotSupported,
           javaScript: Feature.Supported,
           typeScript: Feature.Supported,
           reScript: Feature.Supported,
@@ -288,6 +316,7 @@ module Data {
           typeScript: Feature.Partial(
             "No language feature, only on assignment."),
           clojureScript: Feature.NotSupported,
+          pureScript: Feature.Supported,
           reScript: Feature.Supported,
           gleam: Feature.Supported,
           mint: Feature.Supported,
@@ -298,6 +327,7 @@ module Data {
           javaScript: Feature.SupportedBut("Only on assignment."),
           typeScript: Feature.SupportedBut("Only on assignment."),
           clojureScript: Feature.NotSupported,
+          pureScript: Feature.Supported,
           reScript: Feature.Supported,
           gleam: Feature.Supported,
           mint: Feature.Supported,
@@ -308,6 +338,7 @@ module Data {
           clojureScript: Feature.NotSupported,
           typeScript: Feature.NotSupported,
           javaScript: Feature.NotSupported,
+          pureScript: Feature.NotSupported,
           reScript: Feature.Supported,
           gleam: Feature.Supported,
           mint: Feature.Supported,
@@ -318,6 +349,7 @@ module Data {
           javaScript: Feature.SupportedBut("Only on assignment"),
           typeScript: Feature.SupportedBut("Only on assignment"),
           clojureScript: Feature.NotSupported,
+          pureScript: Feature.Supported,
           reScript: Feature.Supported,
           gleam: Feature.Supported,
           mint: Feature.Supported,
@@ -328,6 +360,7 @@ module Data {
           javaScript: Feature.SupportedBut("Limited."),
           typeScript: Feature.SupportedBut("Limited."),
           clojureScript: Feature.NotSupported,
+          pureScript: Feature.Supported,
           reScript: Feature.Supported,
           elm: Feature.NotSupported,
           gleam: Feature.Supported,
@@ -338,6 +371,7 @@ module Data {
           clojureScript: Feature.NotSupported,
           typeScript: Feature.NotSupported,
           javaScript: Feature.NotSupported,
+          pureScript: Feature.Supported,
           reScript: Feature.Supported,
           elm: Feature.NotSupported,
           gleam: Feature.Supported,
@@ -349,6 +383,7 @@ module Data {
           typeScript: Feature.NotSupported,
           javaScript: Feature.NotSupported,
           reScript: Feature.NotSupported,
+          pureScript: Feature.Supported,
           mint: Feature.NotSupported,
           elm: Feature.NotSupported,
           gleam: Feature.Supported
@@ -358,6 +393,7 @@ module Data {
           gleam: Feature.SupportedBut("Through OTP."),
           elm: Feature.SupportedBut("Through TEA."),
           clojureScript: Feature.Supported,
+          pureScript: Feature.ViaPackage,
           javaScript: Feature.Supported,
           typeScript: Feature.Supported,
           reScript: Feature.Supported,
@@ -368,6 +404,7 @@ module Data {
           clojureScript: Feature.Supported,
           javaScript: Feature.NotSupported,
           typeScript: Feature.NotSupported,
+          pureScript: Feature.Supported,
           reScript: Feature.Supported,
           gleam: Feature.Supported,
           mint: Feature.Supported,
@@ -380,6 +417,7 @@ module Data {
           typeScript: Feature.SupportedBut(
             "Cannot return value from the block."),
           clojureScript: Feature.Supported,
+          pureScript: Feature.Supported,
           reScript: Feature.Supported,
           gleam: Feature.Supported,
           mint: Feature.Supported,
@@ -390,6 +428,7 @@ module Data {
           gleam: Feature.SupportedBut(
             "With the use keyword, only Result types."),
           clojureScript: Feature.NotSupported,
+          pureScript: Feature.ViaPackage,
           reScript: Feature.NotSupported,
           javaScript: Feature.Supported,
           typeScript: Feature.Supported,
@@ -401,6 +440,7 @@ module Data {
           javaScript: Feature.Partial("With the debugger keyword."),
           typeScript: Feature.Partial("With the debugger keyword."),
           clojureScript: Feature.NotSupported,
+          pureScript: Feature.NotSupported,
           reScript: Feature.NotSupported,
           elm: Feature.NotSupported,
           gleam: Feature.Supported,
@@ -411,6 +451,7 @@ module Data {
           clojureScript: Feature.Supported,
           typeScript: Feature.NotSupported,
           javaScript: Feature.NotSupported,
+          pureScript: Feature.NotSupported,
           reScript: Feature.NotSupported,
           gleam: Feature.NotSupported,
           elm: Feature.NotSupported,
@@ -422,6 +463,7 @@ module Data {
           clojureScript: Feature.NotSupported,
           typeScript: Feature.NotApplicable,
           javaScript: Feature.NotApplicable,
+          pureScript: Feature.Supported,
           reScript: Feature.Supported,
           gleam: Feature.Supported,
           mint: Feature.Supported
@@ -431,17 +473,8 @@ module Data {
           clojureScript: Feature.NotSupported,
           javaScript: Feature.NotApplicable,
           typeScript: Feature.NotApplicable,
+          pureScript: Feature.NotSupported,
           reScript: Feature.Supported,
-          gleam: Feature.NotSupported,
-          elm: Feature.NotSupported,
-          mint: Feature.Supported
-        },
-      "-> Builtin Calls" =>
-        {
-          clojureScript: Feature.NotSupported,
-          javaScript: Feature.NotApplicable,
-          typeScript: Feature.NotApplicable,
-          reScript: Feature.NotSupported,
           gleam: Feature.NotSupported,
           elm: Feature.NotSupported,
           mint: Feature.Supported
@@ -449,6 +482,7 @@ module Data {
       "-> Automatic Serialization" =>
         {
           clojureScript: Feature.NotSupported,
+          pureScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
           typeScript: Feature.ViaPackage,
           reScript: Feature.NotSupported,
@@ -461,6 +495,7 @@ module Data {
           javaScript: Feature.SupportedBut("Through template literals."),
           typeScript: Feature.SupportedBut("Through template literals."),
           clojureScript: Feature.NotSupported,
+          pureScript: Feature.NotSupported,
           reScript: Feature.NotSupported,
           gleam: Feature.NotSupported,
           elm: Feature.NotSupported,
@@ -471,6 +506,7 @@ module Data {
           clojureScript: Feature.NotSupported,
           javaScript: Feature.NotSupported,
           typeScript: Feature.NotSupported,
+          pureScript: Feature.NotSupported,
           reScript: Feature.NotSupported,
           gleam: Feature.NotSupported,
           elm: Feature.NotSupported,
@@ -481,6 +517,7 @@ module Data {
           clojureScript: Feature.NotSupported,
           typeScript: Feature.NotSupported,
           javaScript: Feature.NotSupported,
+          pureScript: Feature.NotSupported,
           reScript: Feature.NotSupported,
           gleam: Feature.NotSupported,
           elm: Feature.NotSupported,
@@ -491,6 +528,7 @@ module Data {
           clojureScript: Feature.ViaPackage,
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
+          pureScript: Feature.ViaPackage,
           reScript: Feature.ViaPackage,
           gleam: Feature.ViaPackage,
           elm: Feature.NotSupported,
@@ -498,38 +536,42 @@ module Data {
         },
       "-> Async Loading" =>
         {
-          clojureScript: Feature.ViaPackage,
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
           reScript: Feature.NotSupported,
-          gleam: Feature.NotSupported,
+          clojureScript: Feature.Unkown,
+          pureScript: Feature.Unkown,
           elm: Feature.NotSupported,
-          mint: Feature.Supported
+          mint: Feature.Supported,
+          gleam: Feature.Unkown
         },
       "-> Global" =>
         {
-          clojureScript: Feature.ViaPackage,
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
-          reScript: Feature.NotSupported,
-          gleam: Feature.NotSupported,
+          clojureScript: Feature.Unkown,
+          pureScript: Feature.Unkown,
           elm: Feature.NotSupported,
-          mint: Feature.Supported
+          reScript: Feature.Unkown,
+          mint: Feature.Supported,
+          gleam: Feature.Unkown
         },
       "-> References" =>
         {
-          clojureScript: Feature.ViaPackage,
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
-          reScript: Feature.ViaPackage,
-          gleam: Feature.NotSupported,
+          clojureScript: Feature.Unkown,
+          pureScript: Feature.Unkown,
           elm: Feature.NotSupported,
-          mint: Feature.Supported
+          reScript: Feature.Unkown,
+          mint: Feature.Supported,
+          gleam: Feature.Unkown
         },
       "Html" =>
         {
           typeScript: Feature.SupportedBut("Needs to be configured."),
           clojureScript: Feature.NotSupported,
+          pureScript: Feature.NotSupported,
           javaScript: Feature.ViaPackage,
           reScript: Feature.Supported,
           gleam: Feature.ViaPackage,
@@ -540,6 +582,7 @@ module Data {
         {
           typeScript: Feature.SupportedBut("Needs to be configured."),
           clojureScript: Feature.NotSupported,
+          pureScript: Feature.NotSupported,
           javaScript: Feature.ViaPackage,
           reScript: Feature.Supported,
           gleam: Feature.ViaPackage,
@@ -551,6 +594,7 @@ module Data {
           clojureScript: Feature.ViaPackage,
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
+          pureScript: Feature.ViaPackage,
           reScript: Feature.ViaPackage,
           gleam: Feature.ViaPackage,
           elm: Feature.ViaPackage,
@@ -561,6 +605,7 @@ module Data {
           clojureScript: Feature.ViaPackage,
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
+          pureScript: Feature.ViaPackage,
           reScript: Feature.ViaPackage,
           gleam: Feature.ViaPackage,
           elm: Feature.ViaPackage,
@@ -571,6 +616,7 @@ module Data {
           clojureScript: Feature.ViaPackage,
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
+          pureScript: Feature.ViaPackage,
           reScript: Feature.ViaPackage,
           gleam: Feature.NotSupported,
           elm: Feature.NotSupported,
@@ -580,6 +626,7 @@ module Data {
         {
           elm: Feature.SupportedBut("Through TEA."),
           clojureScript: Feature.Supported,
+          pureScript: Feature.ViaPackage,
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
           reScript: Feature.ViaPackage,
@@ -590,6 +637,7 @@ module Data {
         {
           clojureScript: Feature.ViaPackage,
           typeScript: Feature.ViaPackage,
+          pureScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
           reScript: Feature.ViaPackage,
           gleam: Feature.ViaPackage,
@@ -601,6 +649,7 @@ module Data {
           clojureScript: Feature.ViaPackage,
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
+          pureScript: Feature.ViaPackage,
           reScript: Feature.ViaPackage,
           gleam: Feature.ViaPackage,
           elm: Feature.ViaPackage,
@@ -611,6 +660,7 @@ module Data {
           clojureScript: Feature.ViaPackage,
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
+          pureScript: Feature.ViaPackage,
           reScript: Feature.ViaPackage,
           gleam: Feature.ViaPackage,
           elm: Feature.ViaPackage,
@@ -621,6 +671,7 @@ module Data {
           clojureScript: Feature.NotSupported,
           typeScript: Feature.NotSupported,
           javaScript: Feature.NotSupported,
+          pureScript: Feature.NotSupported,
           reScript: Feature.NotSupported,
           gleam: Feature.NotSupported,
           elm: Feature.NotSupported,
@@ -631,16 +682,7 @@ module Data {
           clojureScript: Feature.ViaPackage,
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
-          reScript: Feature.ViaPackage,
-          gleam: Feature.ViaPackage,
-          elm: Feature.ViaPackage,
-          mint: Feature.Supported
-        },
-      "Providers" =>
-        {
-          clojureScript: Feature.ViaPackage,
-          typeScript: Feature.ViaPackage,
-          javaScript: Feature.ViaPackage,
+          pureScript: Feature.ViaPackage,
           reScript: Feature.ViaPackage,
           gleam: Feature.ViaPackage,
           elm: Feature.ViaPackage,
@@ -649,6 +691,7 @@ module Data {
       "Syntax Highlight File" =>
         {
           clojureScript: Feature.NotSupported,
+          pureScript: Feature.NotSupported,
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
           reScript: Feature.NotSupported,
@@ -659,6 +702,7 @@ module Data {
       "Syntax Highlight Source" =>
         {
           clojureScript: Feature.NotSupported,
+          pureScript: Feature.NotSupported,
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
           reScript: Feature.NotSupported,
@@ -669,6 +713,7 @@ module Data {
       "Format Source" =>
         {
           clojureScript: Feature.NotSupported,
+          pureScript: Feature.NotSupported,
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
           reScript: Feature.NotSupported,
@@ -679,6 +724,7 @@ module Data {
       "Inline File as String" =>
         {
           clojureScript: Feature.NotSupported,
+          pureScript: Feature.NotSupported,
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
           reScript: Feature.NotSupported,
@@ -689,6 +735,7 @@ module Data {
       "Inline SVG as HTML" =>
         {
           clojureScript: Feature.NotSupported,
+          pureScript: Feature.NotSupported,
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
           reScript: Feature.NotSupported,
@@ -699,6 +746,7 @@ module Data {
       "Link Assets" =>
         {
           clojureScript: Feature.NotSupported,
+          pureScript: Feature.NotSupported,
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
           reScript: Feature.NotSupported,
@@ -709,6 +757,7 @@ module Data {
       "Language Server" =>
         {
           clojureScript: Feature.ViaPackage,
+          pureScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
           typeScript: Feature.Supported,
           reScript: Feature.Supported,
@@ -720,6 +769,7 @@ module Data {
         {
           javaScript: Feature.NotApplicable,
           clojureScript: Feature.Supported,
+          pureScript: Feature.Supported,
           typeScript: Feature.Supported,
           reScript: Feature.Supported,
           gleam: Feature.Supported,
@@ -730,6 +780,7 @@ module Data {
         {
           clojureScript: Feature.ViaPackage,
           typeScript: Feature.ViaPackage,
+          pureScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
           reScript: Feature.Supported,
           gleam: Feature.Supported,
@@ -740,6 +791,7 @@ module Data {
         {
           clojureScript: Feature.ViaPackage,
           typeScript: Feature.ViaPackage,
+          pureScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
           reScript: Feature.ViaPackage,
           gleam: Feature.NotSupported,
@@ -751,6 +803,7 @@ module Data {
           clojureScript: Feature.ViaPackage,
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
+          pureScript: Feature.ViaPackage,
           reScript: Feature.ViaPackage,
           gleam: Feature.NotSupported,
           mint: Feature.Supported,
@@ -761,6 +814,7 @@ module Data {
           clojureScript: Feature.ViaPackage,
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
+          pureScript: Feature.ViaPackage,
           reScript: Feature.ViaPackage,
           gleam: Feature.NotSupported,
           mint: Feature.Supported,
@@ -771,6 +825,7 @@ module Data {
           javaScript: Feature.NotApplicable,
           clojureScript: Feature.Supported,
           reScript: Feature.NotSupported,
+          pureScript: Feature.ViaPackage,
           typeScript: Feature.Supported,
           gleam: Feature.NotSupported,
           elm: Feature.NotSupported,
@@ -779,6 +834,7 @@ module Data {
       "Development Server" =>
         {
           clojureScript: Feature.ViaPackage,
+          pureScript: Feature.NotSupported,
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
           reScript: Feature.ViaPackage,
@@ -792,6 +848,7 @@ module Data {
           clojureScript: Feature.ViaPackage,
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
+          pureScript: Feature.ViaPackage,
           reScript: Feature.ViaPackage,
           mint: Feature.Supported,
           elm: Feature.Supported
@@ -801,6 +858,7 @@ module Data {
           clojureScript: Feature.ViaPackage,
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
+          pureScript: Feature.ViaPackage,
           reScript: Feature.NotSupported,
           gleam: Feature.Supported,
           mint: Feature.Supported,
@@ -811,6 +869,7 @@ module Data {
           clojureScript: Feature.ViaPackage,
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
+          pureScript: Feature.ViaPackage,
           reScript: Feature.ViaPackage,
           gleam: Feature.Supported,
           mint: Feature.Supported,
@@ -821,6 +880,7 @@ module Data {
           clojureScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
           typeScript: Feature.ViaPackage,
+          pureScript: Feature.ViaPackage,
           reScript: Feature.ViaPackage,
           gleam: Feature.ViaPackage,
           mint: Feature.Supported,

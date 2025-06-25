@@ -239,6 +239,7 @@ type Feature {
 // Type for a feature in the feature matrix.
 type FeatureSupport {
   clojureScript : Feature,
+  pureScript : Feature,
   javaScript : Feature,
   typeScript : Feature,
   reScript : Feature,

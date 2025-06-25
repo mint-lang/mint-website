@@ -55,7 +55,7 @@ async component Pages.FeatureMatrix {
 
   // Styles for a row.
   style row {
-    grid-template-columns: 300px repeat(7, 40px);
+    grid-template-columns: 300px repeat(8, 40px);
     display: grid;
   }
 
@@ -69,11 +69,14 @@ async component Pages.FeatureMatrix {
     top: 0;
 
     > div {
-      border-right: 1px solid var(--border-color);
+      border-left: 1px solid var(--border-color);
       padding: 15px 10px;
     }
 
     > div:first-child {
+      border-right: 1px solid var(--border-color);
+      border-left: 0;
+
       align-items: end;
       display: flex;
     }
@@ -211,8 +214,7 @@ async component Pages.FeatureMatrix {
           <div::language>"Elm"</div>
           <div::language>"ReScript"</div>
           <div::language>"ClojureScript"</div>
-
-          // <div::language>"PureScript"</div>
+          <div::language>"PureScript"</div>
         </div>
 
         for key, feature of Data.FEATURE_MATRIX {
@@ -225,6 +227,7 @@ async component Pages.FeatureMatrix {
             renderFeature(feature.elm)
             renderFeature(feature.reScript)
             renderFeature(feature.clojureScript)
+            renderFeature(feature.pureScript)
           </div>
         }
       </div>
