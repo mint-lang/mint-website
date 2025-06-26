@@ -37,6 +37,14 @@ module Data {
                 {"Positions", @asset(/assets/examples/Random/Positions.mint)}
             }
           }
+        },
+      "http" =>
+        {
+          "Http",
+          {
+            "book" => {"Book", @asset(/assets/examples/Http/Book.mint)},
+            "quotes" => {"Quotes", @asset(/assets/examples/Http/Quotes.mint)}
+          }
         }
     }
 }
