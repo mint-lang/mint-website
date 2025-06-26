@@ -18,30 +18,36 @@ component Main {
     getRandom()
   }
 
-  fun randomRange (minimum : Number, maximum : Number) {
-    Math.floor(Math.random() * (maximum - minimum + 1)) + minimum
-  }
-
   fun getRandom {
+    next { status: Status.Loading }
+
     let id =
-      randomRange(1, 5)
+      Array.sample(Array.range(1, 5)) or 1
 
     let request =
       Http.send(Http.get("https://mint-lang.com/data/quote-#{id}.json"))
 
-    case await request {
-      Ok({ body: JSON(object) }) =>
-        case decode object as Quote {
-          Ok(quote) => next { status: Status.Loaded(quote) }
-          => next { status: Status.Failed }
-        }
+    let result =
+      await {
+        let Ok({ body: JSON(object) }) =
+          await request or return Maybe.Nothing
 
+        let Ok(quote) =
+          decode object as Quote or return Maybe.Nothing
+
+        Maybe.Just(quote)
+      }
+
+    case result {
+      Just(quote) => next { status: Status.Loaded(quote) }
       => next { status: Status.Failed }
     }
   }
 
   fun render {
-    <pre>
+    <div>
+      <h2>"Random Quotes"</h2>
+
       case status {
         Loading => <>"Loading..."</>
         Failed => <>"I could not load a random quote for some reason. "</>
@@ -58,6 +64,6 @@ component Main {
             </p>
           </div>
       }
-    </pre>
+    </div>
   }
 }
