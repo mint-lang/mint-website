@@ -49,8 +49,8 @@ component Main {
       <h2>"Random Quotes"</h2>
 
       case status {
-        Loading => <>"Loading..."</>
         Failed => <>"I could not load a random quote for some reason. "</>
+        Loading => <>"Loading..."</>
 
         Loaded(quote) =>
           <div>

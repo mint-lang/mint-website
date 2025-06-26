@@ -85,7 +85,8 @@ module Data {
               {
                 "Flight Booker",
                 @asset(/assets/examples/7GUIs/FlightBooker.mint)
-              }
+              },
+            "timer" => {"Timer", @asset(/assets/examples/7GUIs/Timer.mint)}
           }
         }
     }

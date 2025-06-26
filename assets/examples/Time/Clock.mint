@@ -36,7 +36,7 @@ component Main {
       Time.second(now)
 
     <svg viewBox="0 0 400 400" width="400" height="400">
-      <circle cx="200" cy="200" r="120" fill="#1293D8"/>
+      <circle cx="200" cy="200" r="120" fill="#277944"/>
       hand(6, 60, hour / 12)
       hand(6, 90, minute / 60)
       hand(3, 90, second / 60)
