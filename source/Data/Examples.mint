@@ -86,7 +86,12 @@ module Data {
                 "Flight Booker",
                 @asset(/assets/examples/7GUIs/FlightBooker.mint)
               },
-            "timer" => {"Timer", @asset(/assets/examples/7GUIs/Timer.mint)}
+            "timer" => {"Timer", @asset(/assets/examples/7GUIs/Timer.mint)},
+            "circle-drawer" =>
+              {
+                "Circle Drawer",
+                @asset(/assets/examples/7GUIs/CircleDrawer.mint)
+              }
           }
         }
     }
