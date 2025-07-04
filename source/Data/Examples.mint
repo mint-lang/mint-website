@@ -93,6 +93,53 @@ module Data {
                 @asset(/assets/examples/7GUIs/CircleDrawer.mint)
               }
           }
+        },
+      "providers" =>
+        {
+          "Providers",
+          {
+            "outside-click" =>
+              {
+                "OutsideClick",
+                @asset(/assets/examples/Providers/OutsideClick.mint)
+              },
+            "animation-frame" =>
+              {
+                "AnimationFrame",
+                @asset(/assets/examples/Providers/AnimationFrame.mint)
+              },
+            "element-size" =>
+              {
+                "ElementSize",
+                @asset(/assets/examples/Providers/ElementSize.mint)
+              },
+            "intersection" =>
+              {
+                "Intersection",
+                @asset(/assets/examples/Providers/Intersection.mint)
+              },
+            "keyboard" =>
+              {"Keyboard", @asset(/assets/examples/Providers/Keyboard.mint)},
+            "media-query" =>
+              {"MediaQuery", @asset(/assets/examples/Providers/MediaQuery.mint)},
+            "mouse" => {"Mouse", @asset(/assets/examples/Providers/Mouse.mint)},
+            "mutation" =>
+              {"Mutation", @asset(/assets/examples/Providers/Mutation.mint)},
+            "pointer" =>
+              {"Pointer", @asset(/assets/examples/Providers/Pointer.mint)},
+            "resize" =>
+              {"Resize", @asset(/assets/examples/Providers/Resize.mint)},
+            "scroll" =>
+              {"Scroll", @asset(/assets/examples/Providers/Scroll.mint)},
+            "shortcuts" =>
+              {"Shortcuts", @asset(/assets/examples/Providers/Shortcuts.mint)},
+            "tab-focus" =>
+              {"TabFocus", @asset(/assets/examples/Providers/TabFocus.mint)},
+            "tick" => {"Tick", @asset(/assets/examples/Providers/Tick.mint)},
+            "url" => {"Url", @asset(/assets/examples/Providers/Url.mint)},
+            "websocket" =>
+              {"WebSocket", @asset(/assets/examples/Providers/WebSocket.mint)}
+          }
         }
     }
 }
