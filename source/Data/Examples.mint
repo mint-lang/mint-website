@@ -87,6 +87,7 @@ module Data {
                 @asset(/assets/examples/7GUIs/FlightBooker.mint)
               },
             "timer" => {"Timer", @asset(/assets/examples/7GUIs/Timer.mint)},
+            "crud" => {"CRUD", @asset(/assets/examples/7GUIs/CRUD.mint)},
             "circle-drawer" =>
               {
                 "Circle Drawer",
