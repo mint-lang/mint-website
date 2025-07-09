@@ -1,7 +1,8 @@
 async component Pages.Examples.Index {
   connect Application exposing { isMobile }
 
-  property data : Map(String, Tuple(String, Map(String, Tuple(String, String))))
+  property data : Map(String,
+    Tuple(String, Map(String, Tuple(String, Deferred(String)))))
 
   // Styles for the grid.
   style grid {

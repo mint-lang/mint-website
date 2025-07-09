@@ -191,8 +191,8 @@ store Application {
               let Just(example) =
                 category[1][example] or return Maybe.Nothing
 
-              let Ok({ status: 200, bodyString: contents }) =
-                await Http.send(Http.get(example[1])) or return Maybe.Nothing
+              let contents =
+                await example[1]
 
               Maybe.Just({category[0], example, contents})
             }
