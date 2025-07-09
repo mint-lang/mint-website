@@ -1,5 +1,5 @@
 module News {
-  const RELEASES =
+  const PATTERN_MATCHING_AND_LANGUAGE_SERVER_IMPROVEMENTS =
     {
       subtitle: "Mint 0.24.0 and 0.25.0 Releases",
       title: "Pattern Matching and Language Server Improvements",
