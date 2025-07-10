@@ -209,6 +209,33 @@ store Application {
     }
   }
 
+  fun loadArticles (path : String) {
+    let data =
+      await Data.NEWS
+
+    let posts =
+      await Data.POSTS
+
+    let normalized =
+      String.chopStart(path, "/")
+
+    if String.isBlank(normalized) {
+      setPage(Page.Articles(data, posts))
+    } else if let Just(news) = Map.get(data, normalized) {
+      let contents =
+        await news.contents
+
+      setPage(Page.Article(news, contents))
+    } else if let Just(news) = Map.get(posts, normalized) {
+      let contents =
+        await news.contents
+
+      setPage(Page.Article(news, contents))
+    } else {
+      setNotFoundPage()
+    }
+  }
+
   // Sets the page to the not found one.
   fun setNotFoundPage : Promise(Void) {
     setPage(Page.NotFound)
@@ -242,6 +269,9 @@ store Application {
 
         Example({title, _}, category) => ["Examples", category, title]
         ExampleIndex(data) => ["Examples"]
+
+        Article(article) => [article.title]
+        Articles => ["News"]
 
         Tutorial(_, _, _, title) => Array.unshift(title, "Tutorial")
         ApiDocs(_, _, entity, _) => ["API", entity.name]

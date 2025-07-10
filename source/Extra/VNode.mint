@@ -100,7 +100,8 @@ module VNode {
   fun walk (vnode : Html, function : Function(VNode, a)) : Html {
     `
     (() => {
-      if (Array.isArray(#{vnode})) {
+      if (#{vnode} === null || #{vnode} === undefined) {
+      } else if (Array.isArray(#{vnode})) {
         #{vnode}.forEach((item) => #{walk}(item, #{function}))
       } else {
         if (typeof #{vnode} !== "string") {

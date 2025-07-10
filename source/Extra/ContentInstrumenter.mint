@@ -52,7 +52,7 @@ module ContentInstrumenter {
   fun instrument (html : Html, skipAnchors : Bool = false) : Html {
     VNode.walk(html,
       (vnode : VNode) {
-        if `!#{vnode}.instrumented` {
+        if `#{vnode} && !#{vnode}.instrumented` {
           case decode VNode.type(vnode) as String {
             Ok("h2") =>
               if skipAnchors {

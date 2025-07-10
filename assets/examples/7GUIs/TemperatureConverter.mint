@@ -6,8 +6,8 @@ type Field {
 }
 
 component Main {
-  state celsius : Field = Field.Initial("")
   state fahrenheit : Field = Field.Initial("")
+  state celsius : Field = Field.Initial("")
 
   style root {
     white-space: nowrap;
@@ -25,14 +25,12 @@ component Main {
   }
 
   fun toFahrenheit (value : String) {
-    Number.fromString(value)
-    |> Maybe.map(
+    Maybe.map(Number.fromString(value),
       (celsius : Number) { {celsius, Math.round(celsius * (9 / 5) + 32)} })
   }
 
   fun toCelsius (value : String) {
-    Number.fromString(value)
-    |> Maybe.map(
+    Maybe.map(Number.fromString(value),
       (fahrenheit : Number) {
         {fahrenheit, Math.round((fahrenheit - 32) * (5 / 9))}
       })
@@ -56,19 +54,15 @@ component Main {
 
     if String.isEmpty(cleaned) {
       next { celsius: Field.Initial(value) }
+    } else if let Just({celsius, fahrenheit}) = toFahrenheit(cleaned) {
+      next {
+        fahrenheit: Field.Valid(Number.toString(fahrenheit)),
+        celsius: Field.Valid(Number.toString(celsius))
+      }
     } else {
-      case toFahrenheit(cleaned) {
-        Just({celsius, fahrenheit}) =>
-          next {
-            fahrenheit: Field.Valid(Number.toString(fahrenheit)),
-            celsius: Field.Valid(Number.toString(celsius))
-          }
-
-        =>
-          next {
-            fahrenheit: Field.OutOfSync(getValue(fahrenheit)),
-            celsius: Field.Invalid(cleaned)
-          }
+      next {
+        fahrenheit: Field.OutOfSync(getValue(fahrenheit)),
+        celsius: Field.Invalid(cleaned)
       }
     }
   }
@@ -82,19 +76,15 @@ component Main {
 
     if String.isEmpty(cleaned) {
       next { fahrenheit: Field.Initial(value) }
+    } else if let Just({fahrenheit, celsius}) = toCelsius(cleaned) {
+      next {
+        fahrenheit: Field.Valid(Number.toString(fahrenheit)),
+        celsius: Field.Valid(Number.toString(celsius))
+      }
     } else {
-      case toCelsius(cleaned) {
-        Just({fahrenheit, celsius}) =>
-          next {
-            fahrenheit: Field.Valid(Number.toString(fahrenheit)),
-            celsius: Field.Valid(Number.toString(celsius))
-          }
-
-        =>
-          next {
-            celsius: Field.OutOfSync(getValue(celsius)),
-            fahrenheit: Field.Invalid(cleaned)
-          }
+      next {
+        celsius: Field.OutOfSync(getValue(celsius)),
+        fahrenheit: Field.Invalid(cleaned)
       }
     }
   }

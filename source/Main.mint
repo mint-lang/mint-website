@@ -59,6 +59,10 @@ component Main {
             userStatus={UserStatus.Initial}
           /> or <Loader/>
 
+        Article(news, contents) =>
+          <Pages.News.Page news={news} contents={contents}/>
+
+        Articles(news, posts) => <Pages.News.Index news={news} posts={posts}/>
         ExampleIndex(data) => <Pages.Examples.Index data={data}/> or <Loader/>
         FeatureMatrix => <Pages.FeatureMatrix/> or <Loader/>
         FromIndex(data) => <Pages.From.Index data={data}/>

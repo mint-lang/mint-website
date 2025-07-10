@@ -67,25 +67,11 @@ routes {
   // News
   // ---------------------------------------------------------------------------
   /news*path (path : String) await {
-    let data =
-      await Data.NEWS
+    Application.loadArticles(path)
+  }
 
-    let normalized =
-      String.chopStart(path, "/")
-
-    if String.isBlank(normalized) {
-      Application.setPage(
-        Page.Page("News", <Pages.News.Index news={data}/> or <Loader/>))
-    } else if let Just(news) = Map.get(data, normalized) {
-      let contents =
-        await news.contents
-
-      Application.setPage(
-        Page.Page(news.title,
-          <Pages.News.Page news={news} contents={contents}/> or <Loader/>))
-    } else {
-      Application.setNotFoundPage()
-    }
+  /posts*path (path : String) await {
+    Application.loadArticles(path)
   }
 
   // Tutorial.

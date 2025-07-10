@@ -8,6 +8,9 @@ component Ide {
   // The height of the preview.
   property previewHeight : String = "1fr"
 
+  // The height of the editor.
+  property editorHeight : String = "1fr"
+
   // Whether or not the component is bordered.
   property bordered : Bool = false
 
@@ -30,6 +33,7 @@ component Ide {
       #{this}.ide = new Ide({
         previewHeight: #{previewHeight},
         endpoint: #{@SANDBOX_ENDPOINT},
+        editorHeight: #{editorHeight},
         orientation: #{orientation},
         onChange: #{onChange},
         value: #{value},

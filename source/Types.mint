@@ -54,6 +54,9 @@ type Page {
 
   Example(Tuple(String, Deferred(String)), String, String)
 
+  Articles(Map(String, News), Map(String, News))
+  Article(News, Html)
+
   Sandbox(Sandbox.Page, UserStatus)
   Page(String, Html)
   FeatureMatrix

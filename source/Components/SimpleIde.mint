@@ -5,6 +5,9 @@ component SimpleIde {
   // The height of the preview.
   property previewHeight : String = "1fr"
 
+  // The height of the editor.
+  property editorHeight : String = "1fr"
+
   // The project to edit.
   property contents : String
 
@@ -12,6 +15,7 @@ component SimpleIde {
   fun render : Html {
     <Ide
       previewHeight={previewHeight}
+      editorHeight={editorHeight}
       onChange={Promise.never1}
       orientation={orientation}
       bordered={true}

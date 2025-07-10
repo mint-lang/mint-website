@@ -4,11 +4,17 @@ async component Pages.News.Index {
   // The news list.
   property news : Map(String, News) = { } of String => News
 
+  // The posts list.
+  property posts : Map(String, News) = { } of String => News
+
   // Styles for the root element.
   style root {
-    max-width: 80ch;
     margin: 0 auto;
     width: 100%;
+
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 40px;
+    display: grid;
   }
 
   // Styles for a news item.
@@ -16,6 +22,10 @@ async component Pages.News.Index {
     border-left: 3px solid var(--border-color);
     padding-left: 15px;
     margin-top: 30px;
+
+    &:hover {
+      border-left: 3px solid var(--color-mintgreen);
+    }
 
     a:not([name]) {
       text-decoration: none;
@@ -40,21 +50,44 @@ async component Pages.News.Index {
   // Renders the component.
   fun render : Html {
     <div::root>
-      <Content>
-        <PageHeader subtitle="What's happening in the Mint world?" title="News"/>
-      </Content>
+      <div>
+        <Content>
+          <PageHeader
+            subtitle="What's happening in the Mint world?"
+            title="News"
+          />
+        </Content>
 
-      for path, item of news {
-        <div::item>
-          <a href="/news/#{path}">item.title</a>
-          <p>item.subtitle</p>
+        for path, item of news {
+          <div::item>
+            <a href="/news/#{path}">item.title</a>
+            <p>item.subtitle</p>
 
-          <span>
-            Time.format(item.time, Time.Format.ENGLISH,
-              "Published %B %*d, %Y by #{item.author}")
-          </span>
-        </div>
-      }
+            <span>
+              Time.format(item.time, Time.Format.ENGLISH,
+                "Published %B %*d, %Y by #{item.author}")
+            </span>
+          </div>
+        }
+      </div>
+
+      <div>
+        <Content>
+          <PageHeader subtitle="Longer articles about Mint." title="Posts"/>
+        </Content>
+
+        for path, item of posts {
+          <div::item>
+            <a href="/posts/#{path}">item.title</a>
+            <p>item.subtitle</p>
+
+            <span>
+              Time.format(item.time, Time.Format.ENGLISH,
+                "Published %B %*d, %Y by #{item.author}")
+            </span>
+          </div>
+        }
+      </div>
     </div>
   }
 }

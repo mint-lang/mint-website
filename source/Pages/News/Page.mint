@@ -19,7 +19,7 @@ async component Pages.News.Page {
         "Published %B %*d, %Y by #{news.author}")
 
     <div::root>
-      <Content>
+      <Content fontSize={18}>
         <PageHeader
           subtitle="#{news.subtitle} | #{publishedText}"
           title={news.title}
