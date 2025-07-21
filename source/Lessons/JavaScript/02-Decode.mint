@@ -63,7 +63,7 @@ module Lessons {
         ],
       contents:
         <<#MARKDOWN(highlight)
-        Mint would not be useful if we could not get data outside of program,
+        Mint would not be useful if we could not get data outside of the program,
         and we need to make sure that the data we get conforms to the defined
         types.
 
