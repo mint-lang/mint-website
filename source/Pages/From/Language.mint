@@ -4,6 +4,37 @@ async component Pages.From.Language {
   property base : Map(String, FromItem)
   property data : FromData
   property from : From
+  let links : Map(String, String) = {
+    "Numbers" => "/reference/literals#number",
+    "Numbers (Float)" => "/reference/literals#number",
+    "Strings (single line)" => "/reference/literals#string",
+    "Strings (multi line)" => "/reference/literals#string",
+    "Comments (single line)" => "/reference/comments",
+    "Comments (multi line)" => "/reference/comments",
+    "Booleans" => "/reference/literals#bool",
+    "Arrays" => "/reference/array",
+    "Tuples" => "/reference/tuple",
+    "Maps" => "/reference/map",
+    "Objects / Records" => "/reference/types/custom-types#composite-type",
+    "Object update" => "/reference/types/custom-types#composite-type",
+    "Field access" => "/reference/field-access",
+    // "Indexed access" => "",
+    "Functions" => "/reference/functions",
+    "Anonymous functions" => "/reference/functions#anonymous-functions",
+    "Function call" => "/reference/functions#calling-a-function",
+    "Function call (labelled)" => "/reference/functions#calling-with-named-arguments",
+    // "Mapping over arrays" => "",
+    // "Assignment" => "",
+    "Constants" => "/reference/constants",
+    "String concatenation" => "/reference/literals#string",
+    "Modules" => "/reference/modules",
+    "ADTs" => "/reference/types/custom-types#algebraic-data-type",
+    "Case" => "/reference/control-flow/case",
+    "Blocks" => "/reference/blocks",
+    "If" => "/reference/control-flow/if",
+    "If (Different Types)" => "/reference/control-flow/if",
+    "Export / Import" => "/reference/source-files",
+  }
 
   // Styles for the table.
   style table {
@@ -196,7 +227,11 @@ async component Pages.From.Language {
           for key, value of base {
             <div::table>
               <div::label>
-                <span>key</span>
+                case Map.get(links, key) {
+                  Just(link) => <a href={link}>key</a>
+                  Nothing => <span>key</div>
+                }
+
                 <span>from.title</span>
               </div>
 
