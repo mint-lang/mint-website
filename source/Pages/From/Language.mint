@@ -186,7 +186,7 @@ async component Pages.From.Language {
         <h2>"Syntax"</h2>
 
         <p>
-          "You can check below how things in #{from.title} works and looks " \
+          "You can check below how things in #{from.title} work and look " \
           "like in Mint."
         </p>
       </Content>
