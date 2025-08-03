@@ -230,7 +230,7 @@ async component Pages.From.Language {
               <div::label>
                 case Map.get(links, key) {
                   Just(link) => <a href={link}>key</a>
-                  Nothing => <span>key</div>
+                  Nothing => <span>key</span>
                 }
 
                 <span>from.title</span>
