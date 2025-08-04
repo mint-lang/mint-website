@@ -22,7 +22,7 @@ module From {
             {
               "Numbers" => FromItem.String("3"),
               "Numbers (Float)" => FromItem.String("3.1415"),
-              "Strings (single line)" => FromItem.String("\"Hello World!\""),
+              "Strings (single line)" => FromItem.String("\"Hello World!\"\n'Hello World!'"),
               "Strings (multi line)" =>
                 FromItem.String("`Hello World!\nAnother line!`"),
               "Comments (single line)" => FromItem.String("// Comment"),
@@ -51,7 +51,13 @@ module From {
                 FromItem.String("var x = 42\nlet x = 42\nconst x = 42"),
               "Constants" => FromItem.String("const THE_ANSWER = 42"),
               "String concatenation" => FromItem.String(
-                "\"Hello\" + \"World!\""),
+                  <<~JAVASCRIPT
+                  "Hello" + "World!"
+
+                  let hello = "Hello"
+                  let world = "World"
+                  `${hello} ${world}!`
+                  JAVASCRIPT),
               "Modules" =>
                 FromItem.String("export default const indentity = (a) => a"),
               "ADTs" => FromItem.NotAvailable,
