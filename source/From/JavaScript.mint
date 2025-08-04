@@ -53,7 +53,7 @@ module From {
                   let hello = "Hello"
                   let world = "World"
                   `${hello} ${world}!`
-                  JAVASCRIPT"),
+                  JAVASCRIPT),
               "Modules" =>
                 FromItem.String("export default const indentity = (a) => a"),
               "ADTs" => FromItem.NotAvailable,
