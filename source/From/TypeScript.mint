@@ -43,10 +43,10 @@ module From {
               "Function call (labelled)" => FromItem.NotAvailable,
               "Mapping over arrays" =>
                 FromItem.String(
-                  <<~JAVASCRIPT
+                  <<~TYPESCRIPT
                   numbers.map(Math.sqrt)
                   points.map(function(p: Point) { return p.x })
-                  JAVASCRIPT),
+                  TYPESCRIPT),
               "Assignment" =>
                 FromItem.String("var x = 42\nlet x = 42\nconst x = 42"),
               "Constants" => FromItem.String("const THE_ANSWER = 42"),
@@ -55,7 +55,7 @@ module From {
               "Modules" =>
                 FromItem.String("export default const indentity = (a) => a"),
               "ADTs" => FromItem.String(
-                  <<~JAVASCRIPT
+                  <<~TYPESCRIPT
                   interface User {
                     isLoggedIn: boolean
                     name: string
@@ -65,30 +65,30 @@ module From {
                     isLoggedIn: boolean
                     name: string
                   }
-                  JAVASCRIPT),
+                  TYPESCRIPT),
               "Case" => FromItem.NotAvailable,
               "Blocks" =>
                 FromItem.String(
-                  <<~JAVASCRIPT
+                  <<~TYPESCRIPT
                   {
                     let theAnswer =
                       getTheAnswer()
 
                     // No return from block...
                   }
-                  JAVASCRIPT),
+                  TYPESCRIPT),
               "If" =>
                 FromItem.String(
-                  <<~JAVASCRIPT
+                  <<~TYPESCRIPT
                   if (value) {
                     "It's true!"
                   } else {
                     "It's not true."
                   }
-                  JAVASCRIPT),
+                  TYPESCRIPT),
               "If (Different Types)" =>
                 FromItem.String(
-                  <<~JAVASCRIPT
+                  <<~TYPESCRIPT
                   if (age > 21) {
                     return true
                   } else {
@@ -97,14 +97,14 @@ module From {
                       result: "error"
                     }
                   }
-                  JAVASCRIPT),
+                  TYPESCRIPT),
               "Export / Import" =>
                 FromItem.String(
-                  <<~JAVASCRIPT
+                  <<~TYPESCRIPT
                   export default const indentity = (a) => a
                   ...
                   import indentity from "./indentity.ts"
-                  JAVASCRIPT)
+                  TYPESCRIPT)
             }
         }
     }
