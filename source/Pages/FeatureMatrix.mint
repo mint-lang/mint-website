@@ -207,14 +207,14 @@ async component Pages.FeatureMatrix {
       <div::table>
         <div::header::row>
           <div>"Feature"</div>
-          <div::language>"Mint"</div>
-          <div::language>"JavaScript"</div>
-          <div::language>"TypeScript"</div>
-          <div::language>"Gleam"</div>
-          <div::language>"Elm"</div>
-          <div::language>"ReScript"</div>
-          <div::language>"ClojureScript"</div>
-          <div::language>"PureScript"</div>
+          <div::language><a href="/from/mint">"Mint"</a></div>
+          <div::language><a href="/from/javascript">"JavaScript"</a></div>
+          <div::language><a href="/from/typescript">"TypeScript"</a></div>
+          <div::language><a href="/from/gleam">"Gleam"</a></div>
+          <div::language><a href="/from/elm">"Elm"</a></div>
+          <div::language><a href="/from/rescript">"ReScript"</a></div>
+          <div::language><a href="/from/closurescript">"ClojureScript"</a></div>
+          <div::language><a href="/from/purescript">"PureScript"</a></div>
         </div>
 
         for key, feature of Data.FEATURE_MATRIX {
