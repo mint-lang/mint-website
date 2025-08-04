@@ -29,23 +29,23 @@ module From {
               "Comments (multi line)" =>
                 FromItem.String("/*\nMulti\nLine\nComment\n*/"),
               "Booleans" => FromItem.String("true\nfalse"),
-              "Arrays" => FromItem.String("[]\n[1, 2, 3]"),
-              "Tuples" => FromItem.String("[1, \"Hello\", true]"),
+              "Arrays" => FromItem.String("let arr: number[] = []\nlet arr: Array<number> = [1, 2, 3]"),
+              "Tuples" => FromItem.String("let arr: [number, string, boolean] = [1, \"Hello\", true]"),
               "Maps" => FromItem.String("new Map([[\"key\", value]])"),
-              "Objects / Records" => FromItem.String("{ x: 3, y: 3 }"),
+              "Objects / Records" => FromItem.String("let coordinates: Record<string, number> = { x: 3, y: 3 }"),
               "Object update" => FromItem.String("{ ...point, y: 10 }"),
               "Field access" => FromItem.String("point.x"),
               "Indexed access" =>
                 FromItem.String("array[0]\ntuple[0]\nobject[key]"),
-              "Functions" => FromItem.String("function(x, y) { return x + y; }"),
-              "Anonymous functions" => FromItem.String("(x, y) => x + y"),
+              "Functions" => FromItem.String("function(x: number, y: number): number { return x + y; }"),
+              "Anonymous functions" => FromItem.String("(x: number, y: number): number => x + y"),
               "Function call" => FromItem.String("Math.max(3, 4)"),
               "Function call (labelled)" => FromItem.NotAvailable,
               "Mapping over arrays" =>
                 FromItem.String(
                   <<~JAVASCRIPT
                   numbers.map(Math.sqrt)
-                  points.map(function(p) { return p.x })
+                  points.map(function(p: Point) { return p.x })
                   JAVASCRIPT),
               "Assignment" =>
                 FromItem.String("var x = 42\nlet x = 42\nconst x = 42"),
@@ -54,7 +54,18 @@ module From {
                 "\"Hello\" + \"World!\""),
               "Modules" =>
                 FromItem.String("export default const indentity = (a) => a"),
-              "ADTs" => FromItem.NotAvailable,
+              "ADTs" => FromItem.String(
+                  <<~JAVASCRIPT
+                  interface User {
+                    isLoggedIn: boolean
+                    name: string
+                  }
+
+                  type User = {
+                    isLoggedIn: boolean
+                    name: string
+                  }
+                  JAVASCRIPT),
               "Case" => FromItem.NotAvailable,
               "Blocks" =>
                 FromItem.String(
@@ -92,7 +103,7 @@ module From {
                   <<~JAVASCRIPT
                   export default const indentity = (a) => a
                   ...
-                  import indentity from "./indentity.js"
+                  import indentity from "./indentity.ts"
                   JAVASCRIPT)
             }
         }
