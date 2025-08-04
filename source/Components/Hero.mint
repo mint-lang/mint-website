@@ -201,7 +201,7 @@ component Hero {
           <br/>
           "Coming from another language? "
           "Then check out the "
-          <a href="/from">"snytax comparisons"</a>
+          <a href="/from">"syntax comparisons"</a>
           "."
         </div>
       </div>
