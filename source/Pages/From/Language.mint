@@ -207,6 +207,7 @@ async component Pages.From.Language {
         "Assignment" => "/reference/blocks",
         "Constants" => "/reference/constants",
         "String concatenation" => "/reference/literals#string",
+        "String interpolation" => "/reference/literals#string",
         "Modules" => "/reference/modules",
         "ADTs" => "/reference/types/custom-types#algebraic-data-type",
         "Case" => "/reference/control-flow/case",
