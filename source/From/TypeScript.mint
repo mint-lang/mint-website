@@ -54,7 +54,7 @@ module From {
                 "\"Hello\" + \"World!\""),
               "Modules" =>
                 FromItem.String("export default const indentity = (a) => a"),
-              "ADTs" => FromItem.String(
+              "Composite Types" => FromItem.String(
                   <<~TYPESCRIPT
                   interface User {
                     isLoggedIn: boolean
@@ -66,6 +66,7 @@ module From {
                     name: string
                   }
                   TYPESCRIPT),
+              "ADTs" => FromItem.NotAvailable,
               "Case" => FromItem.NotAvailable,
               "Blocks" =>
                 FromItem.String(

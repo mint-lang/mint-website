@@ -60,6 +60,15 @@ module From {
                     }
                   }
                   RESCRIPT),
+              "Composite Types" =>
+                FromItem.String(
+                  <<~RESCRIPT
+                  type person = {
+                    email: string,
+                    name: string,
+                    id: int
+                  }
+                  RESCRIPT),
               "ADTs" =>
                 FromItem.String(
                   <<~RESCRIPT

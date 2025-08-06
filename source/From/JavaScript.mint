@@ -50,6 +50,7 @@ module From {
                 "\"Hello\" + \"World!\""),
               "Modules" =>
                 FromItem.String("export default const indentity = (a) => a"),
+              "Composite Types" => FromItem.NotAvailable,
               "ADTs" => FromItem.NotAvailable,
               "Case" => FromItem.NotAvailable,
               "Blocks" =>

@@ -188,6 +188,17 @@ module From {
           }
           ```
           MARKDOWN),
+      "Composite Types" =>
+        FromItem.Html(
+          <<#MARKDOWN(highlight)
+          ```mint
+          type User {
+            email : String,
+            name : String,
+            id : Number
+          }
+          ```
+          MARKDOWN),
       "ADTs" =>
         FromItem.Html(
           <<#MARKDOWN(highlight)
