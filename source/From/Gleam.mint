@@ -44,6 +44,7 @@ module From {
               "Constants" => FromItem.String("constant the_answer = 42"),
               "String concatenation" =>
                 FromItem.String("\"Hello\" <> \"World!\""),
+              "String interpolation" => FromItem.NotAvailable,
               "Modules" => FromItem.String("pub fn identity (a) { a }"),
               "If" =>
                 FromItem.String(

@@ -47,11 +47,12 @@ module From {
                 FromItem.String("var x = 42\nlet x = 42\nconst x = 42"),
               "Constants" => FromItem.String("const THE_ANSWER = 42"),
               "String concatenation" => FromItem.String(
+                "\"Hello\" + \"World!\""),
+              "String interpolation" => FromItem.String(
                   <<~JAVASCRIPT
-                  "Hello" + "World!"
+                  const hello = "Hello"
+                  const world = "World"
 
-                  let hello = "Hello"
-                  let world = "World"
                   `${hello} ${world}!`
                   JAVASCRIPT),
               "Modules" =>
