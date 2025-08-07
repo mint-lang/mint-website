@@ -29,16 +29,25 @@ module From {
               "Comments (multi line)" =>
                 FromItem.String("/*\nMulti\nLine\nComment\n*/"),
               "Booleans" => FromItem.String("true\nfalse"),
-              "Arrays" => FromItem.String("let arr: number[] = []\nlet arr: Array<number> = [1, 2, 3]"),
-              "Tuples" => FromItem.String("let arr: [number, string, boolean] = [1, \"Hello\", true]"),
+              "Arrays" =>
+                FromItem.String(
+                  "let arr: number[] = []\nlet arr: Array<number> = [1, 2, 3]"),
+              "Tuples" =>
+                FromItem.String(
+                  "let arr: [number, string, boolean] = [1, \"Hello\", true]"),
               "Maps" => FromItem.String("new Map([[\"key\", value]])"),
-              "Objects / Records" => FromItem.String("let coordinates: Record<string, number> = { x: 3, y: 3 }"),
+              "Objects / Records" =>
+                FromItem.String(
+                  "let coordinates: Record<string, number> = { x: 3, y: 3 }"),
               "Object update" => FromItem.String("{ ...point, y: 10 }"),
               "Field access" => FromItem.String("point.x"),
               "Indexed access" =>
                 FromItem.String("array[0]\ntuple[0]\nobject[key]"),
-              "Functions" => FromItem.String("function(x: number, y: number): number { return x + y; }"),
-              "Anonymous functions" => FromItem.String("(x: number, y: number): number => x + y"),
+              "Functions" =>
+                FromItem.String(
+                  "function(x: number, y: number): number { return x + y; }"),
+              "Anonymous functions" =>
+                FromItem.String("(x: number, y: number): number => x + y"),
               "Function call" => FromItem.String("Math.max(3, 4)"),
               "Function call (labelled)" => FromItem.NotAvailable,
               "Mapping over arrays" =>
@@ -48,22 +57,20 @@ module From {
                   points.map(function(p: Point) { return p.x })
                   TYPESCRIPT),
               "Assignment" =>
-                FromItem.String("var x = 42\nlet x = 42\nconst x = 42"),
+                FromItem.String(
+                  "var x: number = 42\nlet x: number = 42\nconst: number x = 42"),
               "Constants" => FromItem.String("const THE_ANSWER = 42"),
               "String concatenation" => FromItem.String(
                 "\"Hello\" + \"World!\""),
               "Modules" =>
                 FromItem.String("export default const indentity = (a) => a"),
-              "Composite Types" => FromItem.String(
+              "Composite Types" =>
+                FromItem.String(
                   <<~TYPESCRIPT
-                  interface User {
-                    isLoggedIn: boolean
-                    name: string
-                  }
-
                   type User = {
-                    isLoggedIn: boolean
-                    name: string
+                    email : string,
+                    name : string,
+                    id : number
                   }
                   TYPESCRIPT),
               "ADTs" => FromItem.NotAvailable,
