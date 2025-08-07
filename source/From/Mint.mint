@@ -169,8 +169,8 @@ module From {
         FromItem.Html(
           <<#MARKDOWN(highlight)
           ```mint
-          const hello = "Hello"
-          const world = "World!"
+          let hello = "Hello"
+          let world = "World!"
 
           "\#{hello} \#{world}!"
           ```
