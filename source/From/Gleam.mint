@@ -65,7 +65,7 @@ module From {
                 FromItem.String(
                   <<~GLEAM
                     pub type User {
-                      Person(name: String, email: String, id: Int)
+                      User(name: String, email: String, id: Int)
                     }
                   GLEAM),
               "ADTs" =>
