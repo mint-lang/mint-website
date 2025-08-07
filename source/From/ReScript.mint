@@ -51,6 +51,13 @@ module From {
               "Constants" => FromItem.String("let theAnswer = 42"),
               "String concatenation" =>
                 FromItem.String("\"Hello\" ++ \"World!\""),
+              "String interpolation" => FromItem.String(
+                  <<~RESCRIPT
+                  const hello = "Hello"
+                  const world = "World"
+
+                  `${hello} ${world}!`
+                  RESCRIPT),
               "Modules" =>
                 FromItem.String(
                   <<~RESCRIPT

@@ -165,6 +165,16 @@ module From {
           "Hello" + "World!"
           ```
           MARKDOWN),
+      "String interpolation" =>
+        FromItem.Html(
+          <<#MARKDOWN(highlight)
+          ```mint
+          let hello = "Hello"
+          let world = "World!"
+
+          "\#{hello} \#{world}!"
+          ```
+          MARKDOWN),
       "Modules" =>
         FromItem.Html(
           <<#MARKDOWN(highlight)

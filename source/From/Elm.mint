@@ -40,6 +40,7 @@ module From {
               "Constants" => FromItem.String("the_answer = 42"),
               "String concatenation" =>
                 FromItem.String("\"Hello\" ++ \"World!\""),
+              "String interpolation" => FromItem.NotAvailable,
               "Modules" => FromItem.String(
                 "module MyModule exposing (identity)"),
               "ADTs" =>
