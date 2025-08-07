@@ -62,6 +62,13 @@ module From {
                     False -> Error("Age must be over 21")
                   }
                   GLEAM),
+              "Composite Types" =>
+                FromItem.String(
+                  <<~GLEAM
+                    pub type User {
+                      User(name: String, email: String, id: Int)
+                    }
+                  GLEAM),
               "ADTs" =>
                 FromItem.String(
                   <<~GLEAM

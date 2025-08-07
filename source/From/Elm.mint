@@ -43,6 +43,15 @@ module From {
               "String interpolation" => FromItem.NotAvailable,
               "Modules" => FromItem.String(
                 "module MyModule exposing (identity)"),
+              "Composite Types" =>
+                FromItem.String(
+                  <<~ELM
+                    type alias User =
+                      { name : String
+                        email : String
+                      , id : Int
+                      }
+                  ELM),
               "ADTs" =>
                 FromItem.String(
                   <<~ELM
