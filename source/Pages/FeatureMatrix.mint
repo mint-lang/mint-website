@@ -86,6 +86,10 @@ async component Pages.FeatureMatrix {
   style language {
     writing-mode: vertical-lr;
     transform: rotate(180deg);
+    
+    a {
+      color: var(--color-mintgreen);
+    }
   }
 
   // Styles for a feature label.
