@@ -19,7 +19,7 @@ module Packages {
                 [
                   {"Readme", TablerIcons.BOOK, package.readme},
                   {"Source", TablerIcons.BRAND_GITHUB, package.url},
-                  {package.version, TablerIcons.VERSIONS, ""}
+                  {package.version, TablerIcons.VERSIONS, "#{package.url}/releases/tag/#{package.version}"}
                 ]
             })
 
