@@ -79,7 +79,7 @@ async component Pages.ApiDocs {
     let {char, color} =
       ApiDocs.kindToBadge(kind)
 
-    <span::badge(color) title={ApiDocs.kindToKeyword(kind)}>char</span>
+    <span::badge(color) title={ApiDocs.kindToWord(kind)}>char</span>
   }
 
   // Renders the component.
