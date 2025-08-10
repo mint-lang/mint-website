@@ -58,4 +58,22 @@ module ApiDocs {
       => "#{kind}"
     }
   }
+
+  fun kindToWord (kind : Number) {
+    case kind {
+      0 => ""
+      1 => "Component"
+      2 => "Provider"
+      3 => "Property"
+      4 => "Function"
+      5 => "Constant"
+      6 => "Module"
+      7 => "Signal"
+      8 => "Store"
+      9 => "State"
+      10 => "Type"
+      11 => "Computed Property"
+      => "#{kind}"
+    }
+  }
 }

@@ -70,6 +70,8 @@ async component Pages.ApiDocs {
 
     height: 16px;
     width: 16px;
+
+    cursor: help;
   }
 
   // Renders a badge based on the kind of the entity.
@@ -77,7 +79,7 @@ async component Pages.ApiDocs {
     let {char, color} =
       ApiDocs.kindToBadge(kind)
 
-    <span::badge(color)>char</span>
+    <span::badge(color) title={ApiDocs.kindToWord(kind)}>char</span>
   }
 
   // Renders the component.
