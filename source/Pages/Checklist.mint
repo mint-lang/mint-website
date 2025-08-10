@@ -63,15 +63,18 @@ async component Pages.Checklist {
             {
               "YES",
               "Type Checking",
-              <>"Hindley-Milner type system with some additions."</>
+              <>
+                <a href="https://en.wikipedia.org/wiki/Hindley-Milner_type_system" target="_blank">"Hindley-Milner type system"</a>
+                " with some additions."
+              </>
             },
             {
               "YES",
               "Code Formatter",
               <>
-                "Line length aware formatter with the "
-                <code>"mint format"</code>
-                " command."
+                "Line length aware formatter with "
+                <a href="/guides/cli/format">"the "<code>"mint format"</code>" command"</a>
+                "."
               </>
             },
             {
@@ -83,7 +86,10 @@ async component Pages.Checklist {
               "YES",
               "Test Framework",
               <>
-                "Built-in language features for writing tests and built-in test runner."
+                <a href="/reference/testing">"Built-in language features for writing tests"</a>
+                " and "
+                <a href="/guides/cli/test">"built-in test runner"</a>
+                "."
               </>
             },
             {
@@ -109,13 +115,23 @@ async component Pages.Checklist {
             {
               "YES",
               "Easy to Learn",
-              <>"There is an interactive tutorial and examples."</>
+              <>
+                "There is an "
+                <a href="/tutorial">"interactive tutorial"</a>
+                " and "
+                <a href="/examples">"examples"</a>
+                "."
+              </>
             },
             {
               "YES",
               "Documentation",
               <>
-                "Interactive tutorial, extensive language reference and guides."
+                "Interactive tutorial, extensive "
+                <a href="/reference">"language reference"</a>
+                " and "
+                <a href="/guides">"guides"</a>
+                "."
               </>
             },
             {
@@ -149,9 +165,9 @@ async component Pages.Checklist {
               "PARTIAL",
               "Linter",
               <>
-                "Shows errors with the "
-                <code>"mint lint"</code>
-                " command."
+                "Shows errors with "
+                <a href="/guides/cli/lint">"the "<code>"mint lint"</code>" command"</a>
+                "."
               </>
             },
             {
