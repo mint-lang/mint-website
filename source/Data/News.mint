@@ -1,6 +1,7 @@
 module Data {
   const NEWS =
     defer {
+      "context" => News.CONTEXT,
       "exporting-entities" => News.EXPORTING_ENTITIES,
       "pattern-matching-and-language-server-improvements" =>
         News.PATTERN_MATCHING_AND_LANGUAGE_SERVER_IMPROVEMENTS,

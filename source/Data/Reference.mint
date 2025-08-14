@@ -196,6 +196,11 @@ module Data {
                   contents: defer References.COMPONENTS_ASYNC_COMPONENTS,
                   name: "Async Components",
                   path: "async-components"
+                },
+                {
+                  contents: defer References.COMPONENTS_CONTEXT,
+                  name: "Context",
+                  path: "context"
                 }
               ]
           },

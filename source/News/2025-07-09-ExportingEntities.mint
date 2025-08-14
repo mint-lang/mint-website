@@ -54,7 +54,7 @@ module News {
 
           <<#MARKDOWN(highlight)
           Mint is a type-safe programming language for writing single page
-          applications. This post, we will take a look at what's new in the
+          applications. In this post, we will take a look at what's new in the
           release `0.26.0`.
 
           In this release we added a feature to export entities in the

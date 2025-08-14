@@ -272,6 +272,12 @@ module Data {
         category: "Components"
       },
       {
+        data: defer Lessons.COMPONENTS_CONTEXT,
+        path: "/components/context",
+        title: "Context",
+        category: "Components"
+      },
+      {
         data: defer Lessons.STYLING_BASICS,
         path: "/styling/basics",
         category: "Styling",

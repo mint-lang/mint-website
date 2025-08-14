@@ -16,7 +16,7 @@ module References {
 
     You will get nice error messages if the following is not met:
 
-    * The condition must evaluate to type `Bool`
+    * The condition must evaluate to type `Bool`, `Maybe(value)`, `Result(error, value)` or `Html`
     * The values of both branches must evaluate to the same type
     * In most cases, the else branch must be present, this ensures you handle
       all possibilities.
@@ -35,6 +35,20 @@ module References {
       false
     }
     ```
+
+    ## Non boolean conditions
+
+    A condition can be `Maybe(value)`, `Result(error, value)` or `Html` in
+    addition to a `Bool`.
+
+    In this cases the thruty branches are return when the codition is:
+
+    - `Maybe.Just(value)`
+    - `Result.Ok(value)`
+    - Non empty `Html`
+
+    This is mainly a quality of life feature and not a general thing we would
+    expand to other types.
 
     ## Omitting else
 
@@ -106,7 +120,27 @@ module References {
     (and all variables of the destructuring are available), if it cannot be
     destuctured then the `else` branch will be returned.
 
-    ### Awaiting Promises
+    ## Unboxing variables
+
+    Values in variables can be unboxed in certain cases without destructuring:
+
+    * `Maybe(value)`
+    * `Result(error, value)`
+
+    This is how it looks:
+
+    ```mint
+    let value =
+      value.Just("Hello World!")
+
+    // `value` here is `Maybe(String)`
+    if value {
+      // `value` here is just `String`
+      value
+    }
+    ```
+
+    ## Awaiting Promises
 
     You can use the `await` keyword before the subject to wait for a promise
     to resolve before doing the pattern matching:
