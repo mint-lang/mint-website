@@ -94,6 +94,11 @@ module Data {
             contents: defer References.DEBUGGING,
             name: "Debugging",
             path: "debugging"
+          },
+          {
+            contents: defer References.CONFIGURATION,
+            name: "Configuration",
+            path: "configuration"
           }
         ],
       categories:
