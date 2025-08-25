@@ -170,7 +170,7 @@ async component Pages.From.Language {
       NotAvailable =>
         <div::not-available>
           TablerIcons.ALERT_TRIANGLE
-          "The langauge doesn't support this feature."
+          "The language doesn't support this feature."
         </div>
 
       String(string) => <pre><code>string</code></pre>

@@ -275,7 +275,7 @@ store Application {
 
         Tutorial(_, _, _, title) => Array.unshift(title, "Tutorial")
         ApiDocs(_, _, entity, _) => ["API", entity.name]
-        FeatureMatrix => ["Langauge Feature Matrix"]
+        FeatureMatrix => ["Language Feature Matrix"]
         NotFound => ["404"]
         Initial => []
       }
