@@ -36,9 +36,9 @@ module Data {
         },
       "ADTs" =>
         {
+          typeScript: Feature.Partial("Through discriminated unions."),
           clojureScript: Feature.NotSupported,
           javaScript: Feature.NotSupported,
-          typeScript: Feature.NotSupported,
           pureScript: Feature.Supported,
           reScript: Feature.Supported,
           gleam: Feature.Supported,
