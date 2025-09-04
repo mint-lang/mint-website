@@ -55,8 +55,8 @@ module References {
 
 1. **Module Declaration**: All reference files belong to the `References` module
 2. **Constant Name**: Use UPPERCASE_WITH_UNDERSCORES matching the topic
-3. **MARKDOWN Block**: Content is written in Markdown with syntax highlighting enabled
-4. **Proper Indentation**: Maintain consistent indentation within the MARKDOWN block
+3. **Markdown Block**: Content is written in Markdown with syntax highlighting enabled
+4. **Proper Indentation**: Maintain consistent indentation within the Markdown block
 
 ### Mixed Content Example
 
@@ -148,7 +148,7 @@ let doubled = Array.map(numbers, (number : Number) { number * 2 }))
 
 2. **Create the File**: Follow the file format template above
 
-3. **Register in Navigation**: **This step is required** - Add the new page to
+3. **Register in Navigation (required)**: - Add the new page to
    `source/Data/Reference.mint` (see Navigation Registration section below)
 
 4. **Test Locally**: Ensure the content renders correctly in the development
@@ -156,7 +156,7 @@ let doubled = Array.map(numbers, (number : Number) { number * 2 }))
 
 ## Navigation Registration
 
-**Critical**: Every new reference page must be registered in `source/Data/Reference.mint`
+Every new reference page must be registered in `source/Data/Reference.mint`
 to appear in the website navigation. This file defines the structure and routing
 for all reference documentation.
 
