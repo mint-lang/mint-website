@@ -165,7 +165,7 @@ async component Footer {
                 "Packages"
               </a>
 
-              <a href="/tools/">
+              <a href="/tools">
                 TablerIcons.TOOLS
                 "Tools"
               </a>
