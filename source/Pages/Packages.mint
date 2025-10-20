@@ -58,7 +58,7 @@ component Pages.Packages {
         "Here are some curated packages for your next project!"
 
         if isMobile {
-          <></>
+          <span>" "</span>
         } else {
           <br/>
         }

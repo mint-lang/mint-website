@@ -58,7 +58,7 @@ component Pages.Tools {
         "Here are some curated tools for working with Mint!"
 
         if isMobile {
-          <></>
+          <span>" "</span>
         } else {
           <br/>
         }
