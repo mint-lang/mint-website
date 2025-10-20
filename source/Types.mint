@@ -212,6 +212,13 @@ type Package {
   url : String
 }
 
+// Data structure for a tool.
+type Tool {
+  description : String,
+  name : String,
+  url : String
+}
+
 // Type for an item for a language comparison.
 type FromItem {
   String(String)
