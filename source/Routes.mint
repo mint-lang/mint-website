@@ -33,6 +33,12 @@ routes {
     Packages.load(path)
   }
 
+  // Tools
+  // ---------------------------------------------------------------------------
+  /tools {
+    Application.setPage(Page.Page("Tools", <Pages.Tools tools={Data.TOOLS}/>))
+  }
+
   // API documentation.
   // ---------------------------------------------------------------------------
   /api*path (path : String) await {

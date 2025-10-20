@@ -1,12 +1,12 @@
-component Pages.Packages {
+component Pages.Tools {
   connect Application exposing { isMobile }
 
-  // The packages to display.
-  property packages : Array(Package)
+  // The tools to display.
+  property tools : Array(Tool)
 
   // Styles for the grid.
   style grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     align-content: start;
     grid-gap: 2em;
     display: grid;
@@ -32,11 +32,11 @@ component Pages.Packages {
     }
   }
 
-  // Style for the user informtion.
-  style version {
+  // Style for the description.
+  style description {
     font-size: 14px;
-    display: flex;
-    gap: 10px;
+    line-height: 1.5;
+    color: var(--text-secondary-color);
 
     padding: 10px;
     padding-top: 5px;
@@ -54,8 +54,8 @@ component Pages.Packages {
   // Renders the component.
   fun render : Html {
     <div>
-      <PageHero title="Packages">
-        "Here are some curated packages for your next project!"
+      <PageHero title="Tools">
+        "Here are some curated tools for working with Mint!"
 
         if isMobile {
           <span>" "</span>
@@ -63,7 +63,7 @@ component Pages.Packages {
           <br/>
         }
 
-        "To add your package here reach out on "
+        "To add your tool here reach out on "
 
         ContentInstrumenter.instrument(
           <a href="https://discord.gg/NXFUJs2">"Discord"</a>)
@@ -72,10 +72,10 @@ component Pages.Packages {
       </PageHero>
 
       <div::grid>
-        for package of packages {
-          <a::card href="/packages/#{package.name}" key={package.name}>
-            <div::title>package.name</div>
-            <div::version>package.version</div>
+        for tool of tools {
+          <a::card href={tool.url} target="_blank" key={tool.name}>
+            <div::title>tool.name</div>
+            <div::description>tool.description</div>
           </a>
         }
       </div>

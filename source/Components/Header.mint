@@ -77,6 +77,12 @@ component Header {
           label: "Packages",
           disabled: false,
           target: ""),
+        MenuItem.Link(
+          icon: TablerIcons.TOOLS,
+          href: "/tools",
+          label: "Tools",
+          disabled: false,
+          target: ""),
         MenuItem.Divider,
         MenuItem.Group(
           icon: TablerIcons.BOOK,
