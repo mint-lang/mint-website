@@ -24,7 +24,7 @@ module Guides {
     you can use two flags:
 
       * `--include-core` - will include the standard library as well
-      * `--include-packages` - will include all depenencies as well
+      * `--include-packages` - will include all dependencies as well
 
     ## Help
 

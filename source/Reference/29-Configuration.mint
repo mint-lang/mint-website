@@ -59,7 +59,7 @@ module References {
               <td><code>"application.meta"</code></td>
 
               <td>
-                "An object which contains informations which is converted to META tags."
+                "An object which contains information which is converted to META tags."
               </td>
             </tr>
 

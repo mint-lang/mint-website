@@ -158,13 +158,13 @@ module News {
         - Added proper error message for the impossible error.
         - Show better error message for missing variant.
         - Show better error location for missing CSS definition semicolon.
-        - Show proper error message when trying to destrucutre a paramter that doesn't exist.
+        - Show proper error message when trying to destrucutre a parameter that doesn't exist.
         - Show proper error when there are component and module with the same name.
 
         ## What's next?
 
         We continue on fixing bugs and issues that come up and there is one
-        feature (automatic decoding of cutom types) we would like to add before
+        feature (automatic decoding of custom types) we would like to add before
         releasing `1.0.0` (which is planned for this year).
 
         ---

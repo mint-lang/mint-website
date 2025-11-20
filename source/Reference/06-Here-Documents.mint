@@ -29,7 +29,7 @@ module References {
       This is some content in the document.
       TEXT
 
-    // String equvivalent is (notice the two spaces at the fornt)
+    // String equivalent is (notice the two spaces at the front)
     "  This is some content in the document."
     ```
 
@@ -48,7 +48,7 @@ module References {
         This is indented by two spaces.
       TEXT
 
-    // String equvivalent is
+    // String equivalent is
     "This is some content.\n  This is indented by two spaces."
     ```
 

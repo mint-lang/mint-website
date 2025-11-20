@@ -1,0 +1,7 @@
+[files]
+extend-exclude = [
+  "assets/ide.js",
+  "assets/docs.json",
+  "assets/packages/*",
+  "public/data/public-opinion.txt"
+]

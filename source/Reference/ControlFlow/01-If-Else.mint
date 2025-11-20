@@ -41,7 +41,7 @@ module References {
     A condition can be `Maybe(value)`, `Result(error, value)` or `Html` in
     addition to a `Bool`.
 
-    In this cases the thruty branches are return when the codition is:
+    In this cases the thruty branches are return when the condition is:
 
     - `Maybe.Just(value)`
     - `Result.Ok(value)`

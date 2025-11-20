@@ -3,7 +3,7 @@ module Guides {
     <<#MARKDOWN(highlight)
     # Docs Server
 
-    The `docs-server` tool serves API docmentation over HTTP.
+    The `docs-server` tool serves API documentation over HTTP.
 
     ## Help
 

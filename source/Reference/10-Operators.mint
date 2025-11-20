@@ -52,7 +52,7 @@ module References {
           },
           {"<", 11, ["Number < Number"], ["Bool"], <>"Less than"</>},
           {">", 11, ["Number > Number"], ["Bool"], <>"More than"</>},
-          {"-", 13, ["Number - Number"], ["Number"], <>"Substraction"</>},
+          {"-", 13, ["Number - Number"], ["Number"], <>"Subtraction"</>},
           {
             "+",
             13,
@@ -60,7 +60,7 @@ module References {
             ["String", "Number"],
             <>"Addition and string concatenation"</>
           },
-          {"*", 14, ["Number * Number"], ["Number"], <>"Multipication"</>},
+          {"*", 14, ["Number * Number"], ["Number"], <>"Multiplication"</>},
           {"/", 14, ["Number / Number"], ["Number"], <>"Division (float)"</>},
           {"%", 14, ["Number % Number"], ["Number"], <>"Remainder (float)"</>},
           {"**", 15, ["Number ** Number"], ["Number"], <>"Exponentiation"</>},

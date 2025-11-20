@@ -34,7 +34,7 @@ module Guides {
     You can run the tests manually by providing the `--manual` (`-m`) flag and
     opening the displayed URL in a browser.
 
-    In this mode the server is continously running and watching for changes so
+    In this mode the server is continuously running and watching for changes so
     you can make modifications and rerun the tests by refreshing the page.
 
     ## Help

@@ -1,5 +1,5 @@
 module ApiDocs {
-  // Decodes an array of top-level entitites from the given JSON string.
+  // Decodes an array of top-level entities from the given JSON string.
   fun decodeDocs (json : String) : Array(TopLevelEntity) {
     let Ok(object) =
       Json.parse(json) or return []

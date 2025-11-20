@@ -23,7 +23,7 @@ component Sandbox.Grid {
     }
   }
 
-  // Renders the comonent.
+  // Renders the component.
   fun render : Html {
     if Array.isEmpty(sandboxes) {
       <Message

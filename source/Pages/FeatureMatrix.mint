@@ -31,7 +31,7 @@ async component Pages.FeatureMatrix {
       ViaPackage => background: var(--color-royalblue);
       Supported => background: var(--color-mintgreen);
       Partial => background: var(--color-darkorange);
-      Unkown => background: var(--color-darkmagenta);
+      Unknown => background: var(--color-darkmagenta);
     }
 
     &:hover > div {
@@ -86,7 +86,7 @@ async component Pages.FeatureMatrix {
   style language {
     writing-mode: vertical-lr;
     transform: rotate(180deg);
-    
+
     a {
       color: var(--color-mintgreen);
     }
@@ -199,10 +199,10 @@ async component Pages.FeatureMatrix {
         </p>
 
         <p::legend>
-          <div::feature(Feature.Unkown)/>
+          <div::feature(Feature.Unknown)/>
 
           <span>
-            "The feature support is unkown (if you have information about " \
+            "The feature support is unknown (if you have information about " \
             "it let us know)."
           </span>
         </p>

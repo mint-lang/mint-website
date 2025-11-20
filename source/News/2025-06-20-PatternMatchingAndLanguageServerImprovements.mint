@@ -69,7 +69,7 @@ module News {
 
                     case value {
                       { data: Just({ hairColor: hairColor, age: 38 })} => hairColor
-                      => "unkown"
+                      => "unknown"
                     }
                   }
                 }

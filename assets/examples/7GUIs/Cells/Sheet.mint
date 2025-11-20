@@ -135,7 +135,7 @@ module Sheet {
       })
   }
 
-  // Normalizing the range so it aways goes top-bottom, left-right.
+  // Normalizing the range so it always goes top-bottom, left-right.
   // A6:A1 -> A1:A6
   fun normalizeRange (start : Coordinate, end : Coordinate) {
     {

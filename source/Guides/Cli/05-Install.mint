@@ -3,7 +3,7 @@ module Guides {
     <<#MARKDOWN(highlight)
     # Install
 
-    The `install` command installes packages that are defined in the
+    The `install` command installs packages that are defined in the
     `mint.json` file (`dependencies` object).
 
     For example installing this dependency:

@@ -32,7 +32,7 @@ component Pages.Packages {
     }
   }
 
-  // Style for the user informtion.
+  // Style for the user information.
   style version {
     font-size: 14px;
     display: flex;

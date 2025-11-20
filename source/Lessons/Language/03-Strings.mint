@@ -30,7 +30,7 @@ module Lessons {
         ```mint
         "A single line string!"
 
-        "A multline line string
+        "A multiline line string
         An other line"
         ```
 

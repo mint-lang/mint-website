@@ -21,7 +21,8 @@ async component Pages.News.Page {
     <div::root>
       <Content fontSize={18}>
         <PageHeader
-          subtitle="#{news.subtitle} | #{publishedText}"
+          publishedText={publishedText}
+          subtitle={news.subtitle}
           title={news.title}
         />
 

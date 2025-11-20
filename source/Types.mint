@@ -248,7 +248,7 @@ type Feature {
   NotSupported
   ViaPackage
   Supported
-  Unkown
+  Unknown
 }
 
 // Type for a feature in the feature matrix.

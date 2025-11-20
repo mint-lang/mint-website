@@ -46,7 +46,7 @@ module Lessons {
 
         // Function(Function(a, b), Array(a), Array(b))
         fun map (
-          interator : Function(a, b),
+          iterator : Function(a, b),
           array : Array(a)
         ) : Array(b) {
           for item of array {

@@ -11,7 +11,7 @@ module Guides {
 
     The `external` field was removed from the `mint.json` file. The reason for
     the removal is that use of them in packages made the order of all external
-    files ambigous.
+    files ambiguous.
 
     ### External Stylesheets
 
@@ -24,7 +24,7 @@ module Guides {
        <link type="text/css" rel="stylesheet" href="styles.css"/>
        ```
 
-    2. Use the `AssetsLoader` module to load the asset programatically:
+    2. Use the `AssetsLoader` module to load the asset programmatically:
 
        ```mint
        await AssetLoader.loadStylesheet(@asset(../assets/styles.css))
@@ -41,7 +41,7 @@ module Guides {
        <script type="text/javascript" src="library.js"/>
        ```
 
-    2. Use the `AssetsLoader` module to load the asset programatically:
+    2. Use the `AssetsLoader` module to load the asset programmatically:
 
        ```mint
        await AssetLoader.loadJavaScript(@asset(../assets/library.js))

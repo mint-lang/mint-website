@@ -3,7 +3,7 @@ module Guides {
     <<#MARKDOWN(highlight)
     # Docs Json
 
-    The `docs-json` tool generates API docmentation in JSON format.
+    The `docs-json` tool generates API documentation in JSON format.
 
     ```bash
     ➔ mint tool docs-json

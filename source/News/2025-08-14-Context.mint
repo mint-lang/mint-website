@@ -119,7 +119,7 @@ module News {
           ```
 
           Also, you can pass a `Maybe`, `Result` or `Html` as the condition, and
-          then it will check if they are truthy (`Mybe.Just`, `Result.Ok` or
+          then it will check if they are truthy (`Maybe.Just`, `Result.Ok` or
           the `Html` has any content):
 
           ```mint

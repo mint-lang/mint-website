@@ -16,7 +16,7 @@ component Main {
       },
     onMessage:
       (message : String) {
-        next { messages: Array.push(messages, "Recieved: #{message}") }
+        next { messages: Array.push(messages, "Received: #{message}") }
       }
   }
 

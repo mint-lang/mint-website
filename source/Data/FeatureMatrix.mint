@@ -113,8 +113,8 @@ module Data {
         },
       "Boolean" =>
         {
-          gleam: Feature.SupportedBut("As a separate cutom type."),
-          elm: Feature.SupportedBut("As a separate cutom type."),
+          gleam: Feature.SupportedBut("As a separate custom type."),
+          elm: Feature.SupportedBut("As a separate custom type."),
           clojureScript: Feature.Supported,
           pureScript: Feature.Supported,
           typeScript: Feature.Supported,
@@ -539,33 +539,33 @@ module Data {
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
           reScript: Feature.NotSupported,
-          clojureScript: Feature.Unkown,
-          pureScript: Feature.Unkown,
+          clojureScript: Feature.Unknown,
+          pureScript: Feature.Unknown,
           elm: Feature.NotSupported,
           mint: Feature.Supported,
-          gleam: Feature.Unkown
+          gleam: Feature.Unknown
         },
       "-> Global" =>
         {
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
-          clojureScript: Feature.Unkown,
-          pureScript: Feature.Unkown,
+          clojureScript: Feature.Unknown,
+          pureScript: Feature.Unknown,
           elm: Feature.NotSupported,
-          reScript: Feature.Unkown,
+          reScript: Feature.Unknown,
           mint: Feature.Supported,
-          gleam: Feature.Unkown
+          gleam: Feature.Unknown
         },
       "-> References" =>
         {
           typeScript: Feature.ViaPackage,
           javaScript: Feature.ViaPackage,
-          clojureScript: Feature.Unkown,
-          pureScript: Feature.Unkown,
+          clojureScript: Feature.Unknown,
+          pureScript: Feature.Unknown,
           elm: Feature.NotSupported,
-          reScript: Feature.Unkown,
+          reScript: Feature.Unknown,
           mint: Feature.Supported,
-          gleam: Feature.Unkown
+          gleam: Feature.Unknown
         },
       "Html" =>
         {

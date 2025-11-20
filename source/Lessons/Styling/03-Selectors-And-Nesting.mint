@@ -33,7 +33,7 @@ module Lessons {
         [selectors]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors
         [at-rules]: https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule
 
-        If you are familiar with CSS preprocessors llike [Sass] or [Less] then
+        If you are familiar with CSS preprocessors like [Sass] or [Less] then
         you probably know how they work.
 
         [Sass]: https://en.wikipedia.org/wiki/Sass_(style_sheet_language)

@@ -22,7 +22,8 @@ module From {
             {
               "Numbers" => FromItem.String("3"),
               "Numbers (Float)" => FromItem.String("3.1415"),
-              "Strings (single line)" => FromItem.String("\"Hello World!\"\n'Hello World!'"),
+              "Strings (single line)" =>
+                FromItem.String("\"Hello World!\"\n'Hello World!'"),
               "Strings (multi line)" =>
                 FromItem.String("`Hello World!\nAnother line!`"),
               "Comments (single line)" => FromItem.String("// Comment"),
@@ -62,7 +63,8 @@ module From {
               "Constants" => FromItem.String("const THE_ANSWER = 42"),
               "String concatenation" => FromItem.String(
                 "\"Hello\" + \"World!\""),
-              "String interpolation" => FromItem.String(
+              "String interpolation" =>
+                FromItem.String(
                   <<~JAVASCRIPT
                   const hello = "Hello"
                   const world = "World"
@@ -70,7 +72,7 @@ module From {
                   `${hello} ${world}!`
                   JAVASCRIPT),
               "Modules" =>
-                FromItem.String("export default const indentity = (a) => a"),
+                FromItem.String("export default const identity = (a) => a"),
               "Composite Types" =>
                 FromItem.String(
                   <<~TYPESCRIPT
@@ -116,9 +118,9 @@ module From {
               "Export / Import" =>
                 FromItem.String(
                   <<~TYPESCRIPT
-                  export default const indentity = (a) => a
+                  export default const identity = (a) => a
                   ...
-                  import indentity from "./indentity.ts"
+                  import identity from "./identity.ts"
                   TYPESCRIPT)
             }
         }

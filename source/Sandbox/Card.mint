@@ -30,7 +30,7 @@ component Sandbox.Card {
     font-size: 12px;
   }
 
-  // Style for the user informtion.
+  // Style for the user information.
   style user {
     font-size: 14px;
     padding: 10px;
