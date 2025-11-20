@@ -1,9 +1,6 @@
 component PageHeader {
   connect Application exposing { isMobile }
 
-  // The published text.
-  property publishedText : String = ""
-
   // The subtitle to display.
   property subtitle : String
 
@@ -14,29 +11,19 @@ component PageHeader {
   style root {
     line-height: 1.25;
 
-    small, span {
+    span {
+      margin-bottom: 15px;
       margin-top: 7px;
 
       font-family: Noto Sans;
+      font-size: 18px;
       display: block;
+      opacity: 0.85;
 
       if isMobile {
         line-height: 1.25;
         font-size: 14px;
       }
-    }
-
-    small {
-      margin-bottom: 15px;
-      font-weight: 400;
-      font-size: 14px;
-      opacity: 0.65;
-    }
-
-    span {
-      margin-bottom: 7px;
-      font-size: 18px;
-      opacity: 0.85;
     }
   }
 
@@ -45,10 +32,6 @@ component PageHeader {
     <h1::root>
       title
       <span>subtitle</span>
-
-      if String.isNotBlank(publishedText) {
-        <small>publishedText</small>
-      }
     </h1>
   }
 }
