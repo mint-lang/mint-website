@@ -1,8 +1,16 @@
 async component Pages.Home {
+  connect Application exposing { isMobile }
+
   // Renders the component.
   fun render : Html {
     <div>
       <Hero/>
+
+      if isMobile {
+        <Divider/>
+      }
+
+      <UsedInProduction/>
       <Divider/>
 
       <Section
