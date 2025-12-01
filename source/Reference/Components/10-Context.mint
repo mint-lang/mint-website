@@ -24,6 +24,9 @@ module References {
     type Theme {
       setMode : Function(String, Promise(Void)),
       mode : String,
+    } context {
+      setMode: (value : String) { Promise.resolve(void) },
+      mode: ""
     }
 
     component Button {
@@ -75,7 +78,7 @@ module References {
     ```
 
     In Mint, a context is tied to a type (there can't be multiple contexts with
-    the same type) and that type needs to be a record.
+    the same type).
 
     All this is type safe and errors are reported if anything is not set up
     correctly.

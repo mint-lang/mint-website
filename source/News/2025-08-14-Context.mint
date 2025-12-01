@@ -17,6 +17,9 @@ module News {
                 type Theme {
                   setMode : Function(String, Promise(Void)),
                   mode : String,
+                } context {
+                  setMode: (value : String) { Promise.resolve(void) },
+                  mode: ""
                 }
 
                 component Button {
@@ -147,7 +150,7 @@ module News {
 
           These were just the highlights of the release, make sure to read the
           full release notes:
-          [`0.27.0`](https://github.com/mint-lang/mint/releases/tag/0.27.0),
+          [`0.27.0`](https://github.com/mint-lang/mint/releases/tag/0.27.0)
           MARKDOWN
         }
     }

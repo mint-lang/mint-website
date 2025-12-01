@@ -173,8 +173,8 @@ module News {
         release notes:
         [`0.22.0`](https://github.com/mint-lang/mint/releases/tag/0.22.0),
         [`0.23.0`](https://github.com/mint-lang/mint/releases/tag/0.23.0),
-        [`0.23.1`](https://github.com/mint-lang/mint/releases/tag/0.23.1).
-        [`0.23.2`](https://github.com/mint-lang/mint/releases/tag/0.23.2).
+        [`0.23.1`](https://github.com/mint-lang/mint/releases/tag/0.23.1),
+        [`0.23.2`](https://github.com/mint-lang/mint/releases/tag/0.23.2)
           MARKDOWN
         }
     }

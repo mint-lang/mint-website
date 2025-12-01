@@ -47,5 +47,20 @@ module References {
       whatsThis(Maybe.Nothing)     // It's nothing!
     }
     ```
+
+    ## Fallback value
+
+    You can define a fallback value for statements with pattern matching using
+    the `or` keyword after the block. That value will be returned for not
+    matching patterns.
+
+    ```mint
+    {
+      let Ok(value) =
+        someTask()
+
+      Result.Ok(void)
+    } or Result.Err("Something went wrong!")
+    ```
     MARKDOWN
 }

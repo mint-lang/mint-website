@@ -11,6 +11,9 @@ module Lessons {
               type Theme {
                 setMode : Function(String, Promise(Void)),
                 mode : String,
+              } context {
+                setMode: (value : String) { Promise.resolve(void) },
+                mode: ""
               }
 
               component Button {
@@ -67,12 +70,16 @@ module Lessons {
         With contexts, you can pass down values to the child components without
         using props.
 
-        First, you need to have a type (record) for the context:
+        First, you need to have a type (record) for the context (with a default
+        value):
 
         ```mint
         type Theme {
           setMode : Function(String, Promise(Void)),
           mode : String,
+        } context {
+          setMode: (value : String) { Promise.resolve(void) },
+          mode: ""
         }
         ```
 

@@ -141,7 +141,7 @@ module News {
 
           These were just the highlights of the release, make sure to read the
           full release notes:
-          [`0.26.0`](https://github.com/mint-lang/mint/releases/tag/0.26.0),
+          [`0.26.0`](https://github.com/mint-lang/mint/releases/tag/0.26.0)
           MARKDOWN
         }
     }

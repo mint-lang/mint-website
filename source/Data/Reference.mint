@@ -280,6 +280,11 @@ module Data {
                   contents: defer References.DIRECTIVES_HIGHLIGHT_FILE,
                   name: "@highlight-file",
                   path: "highlight-file"
+                },
+                {
+                  contents: defer References.DIRECTIVES_SIZE,
+                  name: "@size",
+                  path: "size"
                 }
               ]
           },
