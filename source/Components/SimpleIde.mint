@@ -8,6 +8,9 @@ component SimpleIde {
   // The height of the editor.
   property editorHeight : String = "1fr"
 
+  // The font-size of the editor.
+  property fontSize : String = "14px"
+
   // The project to edit.
   property contents : String
 
@@ -18,6 +21,7 @@ component SimpleIde {
       editorHeight={editorHeight}
       onChange={Promise.never1}
       orientation={orientation}
+      fontSize={fontSize}
       bordered={true}
       value={
         {

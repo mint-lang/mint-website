@@ -11,6 +11,9 @@ component Ide {
   // The height of the editor.
   property editorHeight : String = "1fr"
 
+  // The font-size of the editor (any CSS length, e.g. "14px", "1.5vmin").
+  property fontSize : String = "14px"
+
   // Whether or not the component is bordered.
   property bordered : Bool = false
 
@@ -36,6 +39,7 @@ component Ide {
         editorHeight: #{editorHeight},
         orientation: #{orientation},
         onChange: #{onChange},
+        fontSize: #{fontSize},
         value: #{value},
         base: #{base},
       });
