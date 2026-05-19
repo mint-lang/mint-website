@@ -9,10 +9,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Install tools from asdf config
-        uses: ai/asdf-cache-action@v1
+        uses: asdf-vm/actions/install@v4
 
       - name: Install IamgeMagick
         run: |
@@ -26,7 +26,7 @@ jobs:
         run: mint build -e .env.production
       
       - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v1.2
+        uses: nwtgck/actions-netlify@v3
         with:
           production-deploy: true
           publish-dir: dist
